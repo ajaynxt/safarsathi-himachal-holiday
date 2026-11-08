@@ -1,0 +1,71 @@
+import { useState } from 'react';
+import { Navbar } from './components/Navbar';
+import { Hero } from './components/Hero';
+import { FeaturedPackages } from './components/FeaturedPackages';
+import { VehicleFleet } from './components/VehicleFleet';
+import { HotelShowcase } from './components/HotelShowcase';
+import { WhyChooseUs } from './components/WhyChooseUs';
+import { ReviewsSection } from './components/ReviewsSection';
+import { ContactSection } from './components/ContactSection';
+import { Footer } from './components/Footer';
+import { BookingModal } from './components/BookingModal';
+import { StickyMobileBar } from './components/StickyMobileBar';
+
+export function App() {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [bookingType, setBookingType] = useState<'package' | 'cab' | 'hotel' | 'volvo'>('package');
+  const [selectedItemName, setSelectedItemName] = useState('');
+
+  const handleOpenBooking = (type: 'package' | 'cab' | 'hotel' | 'volvo' = 'package', itemName: string = '') => {
+    setBookingType(type);
+    setSelectedItemName(itemName);
+    setIsBookingOpen(true);
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-white">
+      {/* Top Navbar */}
+      <Navbar onOpenBooking={(type, item) => handleOpenBooking(type || 'package', item || '')} />
+
+      {/* Main Content */}
+      <main className="flex-1">
+        {/* Hero Section with Search Engine */}
+        <Hero onOpenBooking={(type, item) => handleOpenBooking(type || 'package', item || '')} />
+
+        {/* Handpicked Tour Packages */}
+        <FeaturedPackages onBookPackage={(title) => handleOpenBooking('package', title)} />
+
+        {/* Taxi, Cab & Volvo Fleet */}
+        <VehicleFleet onBookCab={(carName) => handleOpenBooking('cab', carName)} />
+
+        {/* Verified Hotels in Shimla, Manali, Kasol, Amritsar, Srinagar */}
+        <HotelShowcase onBookHotel={(hotelName) => handleOpenBooking('hotel', hotelName)} />
+
+        {/* Why Choose SafarSathi / Himachal Holiday */}
+        <WhyChooseUs />
+
+        {/* Google & Traveler Reviews */}
+        <ReviewsSection />
+
+        {/* Contact Us & Shimla Office */}
+        <ContactSection />
+      </main>
+
+      {/* Footer */}
+      <Footer />
+
+      {/* Sticky Bottom Actions on Mobile Devices */}
+      <StickyMobileBar onOpenBooking={() => handleOpenBooking('package', 'Custom Himachal Tour')} />
+
+      {/* Interactive Booking & Quote Modal */}
+      <BookingModal
+        isOpen={isBookingOpen}
+        onClose={() => setIsBookingOpen(false)}
+        initialType={bookingType}
+        itemName={selectedItemName}
+      />
+    </div>
+  );
+}
+
+export default App;
