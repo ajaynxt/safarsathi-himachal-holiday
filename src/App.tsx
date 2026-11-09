@@ -3,6 +3,7 @@ import { TopBanner } from './components/TopBanner';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { FeaturedPackages } from './components/FeaturedPackages';
+import { DestinationGuides } from './components/DestinationGuides';
 import { VehicleFleet } from './components/VehicleFleet';
 import { PopularRoutes } from './components/PopularRoutes';
 import { HotelShowcase } from './components/HotelShowcase';
@@ -41,6 +42,9 @@ export function App() {
 
         {/* Handpicked Tour Packages */}
         <FeaturedPackages onBookPackage={(title) => handleOpenBooking('package', title)} />
+
+        {/* Search-friendly destination guides */}
+        <DestinationGuides />
 
         {/* Taxi, Cab & Volvo Fleet */}
         <VehicleFleet onBookCab={(carName) => handleOpenBooking('cab', carName)} />
