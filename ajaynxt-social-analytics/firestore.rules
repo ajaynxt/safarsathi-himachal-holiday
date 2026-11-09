@@ -1,0 +1,112 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions for tenant isolation & roles
+    function isAuthenticated() {
+      return request.auth != null && request.auth.uid != null;
+    }
+
+    function isOwner(uid) {
+      return isAuthenticated() && request.auth.uid == uid;
+    }
+
+    function isSuperAdmin() {
+      return isAuthenticated() && request.auth.token.superAdmin == true;
+    }
+
+    function isWorkspaceMember(workspaceId) {
+      return isAuthenticated() &&
+        exists(/databases/$(database)/documents/workspaces/$(workspaceId)/members/$(request.auth.uid));
+    }
+
+    function getWorkspaceRole(workspaceId) {
+      return get(/databases/$(database)/documents/workspaces/$(workspaceId)/members/$(request.auth.uid)).data.role;
+    }
+
+    function isWorkspaceAdminOrOwner(workspaceId) {
+      return isWorkspaceMember(workspaceId) && 
+        (getWorkspaceRole(workspaceId) == 'workspace_owner' || getWorkspaceRole(workspaceId) == 'workspace_admin');
+    }
+
+    // 1. Users Collection
+    match /users/{uid} {
+      allow read, write: if isOwner(uid) || isSuperAdmin();
+    }
+
+    // 2. Workspaces Root & Subcollections
+    match /workspaces/{workspaceId} {
+      allow read: if isWorkspaceMember(workspaceId) || isSuperAdmin();
+      allow create: if isAuthenticated();
+      allow update: if isWorkspaceAdminOrOwner(workspaceId) || isSuperAdmin();
+      allow delete: if (isWorkspaceMember(workspaceId) && getWorkspaceRole(workspaceId) == 'workspace_owner') || isSuperAdmin();
+
+      // Members Subcollection
+      match /members/{memberUid} {
+        allow read: if isWorkspaceMember(workspaceId) || isSuperAdmin();
+        allow write: if isWorkspaceAdminOrOwner(workspaceId) || isSuperAdmin();
+      }
+
+      // Connected Accounts Subcollection (17 Platforms)
+      match /connected_accounts/{channelId} {
+        allow read: if isWorkspaceMember(workspaceId) || isSuperAdmin();
+        // Writes denied to browser clients; vaulted solely through Cloud Run backend
+        allow write: if false;
+      }
+
+      // Legacy Instagram Connections Subcollection
+      match /connections/{connectionId} {
+        allow read: if isWorkspaceMember(workspaceId) || isSuperAdmin();
+        allow write: if false;
+      }
+
+      // Multi-Platform Analytics Cache Subcollection
+      match /analytics_cache/{cacheKey} {
+        allow read: if isWorkspaceMember(workspaceId) || isSuperAdmin();
+        allow write: if false;
+      }
+
+      // Daily Metrics Subcollection (Cached Insights)
+      match /daily_metrics/{metricId} {
+        allow read: if isWorkspaceMember(workspaceId) || isSuperAdmin();
+        allow write: if false;
+      }
+
+      // Media Items Subcollection
+      match /media/{mediaId} {
+        allow read: if isWorkspaceMember(workspaceId) || isSuperAdmin();
+        allow write: if false;
+      }
+
+      // Reports Subcollection
+      match /reports/{reportId} {
+        allow read: if isWorkspaceMember(workspaceId) || isSuperAdmin();
+        allow write: if isWorkspaceAdminOrOwner(workspaceId) || isSuperAdmin();
+      }
+    }
+
+    // 3. Subscriptions Collection (Managed by backend billing / Stripe / Razorpay)
+    match /subscriptions/{workspaceId} {
+      allow read: if isWorkspaceMember(workspaceId) || isSuperAdmin();
+      allow write: if false;
+    }
+
+    // 4. Usage Collection (Quota meters)
+    match /usage/{workspaceId} {
+      allow read: if isWorkspaceMember(workspaceId) || isSuperAdmin();
+      allow write: if false;
+    }
+
+    // 5. Global Platform Connectors Registry
+    match /platform_connectors/{platformId} {
+      allow read: if isAuthenticated();
+      allow write: if isSuperAdmin();
+    }
+
+    // 6. Audit Logs Collection
+    match /audit_logs/{logId} {
+      allow read: if isSuperAdmin();
+      allow write: if false; // Immutable append-only from backend
+    }
+  }
+}
