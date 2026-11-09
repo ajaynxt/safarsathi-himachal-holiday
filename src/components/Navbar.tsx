@@ -58,14 +58,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           <a href="#" className="flex items-center gap-2 group relative">
             <div className="h-11 sm:h-12 flex items-center relative">
               <img 
-                src={`${import.meta.env.BASE_URL}images/logo.svg`} 
+                src={`/safarsathi-himachal-holiday/images/logo.svg`} 
                 alt="SafarSathi - Your Journey Our Responsibility" 
                 className="h-full w-auto object-contain filter drop-shadow-sm transition-transform group-hover:scale-105"
                 onError={(e) => {
                   // Fallback to png if needed
                   const target = e.target as HTMLImageElement;
                   if (target.src.endsWith('.svg')) {
-                    target.src = `${import.meta.env.BASE_URL}images/logo.png`; 
+                    target.src = `/safarsathi-himachal-holiday/images/logo.png`; 
                   }
                 }}
               />
