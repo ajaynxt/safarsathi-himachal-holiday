@@ -19,9 +19,12 @@ import { getFilteredMetrics } from '../../data/demoData';
 import { formatNumber } from '../../utils/formatters';
 
 export const EngagementTab: React.FC = () => {
-  const { dateRangePreset } = useWorkspace();
+  const { dateRangePreset, currentConnection } = useWorkspace();
   const days = dateRangePreset === '7d' ? 7 : dateRangePreset === '90d' ? 90 : 30;
-  const { overview } = useMemo(() => getFilteredMetrics(days), [days]);
+  const { overview } = useMemo(
+    () => getFilteredMetrics(days, currentConnection?.username),
+    [days, currentConnection?.username]
+  );
 
   const likesCount = Math.floor(overview.totalInteractions * 0.65);
   const savesCount = Math.floor(overview.totalInteractions * 0.18);

@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Sparkles, Eye, Reply, ArrowRight, CornerUpRight, LogOut, CheckCircle2 } from 'lucide-react';
 import { MetricCard } from '../common/MetricCard';
-import { DEMO_MEDIA_ITEMS } from '../../data/demoData';
+import { getMediaItemsForAccount } from '../../data/demoData';
+import { useWorkspace } from '../../context/WorkspaceContext';
 import { formatNumber } from '../../utils/formatters';
 
 export const StoriesTab: React.FC = () => {
-  const stories = DEMO_MEDIA_ITEMS.filter(m => m.mediaType === 'STORY');
+  const { currentConnection } = useWorkspace();
+  const mediaItems = useMemo(() => getMediaItemsForAccount(currentConnection?.username), [currentConnection?.username]);
+  const stories = mediaItems.filter(m => m.mediaType === 'STORY');
 
   return (
     <div className="space-y-6">

@@ -45,15 +45,23 @@ import {
 import { MetricCard } from '../common/MetricCard';
 import { InstagramIcon } from '../common/InstagramIcon';
 import { useWorkspace } from '../../context/WorkspaceContext';
-import { getFilteredMetrics, DEMO_MEDIA_ITEMS } from '../../data/demoData';
+import { getFilteredMetrics, getMediaItemsForAccount } from '../../data/demoData';
 import { formatNumber, formatShortDate, formatFullDate } from '../../utils/formatters';
 import { cn } from '../../utils/cn';
 
 export const InstagramEvolutionTab: React.FC = () => {
-  const { dateRangePreset, currentConnection } = useWorkspace();
+  const { dateRangePreset, currentConnection, setIsConnectModalOpen } = useWorkspace();
   const days = dateRangePreset === '7d' ? 7 : dateRangePreset === '90d' ? 90 : 30;
 
-  const { dailyData, overview, contentSummary } = useMemo(() => getFilteredMetrics(days), [days]);
+  const { dailyData, overview, contentSummary } = useMemo(
+    () => getFilteredMetrics(days, currentConnection?.username),
+    [days, currentConnection?.username]
+  );
+
+  const accountMedia = useMemo(
+    () => getMediaItemsForAccount(currentConnection?.username),
+    [currentConnection?.username]
+  );
 
   const [activeSubSection, setActiveSubSection] = useState<'community' | 'demographics' | 'profile' | 'posts' | 'reels' | 'stories' | 'best_times'>('community');
 
@@ -353,7 +361,7 @@ export const InstagramEvolutionTab: React.FC = () => {
               Feed Posts & Carousels Performance
             </h3>
             <span className="text-xs text-slate-400">
-              {DEMO_MEDIA_ITEMS.filter((m) => m.mediaType !== 'REEL').length} posts published
+              {accountMedia.filter((m) => m.mediaType !== 'REEL').length} posts published
             </span>
           </div>
 
@@ -372,7 +380,7 @@ export const InstagramEvolutionTab: React.FC = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#D9B7C0]/25 dark:divide-[#D9B7C0]/15">
-                {DEMO_MEDIA_ITEMS.filter((m) => m.mediaType !== 'REEL').map((post) => (
+                {accountMedia.filter((m) => m.mediaType !== 'REEL').map((post) => (
                   <tr key={post.id} className="hover:bg-white/50 dark:hover:bg-[#200810]/50 transition-colors">
                     <td className="py-3 px-4 max-w-sm">
                       <div className="flex items-center gap-3">
@@ -415,7 +423,7 @@ export const InstagramEvolutionTab: React.FC = () => {
               Instagram Reels Viral Performance
             </h3>
             <span className="text-xs text-slate-400">
-              {DEMO_MEDIA_ITEMS.filter((m) => m.mediaType === 'REEL').length} reels tracked
+              {accountMedia.filter((m) => m.mediaType === 'REEL').length} reels tracked
             </span>
           </div>
 
@@ -434,7 +442,7 @@ export const InstagramEvolutionTab: React.FC = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#D9B7C0]/25 dark:divide-[#D9B7C0]/15">
-                {DEMO_MEDIA_ITEMS.filter((m) => m.mediaType === 'REEL').map((reel) => (
+                {accountMedia.filter((m) => m.mediaType === 'REEL').map((reel) => (
                   <tr key={reel.id} className="hover:bg-white/50 dark:hover:bg-[#200810]/50 transition-colors">
                     <td className="py-3 px-4 max-w-sm">
                       <div className="flex items-center gap-3">
@@ -470,7 +478,7 @@ export const InstagramEvolutionTab: React.FC = () => {
       {/* ---------------- Sub-section: Stories ---------------- */}
       {activeSubSection === 'stories' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {DEMO_MEDIA_ITEMS.filter((m) => m.mediaType === 'STORY').map((st) => (
+          {accountMedia.filter((m) => m.mediaType === 'STORY').map((st) => (
             <div key={st.id} className="glass-card rounded-2xl p-4 flex gap-3 text-xs">
               <img src={st.thumbnailUrl} alt="" className="w-16 h-28 rounded-xl object-cover border border-[#D9B7C0]/30 shrink-0" />
               <div className="flex-1 flex flex-col justify-between">

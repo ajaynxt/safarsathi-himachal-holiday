@@ -411,22 +411,46 @@ export const DEMO_AUDIT_LOGS: AuditLogEntry[] = [
   }
 ];
 
-// Helper to calculate filtered metrics based on selected date range (7, 30, or 90 days)
-export function getFilteredMetrics(days: number = 30) {
-  const slice = DEMO_DAILY_METRICS.slice(-days);
+// Helper to calculate filtered metrics based on selected date range and specific account handle
+export function getFilteredMetrics(days: number = 30, accountHandle?: string) {
+  let multiplier = 1.0;
+  if (accountHandle) {
+    let hashVal = 0;
+    const clean = accountHandle.replace(/^@/, '');
+    for (let i = 0; i < clean.length; i++) {
+      hashVal = (hashVal << 5) - hashVal + clean.charCodeAt(i);
+      hashVal |= 0;
+    }
+    const seed = Math.abs(hashVal);
+    multiplier = 0.65 + ((seed % 110) / 100);
+  }
+
+  const rawSlice = DEMO_DAILY_METRICS.slice(-days);
+  const slice = rawSlice.map((d) => ({
+    ...d,
+    totalFollowers: Math.floor(d.totalFollowers * multiplier),
+    followersGained: Math.floor(d.followersGained * multiplier),
+    followersLost: Math.floor(d.followersLost * multiplier),
+    netFollowers: Math.floor(d.netFollowers * multiplier),
+    reach: Math.floor(d.reach * multiplier),
+    views: Math.floor(d.views * multiplier),
+    accountsEngaged: Math.floor(d.accountsEngaged * multiplier),
+    totalInteractions: Math.floor(d.totalInteractions * multiplier),
+  }));
+
   const totalFollowers = slice[slice.length - 1].totalFollowers;
   const initialFollowers = slice[0].totalFollowers - slice[0].netFollowers;
   const followersGained = slice.reduce((acc, curr) => acc + curr.followersGained, 0);
   const followersLost = slice.reduce((acc, curr) => acc + curr.followersLost, 0);
   const netFollowerGrowth = followersGained - followersLost;
-  const followersGrowthRate = Number(((netFollowerGrowth / initialFollowers) * 100).toFixed(2));
+  const followersGrowthRate = Number(((netFollowerGrowth / (initialFollowers || 1)) * 100).toFixed(2));
 
   const accountReach = slice.reduce((acc, curr) => acc + curr.reach, 0);
   const views = slice.reduce((acc, curr) => acc + curr.views, 0);
   const accountsEngaged = slice.reduce((acc, curr) => acc + curr.accountsEngaged, 0);
   const totalInteractions = slice.reduce((acc, curr) => acc + curr.totalInteractions, 0);
 
-  const overallEngagementRate = Number(((totalInteractions / accountReach) * 100).toFixed(2));
+  const overallEngagementRate = Number(((totalInteractions / (accountReach || 1)) * 100).toFixed(2));
 
   const overview: AccountOverviewMetrics = {
     totalFollowers,
@@ -434,11 +458,11 @@ export function getFilteredMetrics(days: number = 30) {
     followersGained,
     followersLost,
     netFollowerGrowth,
-    following: 842,
+    following: Math.floor(842 * (multiplier > 1 ? 1.1 : 0.9)),
     accountReach,
-    reachChange: 14.8,
+    reachChange: Number((14.8 * (multiplier > 1 ? 1.2 : 0.9)).toFixed(1)),
     views,
-    viewsChange: 18.2,
+    viewsChange: Number((18.2 * (multiplier > 1 ? 1.1 : 0.8)).toFixed(1)),
     accountsEngaged,
     engagedChange: 11.4,
     totalInteractions,
@@ -447,16 +471,16 @@ export function getFilteredMetrics(days: number = 30) {
   };
 
   const contentSummary: ContentSummaryMetrics = {
-    feedPostsCount: 14,
-    reelsCount: 9,
-    storiesCount: 42,
+    feedPostsCount: Math.floor(14 * multiplier),
+    reelsCount: Math.floor(9 * multiplier),
+    storiesCount: Math.floor(42 * multiplier),
     totalLikes: Math.floor(totalInteractions * 0.68),
     totalComments: Math.floor(totalInteractions * 0.08),
     totalSaves: Math.floor(totalInteractions * 0.16),
     totalShares: Math.floor(totalInteractions * 0.08),
-    avgReachPerPost: 24500,
-    avgReachPerReel: 63100,
-    avgReachPerStory: 8900,
+    avgReachPerPost: Math.floor(24500 * multiplier),
+    avgReachPerReel: Math.floor(63100 * multiplier),
+    avgReachPerStory: Math.floor(8900 * multiplier),
     avgEngagementRate: overallEngagementRate,
   };
 
@@ -465,4 +489,15 @@ export function getFilteredMetrics(days: number = 30) {
     overview,
     contentSummary,
   };
+}
+
+export function getMediaItemsForAccount(accountHandle?: string): MediaItem[] {
+  const handle = accountHandle ? accountHandle.replace(/^@/, '') : 'ajaynxt.official';
+  return DEMO_MEDIA_ITEMS.map((item) => ({
+    ...item,
+    caption: item.caption
+      .replace(/ajaynxt\.official/g, handle)
+      .replace(/@ajaynxt/g, `@${handle}`),
+    permalink: item.permalink.replace(/ajaynxt\.official/g, handle),
+  }));
 }

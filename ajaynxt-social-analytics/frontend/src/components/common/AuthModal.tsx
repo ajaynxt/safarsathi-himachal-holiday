@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Lock, User, ArrowRight, ShieldCheck, AlertCircle, Loader2, AtSign, Globe } from 'lucide-react';
+import { Mail, Lock, User, ArrowRight, ShieldCheck, AlertCircle, Loader2, AtSign, Globe, KeyRound, Eye, EyeOff } from 'lucide-react';
 import { Modal } from './Modal';
 import { useAuth } from '../../context/AuthContext';
 import { InstagramIcon, FacebookIcon } from './SocialIcons';
@@ -28,10 +28,15 @@ export const AuthModal: React.FC = () => {
   const [instagramLoading, setInstagramLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  // Social account handle inputs
+  // Social account handle & password inputs
   const [activeSocialPrompt, setActiveSocialPrompt] = useState<SocialProvider>('none');
-  const [instaHandle, setInstaHandle] = useState('@ajayx3neha');
-  const [fbProfile, setFbProfile] = useState('Ajay Saini');
+  const [instaHandle, setInstaHandle] = useState('ajayx3neha');
+  const [instaPassword, setInstaPassword] = useState('');
+  const [showInstaPassword, setShowInstaPassword] = useState(false);
+
+  const [fbProfile, setFbProfile] = useState('ajayx3neha@gmail.com');
+  const [fbPassword, setFbPassword] = useState('');
+  const [showFbPassword, setShowFbPassword] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -62,14 +67,24 @@ export const AuthModal: React.FC = () => {
     }
   };
 
-  const handleFacebookAuth = async () => {
+  const handleFacebookAuth = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!fbProfile.trim()) {
+      setErrorMsg('Please enter your Facebook Email or Mobile number.');
+      return;
+    }
+    if (!fbPassword.trim()) {
+      setErrorMsg('Please enter your Facebook password.');
+      return;
+    }
+
     setErrorMsg(null);
     setFacebookLoading(true);
     try {
       await loginWithFacebook({
-        email: email || 'ajayx3neha@gmail.com',
-        displayName: fbProfile || 'Ajay Saini',
-        accountHandle: fbProfile.toLowerCase().replace(/\s+/g, '.'),
+        email: fbProfile.includes('@') ? fbProfile.trim() : `${fbProfile.trim()}@facebook.ajaynxt.com`,
+        displayName: fbProfile.split('@')[0],
+        accountHandle: fbProfile.trim(),
       });
     } catch (err: any) {
       setErrorMsg(err.message || 'Facebook Authentication failed. Please try again.');
@@ -78,14 +93,24 @@ export const AuthModal: React.FC = () => {
     }
   };
 
-  const handleInstagramAuth = async () => {
+  const handleInstagramAuth = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!instaHandle.trim()) {
+      setErrorMsg('Please enter your Instagram Username, Phone or Email.');
+      return;
+    }
+    if (!instaPassword.trim()) {
+      setErrorMsg('Please enter your Instagram password.');
+      return;
+    }
+
     setErrorMsg(null);
     setInstagramLoading(true);
     try {
       await loginWithInstagram({
-        username: instaHandle || '@ajayx3neha',
-        displayName: name || instaHandle || 'Ajay Saini',
-        email: email || 'ajayx3neha@gmail.com',
+        username: instaHandle.trim().startsWith('@') ? instaHandle.trim() : `@${instaHandle.trim()}`,
+        displayName: instaHandle.trim(),
+        email: instaHandle.includes('@') ? instaHandle.trim() : `${instaHandle.trim()}@instagram.ajaynxt.com`,
       });
     } catch (err: any) {
       setErrorMsg(err.message || 'Instagram Authentication failed. Please try again.');
@@ -119,16 +144,11 @@ export const AuthModal: React.FC = () => {
 
         {/* 1. Real Social Login Buttons (Instagram, Facebook, Google) */}
         <div className="space-y-2">
-          {/* Instagram Login Button */}
+          {/* Instagram Login Accordion Button */}
           <button
-            onClick={() => {
-              if (activeSocialPrompt === 'instagram') {
-                handleInstagramAuth();
-              } else {
-                setActiveSocialPrompt('instagram');
-              }
-            }}
-            disabled={loading || instagramLoading}
+            type="button"
+            onClick={() => setActiveSocialPrompt(activeSocialPrompt === 'instagram' ? 'none' : 'instagram')}
+            disabled={loading}
             className="w-full py-2.5 px-3.5 rounded-xl text-xs font-bold text-[#25171C] dark:text-[#FAF3F5] flex items-center justify-between glass-card border border-[#D9B7C0]/40 dark:border-[#D9B7C0]/20 hover:border-pink-500/50 hover:bg-pink-500/5 transition active:scale-[0.99] shadow-sm"
           >
             <div className="flex items-center gap-2.5">
@@ -137,52 +157,78 @@ export const AuthModal: React.FC = () => {
               </div>
               <span>Continue with Instagram</span>
             </div>
-            {instagramLoading ? (
-              <Loader2 className="w-4 h-4 animate-spin text-pink-600" />
-            ) : (
-              <span className="text-[10px] font-semibold text-pink-600 dark:text-pink-400">
-                {activeSocialPrompt === 'instagram' ? 'Confirm Handle' : 'Meta OAuth'}
-              </span>
-            )}
+            <span className="text-[10px] font-bold text-pink-600 dark:text-pink-400 bg-pink-500/10 px-2 py-0.5 rounded-md">
+              {activeSocialPrompt === 'instagram' ? 'Close Form' : 'ID & Password'}
+            </span>
           </button>
 
-          {/* Instagram Handle Input Dropdown */}
+          {/* Instagram ID & Password Input Form */}
           {activeSocialPrompt === 'instagram' && (
-            <div className="p-3 rounded-xl bg-pink-500/5 border border-pink-500/20 space-y-2 animate-in slide-in-from-top-1 duration-150">
-              <label className="block text-[11px] font-semibold text-[#25171C] dark:text-[#FAF3F5]">
-                Enter Your Real Instagram Handle:
-              </label>
-              <div className="relative">
-                <AtSign className="w-3.5 h-3.5 text-pink-500 absolute left-3 top-2.5" />
-                <input
-                  type="text"
-                  value={instaHandle}
-                  onChange={(e) => setInstaHandle(e.target.value)}
-                  placeholder="@ajayx3neha"
-                  className="w-full pl-8 pr-3 py-1.5 text-xs rounded-lg bg-white/80 dark:bg-[#130308]/80 border border-pink-500/30 text-[#25171C] dark:text-[#FAF3F5] outline-none"
-                />
+            <form onSubmit={handleInstagramAuth} className="p-3.5 rounded-xl bg-pink-500/5 border border-pink-500/25 space-y-2.5 animate-in slide-in-from-top-1 duration-150">
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-bold text-pink-700 dark:text-pink-300">
+                  Instagram Account Login
+                </span>
+                <span className="text-[9px] text-slate-400">Meta Graph API v21.0</span>
               </div>
+
+              <div>
+                <label className="block text-[10px] font-semibold text-[#25171C] dark:text-[#FAF3F5] mb-1">
+                  Username, phone number, or email:
+                </label>
+                <div className="relative">
+                  <AtSign className="w-3.5 h-3.5 text-pink-500 absolute left-2.5 top-2.5" />
+                  <input
+                    type="text"
+                    required
+                    value={instaHandle}
+                    onChange={(e) => setInstaHandle(e.target.value)}
+                    placeholder="ajayx3neha"
+                    className="w-full pl-8 pr-3 py-1.5 text-xs rounded-lg bg-white/80 dark:bg-[#130308]/80 border border-pink-500/30 text-[#25171C] dark:text-[#FAF3F5] outline-none"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-[10px] font-semibold text-[#25171C] dark:text-[#FAF3F5] mb-1">
+                  Instagram Password:
+                </label>
+                <div className="relative">
+                  <KeyRound className="w-3.5 h-3.5 text-pink-500 absolute left-2.5 top-2.5" />
+                  <input
+                    type={showInstaPassword ? 'text' : 'password'}
+                    required
+                    value={instaPassword}
+                    onChange={(e) => setInstaPassword(e.target.value)}
+                    placeholder="Enter password"
+                    className="w-full pl-8 pr-8 py-1.5 text-xs rounded-lg bg-white/80 dark:bg-[#130308]/80 border border-pink-500/30 text-[#25171C] dark:text-[#FAF3F5] outline-none"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowInstaPassword(!showInstaPassword)}
+                    className="absolute right-2.5 top-2 text-slate-400"
+                  >
+                    {showInstaPassword ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
+                  </button>
+                </div>
+              </div>
+
               <button
-                onClick={handleInstagramAuth}
+                type="submit"
                 disabled={instagramLoading}
-                className="w-full py-1.5 px-3 bg-gradient-to-r from-pink-600 via-rose-600 to-amber-500 text-white rounded-lg text-xs font-bold shadow-sm flex items-center justify-center gap-1.5"
+                className="w-full py-2 px-3 bg-gradient-to-r from-pink-600 via-rose-600 to-amber-500 text-white rounded-lg text-xs font-bold shadow-sm flex items-center justify-center gap-1.5 transition active:scale-[0.98]"
               >
-                {instagramLoading ? <Loader2 className="w-3 h-3 animate-spin" /> : null}
-                <span>Sign In as {instaHandle || '@ajayx3neha'}</span>
+                {instagramLoading ? <Loader2 className="w-3 h-3 animate-spin" /> : <InstagramIcon className="w-3 h-3 text-white" />}
+                <span>{instagramLoading ? 'Authenticating ID...' : `Log In as @${instaHandle || 'ajayx3neha'}`}</span>
               </button>
-            </div>
+            </form>
           )}
 
-          {/* Facebook Login Button */}
+          {/* Facebook Login Accordion Button */}
           <button
-            onClick={() => {
-              if (activeSocialPrompt === 'facebook') {
-                handleFacebookAuth();
-              } else {
-                setActiveSocialPrompt('facebook');
-              }
-            }}
-            disabled={loading || facebookLoading}
+            type="button"
+            onClick={() => setActiveSocialPrompt(activeSocialPrompt === 'facebook' ? 'none' : 'facebook')}
+            disabled={loading}
             className="w-full py-2.5 px-3.5 rounded-xl text-xs font-bold text-[#25171C] dark:text-[#FAF3F5] flex items-center justify-between glass-card border border-[#D9B7C0]/40 dark:border-[#D9B7C0]/20 hover:border-blue-500/50 hover:bg-blue-500/5 transition active:scale-[0.99] shadow-sm"
           >
             <div className="flex items-center gap-2.5">
@@ -191,44 +237,76 @@ export const AuthModal: React.FC = () => {
               </div>
               <span>Continue with Facebook</span>
             </div>
-            {facebookLoading ? (
-              <Loader2 className="w-4 h-4 animate-spin text-blue-600" />
-            ) : (
-              <span className="text-[10px] font-semibold text-blue-600 dark:text-blue-400">
-                {activeSocialPrompt === 'facebook' ? 'Confirm Profile' : 'Meta Login'}
-              </span>
-            )}
+            <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded-md">
+              {activeSocialPrompt === 'facebook' ? 'Close Form' : 'ID & Password'}
+            </span>
           </button>
 
-          {/* Facebook Profile Input Dropdown */}
+          {/* Facebook ID & Password Input Form */}
           {activeSocialPrompt === 'facebook' && (
-            <div className="p-3 rounded-xl bg-blue-500/5 border border-blue-500/20 space-y-2 animate-in slide-in-from-top-1 duration-150">
-              <label className="block text-[11px] font-semibold text-[#25171C] dark:text-[#FAF3F5]">
-                Enter Your Facebook Profile Name or Email:
-              </label>
-              <div className="relative">
-                <Globe className="w-3.5 h-3.5 text-blue-500 absolute left-3 top-2.5" />
-                <input
-                  type="text"
-                  value={fbProfile}
-                  onChange={(e) => setFbProfile(e.target.value)}
-                  placeholder="Ajay Saini"
-                  className="w-full pl-8 pr-3 py-1.5 text-xs rounded-lg bg-white/80 dark:bg-[#130308]/80 border border-blue-500/30 text-[#25171C] dark:text-[#FAF3F5] outline-none"
-                />
+            <form onSubmit={handleFacebookAuth} className="p-3.5 rounded-xl bg-blue-500/5 border border-blue-500/25 space-y-2.5 animate-in slide-in-from-top-1 duration-150">
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-bold text-blue-700 dark:text-blue-300">
+                  Facebook Account Login
+                </span>
+                <span className="text-[9px] text-slate-400">Meta OAuth v21.0</span>
               </div>
+
+              <div>
+                <label className="block text-[10px] font-semibold text-[#25171C] dark:text-[#FAF3F5] mb-1">
+                  Mobile number or email:
+                </label>
+                <div className="relative">
+                  <Globe className="w-3.5 h-3.5 text-blue-500 absolute left-2.5 top-2.5" />
+                  <input
+                    type="text"
+                    required
+                    value={fbProfile}
+                    onChange={(e) => setFbProfile(e.target.value)}
+                    placeholder="ajayx3neha@gmail.com"
+                    className="w-full pl-8 pr-3 py-1.5 text-xs rounded-lg bg-white/80 dark:bg-[#130308]/80 border border-blue-500/30 text-[#25171C] dark:text-[#FAF3F5] outline-none"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-[10px] font-semibold text-[#25171C] dark:text-[#FAF3F5] mb-1">
+                  Facebook Password:
+                </label>
+                <div className="relative">
+                  <KeyRound className="w-3.5 h-3.5 text-blue-500 absolute left-2.5 top-2.5" />
+                  <input
+                    type={showFbPassword ? 'text' : 'password'}
+                    required
+                    value={fbPassword}
+                    onChange={(e) => setFbPassword(e.target.value)}
+                    placeholder="Enter password"
+                    className="w-full pl-8 pr-8 py-1.5 text-xs rounded-lg bg-white/80 dark:bg-[#130308]/80 border border-blue-500/30 text-[#25171C] dark:text-[#FAF3F5] outline-none"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowFbPassword(!showFbPassword)}
+                    className="absolute right-2.5 top-2 text-slate-400"
+                  >
+                    {showFbPassword ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
+                  </button>
+                </div>
+              </div>
+
               <button
-                onClick={handleFacebookAuth}
+                type="submit"
                 disabled={facebookLoading}
-                className="w-full py-1.5 px-3 bg-[#1877F2] text-white rounded-lg text-xs font-bold shadow-sm flex items-center justify-center gap-1.5"
+                className="w-full py-2 px-3 bg-[#1877F2] hover:bg-blue-600 text-white rounded-lg text-xs font-bold shadow-sm flex items-center justify-center gap-1.5 transition active:scale-[0.98]"
               >
-                {facebookLoading ? <Loader2 className="w-3 h-3 animate-spin" /> : null}
-                <span>Sign In with Facebook Profile</span>
+                {facebookLoading ? <Loader2 className="w-3 h-3 animate-spin" /> : <FacebookIcon className="w-3 h-3 text-white" />}
+                <span>{facebookLoading ? 'Authenticating...' : 'Log In with Facebook'}</span>
               </button>
-            </div>
+            </form>
           )}
 
           {/* Google / Gmail Sign In button */}
           <button
+            type="button"
             onClick={handleGoogleAuth}
             disabled={loading || googleLoading}
             className="w-full py-2.5 px-3.5 glass-card rounded-xl text-xs font-bold text-[#25171C] dark:text-[#FAF3F5] flex items-center justify-between border border-[#D9B7C0]/40 dark:border-[#D9B7C0]/20 hover:border-maroon-500/40 hover:bg-white/80 dark:hover:bg-[#200810]/80 active:scale-[0.99] disabled:opacity-60 shadow-sm transition"
@@ -304,7 +382,7 @@ export const AuthModal: React.FC = () => {
               </label>
               {authModalMode === 'login' && (
                 <span className="text-[10px] text-maroon-600 dark:text-maroon-300 font-medium">
-                  Use password123 or real password
+                  Use password123 or your password
                 </span>
               )}
             </div>
@@ -342,6 +420,7 @@ export const AuthModal: React.FC = () => {
             <p className="text-xs text-slate-500 dark:text-maroon-300/80">
               New to AJAYNXT?{' '}
               <button
+                type="button"
                 onClick={() => setAuthModalMode('signup')}
                 className="text-maroon-600 dark:text-maroon-300 font-semibold hover:underline"
               >
@@ -352,6 +431,7 @@ export const AuthModal: React.FC = () => {
             <p className="text-xs text-slate-500 dark:text-maroon-300/80">
               Already have an account?{' '}
               <button
+                type="button"
                 onClick={() => setAuthModalMode('login')}
                 className="text-maroon-600 dark:text-maroon-300 font-semibold hover:underline"
               >

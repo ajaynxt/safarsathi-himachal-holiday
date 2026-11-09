@@ -15,7 +15,8 @@ import {
   Eye,
   Radio
 } from 'lucide-react';
-import { DEMO_MEDIA_ITEMS } from '../../data/demoData';
+import { getMediaItemsForAccount } from '../../data/demoData';
+import { useWorkspace } from '../../context/WorkspaceContext';
 import { MediaItem, MediaType } from '../../types/analytics';
 import { formatNumber, formatFullDate } from '../../utils/formatters';
 import { cn } from '../../utils/cn';
@@ -23,10 +24,13 @@ import { cn } from '../../utils/cn';
 type SortField = 'publishedAt' | 'reach' | 'views' | 'likes' | 'comments' | 'saves' | 'shares' | 'engagementRate';
 
 export const ContentTab: React.FC = () => {
+  const { currentConnection } = useWorkspace();
   const [mediaTypeFilter, setMediaTypeFilter] = useState<'ALL' | MediaType>('ALL');
   const [searchQuery, setSearchQuery] = useState('');
   const [sortField, setSortField] = useState<SortField>('publishedAt');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
+
+  const mediaItems = useMemo(() => getMediaItemsForAccount(currentConnection?.username), [currentConnection?.username]);
 
   const handleSort = (field: SortField) => {
     if (sortField === field) {
@@ -38,7 +42,7 @@ export const ContentTab: React.FC = () => {
   };
 
   const filteredItems = useMemo(() => {
-    return DEMO_MEDIA_ITEMS.filter(item => {
+    return mediaItems.filter(item => {
       if (mediaTypeFilter !== 'ALL' && item.mediaType !== mediaTypeFilter) {
         return false;
       }

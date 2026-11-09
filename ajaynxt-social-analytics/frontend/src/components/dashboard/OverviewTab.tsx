@@ -28,7 +28,10 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({ onNavigateTab }) => {
   const { dateRangePreset, currentConnection } = useWorkspace();
 
   const days = dateRangePreset === '7d' ? 7 : dateRangePreset === '90d' ? 90 : 30;
-  const { overview, contentSummary } = useMemo(() => getFilteredMetrics(days), [days]);
+  const { overview, contentSummary } = useMemo(
+    () => getFilteredMetrics(days, currentConnection?.username),
+    [days, currentConnection?.username]
+  );
 
   return (
     <div className="space-y-6">

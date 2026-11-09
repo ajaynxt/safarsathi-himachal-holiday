@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Film, Play, Heart, MessageCircle, Bookmark, Share2, Radio, TrendingUp, Sparkles, ExternalLink } from 'lucide-react';
 import { MetricCard } from '../common/MetricCard';
-import { DEMO_MEDIA_ITEMS } from '../../data/demoData';
+import { getMediaItemsForAccount } from '../../data/demoData';
+import { useWorkspace } from '../../context/WorkspaceContext';
 import { formatNumber, formatDuration } from '../../utils/formatters';
 
 export const ReelsTab: React.FC = () => {
-  const reels = DEMO_MEDIA_ITEMS.filter(m => m.mediaType === 'REEL');
+  const { currentConnection } = useWorkspace();
+  const mediaItems = useMemo(() => getMediaItemsForAccount(currentConnection?.username), [currentConnection?.username]);
+  const reels = mediaItems.filter(m => m.mediaType === 'REEL');
   const totalPlays = reels.reduce((sum, r) => sum + r.views, 0);
   const totalReach = reels.reduce((sum, r) => sum + r.reach, 0);
   const totalSaves = reels.reduce((sum, r) => sum + r.saves, 0);

@@ -32,10 +32,13 @@ import { formatNumber, formatShortDate } from '../../utils/formatters';
 import { cn } from '../../utils/cn';
 
 export const EvolutionTab: React.FC = () => {
-  const { dateRangePreset } = useWorkspace();
+  const { dateRangePreset, currentConnection } = useWorkspace();
   const days = dateRangePreset === '7d' ? 7 : dateRangePreset === '90d' ? 90 : 30;
 
-  const { dailyData, overview } = useMemo(() => getFilteredMetrics(days), [days]);
+  const { dailyData, overview } = useMemo(
+    () => getFilteredMetrics(days, currentConnection?.username),
+    [days, currentConnection?.username]
+  );
 
   // Chart view selector: 'followers' | 'reach' | 'interactions'
   const [activeEvolutionView, setActiveEvolutionView] = useState<'followers' | 'reach' | 'interactions'>('followers');

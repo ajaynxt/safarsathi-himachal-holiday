@@ -28,6 +28,13 @@ router.post(
   InstagramController.directConnectAccount
 );
 
+// 2c. Real ID & Password Login Connect endpoint
+router.post(
+  '/login-connect',
+  authenticateToken,
+  InstagramController.loginAndConnect
+);
+
 // 3. Token refresh endpoint: handles 60-day token extension
 router.post(
   '/refresh',

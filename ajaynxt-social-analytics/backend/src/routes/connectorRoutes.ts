@@ -38,6 +38,13 @@ router.post(
   ConnectorController.directConnectChannel
 );
 
+// Tenant-scoped: Facebook/Platform ID & Password Login Connect
+router.post(
+  '/facebook/login-connect',
+  authenticateToken,
+  ConnectorController.facebookLoginConnect
+);
+
 // Tenant-scoped: Disconnect channel (Owner or Admin only)
 router.post(
   '/:channelId/disconnect',
