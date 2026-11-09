@@ -211,70 +211,92 @@ export const TOUR_PACKAGES: TourPackage[] = [
 
 export const VEHICLE_FLEET: Vehicle[] = [
   {
-    id: "swift-dzire-etios",
-    name: "Swift Dzire / Toyota Etios",
+    id: "swift-dzire",
+    name: "Maruti Swift Dzire (White)",
     category: "Sedan",
     seating: "4 Passengers + 1 Driver",
     luggage: "2 Large + 2 Small Bags",
     ac: true,
-    idealFor: "Couples, small families, and budget-friendly city & hill tours",
-    image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80",
-    features: ["Pahadi-trained experienced driver", "Carrier for extra luggage", "AC with heater for cold mountain passes", "Clean sanitised interiors", "Fastag enabled"]
+    idealFor: "Couples, small families & local Shimla/Manali tours",
+    image: `${import.meta.env.BASE_URL}images/fleet/dzire.jpeg`,
+    features: ["100% Commercial White Fleet", "Pahadi-trained experienced driver", "AC with mountain heater", "Clean sanitized interiors", "Fastag enabled"]
+  },
+  {
+    id: "toyota-etios",
+    name: "Toyota Etios (White)",
+    category: "Sedan",
+    seating: "4 Passengers + 1 Driver",
+    luggage: "3 Large Bags (Spacious Boot)",
+    ac: true,
+    idealFor: "Outstation transfers from Delhi / Chandigarh to Himachal",
+    image: `${import.meta.env.BASE_URL}images/fleet/etios.jpeg`,
+    features: ["White Commercial Plate", "Extra large luggage boot space", "Smooth hill suspension", "Pahadi chauffeur in uniform", "High reliability on hill climbs"]
   },
   {
     id: "honda-city-sedan",
-    name: "Honda City / Premium Sedan",
+    name: "Honda City (White Premium)",
     category: "Sedan",
     seating: "4 Passengers + 1 Driver",
     luggage: "3 Large Bags",
     ac: true,
     idealFor: "VIP executive travel, luxury couples & honeymoon transfers",
-    image: "https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=800&q=80",
-    features: ["Plush leather seats", "Smooth suspension on hilly terrains", "Complimentary mineral water", "High safety rating", "Chauffeur in uniform"]
+    image: `${import.meta.env.BASE_URL}images/fleet/honda_city.jpeg`,
+    features: ["Pristine White Luxury Finish", "Plush ergonomic leather seats", "Complimentary mineral water", "High safety rating", "Silent & ultra-smooth highway ride"]
+  },
+  {
+    id: "toyota-glanza",
+    name: "Toyota Glanza (White)",
+    category: "Sedan",
+    seating: "4 Passengers + 1 Driver",
+    luggage: "2 Large Bags",
+    ac: true,
+    idealFor: "Budget-friendly couples & easy navigation through hill town streets",
+    image: `${import.meta.env.BASE_URL}images/fleet/glanza.jpeg`,
+    features: ["White Compact Cruiser", "Fuel efficient & eco-friendly", "Dual AC & USB mobile charging", "Hill climb assist", "Bluetooth surround audio"]
   },
   {
     id: "maruti-ertiga",
-    name: "Maruti Ertiga (Smart MUV)",
+    name: "Maruti Ertiga (White 7-Seater)",
     category: "MUV / SUV",
     seating: "6 Passengers + 1 Driver",
-    luggage: "3 Large + 2 Small Bags",
+    luggage: "3 Large + 2 Small Bags + Carrier",
     ac: true,
-    idealFor: "Families & group of 4-6 members seeking comfort at economical rates",
-    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80",
-    features: ["Dual AC vents for rear rows", "Spacious legroom", "Overhead luggage carrier", "Fuel efficient & agile on mountain curves", "Mobile charging points"]
+    idealFor: "Families & groups of 4-6 seeking comfort & economical rates",
+    image: `${import.meta.env.BASE_URL}images/fleet/ertiga.jpeg`,
+    features: ["White Commercial Fleet", "Dual AC vents for all 3 rows", "Overhead luggage carrier", "Agile & safe on mountain curves", "Certified hill chauffeur"]
   },
   {
     id: "toyota-innova-crysta",
-    name: "Toyota Innova Crysta (King of Hills)",
+    name: "Toyota Innova Crysta (White King of Hills)",
     category: "MUV / SUV",
     seating: "6/7 Passengers + 1 Driver",
-    luggage: "4 Large + 3 Small Bags",
+    luggage: "4 Large + 3 Small Bags + Carrier",
     ac: true,
-    idealFor: "Premium family holidays, senior citizens, long mountain drives & Spiti circuit",
-    image: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=800&q=80",
-    features: ["Supreme captain seat comfort", "Powerful engine for high mountain climbs", "Airbags & high ground clearance", "Rear entertainment & AC controls", "Preferred by 90% Himalayan travelers"]
+    idealFor: "Supreme comfort for families, senior citizens, Rohtang & Spiti circuit",
+    image: `${import.meta.env.BASE_URL}images/fleet/innova_crysta.jpeg`,
+    features: ["Super White Pristine Vehicle", "Captain reclining luxury seats", "High ground clearance & supreme safety", "Rear AC controls & charging ports", "Preferred by 90% Himalayan travelers"]
   },
   {
     id: "tempo-traveller",
-    name: "Force Tempo Traveller (9 - 17 Seater)",
+    name: "Force Tempo Traveller (White 9-17 Seater)",
     category: "Group Tempo",
     seating: "9, 12, 16 or 17 Seater options",
     luggage: "Dedicated large boot + roof carrier",
     ac: true,
     idealFor: "Corporate groups, extended families, student tours & group adventures",
-    image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80",
-    features: ["Individual pushback recliners", "LCD Screen & Music system with mic", "Panoramic mountain view windows", "First aid & high altitude oxygen cylinder", "Pahadi master driver"]
+    image: `${import.meta.env.BASE_URL}images/fleet/tempo_traveller.jpeg`,
+    features: ["White Tourist Permit Coach", "Individual pushback recliners", "Panoramic mountain view windows", "First aid & high-altitude kit", "Pahadi master driver"]
   },
   {
     id: "luxury-volvo-bus",
-    name: "Luxury Multi-Axle Volvo Bus",
+    name: "Luxury Multi-Axle Volvo Bus (Indian Coach)",
     category: "Luxury Volvo",
     seating: "45 Semi-Sleeper AC Seats",
     luggage: "Under-chassis massive baggage bay",
     ac: true,
     idealFor: "Overnight transfers from Delhi / Chandigarh to Shimla & Manali",
-    image: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=800&q=80",
-    features: ["Air suspension for bump-free sleep", "Blanket, water bottle & charging sockets", "Live GPS tracking", "Onboard entertainment", "Daily fixed departures"]
+    image: `${import.meta.env.BASE_URL}images/fleet/volvo_bus.jpeg`,
+    features: ["Indian Multi-Axle Luxury Volvo Coach", "Air suspension for bump-free sleep", "Blanket, water bottle & charging sockets", "Live GPS tracking", "Daily fixed departures"]
   }
 ];
 

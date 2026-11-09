@@ -102,11 +102,25 @@ export const Footer: React.FC = () => {
             © {new Date().getFullYear()} <strong>SafarSathi (Himachal Holiday)</strong>. All Rights Reserved.
           </p>
 
-          <p className="flex items-center gap-1">
-            <span>Crafted with</span>
-            <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
-            <span>for Himalayan Travelers</span>
-          </p>
+          <div className="flex flex-wrap items-center gap-4 text-xs">
+            <p className="flex items-center gap-1">
+              <span>Crafted with</span>
+              <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
+              <span>for Himalayan Travelers</span>
+            </p>
+            <span className="hidden sm:inline text-slate-700">|</span>
+            <p className="flex items-center gap-1 text-slate-400">
+              <span>Designed by</span>
+              <a
+                href="https://ajaynxt.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-brand-orange hover:text-white transition-colors underline-offset-2 hover:underline"
+              >
+                ajaynxt.com
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

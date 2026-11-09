@@ -234,11 +234,14 @@ export const BookingBar: React.FC<BookingBarProps> = ({ onQuickBook }) => {
                 onChange={(e) => setCabVehicle(e.target.value)}
                 className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-brand-orange"
               >
-                <option value="Swift Dzire / Toyota Etios">Swift Dzire / Etios (Sedan)</option>
-                <option value="Toyota Innova Crysta">Toyota Innova Crysta (Supreme SUV)</option>
-                <option value="Maruti Ertiga">Maruti Ertiga (Family MUV)</option>
-                <option value="Force Tempo Traveller (12-17 Seater)">Tempo Traveller (12-17 Seater)</option>
-                <option value="Honda City">Honda City (Luxury Sedan)</option>
+                <option value="Toyota Innova Crysta">Toyota Innova Crysta (White SUV)</option>
+                <option value="Maruti Ertiga">Maruti Ertiga (White 7-Seater)</option>
+                <option value="Maruti Swift Dzire">Maruti Swift Dzire (White Sedan)</option>
+                <option value="Toyota Etios">Toyota Etios (White Sedan)</option>
+                <option value="Honda City">Honda City (White Luxury Sedan)</option>
+                <option value="Toyota Glanza">Toyota Glanza (White Premium)</option>
+                <option value="Force Tempo Traveller">Tempo Traveller (9-17 Seater White Coach)</option>
+                <option value="Luxury Volvo Bus">Luxury Volvo AC Bus (Indian Coach)</option>
               </select>
             </div>
 

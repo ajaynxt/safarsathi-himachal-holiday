@@ -21,14 +21,15 @@ export const VehicleFleet: React.FC<VehicleFleetProps> = ({ onBookCab }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-brand-navy text-xs font-bold uppercase tracking-wider mb-3">
-            <span>Himachal Taxi & Fleet Services</span>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>100% Sanitized All-White Commercial Fleet</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-brand-navy tracking-tight">
-            Our Premium Cabs, SUVs & Volvo Bus Fleet
+            Our All-White Taxi Cabs, SUVs & Volvo Bus Fleet
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600">
-            Available for Outstation & Local tours across <strong className="text-slate-800">Delhi, Chandigarh, Kalka, Shimla, Manali & Dharamshala</strong>. Experienced hill drivers with clean, sanitized vehicles.
+            Available with commercial permits across <strong className="text-slate-800">Delhi, Chandigarh, Kalka, Shimla, Manali & Dharamshala</strong>. 100% pristine white sanitized vehicles driven by certified Pahadi chauffeurs.
           </p>
 
           {/* Category Tabs */}

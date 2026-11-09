@@ -213,11 +213,14 @@ Please check availability and send confirmed quotation.`;
                     onChange={(e) => setCabPreference(e.target.value)}
                     className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange"
                   >
-                    <option value="Toyota Innova Crysta">Toyota Innova Crysta</option>
-                    <option value="Maruti Ertiga">Maruti Ertiga</option>
-                    <option value="Swift Dzire / Etios">Swift Dzire / Etios</option>
-                    <option value="Force Tempo Traveller">Tempo Traveller (12-17 Seater)</option>
-                    <option value="Luxury Volvo AC Bus">Luxury Volvo AC Bus</option>
+                    <option value="Toyota Innova Crysta">Toyota Innova Crysta (White SUV)</option>
+                    <option value="Maruti Ertiga">Maruti Ertiga (White 7-Seater)</option>
+                    <option value="Maruti Swift Dzire">Maruti Swift Dzire (White Sedan)</option>
+                    <option value="Toyota Etios">Toyota Etios (White Sedan)</option>
+                    <option value="Honda City">Honda City (White Luxury Sedan)</option>
+                    <option value="Toyota Glanza">Toyota Glanza (White Premium)</option>
+                    <option value="Force Tempo Traveller">Tempo Traveller (9-17 Seater White Coach)</option>
+                    <option value="Luxury Volvo AC Bus">Luxury Volvo AC Bus (Indian Coach)</option>
                   </select>
                 </div>
 
