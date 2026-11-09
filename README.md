@@ -68,5 +68,5 @@
 ## 📍 Contact & Head Office
 - **Brand:** SafarSathi • Himachal Holiday
 - **Phone:** +91 83519 87587
-- **Email:** himachalholiday95@gmail.com
+- **Email:** safarsathi.india@gmail.com
 - **Address:** New Bus Stand, Tutikandi, Shimla - 171004, Himachal Pradesh, India

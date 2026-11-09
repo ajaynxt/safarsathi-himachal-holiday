@@ -59,7 +59,7 @@ export const COMPANY_INFO = {
   subTagline: "Your Himalayan Escape",
   phone: "8351987587",
   phoneDisplay: "+91 83519 87587",
-  email: "himachalholiday95@gmail.com",
+  email: "safarsathi.india@gmail.com",
   address: "New Bus Stand, Tutikandi, Shimla - 171004, Himachal Pradesh, India",
   whatsappUrl: (msg: string) => `https://wa.me/918351987587?text=${encodeURIComponent(msg)}`,
   serviceLocations: ["Delhi NCR", "Chandigarh", "Shimla", "Manali", "Dharamshala", "Spiti", "Amritsar", "Jammu & Kashmir"]
