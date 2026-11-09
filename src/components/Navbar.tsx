@@ -64,7 +64,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
             <a 
               href="#packages" 
               className={`text-sm font-semibold transition-colors hover:text-brand-orange ${
@@ -80,6 +80,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               }`}
             >
               Taxi & Cabs
+            </a>
+            <a 
+              href="#routes" 
+              className={`text-sm font-semibold transition-colors hover:text-brand-orange ${
+                isScrolled ? 'text-slate-700' : 'text-white drop-shadow'
+              }`}
+            >
+              Routes
             </a>
             <a 
               href="#hotels" 
@@ -98,12 +106,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               Volvo Bus
             </a>
             <a 
-              href="#why-us" 
+              href="#faq" 
               className={`text-sm font-semibold transition-colors hover:text-brand-orange ${
                 isScrolled ? 'text-slate-700' : 'text-white drop-shadow'
               }`}
             >
-              Why Us
+              FAQs
             </a>
             <a 
               href="#contact" 
@@ -172,7 +180,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               onClick={() => setMobileMenuOpen(false)}
               className="p-2.5 rounded-lg bg-slate-50 text-slate-800 hover:bg-brand-orange-light hover:text-brand-orange"
             >
-              🚖 Taxi & Cabs
+              🚖 All-White Cabs
+            </a>
+            <a 
+              href="#routes" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-2.5 rounded-lg bg-slate-50 text-slate-800 hover:bg-brand-orange-light hover:text-brand-orange"
+            >
+              🗺️ Popular Routes
             </a>
             <a 
               href="#hotels" 
@@ -187,6 +202,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               className="p-2.5 rounded-lg bg-slate-50 text-slate-800 hover:bg-brand-orange-light hover:text-brand-orange"
             >
               🚌 Volvo Bus
+            </a>
+            <a 
+              href="#faq" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-2.5 rounded-lg bg-slate-50 text-slate-800 hover:bg-brand-orange-light hover:text-brand-orange"
+            >
+              ❓ FAQs & Permits
             </a>
             <a 
               href="#why-us" 
