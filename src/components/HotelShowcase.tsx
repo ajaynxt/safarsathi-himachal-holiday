@@ -139,7 +139,7 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
                   </div>
 
                   <h3 className="text-lg font-bold text-slate-900 group-hover:text-brand-orange transition-colors">
-                    {hotel.name}
+                    <span className="text-brand-orange font-extrabold">SafarSathi.in</span> {hotel.name.replace(/^SafarSathi\.in\s*/, '')}
                   </h3>
 
                   {/* Amenities */}
@@ -166,7 +166,7 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
 
                 <div className="flex items-center gap-1.5">
                   <a
-                    href={COMPANY_INFO.whatsappUrl(`Hello SafarSathi, I want to include ${hotel.name} (${hotel.city}) in my tour package.`)}
+                    href={COMPANY_INFO.whatsappUrl(`Hello SafarSathi, I want to include ${hotel.name} in my tour package.`)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2.5 rounded-xl border border-green-600/30 text-green-700 bg-green-50 hover:bg-green-600 hover:text-white transition-colors"
@@ -176,7 +176,7 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
                   </a>
 
                   <button
-                    onClick={() => onBookHotel(`${hotel.name} (${hotel.city}) - Package Stay`)}
+                    onClick={() => onBookHotel(`${hotel.name} - Package Stay`)}
                     className="px-3.5 py-2.5 rounded-xl bg-brand-orange hover:bg-brand-orange-dark text-white text-xs font-bold transition-all shadow-sm whitespace-nowrap"
                   >
                     Enquire Package

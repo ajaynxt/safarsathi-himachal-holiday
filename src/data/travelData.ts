@@ -282,11 +282,11 @@ export const HOTEL_STAYS: Hotel[] = [
   {
     id: "shimla-verified-hotel",
     city: "Shimla",
-    name: "SafarSathi Partner Resort & Suites",
+    name: "SafarSathi.in Resort & Suites - Shimla",
     category: "Luxury",
     rating: 4.9,
     location: "Near Mall Road & Tutikandi, Shimla",
-    priceRange: "₹3,200 - ₹5,800 / night",
+    priceRange: "Included in Tour Package",
     image: `${import.meta.env.BASE_URL}images/hotels/shimla/shimla_01.jpeg`,
     gallery: [
       `${import.meta.env.BASE_URL}images/hotels/shimla/shimla_01.jpeg`,
@@ -308,11 +308,11 @@ export const HOTEL_STAYS: Hotel[] = [
   {
     id: "manali-verified-hotel",
     city: "Manali",
-    name: "Himalayan Riverside Resort & Cottages",
+    name: "SafarSathi.in Riverside Cottages & Resort - Manali",
     category: "Riverside Cottages",
     rating: 4.9,
     location: "Along Beas River, Manali - Naggar Road",
-    priceRange: "₹3,500 - ₹6,200 / night",
+    priceRange: "Included in Tour Package",
     image: `${import.meta.env.BASE_URL}images/hotels/manali/manali_01.jpeg`,
     gallery: [
       `${import.meta.env.BASE_URL}images/hotels/manali/manali_01.jpeg`,
@@ -332,11 +332,11 @@ export const HOTEL_STAYS: Hotel[] = [
   {
     id: "kasol-riverside-stay",
     city: "Kasol",
-    name: "Parvati Valley Alpine Riverside Retreat",
+    name: "SafarSathi.in Alpine Riverside Retreat - Kasol",
     category: "Resort",
     rating: 4.8,
     location: "Kasol Village, Parvati Valley",
-    priceRange: "₹2,500 - ₹4,500 / night",
+    priceRange: "Included in Tour Package",
     image: `${import.meta.env.BASE_URL}images/hotels/manali/manali_06.jpeg`,
     gallery: [
       `${import.meta.env.BASE_URL}images/hotels/manali/manali_06.jpeg`,
@@ -350,11 +350,11 @@ export const HOTEL_STAYS: Hotel[] = [
   {
     id: "amritsar-verified-hotel",
     city: "Amritsar",
-    name: "The Golden Sanctuary Heritage Hotel",
+    name: "SafarSathi.in Golden Temple Heritage Hotel - Amritsar",
     category: "Boutique",
     rating: 4.9,
     location: "Walking Distance to Golden Temple, Amritsar",
-    priceRange: "₹2,800 - ₹4,800 / night",
+    priceRange: "Included in Tour Package",
     image: `${import.meta.env.BASE_URL}images/hotels/amritsar/amritsar_01.jpeg`,
     gallery: [
       `${import.meta.env.BASE_URL}images/hotels/amritsar/amritsar_01.jpeg`,
@@ -372,11 +372,11 @@ export const HOTEL_STAYS: Hotel[] = [
   {
     id: "srinagar-verified-hotel",
     city: "Srinagar",
-    name: "Royal Kashmir Heritage Hotel & Houseboat",
+    name: "SafarSathi.in Royal Heritage Luxury Stay & Houseboat - Srinagar",
     category: "Houseboat",
     rating: 4.9,
     location: "Boulevard Road, Dal Lake, Srinagar",
-    priceRange: "₹3,800 - ₹6,800 / night",
+    priceRange: "Included in Tour Package",
     image: `${import.meta.env.BASE_URL}images/hotels/srinagar/srinagar_01.jpeg`,
     gallery: [
       `${import.meta.env.BASE_URL}images/hotels/srinagar/srinagar_01.jpeg`,
