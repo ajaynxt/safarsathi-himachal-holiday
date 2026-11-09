@@ -59,12 +59,49 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
       `}</style>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+        {/* Animated Brand Logo with Flight Centerpiece */}
+        <div className="relative inline-block mb-6">
+          {/* Ambient Glowing Aura */}
+          <div className="absolute -inset-3 bg-gradient-to-r from-brand-orange/40 via-amber-400/30 to-brand-orange/40 rounded-3xl blur-2xl opacity-75 animate-pulse" />
+
+          {/* Logo Card */}
+          <div className="relative bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-4 shadow-2xl border border-white/40 flex items-center gap-3 sm:gap-4">
+            <img
+              src={`${import.meta.env.BASE_URL}images/logo.svg`}
+              alt="SafarSathi - Himachal Holiday"
+              className="h-12 sm:h-16 w-auto object-contain filter drop-shadow-sm"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                if (target.src.endsWith('.svg')) {
+                  target.src = `${import.meta.env.BASE_URL}images/logo.png`;
+                }
+              }}
+            />
+
+            <div className="hidden sm:flex flex-col text-left border-l border-slate-200 pl-4 pr-2">
+              <span className="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-brand-orange">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+                Shimla Head Office
+              </span>
+              <span className="text-xs font-bold text-slate-800">Your Himalayan Escape</span>
+            </div>
+          </div>
+
+          {/* Animated Flight Swooping Across the Logo */}
+          <div className="absolute -top-3.5 -right-3.5 pointer-events-none">
+            <div className="relative flex items-center animate-bounce">
+              <div className="absolute right-4 w-10 h-1 bg-gradient-to-r from-transparent via-amber-400 to-white rounded-full blur-[1px] opacity-90" />
+              <Plane className="w-7 h-7 text-brand-orange fill-brand-orange drop-shadow-[0_0_10px_rgba(255,125,0,0.9)] transform rotate-45" />
+            </div>
+          </div>
+        </div>
+
         {/* Top Trust Pill */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-medium mb-6">
+        <div className="flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-medium mb-6 max-w-md mx-auto">
           <span className="flex h-2 w-2 rounded-full bg-brand-orange animate-pulse" />
           <span className="text-brand-orange font-bold">Himachal Holiday Specialist</span>
           <span className="text-white/40">|</span>
-          <span className="text-white/90">Direct Shimla Tutikandi Head Office</span>
+          <span className="text-white/90">Direct Shimla Tutikandi Office</span>
         </div>
 
         {/* Hero Title */}

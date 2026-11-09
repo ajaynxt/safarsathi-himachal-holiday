@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, MessageCircle, Menu, X, MapPin } from 'lucide-react';
+import { Phone, MessageCircle, Menu, X, MapPin, Plane } from 'lucide-react';
 import { COMPANY_INFO } from '../data/travelData';
 
 interface NavbarProps {
@@ -45,9 +45,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo with both SVG / image support */}
-          <a href="#" className="flex items-center gap-2 group">
-            <div className="h-11 sm:h-12 flex items-center">
+          {/* Logo with both SVG / image support & Animated Flight */}
+          <a href="#" className="flex items-center gap-2 group relative">
+            <div className="h-11 sm:h-12 flex items-center relative">
               <img 
                 src={`${import.meta.env.BASE_URL}images/logo.svg`} 
                 alt="SafarSathi - Your Journey Our Responsibility" 
@@ -60,6 +60,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
                   }
                 }}
               />
+              {/* Animated flight badge on logo */}
+              <div className="absolute -top-1 -right-2 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+                <Plane className="w-3.5 h-3.5 text-brand-orange fill-brand-orange drop-shadow animate-pulse" />
+              </div>
             </div>
           </a>
 
