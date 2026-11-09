@@ -79,7 +79,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     rating: 4.9,
     reviewsCount: 168,
     badge: "Official Banner Package",
-    featuredImage: `${import.meta.env.BASE_URL}images/packages/shimla_manali_5_nights_6_days.png`,
+    featuredImage: `/safarsathi-himachal-holiday/images/packages/shimla_manali_5_nights_6_days.png`,
     pickupDrop: "Delhi / Chandigarh",
     bestSeason: "Round the Year (Snow: Dec-Feb)",
     difficulty: "Easy",
@@ -106,7 +106,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     rating: 5.0,
     reviewsCount: 112,
     badge: "Trending Circuit",
-    featuredImage: `${import.meta.env.BASE_URL}images/packages/shimla_manali_spti_tour_package_7_night_8_days.png`,
+    featuredImage: `/safarsathi-himachal-holiday/images/packages/shimla_manali_spti_tour_package_7_night_8_days.png`,
     pickupDrop: "Shimla / Chandigarh / Manali",
     bestSeason: "May to October",
     difficulty: "Adventure",
@@ -135,7 +135,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     rating: 4.9,
     reviewsCount: 145,
     badge: "Grand Circuit",
-    featuredImage: `${import.meta.env.BASE_URL}images/packages/himachal_shimla_manali_dharmshala_dalhousie_8_nights_9_days.png`,
+    featuredImage: `/safarsathi-himachal-holiday/images/packages/himachal_shimla_manali_dharmshala_dalhousie_8_nights_9_days.png`,
     pickupDrop: "Delhi / Chandigarh",
     bestSeason: "Throughout the year",
     difficulty: "Easy",
@@ -165,7 +165,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     rating: 4.9,
     reviewsCount: 138,
     badge: "Paradise on Earth",
-    featuredImage: `${import.meta.env.BASE_URL}images/packages/jammu_and_kashmir_6_nights_7_days.png`,
+    featuredImage: `/safarsathi-himachal-holiday/images/packages/jammu_and_kashmir_6_nights_7_days.png`,
     pickupDrop: "Jammu / Srinagar",
     bestSeason: "March to November (Snow: Dec-Feb)",
     difficulty: "Easy",
@@ -193,7 +193,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     rating: 4.8,
     reviewsCount: 92,
     badge: "God's Own Country",
-    featuredImage: `${import.meta.env.BASE_URL}images/packages/kerala_5_nights_6_days_package.png`,
+    featuredImage: `/safarsathi-himachal-holiday/images/packages/kerala_5_nights_6_days_package.png`,
     pickupDrop: "Cochin Airport / Railway Station",
     bestSeason: "September to May",
     difficulty: "Easy",
@@ -220,7 +220,7 @@ export const VEHICLE_FLEET: Vehicle[] = [
     luggage: "2 Large + 2 Small Bags",
     ac: true,
     idealFor: "Couples, small families & local Shimla/Manali tours",
-    image: `${import.meta.env.BASE_URL}images/fleet/dzire.jpeg`,
+    image: `/safarsathi-himachal-holiday/images/fleet/dzire.jpeg`,
     features: ["100% Commercial White Fleet", "Pahadi-trained experienced driver", "AC with mountain heater", "Clean sanitized interiors", "Fastag enabled"]
   },
   {
@@ -231,7 +231,7 @@ export const VEHICLE_FLEET: Vehicle[] = [
     luggage: "3 Large Bags (Spacious Boot)",
     ac: true,
     idealFor: "Outstation transfers from Delhi / Chandigarh to Himachal",
-    image: `${import.meta.env.BASE_URL}images/fleet/etios.jpeg`,
+    image: `/safarsathi-himachal-holiday/images/fleet/etios.jpeg`,
     features: ["White Commercial Plate", "Extra large luggage boot space", "Smooth hill suspension", "Pahadi chauffeur in uniform", "High reliability on hill climbs"]
   },
   {
@@ -242,7 +242,7 @@ export const VEHICLE_FLEET: Vehicle[] = [
     luggage: "3 Large Bags",
     ac: true,
     idealFor: "VIP executive travel, luxury couples & honeymoon transfers",
-    image: `${import.meta.env.BASE_URL}images/fleet/honda_city.jpeg`,
+    image: `/safarsathi-himachal-holiday/images/fleet/honda_city.jpeg`,
     features: ["Pristine White Luxury Finish", "Plush ergonomic leather seats", "Complimentary mineral water", "High safety rating", "Silent & ultra-smooth highway ride"]
   },
   {
@@ -253,7 +253,7 @@ export const VEHICLE_FLEET: Vehicle[] = [
     luggage: "2 Large Bags",
     ac: true,
     idealFor: "Budget-friendly couples & easy navigation through hill town streets",
-    image: `${import.meta.env.BASE_URL}images/fleet/glanza.jpeg`,
+    image: `/safarsathi-himachal-holiday/images/fleet/glanza.jpeg`,
     features: ["White Compact Cruiser", "Fuel efficient & eco-friendly", "Dual AC & USB mobile charging", "Hill climb assist", "Bluetooth surround audio"]
   },
   {
@@ -264,7 +264,7 @@ export const VEHICLE_FLEET: Vehicle[] = [
     luggage: "3 Large + 2 Small Bags + Carrier",
     ac: true,
     idealFor: "Families & groups of 4-6 seeking comfort & economical rates",
-    image: `${import.meta.env.BASE_URL}images/fleet/ertiga.jpeg`,
+    image: `/safarsathi-himachal-holiday/images/fleet/ertiga.jpeg`,
     features: ["White Commercial Fleet", "Dual AC vents for all 3 rows", "Overhead luggage carrier", "Agile & safe on mountain curves", "Certified hill chauffeur"]
   },
   {
@@ -275,7 +275,7 @@ export const VEHICLE_FLEET: Vehicle[] = [
     luggage: "4 Large + 3 Small Bags + Carrier",
     ac: true,
     idealFor: "Supreme comfort for families, senior citizens, Rohtang & Spiti circuit",
-    image: `${import.meta.env.BASE_URL}images/fleet/innova_crysta.jpeg`,
+    image: `/safarsathi-himachal-holiday/images/fleet/innova_crysta.jpeg`,
     features: ["Super White Pristine Vehicle", "Captain reclining luxury seats", "High ground clearance & supreme safety", "Rear AC controls & charging ports", "Preferred by 90% Himalayan travelers"]
   },
   {
@@ -286,7 +286,7 @@ export const VEHICLE_FLEET: Vehicle[] = [
     luggage: "Dedicated large boot + roof carrier",
     ac: true,
     idealFor: "Corporate groups, extended families, student tours & group adventures",
-    image: `${import.meta.env.BASE_URL}images/fleet/tempo_traveller.jpeg`,
+    image: `/safarsathi-himachal-holiday/images/fleet/tempo_traveller.jpeg`,
     features: ["White Tourist Permit Coach", "Individual pushback recliners", "Panoramic mountain view windows", "First aid & high-altitude kit", "Pahadi master driver"]
   },
   {
@@ -297,7 +297,7 @@ export const VEHICLE_FLEET: Vehicle[] = [
     luggage: "Under-chassis massive baggage bay",
     ac: true,
     idealFor: "Overnight transfers from Delhi / Chandigarh to Shimla & Manali",
-    image: `${import.meta.env.BASE_URL}images/fleet/volvo_bus.jpeg`,
+    image: `/safarsathi-himachal-holiday/images/fleet/volvo_bus.jpeg`,
     features: ["Indian Multi-Axle Luxury Volvo Coach", "Air suspension for bump-free sleep", "Blanket, water bottle & charging sockets", "Live GPS tracking", "Daily fixed departures"]
   }
 ];
@@ -311,20 +311,20 @@ export const HOTEL_STAYS: Hotel[] = [
     rating: 4.9,
     location: "Near Mall Road & Tutikandi, Shimla",
     priceRange: "Included in Tour Package",
-    image: `${import.meta.env.BASE_URL}images/hotels/shimla/shimla_01.jpeg`,
+    image: `/safarsathi-himachal-holiday/images/hotels/shimla/shimla_01.jpeg`,
     gallery: [
-      `${import.meta.env.BASE_URL}images/hotels/shimla/shimla_01.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/shimla/shimla_02.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/shimla/shimla_03.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/shimla/shimla_04.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/shimla/shimla_05.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/shimla/shimla_06.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/shimla/shimla_07.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/shimla/shimla_08.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/shimla/shimla_09.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/shimla/shimla_10.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/shimla/shimla_11.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/shimla/shimla_12.jpeg`
+      `/safarsathi-himachal-holiday/images/hotels/shimla/shimla_01.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/shimla/shimla_02.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/shimla/shimla_03.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/shimla/shimla_04.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/shimla/shimla_05.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/shimla/shimla_06.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/shimla/shimla_07.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/shimla/shimla_08.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/shimla/shimla_09.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/shimla/shimla_10.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/shimla/shimla_11.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/shimla/shimla_12.jpeg`
     ],
     totalPhotosCount: 39,
     amenities: ["Panoramic Pine Valley View", "Central Room Heating", "24x7 Hot Water", "In-house Multi-cuisine Restaurant", "Free Valet Parking", "High Speed Wi-Fi"]
@@ -337,18 +337,18 @@ export const HOTEL_STAYS: Hotel[] = [
     rating: 4.9,
     location: "Along Beas River, Manali - Naggar Road",
     priceRange: "Included in Tour Package",
-    image: `${import.meta.env.BASE_URL}images/hotels/manali/manali_01.jpeg`,
+    image: `/safarsathi-himachal-holiday/images/hotels/manali/manali_01.jpeg`,
     gallery: [
-      `${import.meta.env.BASE_URL}images/hotels/manali/manali_01.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/manali/manali_02.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/manali/manali_03.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/manali/manali_04.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/manali/manali_05.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/manali/manali_resort_01.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/manali/manali_resort_02.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/manali/manali_resort_03.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/manali/manali_resort_04.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/manali/manali_resort_05.jpeg`
+      `/safarsathi-himachal-holiday/images/hotels/manali/manali_01.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/manali/manali_02.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/manali/manali_03.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/manali/manali_04.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/manali/manali_05.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/manali/manali_resort_01.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/manali/manali_resort_02.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/manali/manali_resort_03.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/manali/manali_resort_04.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/manali/manali_resort_05.jpeg`
     ],
     totalPhotosCount: 22,
     amenities: ["Direct Beas River Frontage", "Bonfire & Evening Music", "Balcony in Every Room", "Delicious Pahadi & North Indian Food", "Snow View Lawn", "24x7 Hot Water"]
@@ -361,12 +361,12 @@ export const HOTEL_STAYS: Hotel[] = [
     rating: 4.8,
     location: "Kasol Village, Parvati Valley",
     priceRange: "Included in Tour Package",
-    image: `${import.meta.env.BASE_URL}images/hotels/manali/manali_06.jpeg`,
+    image: `/safarsathi-himachal-holiday/images/hotels/manali/manali_06.jpeg`,
     gallery: [
-      `${import.meta.env.BASE_URL}images/hotels/manali/manali_06.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/manali/manali_07.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/manali/manali_resort_06.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/manali/manali_resort_07.jpeg`
+      `/safarsathi-himachal-holiday/images/hotels/manali/manali_06.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/manali/manali_07.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/manali/manali_resort_06.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/manali/manali_resort_07.jpeg`
     ],
     totalPhotosCount: 8,
     amenities: ["Direct River Access", "Pine Forest Setting", "Israeli & Indian Cafe", "Acoustic Nights & Fire Pit", "Heated Cozy Beds", "Guided Village Hikes"]
@@ -379,16 +379,16 @@ export const HOTEL_STAYS: Hotel[] = [
     rating: 4.9,
     location: "Walking Distance to Golden Temple, Amritsar",
     priceRange: "Included in Tour Package",
-    image: `${import.meta.env.BASE_URL}images/hotels/amritsar/amritsar_01.jpeg`,
+    image: `/safarsathi-himachal-holiday/images/hotels/amritsar/amritsar_01.jpeg`,
     gallery: [
-      `${import.meta.env.BASE_URL}images/hotels/amritsar/amritsar_01.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/amritsar/amritsar_02.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/amritsar/amritsar_03.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/amritsar/amritsar_04.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/amritsar/amritsar_05.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/amritsar/amritsar_06.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/amritsar/amritsar_07.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/amritsar/amritsar_08.jpeg`
+      `/safarsathi-himachal-holiday/images/hotels/amritsar/amritsar_01.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/amritsar/amritsar_02.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/amritsar/amritsar_03.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/amritsar/amritsar_04.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/amritsar/amritsar_05.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/amritsar/amritsar_06.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/amritsar/amritsar_07.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/amritsar/amritsar_08.jpeg`
     ],
     totalPhotosCount: 14,
     amenities: ["500m from Harmandir Sahib", "Authentic Punjabi Breakfast", "Airport / Station Pickup Service", "Lift & Wheelchair Accessible", "Pure Veg Restaurant", "Full Power Backup"]
@@ -401,16 +401,16 @@ export const HOTEL_STAYS: Hotel[] = [
     rating: 4.9,
     location: "Boulevard Road, Dal Lake, Srinagar",
     priceRange: "Included in Tour Package",
-    image: `${import.meta.env.BASE_URL}images/hotels/srinagar/srinagar_01.jpeg`,
+    image: `/safarsathi-himachal-holiday/images/hotels/srinagar/srinagar_01.jpeg`,
     gallery: [
-      `${import.meta.env.BASE_URL}images/hotels/srinagar/srinagar_01.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/srinagar/srinagar_02.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/srinagar/srinagar_03.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/srinagar/srinagar_04.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/srinagar/srinagar_05.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/srinagar/srinagar_06.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/srinagar/srinagar_07.jpeg`,
-      `${import.meta.env.BASE_URL}images/hotels/srinagar/srinagar_08.jpeg`
+      `/safarsathi-himachal-holiday/images/hotels/srinagar/srinagar_01.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/srinagar/srinagar_02.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/srinagar/srinagar_03.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/srinagar/srinagar_04.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/srinagar/srinagar_05.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/srinagar/srinagar_06.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/srinagar/srinagar_07.jpeg`,
+      `/safarsathi-himachal-holiday/images/hotels/srinagar/srinagar_08.jpeg`
     ],
     totalPhotosCount: 16,
     amenities: ["Lake View Balconies", "Carved Walnut Wood Decor", "Room Heating & Electric Blankets", "Traditional Kashmiri Wazwan & Kahwa", "Private Shikara Transfers Included", "24x7 Hot Water"]
