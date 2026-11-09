@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Star, Award, Compass, PhoneCall } from 'lucide-react';
+import { ShieldCheck, Star, Award, Compass, PhoneCall, Plane } from 'lucide-react';
 import { COMPANY_INFO } from '../data/travelData';
 import { BookingBar } from './BookingBar';
 
@@ -19,6 +19,44 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-slate-900/40" />
       </div>
+
+      {/* Ambient Animated Airplane flying across the Mountain Sky */}
+      <div className="absolute inset-0 pointer-events-none z-1 overflow-hidden">
+        <div className="hero-sky-plane flex items-center">
+          <div className="relative">
+            {/* Vapor trail / contrail */}
+            <div className="absolute right-5 top-1/2 -translate-y-1/2 w-36 h-1 bg-gradient-to-r from-transparent via-white/40 to-white/90 rounded-full blur-[1px]" />
+            <Plane className="w-6 h-6 sm:w-7 sm:h-7 text-white fill-white drop-shadow-[0_0_10px_rgba(255,125,0,0.8)] transform rotate-45" />
+          </div>
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes heroFlight {
+          0% {
+            left: -120px;
+            top: 28%;
+            opacity: 0;
+            transform: scale(0.85);
+          }
+          5% {
+            opacity: 0.9;
+          }
+          95% {
+            opacity: 0.9;
+          }
+          100% {
+            left: 105%;
+            top: 10%;
+            opacity: 0;
+            transform: scale(1.15);
+          }
+        }
+        .hero-sky-plane {
+          position: absolute;
+          animation: heroFlight 16s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+      `}</style>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         {/* Top Trust Pill */}

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { IntroFlightAnimation } from './components/IntroFlightAnimation';
 import { TopBanner } from './components/TopBanner';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -28,6 +29,9 @@ export function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      {/* Intro Animated Flight with Logo on Page Load */}
+      <IntroFlightAnimation />
+
       {/* Top Urgent Offer / Seasonal Banner */}
       <TopBanner />
 
