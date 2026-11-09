@@ -106,11 +106,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
 
         {/* Hero Title */}
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto leading-tight sm:leading-none text-shadow-lg">
-          Your Journey, <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-amber-300">Our Responsibility</span>
+          All India Tour Packages, <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-amber-300">Made Personal</span>
         </h1>
 
         <p className="mt-4 sm:mt-6 text-base sm:text-xl text-slate-200 max-w-2xl mx-auto font-normal text-shadow">
-          Experience breathtaking mountain bliss across <strong className="text-white">Shimla, Manali, Spiti Valley, Kasol, Amritsar & Kashmir</strong> with private cabs, handpicked luxury stays, and 24x7 local care.
+          Plan India holidays with customised tour packages across <strong className="text-white">Himachal, Shimla, Manali, Spiti Valley, Kashmir, Kerala & Amritsar</strong>, along with private taxi services, Volvo bus bookings and handpicked hotel stays.
         </p>
 
         {/* CTA Button Group */}
