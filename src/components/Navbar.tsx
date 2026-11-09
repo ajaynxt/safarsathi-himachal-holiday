@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, MessageCircle, Menu, X, MapPin, Plane } from 'lucide-react';
+import { InstagramIcon } from './InstagramIcon';
 import { COMPANY_INFO } from '../data/travelData';
 
 interface NavbarProps {
@@ -35,7 +36,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               <span>Taxis & Packages in Delhi, Chandigarh & Himachal</span>
             </div>
             <div className="flex items-center space-x-4">
-              <span>Email: {COMPANY_INFO.email}</span>
+              <a
+                href={COMPANY_INFO.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-slate-200 hover:text-pink-400 transition-colors font-medium"
+              >
+                <InstagramIcon className="w-3.5 h-3.5 text-pink-400" />
+                <span>{COMPANY_INFO.instagramHandle}</span>
+              </a>
               <span>•</span>
               <span className="font-semibold text-brand-orange">24x7 Road Support: {COMPANY_INFO.phoneDisplay}</span>
             </div>
@@ -129,6 +138,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
           {/* Actions & Buttons */}
           <div className="hidden sm:flex items-center space-x-3">
+            <a
+              href={COMPANY_INFO.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full border border-pink-500/30 text-pink-500 bg-pink-500/10 hover:bg-pink-600 hover:text-white transition-all"
+              title="Follow SafarSathi on Instagram"
+            >
+              <InstagramIcon className="w-4 h-4" />
+            </a>
+
             <a
               href={`tel:${COMPANY_INFO.phone}`}
               className="flex items-center gap-1.5 px-3 py-2 rounded-full border border-brand-orange/40 text-brand-orange bg-brand-orange/10 hover:bg-brand-orange hover:text-white transition-all text-xs font-bold"
@@ -248,6 +267,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             >
               <MessageCircle className="w-4 h-4" />
               Chat on WhatsApp
+            </a>
+            <a
+              href={COMPANY_INFO.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-2.5 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 text-white font-bold rounded-xl text-center text-sm flex items-center justify-center gap-2 shadow"
+            >
+              <InstagramIcon className="w-4 h-4" />
+              Follow on Instagram ({COMPANY_INFO.instagramHandle})
             </a>
           </div>
         </div>

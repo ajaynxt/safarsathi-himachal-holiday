@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Send, MessageCircle, Clock, ShieldCheck } from 'lucide-react';
+import { InstagramIcon } from './InstagramIcon';
 import { COMPANY_INFO } from '../data/travelData';
 
 export const ContactSection: React.FC = () => {
@@ -97,6 +98,26 @@ export const ContactSection: React.FC = () => {
                     Open All 7 Days (8:00 AM - 10:30 PM IST)
                   </p>
                   <span className="text-[11px] text-emerald-400 font-medium">Emergency on-road dispatch 24 hours</span>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="p-2.5 rounded-xl bg-gradient-to-br from-pink-500/20 to-purple-500/20 text-pink-400 flex-shrink-0">
+                  <InstagramIcon className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-xs uppercase tracking-wider text-slate-300">Official Instagram</h4>
+                  <p className="text-slate-100 font-bold text-xs sm:text-sm mt-0.5">
+                    <a
+                      href={COMPANY_INFO.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-pink-400 transition-colors flex items-center gap-1.5"
+                    >
+                      <span>{COMPANY_INFO.instagramHandle}</span>
+                    </a>
+                  </p>
+                  <span className="text-[11px] text-slate-300 block">Follow live snowfall reels & guest experiences</span>
                 </div>
               </div>
             </div>

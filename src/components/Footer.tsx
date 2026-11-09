@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, Mail, MapPin, Heart, ShieldCheck } from 'lucide-react';
+import { InstagramIcon } from './InstagramIcon';
 import { COMPANY_INFO, TOUR_PACKAGES, VEHICLE_FLEET } from '../data/travelData';
 
 export const Footer: React.FC = () => {
@@ -90,6 +91,18 @@ export const Footer: React.FC = () => {
                 <Mail className="w-4 h-4 text-brand-orange flex-shrink-0" />
                 <a href={`mailto:${COMPANY_INFO.email}`} className="hover:text-white">
                   {COMPANY_INFO.email}
+                </a>
+              </p>
+
+              <p className="flex items-center gap-2 pt-1">
+                <InstagramIcon className="w-4 h-4 text-pink-500 flex-shrink-0" />
+                <a
+                  href={COMPANY_INFO.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-pink-400 font-semibold text-slate-200 transition-colors"
+                >
+                  {COMPANY_INFO.instagramHandle}
                 </a>
               </p>
             </div>

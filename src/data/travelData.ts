@@ -60,6 +60,8 @@ export const COMPANY_INFO = {
   phone: "8351987587",
   phoneDisplay: "+91 83519 87587",
   email: "safarsathi.india@gmail.com",
+  instagram: "https://www.instagram.com/safar_sathiindia?xtok=MW1vNnhiMWx3dW9zaA==",
+  instagramHandle: "@safar_sathiindia",
   address: "New Bus Stand, Tutikandi, Shimla - 171004, Himachal Pradesh, India",
   whatsappUrl: (msg: string) => `https://wa.me/918351987587?text=${encodeURIComponent(msg)}`,
   serviceLocations: ["Delhi NCR", "Chandigarh", "Shimla", "Manali", "Dharamshala", "Spiti", "Amritsar", "Jammu & Kashmir"]
