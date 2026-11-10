@@ -34,10 +34,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    onSearchPackages?.(`${destination} | Travel date: ${travelDate} | Travellers: ${travellers}`);
-    const packagesEl = document.getElementById('packages');
-    if (packagesEl) packagesEl.scrollIntoView({ behavior: 'smooth' });
-    else onOpenBooking('package', destination);
+    const enquiryDetails = `${destination} | Travel date: ${travelDate} | Travellers: ${travellers}`;
+    if (onSearchPackages) onSearchPackages(enquiryDetails);
+    else onOpenBooking('package', enquiryDetails);
   };
 
   return (
