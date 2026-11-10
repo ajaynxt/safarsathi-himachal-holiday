@@ -22,20 +22,19 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
     }
 
     let index = 0;
-    const typingTimer = window.setInterval(() => {
-      index += 1;
-      setTypedTagline(tagline.slice(0, index));
-      if (index >= tagline.length) window.clearInterval(typingTimer);
-    }, 55);
-
+    let typingTimer: number | undefined;
     const startTypingTimer = window.setTimeout(() => {
-      // The tagline begins after the logo and brand name have appeared.
-    }, 650);
+      typingTimer = window.setInterval(() => {
+        index += 1;
+        setTypedTagline(tagline.slice(0, index));
+        if (index >= tagline.length && typingTimer !== undefined) window.clearInterval(typingTimer);
+      }, 55);
+    }, 1000);
     const leaveTimer = window.setTimeout(() => setLeaving(true), 2850);
     const finishTimer = window.setTimeout(onComplete, 3350);
 
     return () => {
-      window.clearInterval(typingTimer);
+      if (typingTimer !== undefined) window.clearInterval(typingTimer);
       window.clearTimeout(startTypingTimer);
       window.clearTimeout(leaveTimer);
       window.clearTimeout(finishTimer);
