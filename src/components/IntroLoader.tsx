@@ -70,19 +70,26 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
         }
       `}</style>
 
-      <div className="flex w-full max-w-2xl flex-col items-center px-4 text-center">
-        <div className="flex w-full items-center justify-center gap-2.5 sm:gap-5">
-          <div className="safar-logo-reveal flex h-32 w-32 shrink-0 items-center justify-center sm:h-44 sm:w-44">
+      <div className="flex w-full max-w-2xl flex-col items-center px-3 text-center">
+        <div className="flex w-full items-center justify-center gap-2 sm:gap-5">
+          <div className="safar-logo-reveal flex h-24 w-24 shrink-0 items-center justify-center sm:h-40 sm:w-40">
             <img
               src={`${assetBase}images/logo.png`}
-              alt="Safar Sathi"
+              alt="Safar Sathi logo"
               className="h-full w-full object-contain"
               fetchPriority="high"
-              decoding="async"
+              loading="eager"
+              decoding="sync"
+              onError={(event) => {
+                const image = event.currentTarget;
+                if (!image.src.endsWith('/logo.svg')) {
+                  image.src = `${assetBase}images/logo.svg`;
+                }
+              }}
             />
           </div>
 
-          <h1 className="min-h-[1.5em] whitespace-nowrap text-left font-cinzel text-[1.55rem] font-bold leading-tight tracking-[.025em] text-[#421e29] sm:text-5xl sm:tracking-[.055em]" aria-label={brandName}>
+          <h1 className="min-h-[1.5em] whitespace-nowrap text-left font-cinzel text-[clamp(1.12rem,5.8vw,1.7rem)] font-bold leading-tight tracking-[.01em] text-[#421e29] sm:text-5xl sm:tracking-[.055em]" aria-label={brandName}>
             <span aria-hidden="true">{typedName}</span>
             <span className="safar-cursor ml-0.5 inline-block h-[1em] w-px translate-y-[2px] bg-[#b58a58]" aria-hidden="true" />
           </h1>
