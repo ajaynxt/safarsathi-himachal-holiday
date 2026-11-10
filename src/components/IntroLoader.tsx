@@ -4,6 +4,8 @@ interface IntroLoaderProps {
   onComplete: () => void;
 }
 
+const assetBase = window.location.hostname.endsWith('github.io') ? '/safarsathi-himachal-holiday/' : '/';
+
 export function IntroLoader({ onComplete }: IntroLoaderProps) {
   const [leaving, setLeaving] = useState(false);
 
@@ -44,7 +46,7 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
 
       <div className="absolute inset-0 -z-20 overflow-hidden">
         <img
-          src={`${import.meta.env.BASE_URL}images/destinations/manali.jpg`}
+          src={`${assetBase}images/destinations/manali.jpg`}
           alt=""
           aria-hidden="true"
           fetchPriority="high"
@@ -60,7 +62,7 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
           <span className="absolute inset-[-7px] rounded-full border border-[#e3c995]/80" />
           <span className="absolute inset-[-15px] rounded-full border border-white/20" />
           <img
-            src={`${import.meta.env.BASE_URL}images/logo.png`}
+            src={`${assetBase}images/logo.png`}
             alt="Safar Sathi emblem"
             className="relative z-10 h-[88%] w-[88%] rounded-full object-contain p-2.5 sm:p-3"
             fetchPriority="high"
