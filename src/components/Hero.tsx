@@ -34,7 +34,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    onSearchPackages?.(destination);
+    onSearchPackages?.(`${destination} | Travel date: ${travelDate} | Travellers: ${travellers}`);
     const packagesEl = document.getElementById('packages');
     if (packagesEl) packagesEl.scrollIntoView({ behavior: 'smooth' });
     else onOpenBooking('package', destination);
@@ -91,6 +91,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
                 <option value="Spiti Valley Expedition">Spiti Valley</option>
                 <option value="Jammu & Kashmir Paradise">Jammu &amp; Kashmir</option>
                 <option value="Kerala Backwaters">Kerala</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Goa">Goa</option>
+                <option value="North East India">North East India</option>
                 <option value="Custom India Tour">Custom India Tour</option>
               </select>
               <ChevronDown className="h-3.5 w-3.5 shrink-0 text-slate-400" />
