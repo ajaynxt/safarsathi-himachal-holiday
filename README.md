@@ -1,4 +1,4 @@
-# 🏔️ SafarSathi (Himachal Holiday) — Official Travel Web Platform
+# Safar Sathi — Official Travel Website
 
 > **"Your Journey, Our Responsibility"**  
 > Premier Himalayan tour packages, sanitized private taxi fleets, Volvo bus services, and verified luxury mountain stays.
@@ -6,7 +6,7 @@
 ---
 
 ## 🌟 Overview
-**SafarSathi (Himachal Holiday)** is a modern, high-converting tour and travels platform built with **React 18, TypeScript, Tailwind CSS, and Vite**. Headquartered at **New Bus Stand, Tutikandi, Shimla (H.P.)**, the platform is designed to provide transparent itineraries, instant WhatsApp booking quotes, verified hill drivers, and handpicked stays across the Himalayas.
+**Safar Sathi** is a modern, high-converting tour and travels platform built with **React 18, TypeScript, Tailwind CSS, and Vite**. Headquartered at **New Bus Stand, Tutikandi, Shimla (H.P.)**, the platform is designed to provide transparent itineraries, instant WhatsApp booking quotes, verified hill drivers, and handpicked stays across the Himalayas.
 
 ---
 
@@ -66,7 +66,7 @@
 ---
 
 ## 📍 Contact & Head Office
-- **Brand:** SafarSathi • Himachal Holiday
+- **Brand:** Safar Sathi
 - **Phone:** +91 83519 87587
 - **Email:** safarsathi.india@gmail.com
 - **Address:** New Bus Stand, Tutikandi, Shimla - 171004, Himachal Pradesh, India
