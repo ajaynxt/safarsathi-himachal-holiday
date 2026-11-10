@@ -54,17 +54,17 @@ export interface Hotel {
 
 export const COMPANY_INFO = {
   name: "SafarSathi",
-  subName: "Himachal Holiday",
+  subName: "",
   tagline: "Your Journey Our Responsibility",
-  subTagline: "Your Himalayan Escape",
+  subTagline: "All States & Pan-India Tour Packages",
   phone: "8351987587",
   phoneDisplay: "+91 83519 87587",
   email: "safarsathi.india@gmail.com",
   instagram: "https://www.instagram.com/safar_sathiindia?xtok=MW1vNnhiMWx3dW9zaA==",
   instagramHandle: "@safar_sathiindia",
-  address: "New Bus Stand, Tutikandi, Shimla - 171004, Himachal Pradesh, India",
+  address: "100% Online Travel Services & 24x7 Customer Support Desk (Pan-India)",
   whatsappUrl: (msg: string) => `https://wa.me/918351987587?text=${encodeURIComponent(msg)}`,
-  serviceLocations: ["Delhi NCR", "Chandigarh", "Shimla", "Manali", "Dharamshala", "Spiti", "Amritsar", "Jammu & Kashmir"]
+  serviceLocations: ["All Indian States", "Himachal Pradesh", "Uttarakhand", "Jammu & Kashmir", "Ladakh", "Rajasthan", "Goa", "Kerala", "North East", "Delhi NCR & Pan-India"]
 };
 
 export const TOUR_PACKAGES: TourPackage[] = [
@@ -309,7 +309,7 @@ export const HOTEL_STAYS: Hotel[] = [
     name: "SafarSathi.in Resort & Suites - Shimla",
     category: "Luxury",
     rating: 4.9,
-    location: "Near Mall Road & Tutikandi, Shimla",
+    location: "Near Mall Road & Ridge, Shimla",
     priceRange: "Included in Tour Package",
     image: `/safarsathi-himachal-holiday/images/hotels/shimla/shimla_01.jpeg`,
     gallery: [
@@ -433,7 +433,7 @@ export const TESTIMONIALS = [
     location: "Pune, Maharashtra",
     tour: "Spiti Valley Expedition",
     rating: 5,
-    comment: "Taking my family to Spiti was a big responsibility. The team at Tutikandi Shimla handled oxygen backups, homestays, and weather updates smoothly. Real local pahadi expertise!",
+    comment: "Taking my family to Spiti was a big responsibility. The team at SafarSathi handled oxygen backups, homestays, and weather updates smoothly. Real local expertise!",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
   },
   {

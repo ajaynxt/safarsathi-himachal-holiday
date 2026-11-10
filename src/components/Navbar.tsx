@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, MessageCircle, Menu, X, MapPin, Plane } from 'lucide-react';
-import { InstagramIcon } from './InstagramIcon';
+import { Phone, Menu, X } from 'lucide-react';
 import { COMPANY_INFO } from '../data/travelData';
 
 interface NavbarProps {
   onOpenBooking: (initialType?: 'package' | 'cab' | 'hotel', itemName?: string) => void;
+  onOpenOfferPopup?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOfferPopup }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -19,263 +19,197 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleEnquireClick = () => {
+    if (onOpenOfferPopup) {
+      onOpenOfferPopup();
+    } else {
+      onOpenBooking('package', 'Himalayan Tour Enquiry');
+    }
+  };
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-2.5' : 'bg-gradient-to-b from-black/70 via-black/40 to-transparent py-4'
+      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-2.5' : 'bg-gradient-to-b from-black/70 via-black/40 to-transparent py-3.5 sm:py-4'
     }`}>
-      {/* Top micro banner on desktop when not scrolled */}
-      {!isScrolled && (
-        <div className="hidden lg:block border-b border-white/10 pb-2 mb-2 text-xs text-white/90">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-            <div className="flex items-center space-x-6">
-              <span className="flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-brand-orange" />
-                Office: New Bus Stand, Tutikandi, Shimla (H.P.)
-              </span>
-              <span>•</span>
-              <span>Taxis & Packages in Delhi, Chandigarh & Himachal</span>
-            </div>
-            <div className="flex items-center space-x-4">
-              <a
-                href={COMPANY_INFO.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 text-slate-200 hover:text-pink-400 transition-colors font-medium"
-              >
-                <InstagramIcon className="w-3.5 h-3.5 text-pink-400" />
-                <span>{COMPANY_INFO.instagramHandle}</span>
-              </a>
-              <span>•</span>
-              <span className="font-semibold text-brand-orange">24x7 Road Support: {COMPANY_INFO.phoneDisplay}</span>
-            </div>
-          </div>
-        </div>
-      )}
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo with both SVG / image support & Animated Flight */}
-          <a href="#" className="flex items-center gap-2 group relative">
-            <div className="h-11 sm:h-12 flex items-center relative">
+          
+          {/* Official SafarSathi Logo with Crisp Backing */}
+          <a href="#" className="flex items-center gap-2 group">
+            <div className="h-10 sm:h-12 px-3 py-1 bg-white/95 backdrop-blur-md rounded-xl shadow-md border border-white/50 flex items-center transition-transform group-hover:scale-105">
               <img 
-                src={`/safarsathi-himachal-holiday/images/logo.svg`} 
+                src={`${import.meta.env.BASE_URL}images/logo.png`} 
                 alt="SafarSathi - Your Journey Our Responsibility" 
-                className="h-full w-auto object-contain filter drop-shadow-sm transition-transform group-hover:scale-105"
-                onError={(e) => {
-                  // Fallback to png if needed
-                  const target = e.target as HTMLImageElement;
-                  if (target.src.endsWith('.svg')) {
-                    target.src = `/safarsathi-himachal-holiday/images/logo.png`; 
-                  }
-                }}
+                className="h-7 sm:h-9 w-auto object-contain"
               />
-              {/* Animated flight badge on logo */}
-              <div className="absolute -top-1 -right-2 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
-                <Plane className="w-3.5 h-3.5 text-brand-orange fill-brand-orange drop-shadow animate-pulse" />
-              </div>
             </div>
           </a>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
+          {/* Desktop Nav Links matching Reference 1: Home, Destinations, Packages, About Us, Contact Us */}
+          <nav className="hidden lg:flex items-center space-x-7">
+            <a 
+              href="#" 
+              className={`text-sm font-semibold transition-colors hover:text-amber-400 ${
+                isScrolled ? 'text-slate-800' : 'text-white drop-shadow'
+              }`}
+            >
+              Home
+            </a>
+            <a 
+              href="#destinations" 
+              className={`text-sm font-semibold transition-colors hover:text-amber-400 ${
+                isScrolled ? 'text-slate-800' : 'text-white drop-shadow'
+              }`}
+            >
+              Destinations
+            </a>
             <a 
               href="#packages" 
-              className={`text-sm font-semibold transition-colors hover:text-brand-orange ${
-                isScrolled ? 'text-slate-700' : 'text-white drop-shadow'
+              className={`text-sm font-semibold transition-colors hover:text-amber-400 ${
+                isScrolled ? 'text-slate-800' : 'text-white drop-shadow'
               }`}
+            >
+              Packages
+            </a>
+            <a 
+              href="#cabs" 
+              className={`text-sm font-semibold transition-colors hover:text-amber-400 ${
+                isScrolled ? 'text-slate-800' : 'text-white drop-shadow'
+              }`}
+            >
+              Taxi &amp; Cabs
+            </a>
+            <a 
+              href="#why-us" 
+              className={`text-sm font-semibold transition-colors hover:text-amber-400 ${
+                isScrolled ? 'text-slate-800' : 'text-white drop-shadow'
+              }`}
+            >
+              About Us
+            </a>
+            <a 
+              href="#contact" 
+              className={`text-sm font-semibold transition-colors hover:text-amber-400 ${
+                isScrolled ? 'text-slate-800' : 'text-white drop-shadow'
+              }`}
+            >
+              Contact Us
+            </a>
+          </nav>
+
+          {/* Right Header Actions matching Reference 1 */}
+          <div className="hidden sm:flex items-center space-x-3.5">
+            {/* Phone Pill */}
+            <a 
+              href={`tel:${COMPANY_INFO.phone}`}
+              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-xs sm:text-sm font-bold transition-all ${
+                isScrolled
+                  ? 'border-slate-300 text-slate-800 hover:border-amber-500 hover:text-amber-600'
+                  : 'border-white/30 text-white hover:border-white hover:bg-white/10 backdrop-blur-sm'
+              }`}
+            >
+              <Phone className="w-3.5 h-3.5 text-amber-400" />
+              <span>{COMPANY_INFO.phoneDisplay}</span>
+            </a>
+
+            {/* Golden Enquire Now Pill Button */}
+            <button
+              onClick={handleEnquireClick}
+              className="px-5 py-2 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-500 hover:to-amber-700 text-slate-950 font-extrabold text-xs sm:text-sm tracking-wide shadow-md hover:shadow-lg transition-all transform active:scale-95"
+            >
+              Enquire Now
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <button
+              onClick={handleEnquireClick}
+              className="px-3 py-1.5 rounded-full bg-amber-500 text-slate-950 text-xs font-bold sm:hidden"
+            >
+              Enquire
+            </button>
+
+            <button 
+              type="button"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className={`p-2 rounded-xl transition-colors ${
+                isScrolled ? 'text-slate-800 hover:bg-slate-100' : 'text-white hover:bg-white/10'
+              }`}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      {/* Mobile Drawer Menu */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-slate-950/95 backdrop-blur-xl border-b border-white/10 text-white px-5 py-5 space-y-4 animate-fade-in shadow-2xl">
+          <nav className="flex flex-col space-y-3 font-semibold text-sm">
+            <a 
+              href="#" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-white hover:text-amber-400 py-1"
+            >
+              Home
+            </a>
+            <a 
+              href="#destinations" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-white hover:text-amber-400 py-1"
+            >
+              Popular Destinations (Shimla, Manali, Spiti, Ladakh)
+            </a>
+            <a 
+              href="#packages" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-white hover:text-amber-400 py-1"
             >
               Tour Packages
             </a>
             <a 
               href="#cabs" 
-              className={`text-sm font-semibold transition-colors hover:text-brand-orange ${
-                isScrolled ? 'text-slate-700' : 'text-white drop-shadow'
-              }`}
-            >
-              Taxi & Cabs
-            </a>
-            <a 
-              href="#routes" 
-              className={`text-sm font-semibold transition-colors hover:text-brand-orange ${
-                isScrolled ? 'text-slate-700' : 'text-white drop-shadow'
-              }`}
-            >
-              Routes
-            </a>
-            <a 
-              href="#hotels" 
-              className={`text-sm font-semibold transition-colors hover:text-brand-orange ${
-                isScrolled ? 'text-slate-700' : 'text-white drop-shadow'
-              }`}
-            >
-              Hotels & Stays
-            </a>
-            <a 
-              href="#volvo" 
-              className={`text-sm font-semibold transition-colors hover:text-brand-orange ${
-                isScrolled ? 'text-slate-700' : 'text-white drop-shadow'
-              }`}
-            >
-              Volvo Bus
-            </a>
-            <a 
-              href="#faq" 
-              className={`text-sm font-semibold transition-colors hover:text-brand-orange ${
-                isScrolled ? 'text-slate-700' : 'text-white drop-shadow'
-              }`}
-            >
-              FAQs
-            </a>
-            <a 
-              href="#contact" 
-              className={`text-sm font-semibold transition-colors hover:text-brand-orange ${
-                isScrolled ? 'text-slate-700' : 'text-white drop-shadow'
-              }`}
-            >
-              Contact
-            </a>
-          </nav>
-
-          {/* Actions & Buttons */}
-          <div className="hidden sm:flex items-center space-x-3">
-            <a
-              href={COMPANY_INFO.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-full border border-pink-500/30 text-pink-500 bg-pink-500/10 hover:bg-pink-600 hover:text-white transition-all"
-              title="Follow SafarSathi on Instagram"
-            >
-              <InstagramIcon className="w-4 h-4" />
-            </a>
-
-            <a
-              href={`tel:${COMPANY_INFO.phone}`}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-full border border-brand-orange/40 text-brand-orange bg-brand-orange/10 hover:bg-brand-orange hover:text-white transition-all text-xs font-bold"
-            >
-              <Phone className="w-3.5 h-3.5" />
-              <span>{COMPANY_INFO.phoneDisplay}</span>
-            </a>
-
-            <button
-              onClick={() => onOpenBooking('package')}
-              className="px-4 py-2 rounded-full bg-brand-orange hover:bg-brand-orange-dark text-white text-xs font-bold shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5"
-            >
-              Book Now
-            </button>
-          </div>
-
-          {/* Mobile hamburger button */}
-          <div className="flex md:hidden items-center gap-2">
-            <a
-              href={`tel:${COMPANY_INFO.phone}`}
-              className="p-2 rounded-full bg-brand-orange text-white"
-              title="Call Us"
-            >
-              <Phone className="w-4 h-4" />
-            </a>
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-2 rounded-lg ${isScrolled ? 'text-slate-800' : 'text-white'}`}
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 shadow-xl space-y-3 animate-in fade-in slide-in-from-top-2">
-          <div className="py-2 border-b border-slate-100 flex items-center justify-between text-xs text-slate-500">
-            <span>Shimla Tutikandi Office: 24x7 Assistance</span>
-            <span className="font-bold text-brand-orange">8351987587</span>
-          </div>
-          <div className="grid grid-cols-2 gap-2 text-sm font-semibold">
-            <a 
-              href="#packages" 
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2.5 rounded-lg bg-slate-50 text-slate-800 hover:bg-brand-orange-light hover:text-brand-orange"
+              className="text-white hover:text-amber-400 py-1"
             >
-              🏔️ Tour Packages
-            </a>
-            <a 
-              href="#cabs" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-2.5 rounded-lg bg-slate-50 text-slate-800 hover:bg-brand-orange-light hover:text-brand-orange"
-            >
-              🚖 All-White Cabs
-            </a>
-            <a 
-              href="#routes" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-2.5 rounded-lg bg-slate-50 text-slate-800 hover:bg-brand-orange-light hover:text-brand-orange"
-            >
-              🗺️ Popular Routes
-            </a>
-            <a 
-              href="#hotels" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-2.5 rounded-lg bg-slate-50 text-slate-800 hover:bg-brand-orange-light hover:text-brand-orange"
-            >
-              🏨 Hotels & Stays
-            </a>
-            <a 
-              href="#volvo" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-2.5 rounded-lg bg-slate-50 text-slate-800 hover:bg-brand-orange-light hover:text-brand-orange"
-            >
-              🚌 Volvo Bus
-            </a>
-            <a 
-              href="#faq" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-2.5 rounded-lg bg-slate-50 text-slate-800 hover:bg-brand-orange-light hover:text-brand-orange"
-            >
-              ❓ FAQs & Permits
+              White Taxi Fleet
             </a>
             <a 
               href="#why-us" 
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2.5 rounded-lg bg-slate-50 text-slate-800 hover:bg-brand-orange-light hover:text-brand-orange"
+              className="text-white hover:text-amber-400 py-1"
             >
-              ⭐ Why Us
+              About Us &amp; Guarantee
             </a>
             <a 
               href="#contact" 
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2.5 rounded-lg bg-slate-50 text-slate-800 hover:bg-brand-orange-light hover:text-brand-orange"
+              className="text-white hover:text-amber-400 py-1"
             >
-              📞 Contact Us
+              Contact &amp; 24x7 Online Desk
             </a>
-          </div>
+          </nav>
 
-          <div className="pt-2 flex flex-col gap-2">
+          <div className="pt-3 border-t border-white/10 flex flex-col gap-2.5">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
-                onOpenBooking('package');
+                handleEnquireClick();
               }}
-              className="w-full py-2.5 bg-brand-orange text-white font-bold rounded-xl text-center text-sm shadow-md"
+              className="w-full py-2.5 rounded-xl bg-amber-500 text-slate-950 font-bold text-sm text-center shadow-md"
             >
-              Book Custom Tour / Cab
+              ✨ Enquire Now (Flat 20% OFF)
             </button>
+
             <a
-              href={COMPANY_INFO.whatsappUrl("Hello SafarSathi, I would like to enquire about Himachal Tour packages and cab booking.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full py-2.5 bg-green-600 text-white font-bold rounded-xl text-center text-sm flex items-center justify-center gap-2 shadow"
+              href={`tel:${COMPANY_INFO.phone}`}
+              className="w-full py-2.5 rounded-xl border border-white/20 text-white font-bold text-sm flex items-center justify-center gap-2"
             >
-              <MessageCircle className="w-4 h-4" />
-              Chat on WhatsApp
-            </a>
-            <a
-              href={COMPANY_INFO.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full py-2.5 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 text-white font-bold rounded-xl text-center text-sm flex items-center justify-center gap-2 shadow"
-            >
-              <InstagramIcon className="w-4 h-4" />
-              Follow on Instagram ({COMPANY_INFO.instagramHandle})
+              <Phone className="w-4 h-4 text-amber-400" />
+              <span>Call: {COMPANY_INFO.phoneDisplay}</span>
             </a>
           </div>
         </div>

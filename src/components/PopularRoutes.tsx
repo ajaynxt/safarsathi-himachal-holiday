@@ -17,7 +17,7 @@ const POPULAR_ROUTES: RouteItem[] = [
   {
     id: 'chd-shimla',
     from: 'Chandigarh / Airport',
-    to: 'Shimla (Mall Road / Tutikandi)',
+    to: 'Shimla (Mall Road / ISBT)',
     distance: '115 km',
     duration: '3.5 Hours',
     highway: 'Himalayan Expressway (NH 5)',
@@ -66,7 +66,7 @@ const POPULAR_ROUTES: RouteItem[] = [
   },
   {
     id: 'shimla-manali',
-    from: 'Shimla (Tutikandi / Hotel)',
+    from: 'Shimla (Mall Road / Hotel)',
     to: 'Manali via Kullu Valley',
     distance: '240 km',
     duration: '6.5 Hours',

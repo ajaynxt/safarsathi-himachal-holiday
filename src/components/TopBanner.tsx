@@ -16,7 +16,7 @@ export const TopBanner: React.FC = () => {
             Special Offer
           </span>
           <p className="truncate text-slate-200">
-            <strong className="text-white font-bold">Snow Season 2026:</strong> Flat 15% Off on All-White Innova Crysta & Tempo Traveller Bookings!
+            <strong className="text-white font-bold">All States &amp; Snow Season:</strong> Flat 15% Off on All-White Innova Crysta &amp; Tour Packages Across India!
           </p>
         </div>
 

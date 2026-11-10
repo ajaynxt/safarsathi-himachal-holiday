@@ -6,8 +6,8 @@ export const WhyChooseUs: React.FC = () => {
   const reasons = [
     {
       icon: <ShieldCheck className="w-6 h-6 text-brand-orange" />,
-      title: "100% Shimla Local Advantage",
-      description: "Our physical head office is right at New Bus Stand, Tutikandi, Shimla. When weather changes or mountain roads get blocked, our local network resolves it instantly."
+      title: "100% Online & Hassle-Free Booking",
+      description: "Zero office visits needed. Plan, customize and book your complete tour package or outstation cab online via WhatsApp with instant digital confirmation."
     },
     {
       icon: <Compass className="w-6 h-6 text-brand-orange" />,
@@ -44,7 +44,7 @@ export const WhyChooseUs: React.FC = () => {
             <span>The SafarSathi Promise</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-brand-navy tracking-tight">
-            Why Thousands of Travelers Trust Himachal Holiday
+            Why Thousands of Travelers Trust SafarSathi Across All States
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600">
             From the bustling plains of Delhi & Chandigarh to the serene snow peaks of the Himalayas, we take full responsibility of your journey.
@@ -70,17 +70,17 @@ export const WhyChooseUs: React.FC = () => {
           ))}
         </div>
 
-        {/* Local Office Address Card */}
+        {/* 100% Online Booking & Customer Support Card */}
         <div className="mt-14 bg-gradient-to-r from-slate-900 via-brand-navy to-slate-900 rounded-3xl p-6 sm:p-10 text-white flex flex-col lg:flex-row items-center justify-between gap-6 shadow-2xl">
           <div className="space-y-2 text-center lg:text-left">
-            <span className="text-brand-orange text-xs font-bold uppercase tracking-wider">
-              Walk Into Our Office In Shimla
+            <span className="text-amber-400 text-xs font-bold uppercase tracking-wider">
+              100% Online Booking &amp; 24x7 Support
             </span>
             <h3 className="text-xl sm:text-2xl font-bold">
               {COMPANY_INFO.address}
             </h3>
             <p className="text-xs sm:text-sm text-slate-300">
-              Directly opposite the Tutikandi New Bus Stand. Have a cup of Pahadi chai with us while we plan your tour!
+              Book effortlessly from any state across India. Instant quotes, verified vehicle allocation, and personal WhatsApp support throughout your journey!
             </p>
           </div>
 

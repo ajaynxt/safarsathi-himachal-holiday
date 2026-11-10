@@ -104,7 +104,7 @@ export const IntroFlightAnimation: React.FC<IntroFlightAnimationProps> = ({ onCo
         <div className="space-y-2 animate-fade-in-up">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[11px] sm:text-xs font-bold text-amber-300 uppercase tracking-widest">
             <Sparkles className="w-3 h-3 text-brand-orange" />
-            <span>Himachal Holiday Specialists</span>
+            <span>All-India Travel Platform</span>
           </div>
 
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
@@ -122,7 +122,7 @@ export const IntroFlightAnimation: React.FC<IntroFlightAnimationProps> = ({ onCo
         </div>
 
         <p className="mt-2.5 text-[11px] text-slate-400 font-mono tracking-wider">
-          Connecting to Shimla Head Office...
+          Connecting to 24x7 Online Desk...
         </p>
       </div>
 

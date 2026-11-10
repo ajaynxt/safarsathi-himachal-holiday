@@ -37,22 +37,22 @@ export const ContactSection: React.FC = () => {
           {/* Left Info Column */}
           <div className="lg:col-span-5 bg-gradient-to-br from-brand-navy to-brand-navy-light text-white rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">
             <div>
-              <span className="text-xs uppercase tracking-wider font-bold text-brand-orange">
-                Head Office & Dispatch Center
+              <span className="text-xs uppercase tracking-wider font-bold text-amber-400">
+                100% Online Booking &amp; 24x7 Desk
               </span>
-              <h3 className="text-xl sm:text-2xl font-bold mt-1">SafarSathi • Himachal Holiday</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mt-1">SafarSathi India</h3>
               <p className="text-xs sm:text-sm text-slate-300 mt-2">
-                Your reliable local partner for Himalayan tours, verified mountain cabs, and hotel bookings across Delhi, Chandigarh, and Himachal Pradesh.
+                Your trusted online partner for customized holiday packages, 100% sanitized private white cabs, and verified hotel stays across all Indian states.
               </p>
             </div>
 
             <div className="space-y-4 pt-4 border-t border-white/10 text-sm">
               <div className="flex items-start gap-3">
-                <div className="p-2.5 rounded-xl bg-white/10 text-brand-orange flex-shrink-0">
+                <div className="p-2.5 rounded-xl bg-white/10 text-amber-400 flex-shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-xs uppercase tracking-wider text-slate-300">Office Address</h4>
+                  <h4 className="font-bold text-xs uppercase tracking-wider text-slate-300">Service Coverage</h4>
                   <p className="text-slate-100 font-medium text-xs sm:text-sm mt-0.5">
                     {COMPANY_INFO.address}
                   </p>

@@ -31,7 +31,7 @@ export const FeaturedPackages: React.FC<FeaturedPackagesProps> = ({ onBookPackag
             Best Selling All-India & Himalayan Tour Packages
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600">
-            Transparent pricing, 100% private sanitized cabs, curated luxury stays, and personalized care from our Shimla office.
+            Transparent pricing, 100% private sanitized cabs, curated luxury stays, and personalized 24x7 online care across all states.
           </p>
 
           {/* Filter Chips */}

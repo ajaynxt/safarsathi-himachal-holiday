@@ -251,7 +251,7 @@ Please check availability and send confirmed quotation.`;
               </div>
 
               <p className="text-[10px] text-center text-slate-400">
-                ⭐ Shimla Tutikandi Local Dispatch Office • Zero Booking Fee • 100% Verified
+                ⭐ 100% Online Booking • Zero Advance Fee • Verified All-India White Fleet
               </p>
             </form>
           )}

@@ -10,25 +10,21 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand Info */}
           <div className="space-y-4">
-            <div className="h-12 flex items-center">
+            <div className="h-11 px-3 py-1 bg-white rounded-xl shadow-md inline-flex items-center">
               <img
-                src="/images/logo.svg"
-                alt="SafarSathi"
-                className="h-full w-auto object-contain filter brightness-110 drop-shadow"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  if (target.src.endsWith('.svg')) target.src = '/images/logo.png';
-                }}
+                src={`${import.meta.env.BASE_URL}images/logo.png`}
+                alt="SafarSathi - Your Journey Our Responsibility"
+                className="h-8 w-auto object-contain"
               />
             </div>
 
             <p className="text-xs text-slate-400 leading-relaxed">
-              <strong>SafarSathi (Himachal Holiday)</strong> is your premier Himalayan travel agency based directly at Tutikandi, Shimla. Specializing in All-India tours, sanitized mountain cabs, Volvo bus services, and handpicked luxury hotels.
+              <strong>SafarSathi</strong> is India&apos;s trusted online travel platform. Specializing in custom tour packages across all Indian states, 100% commercial sanitized white cabs, Volvo bus services, and handpicked luxury hotels.
             </p>
 
-            <div className="flex items-center gap-2 text-xs text-brand-orange font-bold">
+            <div className="flex items-center gap-2 text-xs text-amber-400 font-bold">
               <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              <span>Government Registered & HP Tourism Approved</span>
+              <span>100% Verified Online Bookings &amp; 24x7 Road Support</span>
             </div>
           </div>
 
@@ -72,7 +68,7 @@ export const Footer: React.FC = () => {
           {/* Contact Details */}
           <div>
             <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-brand-orange pl-2.5">
-              Shimla Head Office
+              24x7 Online Desk (All States)
             </h4>
             <div className="space-y-3 text-xs text-slate-300">
               <p className="flex items-start gap-2">
@@ -112,7 +108,7 @@ export const Footer: React.FC = () => {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>
-            © {new Date().getFullYear()} <strong>SafarSathi (Himachal Holiday)</strong>. All Rights Reserved.
+            © {new Date().getFullYear()} <strong>SafarSathi</strong>. All Rights Reserved.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 text-xs">

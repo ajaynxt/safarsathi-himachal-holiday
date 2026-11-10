@@ -1,25 +1,44 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { TopBanner } from './components/TopBanner';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { TrustBar } from './components/TrustBar';
+import { PopularDestinations } from './components/PopularDestinations';
 import { FeaturedPackages } from './components/FeaturedPackages';
-import { DestinationGuides } from './components/DestinationGuides';
 import { VehicleFleet } from './components/VehicleFleet';
 import { PopularRoutes } from './components/PopularRoutes';
 import { HotelShowcase } from './components/HotelShowcase';
+import { BentoExperience } from './components/BentoExperience';
 import { WhyChooseUs } from './components/WhyChooseUs';
 import { FaqSection } from './components/FaqSection';
 import { ReviewsSection } from './components/ReviewsSection';
+import { AdventureBanner } from './components/AdventureBanner';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { BookingModal } from './components/BookingModal';
 import { StickyMobileBar } from './components/StickyMobileBar';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
+import { AnimatedOfferPopup } from './components/AnimatedOfferPopup';
+import { Sparkles, Plane } from 'lucide-react';
 
 export function App() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [bookingType, setBookingType] = useState<'package' | 'cab' | 'hotel' | 'volvo'>('package');
   const [selectedItemName, setSelectedItemName] = useState('');
+  const [isOfferPopupOpen, setIsOfferPopupOpen] = useState(false);
+
+  // Auto-open the animated offer popup after a gentle delay on first session visit
+  useEffect(() => {
+    if (window.location.search.includes('nopopup')) return;
+    const hasSeenPopup = sessionStorage.getItem('safarsathi_offer_seen');
+    if (!hasSeenPopup) {
+      const timer = setTimeout(() => {
+        setIsOfferPopupOpen(true);
+        sessionStorage.setItem('safarsathi_offer_seen', 'true');
+      }, 1600);
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   const handleOpenBooking = (type: 'package' | 'cab' | 'hotel' | 'volvo' = 'package', itemName: string = '') => {
     setBookingType(type);
@@ -27,26 +46,41 @@ export function App() {
     setIsBookingOpen(true);
   };
 
+  const handleDestinationSelect = (destName: string) => {
+    handleOpenBooking('package', `${destName} Tour Package`);
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       {/* Top Urgent Offer / Seasonal Banner */}
       <TopBanner />
 
-      {/* Top Navbar */}
-      <Navbar onOpenBooking={(type, item) => handleOpenBooking(type || 'package', item || '')} />
+      {/* Top Navbar matching Reference 1 */}
+      <Navbar 
+        onOpenBooking={(type, item) => handleOpenBooking(type || 'package', item || '')} 
+        onOpenOfferPopup={() => setIsOfferPopupOpen(true)}
+      />
 
       {/* Main Content */}
       <main className="flex-1">
-        {/* Hero Section with Search Engine */}
-        <Hero onOpenBooking={(type, item) => handleOpenBooking(type || 'package', item || '')} />
+        {/* Hero Section with Search Pill matching Reference 1 */}
+        <Hero 
+          onOpenBooking={(type, item) => handleOpenBooking(type || 'package', item || '')}
+          onSearchPackages={(dest) => handleOpenBooking('package', dest)}
+        />
+
+        {/* 4-Item Trust Bar directly below Hero matching Reference 1 */}
+        <TrustBar />
+
+        {/* Popular Destinations section with User-Uploaded Custom Posters (Shimla, Manali, Spiti, Ladakh) */}
+        <PopularDestinations 
+          onSelectDestination={handleDestinationSelect} 
+        />
 
         {/* Handpicked Tour Packages */}
         <FeaturedPackages onBookPackage={(title) => handleOpenBooking('package', title)} />
 
-        {/* Search-friendly destination guides */}
-        <DestinationGuides />
-
-        {/* Taxi, Cab & Volvo Fleet */}
+        {/* Taxi, Cab & Volvo Fleet (100% All-White Cars) */}
         <VehicleFleet onBookCab={(carName) => handleOpenBooking('cab', carName)} />
 
         {/* Popular Himalayan Taxi Routes & Doorstep Pickups */}
@@ -55,7 +89,10 @@ export function App() {
         {/* Verified Hotels in Shimla, Manali, Kasol, Amritsar, Srinagar */}
         <HotelShowcase onBookHotel={(hotelName) => handleOpenBooking('hotel', hotelName)} />
 
-        {/* Why Choose SafarSathi / Himachal Holiday */}
+        {/* Bento Experience Grid & Numbers matching Reference 3 */}
+        <BentoExperience onOpenBooking={handleOpenBooking} />
+
+        {/* Why Choose SafarSathi */}
         <WhyChooseUs />
 
         {/* Frequently Asked Questions */}
@@ -64,12 +101,27 @@ export function App() {
         {/* Google & Traveler Reviews */}
         <ReviewsSection />
 
+        {/* Curved Organic Adventure Banner matching Reference 2 */}
+        <AdventureBanner />
+
         {/* Contact Us & Shimla Office */}
         <ContactSection />
       </main>
 
       {/* Footer */}
       <Footer />
+
+      {/* Floating Offer Pill to Re-open the Animated Offer Popup anytime */}
+      <button
+        onClick={() => setIsOfferPopupOpen(true)}
+        className="fixed bottom-24 left-4 z-40 hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-full bg-slate-900/90 hover:bg-slate-900 text-amber-400 border border-amber-400/40 shadow-xl backdrop-blur-md text-xs font-bold transition-all hover:scale-105 active:scale-95 group"
+      >
+        <div className="w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center">
+          <Plane className="w-3 h-3 text-amber-400 transform rotate-45 group-hover:translate-x-0.5 transition-transform" />
+        </div>
+        <span>Special 20% Offer</span>
+        <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-spin" style={{ animationDuration: '3s' }} />
+      </button>
 
       {/* Persistent Floating WhatsApp Help Desk */}
       <FloatingWhatsApp />
@@ -83,6 +135,13 @@ export function App() {
         onClose={() => setIsBookingOpen(false)}
         initialType={bookingType}
         itemName={selectedItemName}
+      />
+
+      {/* Animated Flight & Special Offer Popup Modal */}
+      <AnimatedOfferPopup
+        isOpen={isOfferPopupOpen}
+        onClose={() => setIsOfferPopupOpen(false)}
+        onSelectDestination={handleDestinationSelect}
       />
     </div>
   );

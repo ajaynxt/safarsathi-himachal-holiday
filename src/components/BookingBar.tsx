@@ -203,7 +203,7 @@ export const BookingBar: React.FC<BookingBarProps> = ({ onQuickBook }) => {
               >
                 <option value="Delhi Airport / Station">Delhi (Airport / Rly Station)</option>
                 <option value="Chandigarh Airport / Station">Chandigarh (Airport / Station)</option>
-                <option value="Shimla Local / Tutikandi">Shimla (Local / Bus Stand)</option>
+                <option value="Shimla (ISBT / Mall Road)">Shimla (ISBT / Mall Road)</option>
                 <option value="Kalka Railway Station">Kalka Railway Station</option>
                 <option value="Manali">Manali Local</option>
                 <option value="Amritsar">Amritsar</option>
