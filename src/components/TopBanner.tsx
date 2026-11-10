@@ -3,7 +3,7 @@ import { Phone, MessageCircle } from 'lucide-react';
 import { COMPANY_INFO } from '../data/travelData';
 
 export const TopBanner: React.FC = () => (
-  <div className="relative z-[60] w-full border-b border-slate-200 bg-white px-4 py-2 text-[11px] text-slate-700 sm:text-xs">
+  <div className="sticky top-0 z-[60] w-full border-b border-slate-200 bg-white px-4 py-2 text-[11px] text-slate-700 sm:text-xs">
     <div className="mx-auto flex max-w-7xl items-center justify-between gap-3">
       <p className="truncate font-medium">Plan your next journey with Safar Sathi</p>
       <div className="flex shrink-0 items-center gap-3">
