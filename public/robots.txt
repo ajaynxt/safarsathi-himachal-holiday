@@ -1,4 +1,17 @@
+# Public website pages are available to search engines and AI answer engines.
 User-agent: *
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-SearchBot
 Allow: /
 
 Sitemap: https://safarsathi.in/sitemap.xml
