@@ -225,8 +225,6 @@ Please check availability and send confirmed quotation.`;
                     <option value="Force Tempo Traveller">Tempo Traveller (9-17 Seater White Coach)</option>
                     <option value="Luxury Volvo AC Bus">Luxury Volvo AC Bus (Indian Coach)</option>
                   </select>
-                </div>
-
               </div>
               )}
               {bookingType === 'hotel' && (
