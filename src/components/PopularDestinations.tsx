@@ -6,9 +6,9 @@ interface PopularDestinationsProps {
 }
 
 export const PopularDestinations: React.FC<PopularDestinationsProps> = ({ onSelectDestination }) => {
-  const asset = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\\/+/, '')}`;
+  const asset = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
 
-const destinations = [
+  const destinations = [
     {
       id: 'shimla',
       image: asset('images/destinations/shimla.jpg'),
