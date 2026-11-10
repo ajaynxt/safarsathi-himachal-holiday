@@ -5,14 +5,11 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { TrustBar } from './components/TrustBar';
 import { PopularDestinations } from './components/PopularDestinations';
-import { FeaturedPackages } from './components/FeaturedPackages';
 import { VehicleFleet } from './components/VehicleFleet';
 import { PopularRoutes } from './components/PopularRoutes';
-import { HotelShowcase } from './components/HotelShowcase';
 import { BentoExperience } from './components/BentoExperience';
 import { WhyChooseUs } from './components/WhyChooseUs';
 import { FaqSection } from './components/FaqSection';
-import { ReviewsSection } from './components/ReviewsSection';
 import { AdventureBanner } from './components/AdventureBanner';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -68,17 +65,11 @@ export function App() {
           onSelectDestination={handleDestinationSelect} 
         />
 
-        {/* Handpicked Tour Packages */}
-        <FeaturedPackages onBookPackage={(title) => handleOpenBooking('package', title)} />
-
         {/* Taxi, Cab & Volvo Fleet (100% All-White Cars) */}
         <VehicleFleet onBookCab={(carName) => handleOpenBooking('cab', carName)} />
 
         {/* Popular Himalayan Taxi Routes & Doorstep Pickups */}
         <PopularRoutes onBookRoute={(routeName) => handleOpenBooking('cab', routeName)} />
-
-        {/* Verified Hotels in Shimla, Manali, Kasol, Amritsar, Srinagar */}
-        <HotelShowcase onBookHotel={(hotelName) => handleOpenBooking('hotel', hotelName)} />
 
         {/* Bento Experience Grid & Numbers matching Reference 3 */}
         <BentoExperience onOpenBooking={handleOpenBooking} />
@@ -88,9 +79,6 @@ export function App() {
 
         {/* Frequently Asked Questions */}
         <FaqSection />
-
-        {/* Google & Traveler Reviews */}
-        <ReviewsSection />
 
         {/* Curved Organic Adventure Banner matching Reference 2 */}
         <AdventureBanner />
