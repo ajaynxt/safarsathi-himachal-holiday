@@ -35,7 +35,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({ onSele
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {destinations.map((dest) => (
-            <button key={dest.id} type="button" onClick={() => onSelectDestination(dest.name)} className="group text-left bg-white rounded-2xl border border-stone-200/90 shadow-sm hover:shadow-xl hover:border-amber-400 transition-all duration-300 overflow-hidden focus:outline-none focus:ring-2 focus:ring-amber-500">
+            <div key={dest.id} role="button" tabIndex={0} onClick={() => onSelectDestination(dest.name)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); onSelectDestination(dest.name); } }} className="group text-left bg-white rounded-2xl border border-stone-200/90 shadow-sm hover:shadow-xl hover:border-amber-400 transition-all duration-300 overflow-hidden focus:outline-none focus:ring-2 focus:ring-amber-500">
               <div className="relative h-44 sm:h-48 overflow-hidden bg-slate-200">
                 <img src={dest.image} alt={`${dest.name} – ${dest.highlight}`} loading="lazy" decoding="async" referrerPolicy="no-referrer" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
@@ -49,7 +49,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({ onSele
                   <span>Enquire for a trip</span><ArrowUpRight className="w-4 h-4" />
                 </div>
               </div>
-            </button>
+            </div>
           ))}
         </div>
 
