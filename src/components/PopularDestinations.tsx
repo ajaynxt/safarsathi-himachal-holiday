@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, Compass, ShieldCheck } from 'lucide-react';
+import { ArrowUpRight, Compass, ShieldCheck, Clock3 } from 'lucide-react';
 
 interface PopularDestinationsProps {
   onSelectDestination: (destName: string) => void;
@@ -9,115 +9,122 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({ onSele
   const destinations = [
     {
       id: 'shimla',
-      name: 'Shimla',
+      name: 'Shimla & Manali',
       state: 'Himachal Pradesh',
-      duration: '3 - 5 Days',
-      badge: 'Popular',
-      badgeColor: 'bg-amber-100 text-amber-800',
-      highlights: 'Mall Road, Kufri Snow, Jakhoo Temple & Ridge',
-      icon: '🏔️'
-    },
-    {
-      id: 'manali',
-      name: 'Manali & Solang',
-      state: 'Himachal Pradesh',
-      duration: '4 - 6 Days',
-      badge: 'Trending',
+      duration: '5 - 9 Days',
+      badge: 'Packages Available',
       badgeColor: 'bg-emerald-100 text-emerald-800',
-      highlights: 'Atal Tunnel, Solang Adventure, Sissu & Hadimba',
-      icon: '🌲'
+      highlights: 'Shimla, Kufri, Manali, Solang Valley, Atal Tunnel & Sissu',
+      icon: '🏔️',
+      available: true
     },
     {
       id: 'spiti',
       name: 'Spiti Valley',
       state: 'Himachal Pradesh',
-      duration: '7 - 9 Days',
-      badge: 'Adventure',
+      duration: '8 Days',
+      badge: 'Adventure Tour',
       badgeColor: 'bg-blue-100 text-blue-800',
-      highlights: 'Key Monastery, Chandratal, Hikkim & Kaza',
-      icon: '❄️'
+      highlights: 'Key Monastery, Chandratal, Hikkim, Komic & Kaza',
+      icon: '❄️',
+      available: true
+    },
+    {
+      id: 'kashmir',
+      name: 'Jammu & Kashmir',
+      state: 'J&K (UT)',
+      duration: '7 Days',
+      badge: 'Packages Available',
+      badgeColor: 'bg-emerald-100 text-emerald-800',
+      highlights: 'Dal Lake Houseboat, Gulmarg Gondola & Pahalgam',
+      icon: '🛶',
+      available: true
+    },
+    {
+      id: 'kerala',
+      name: 'Kerala Backwaters',
+      state: 'Kerala',
+      duration: '6 Days',
+      badge: 'Packages Available',
+      badgeColor: 'bg-emerald-100 text-emerald-800',
+      highlights: 'Munnar Tea Hills, Alleppey Houseboat & Thekkady',
+      icon: '🌴',
+      available: true
     },
     {
       id: 'ladakh',
       name: 'Leh – Ladakh',
       state: 'Ladakh (UT)',
       duration: '6 - 8 Days',
-      badge: 'High Altitude',
-      badgeColor: 'bg-purple-100 text-purple-800',
+      badge: 'Coming Soon',
+      badgeColor: 'bg-slate-100 text-slate-600',
       highlights: 'Pangong Tso, Nubra Valley & Khardung La',
-      icon: '🐪'
-    },
-    {
-      id: 'kashmir',
-      name: 'Jammu & Kashmir',
-      state: 'J&K (UT)',
-      duration: '5 - 7 Days',
-      badge: 'Scenic',
-      badgeColor: 'bg-rose-100 text-rose-800',
-      highlights: 'Dal Lake Houseboat, Gulmarg Gondola & Pahalgam',
-      icon: '🛶'
+      icon: '🐪',
+      available: false
     },
     {
       id: 'uttarakhand',
       name: 'Uttarakhand Hills',
       state: 'Uttarakhand',
       duration: '4 - 6 Days',
-      badge: 'Spiritual & Hill',
-      badgeColor: 'bg-amber-100 text-amber-800',
+      badge: 'Coming Soon',
+      badgeColor: 'bg-slate-100 text-slate-600',
       highlights: 'Rishikesh, Mussoorie, Nainital & Char Dham',
-      icon: '🛕'
+      icon: '🛕',
+      available: false
     },
     {
       id: 'rajasthan',
       name: 'Rajasthan Heritage',
       state: 'Rajasthan',
       duration: '5 - 7 Days',
-      badge: 'Royal Culture',
-      badgeColor: 'bg-orange-100 text-orange-800',
+      badge: 'Coming Soon',
+      badgeColor: 'bg-slate-100 text-slate-600',
       highlights: 'Jaipur Forts, Udaipur Lakes & Jaisalmer Dunes',
-      icon: '🏰'
-    },
-    {
-      id: 'kerala',
-      name: 'Kerala Backwaters',
-      state: 'Kerala',
-      duration: '5 - 6 Days',
-      badge: 'Coastal & Tea',
-      badgeColor: 'bg-teal-100 text-teal-800',
-      highlights: 'Munnar Tea Hills, Alleppey Houseboat & Thekkady',
-      icon: '🌴'
+      icon: '🏰',
+      available: false
     }
   ];
 
   return (
     <section id="destinations" className="py-14 sm:py-20 bg-stone-50 border-b border-stone-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header: Explore Holidays by Destination */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <div className="flex items-center justify-center gap-3 mb-2">
             <span className="w-8 sm:w-12 h-0.5 bg-gradient-to-r from-transparent to-amber-500" />
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif-title font-bold text-slate-900 tracking-tight">
-              Explore Holidays by Destination
+              Explore Our Available Tours
             </h2>
             <span className="w-8 sm:w-12 h-0.5 bg-gradient-to-l from-transparent to-amber-500" />
           </div>
           <p className="text-sm sm:text-base text-slate-600 font-medium">
-            Custom Tour Packages &amp; Sanitized White Cabs Across All States (100% Online Booking)
+            Browse our currently listed tour packages. More destinations are being added soon.
           </p>
         </div>
 
-        {/* Clean, Fast-Loading Grid WITHOUT Photos */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {destinations.map((dest) => (
             <div
               key={dest.id}
-              onClick={() => onSelectDestination(dest.name)}
-              className="group bg-white rounded-2xl p-5 border border-stone-200/90 shadow-sm hover:shadow-xl hover:border-amber-400 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+              role={dest.available ? 'button' : undefined}
+              tabIndex={dest.available ? 0 : undefined}
+              aria-disabled={!dest.available}
+              onClick={() => dest.available && onSelectDestination(dest.name)}
+              onKeyDown={(event) => {
+                if (dest.available && (event.key === 'Enter' || event.key === ' ')) {
+                  event.preventDefault();
+                  onSelectDestination(dest.name);
+                }
+              }}
+              className={`group bg-white rounded-2xl p-5 border shadow-sm transition-all duration-300 flex flex-col justify-between ${
+                dest.available
+                  ? 'border-stone-200/90 hover:shadow-xl hover:border-amber-400 cursor-pointer'
+                  : 'border-stone-200 opacity-75 cursor-not-allowed'
+              }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-2xl p-2 rounded-xl bg-stone-100 group-hover:bg-amber-50 transition-colors">
+                  <span className={`text-2xl p-2 rounded-xl ${dest.available ? 'bg-stone-100 group-hover:bg-amber-50' : 'bg-slate-100'} transition-colors`}>
                     {dest.icon}
                   </span>
                   <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full ${dest.badgeColor}`}>
@@ -125,7 +132,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({ onSele
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-slate-900 group-hover:text-amber-600 transition-colors">
+                <h3 className="text-lg font-bold text-slate-900">
                   {dest.name}
                 </h3>
                 <span className="text-xs text-slate-400 font-semibold block mb-2">
@@ -137,29 +144,27 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({ onSele
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-amber-600 group-hover:text-amber-700">
-                <span>View Packages</span>
-                <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <div className={`mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold ${dest.available ? 'text-amber-600' : 'text-slate-400'}`}>
+                <span>{dest.available ? 'View Packages' : 'Coming Soon'}</span>
+                {dest.available ? <ArrowUpRight className="w-4 h-4" /> : <Clock3 className="w-4 h-4" />}
               </div>
             </div>
           ))}
         </div>
 
-        {/* All States Trust Line */}
         <div className="mt-8 pt-6 border-t border-stone-200/80 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500 font-medium">
           <span className="flex items-center gap-1.5">
             <Compass className="w-4 h-4 text-amber-500" />
-            Covering 28 States &amp; 8 UTs Across India
+            Tours across India
           </span>
           <span>•</span>
           <span className="flex items-center gap-1.5">
             <ShieldCheck className="w-4 h-4 text-emerald-500" />
-            100% Online Verified Bookings
+            Enquire directly on WhatsApp
           </span>
           <span>•</span>
-          <span>Doorstep Outstation Pickup From Any City</span>
+          <span>Custom itineraries available</span>
         </div>
-
       </div>
     </section>
   );
