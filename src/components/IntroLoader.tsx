@@ -27,8 +27,8 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
       if (index >= brandName.length) window.clearInterval(typingTimer);
     }, 68);
 
-    const leaveTimer = window.setTimeout(() => setLeaving(true), 1580);
-    const finishTimer = window.setTimeout(onComplete, 1980);
+    const leaveTimer = window.setTimeout(() => setLeaving(true), 1750);
+    const finishTimer = window.setTimeout(onComplete, 2200);
 
     return () => {
       window.clearInterval(typingTimer);
@@ -45,8 +45,8 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
     >
       <style>{`
         @keyframes safarLogoReveal {
-          0% { opacity: 0; transform: translateY(16px) scale(.9); }
-          70% { opacity: 1; transform: translateY(-2px) scale(1.015); }
+          0% { opacity: 0; transform: translateY(14px) scale(.88); }
+          70% { opacity: 1; transform: translateY(-2px) scale(1.025); }
           100% { opacity: 1; transform: translateY(0) scale(1); }
         }
         @keyframes safarRuleReveal {
@@ -54,38 +54,41 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
           to { transform: scaleX(1); opacity: 1; }
         }
         @keyframes safarTagReveal {
-          from { opacity: 0; transform: translateY(7px); }
+          from { opacity: 0; transform: translateY(8px); }
           to { opacity: 1; transform: translateY(0); }
         }
         @keyframes safarCursorBlink {
           0%, 48% { opacity: 1; }
           49%, 100% { opacity: 0; }
         }
-        .safar-logo-reveal { animation: safarLogoReveal .72s cubic-bezier(.2,.75,.25,1) both; }
-        .safar-rule-reveal { transform-origin: center; animation: safarRuleReveal .5s ease-out .3s both; }
-        .safar-tag-reveal { animation: safarTagReveal .45s ease-out 1.05s both; }
+        .safar-logo-reveal { animation: safarLogoReveal .8s cubic-bezier(.2,.75,.25,1) both; }
+        .safar-rule-reveal { transform-origin: center; animation: safarRuleReveal .55s ease-out .45s both; }
+        .safar-tag-reveal { animation: safarTagReveal .5s ease-out 1.1s both; }
         .safar-cursor { animation: safarCursorBlink .72s step-end infinite; }
         @media (prefers-reduced-motion: reduce) {
           .safar-logo-reveal, .safar-rule-reveal, .safar-tag-reveal, .safar-cursor { animation: none !important; }
         }
       `}</style>
 
-      <div className="flex w-full max-w-md flex-col items-center px-6 text-center">
-        <div className="safar-logo-reveal flex h-40 w-40 items-center justify-center sm:h-48 sm:w-48">
-          <img
-            src={`${assetBase}images/logo.png`}
-            alt="Safar Sathi"
-            className="h-full w-full object-contain"
-            fetchPriority="high"
-            decoding="async"
-          />
+      <div className="flex w-full max-w-xl flex-col items-center px-5 text-center">
+        <div className="flex items-center justify-center gap-3 sm:gap-5">
+          <div className="safar-logo-reveal flex h-28 w-28 shrink-0 items-center justify-center sm:h-40 sm:w-40">
+            <img
+              src={`${assetBase}images/logo.png`}
+              alt="Safar Sathi"
+              className="h-full w-full object-contain"
+              fetchPriority="high"
+              decoding="async"
+            />
+          </div>
+
+          <h1 className="min-h-[1.5em] text-left font-cinzel text-[1.45rem] font-bold leading-tight tracking-[.055em] text-[#421e29] sm:text-4xl sm:tracking-[.08em]" aria-label={brandName}>
+            <span aria-hidden="true">{typedName}</span>
+            <span className="safar-cursor ml-0.5 inline-block h-[1em] w-px translate-y-[2px] bg-[#b58a58]" aria-hidden="true" />
+          </h1>
         </div>
 
-        <div className="safar-rule-reveal mt-7 h-px w-20 bg-[#b58a58]" />
-        <h1 className="mt-6 min-h-[1.8em] font-cinzel text-2xl font-bold tracking-[.13em] text-[#421e29] sm:text-3xl" aria-label={brandName}>
-          <span aria-hidden="true">{typedName}</span>
-          <span className="safar-cursor ml-0.5 inline-block h-[1em] w-px translate-y-[2px] bg-[#b58a58]" aria-hidden="true" />
-        </h1>
+        <div className="safar-rule-reveal mt-5 h-px w-24 bg-[#b58a58] sm:mt-6 sm:w-28" />
         <p className="safar-tag-reveal mt-4 text-xs font-medium tracking-[.1em] text-[#7b6267] sm:text-sm">
           Your Journey, Our Responsibility
         </p>
