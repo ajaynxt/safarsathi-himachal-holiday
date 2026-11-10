@@ -1,9 +1,9 @@
 import React from 'react';
 
 const assetBase = import.meta.env.BASE_URL;
-const asset = (path: string) => `${assetBase}${path.replace(/^\\/+/, '')}`;
+  const asset = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
 
-const destinations = [
+  const destinations = [
   { name: 'India Tour Packages', detail: 'Custom holidays across destinations in India', href: '/india-tour-packages/', image: asset('/images/packages/full_himachal_tour_package.png'), tag: 'EXPLORE INDIA' },
   { name: 'Himachal Pradesh', detail: 'Shimla, Manali, Dharamshala & Dalhousie', href: '/himachal-tour-packages/', image: asset('/images/packages/himachal_shimla_manali_dharmshala_dalhousie_8_nights_9_days.png'), tag: 'HIMALAYAN CLASSICS' },
   { name: 'Shimla & Manali', detail: 'A 5-night mountain road trip idea', href: '/shimla-manali-tour/', image: asset('/images/packages/shimla_manali_5_nights_6_days.png'), tag: 'POPULAR ROUTE' },
