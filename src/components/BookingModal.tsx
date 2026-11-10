@@ -68,11 +68,11 @@ Please check availability and send confirmed quotation.`;
           </button>
           
           <div className="inline-block px-3 py-1 rounded-full bg-brand-orange text-white text-[10px] font-bold uppercase tracking-wider mb-2">
-            Instant Confirmation
+            Travel Enquiry
           </div>
           <h2 className="text-xl sm:text-2xl font-bold">Book Your Himalayan Journey</h2>
           <p className="text-xs sm:text-sm text-slate-300 mt-1">
-            Fill your travel preference. We will send exact rates and itineraries to your WhatsApp instantly.
+            Share your travel preferences. The team can discuss availability and send a quotation on WhatsApp.
           </p>
         </div>
 
@@ -83,9 +83,9 @@ Please check availability and send confirmed quotation.`;
               <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900">Inquiry Received!</h3>
+              <h3 className="text-xl font-bold text-slate-900">WhatsApp enquiry prepared</h3>
               <p className="text-sm text-slate-600 max-w-sm mx-auto">
-                Opening WhatsApp to connect you directly with our Shimla reservation desk...
+                WhatsApp is opening with your travel details. Your booking is not confirmed until the team confirms availability and terms.
               </p>
             </div>
           ) : (
