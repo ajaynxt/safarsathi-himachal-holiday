@@ -1,189 +1,55 @@
 import React from 'react';
-import { Compass } from 'lucide-react';
+import { Compass, Map, MessageCircle } from 'lucide-react';
+import { COMPANY_INFO } from '../data/travelData';
 
 interface BentoExperienceProps {
   onOpenBooking: (type?: 'package' | 'cab' | 'hotel', itemName?: string) => void;
 }
 
-export const BentoExperience: React.FC<BentoExperienceProps> = ({ onOpenBooking }) => {
-  return (
-    <section className="py-16 sm:py-24 bg-stone-50 border-t border-stone-200/70 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Top Header & Intro text matching Reference 3 */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 sm:mb-16">
-          <div className="max-w-xl">
-            <span className="inline-block px-3 py-1 rounded-full bg-slate-200/80 text-slate-700 text-[11px] font-extrabold uppercase tracking-wider mb-3">
-              About SafarSathi
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif-title font-bold text-slate-900 tracking-tight leading-tight">
-              Himachal is more than a destination — <span className="italic font-normal">it&apos;s a journey.</span>
-            </h2>
-          </div>
-          <div className="max-w-md">
-            <p className="text-sm sm:text-base text-slate-600 font-medium leading-relaxed">
-              From snow-capped Himalayan peaks to ancient wooden temples, every experience brings you closer to authentic mountain nature, local Pahadi culture, and peace of mind.
-            </p>
-          </div>
+export const BentoExperience: React.FC<BentoExperienceProps> = ({ onOpenBooking }) => (
+  <section className="overflow-hidden border-t border-stone-200/70 bg-stone-50 py-16 sm:py-24">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mb-10 grid gap-5 lg:grid-cols-[1.1fr_.9fr] lg:items-end">
+        <div className="max-w-2xl">
+          <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[.18em] text-amber-700">About Safar Sathi</span>
+          <h2 className="font-serif-title text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+            A better way to plan your next <span className="italic font-normal">escape.</span>
+          </h2>
         </div>
-
-        {/* 3-Column Bento Grid matching Reference 3 */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          
-          {/* Bento Box 1: Dark Tailor-Made Journey Card */}
-          <div className="bg-slate-950 text-white rounded-3xl p-7 sm:p-8 flex flex-col justify-between shadow-xl border border-slate-800 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 -mr-10 -mt-10 w-44 h-44 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
-            
-            <div>
-              <div className="flex items-center justify-between mb-8">
-                <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center">
-                  <Compass className="w-6 h-6 text-amber-400" />
-                </div>
-                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[11px] font-semibold text-slate-300">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>Customizable</span>
-                </div>
-              </div>
-
-              <h3 className="text-xl sm:text-2xl font-serif-title font-bold text-white mb-3">
-                Tailor-Made <span className="italic font-normal">For You</span>
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Journeys crafted around your pace. Discover hidden pine valleys, offbeat waterfalls, and authentic homestays beyond the ordinary tourist rush.
-              </p>
-            </div>
-
-            <div className="pt-8">
-              <button
-                type="button"
-                onClick={() => onOpenBooking('package', 'Custom Tailor-Made Itinerary')}
-                className="w-full py-3 px-5 rounded-full bg-white text-slate-950 hover:bg-amber-400 font-extrabold text-xs sm:text-sm tracking-wide transition-all shadow-md active:scale-95"
-              >
-                Plan Tailor-Made Trip
-              </button>
-            </div>
-          </div>
-
-          {/* Bento Box 2: Mountain Photo Card */}
-          <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[4/5] md:aspect-auto border border-slate-200 group">
-            <img
-              src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1200&q=85"
-              alt="Himalayan traveler looking at snow peak"
-              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/20" />
-            
-            {/* Top Pill Tag */}
-            <div className="absolute top-5 left-5 z-10">
-              <span className="px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md text-slate-900 text-xs font-extrabold shadow-md">
-                Made for You
-              </span>
-            </div>
-
-            {/* Bottom info */}
-            <div className="absolute bottom-5 inset-x-5 z-10 text-white">
-              <span className="text-[11px] uppercase tracking-wider text-amber-300 font-bold block mb-1">
-                Pahadi Chauffeurs &amp; Guides
-              </span>
-              <h4 className="text-lg font-bold">100% Commercial White Fleet</h4>
-              <p className="text-xs text-slate-200 mt-0.5">Clean Dzire, Innova Crysta, Etios &amp; Tempo Travellers</p>
-            </div>
-          </div>
-
-          {/* Bento Box 3: Experiences & Ratings Card */}
-          <div className="bg-white rounded-3xl p-7 sm:p-8 flex flex-col justify-between shadow-xl border border-slate-200/80">
-            <div>
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-3xl sm:text-4xl font-serif-title font-bold text-slate-900">50+</span>
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md">Curated</span>
-              </div>
-              <h3 className="text-lg font-bold text-slate-900">Unique Himalayan Experiences</h3>
-              <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                Carefully selected journeys designed to reveal the real beauty, culture and spirit of Himachal Pradesh.
-              </p>
-
-              {/* Dot Rating Bars matching Reference 3 */}
-              <div className="mt-6 space-y-4">
-                <div>
-                  <div className="flex justify-between text-xs font-bold text-slate-700 mb-1.5">
-                    <span>Snow &amp; Adventure (Solang, Rohtang, Spiti)</span>
-                    <span className="text-slate-400">95%</span>
-                  </div>
-                  <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
-                    <div className="bg-amber-500 h-full rounded-full w-[95%]" />
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex justify-between text-xs font-bold text-slate-700 mb-1.5">
-                    <span>Cultural &amp; Temples (Hadimba, Jakhoo, Tabo)</span>
-                    <span className="text-slate-400">90%</span>
-                  </div>
-                  <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
-                    <div className="bg-emerald-500 h-full rounded-full w-[90%]" />
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex justify-between text-xs font-bold text-slate-700 mb-1.5">
-                    <span>Peace &amp; Wellness (Kasol, Jibhi, Kalpa)</span>
-                    <span className="text-slate-400">88%</span>
-                  </div>
-                  <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
-                    <div className="bg-sky-500 h-full rounded-full w-[88%]" />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-6 border-t border-slate-100 mt-6 flex items-center justify-between text-xs text-slate-500">
-              <span className="font-semibold text-slate-800">Govt. Registered Agency</span>
-              <span className="text-amber-600 font-bold">100% Online Verified</span>
-            </div>
-          </div>
-
-        </div>
-
-        {/* 4 Big Numbers / Counter Stats matching Reference 3 */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-stone-200">
-          <div className="text-center sm:text-left">
-            <span className="text-3xl sm:text-4xl lg:text-5xl font-serif-title font-bold text-slate-900 block">
-              10,000+
-            </span>
-            <span className="text-xs sm:text-sm font-semibold text-slate-500 mt-1 block">
-              Happy Travelers Welcomed
-            </span>
-          </div>
-
-          <div className="text-center sm:text-left">
-            <span className="text-3xl sm:text-4xl lg:text-5xl font-serif-title font-bold text-slate-900 block">
-              100%
-            </span>
-            <span className="text-xs sm:text-sm font-semibold text-slate-500 mt-1 block">
-              All-White Cabs &amp; Chauffeurs
-            </span>
-          </div>
-
-          <div className="text-center sm:text-left">
-            <span className="text-3xl sm:text-4xl lg:text-5xl font-serif-title font-bold text-slate-900 block">
-              50+
-            </span>
-            <span className="text-xs sm:text-sm font-semibold text-slate-500 mt-1 block">
-              Curated Tour Itineraries
-            </span>
-          </div>
-
-          <div className="text-center sm:text-left">
-            <span className="text-3xl sm:text-4xl lg:text-5xl font-serif-title font-bold text-slate-900 block">
-              4 Seasons
-            </span>
-            <span className="text-xs sm:text-sm font-semibold text-slate-500 mt-1 block">
-              Snow, Spring, Summer &amp; Autumn
-            </span>
-          </div>
-        </div>
-
+        <p className="max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
+          From Himalayan road trips to holidays across India, tell us where you want to go. We’ll help you explore travel options, transport and a plan that fits your dates.
+        </p>
       </div>
-    </section>
-  );
-};
+
+      <div className="grid gap-5 md:grid-cols-3">
+        <div className="flex min-h-[300px] flex-col justify-between rounded-3xl bg-slate-950 p-7 text-white sm:p-8">
+          <div>
+            <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10"><Compass className="h-6 w-6 text-amber-300" /></div>
+            <h3 className="mb-3 font-serif-title text-2xl font-bold">Your trip, your pace.</h3>
+            <p className="text-sm leading-6 text-slate-300">Share your destination, travel dates and group size. Ask for a customised itinerary and quotation before you decide.</p>
+          </div>
+          <button onClick={() => onOpenBooking('package', 'Custom trip enquiry')} className="mt-8 rounded-full bg-white px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-amber-300">Plan a trip</button>
+        </div>
+
+        <div className="relative min-h-[300px] overflow-hidden rounded-3xl bg-slate-200">
+          <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1200&q=85" alt="Mountain landscape in the Himalayas" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+          <div className="absolute bottom-6 left-6 right-6 text-white">
+            <span className="mb-2 block text-xs font-bold uppercase tracking-[.16em] text-amber-300">Explore India</span>
+            <h3 className="font-serif-title text-2xl font-bold">Mountains, coastlines and everything between.</h3>
+          </div>
+        </div>
+
+        <div className="flex min-h-[300px] flex-col justify-between rounded-3xl border border-stone-200 bg-white p-7 sm:p-8">
+          <div>
+            <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-50 text-amber-700"><MessageCircle className="h-6 w-6" /></div>
+            <span className="font-serif-title text-4xl font-bold text-slate-900">16 years</span>
+            <h3 className="mt-2 text-lg font-bold text-slate-900">Travel experience</h3>
+            <p className="mt-2 text-sm leading-6 text-slate-600">Speak directly with the Safar Sathi team about routes, vehicle options and your travel requirements.</p>
+          </div>
+          <a href={COMPANY_INFO.whatsappUrl('Hello Safar Sathi, I would like help planning a trip.')} target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-emerald-700 hover:text-emerald-800">Chat on WhatsApp <Map className="h-4 w-4" /></a>
+        </div>
+      </div>
+    </div>
+  </section>
+);
