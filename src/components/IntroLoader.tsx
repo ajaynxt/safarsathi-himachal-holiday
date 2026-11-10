@@ -70,8 +70,8 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
         }
       `}</style>
 
-      <div className="flex w-full max-w-sm flex-col items-center px-6 text-center">
-        <div className="safar-logo-reveal flex h-32 w-32 items-center justify-center sm:h-36 sm:w-36">
+      <div className="flex w-full max-w-md flex-col items-center px-6 text-center">
+        <div className="safar-logo-reveal flex h-40 w-40 items-center justify-center sm:h-48 sm:w-48">
           <img
             src={`${assetBase}images/logo.png`}
             alt="Safar Sathi"
@@ -81,12 +81,12 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
           />
         </div>
 
-        <div className="safar-rule-reveal mt-6 h-px w-14 bg-[#b58a58]" />
-        <h1 className="mt-5 min-h-[1.8em] font-cinzel text-xl font-bold tracking-[.16em] text-[#421e29] sm:text-2xl" aria-label={brandName}>
+        <div className="safar-rule-reveal mt-7 h-px w-20 bg-[#b58a58]" />
+        <h1 className="mt-6 min-h-[1.8em] font-cinzel text-2xl font-bold tracking-[.13em] text-[#421e29] sm:text-3xl" aria-label={brandName}>
           <span aria-hidden="true">{typedName}</span>
           <span className="safar-cursor ml-0.5 inline-block h-[1em] w-px translate-y-[2px] bg-[#b58a58]" aria-hidden="true" />
         </h1>
-        <p className="safar-tag-reveal mt-3 text-[10px] font-medium tracking-[.12em] text-[#7b6267] sm:text-[11px]">
+        <p className="safar-tag-reveal mt-4 text-xs font-medium tracking-[.1em] text-[#7b6267] sm:text-sm">
           Your Journey, Our Responsibility
         </p>
       </div>
