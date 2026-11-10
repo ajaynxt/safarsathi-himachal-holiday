@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HelpCircle, ChevronDown, MessageCircle, Phone, Sparkles } from 'lucide-react';
+import { HelpCircle, ChevronDown, MessageCircle, Phone } from 'lucide-react';
 import { COMPANY_INFO } from '../data/travelData';
 
 interface FaqItem {
@@ -9,36 +9,12 @@ interface FaqItem {
 }
 
 const FAQS: FaqItem[] = [
-  {
-    tag: 'Fleet & Cabs',
-    question: 'Are all your cabs and taxis strictly white in color?',
-    answer: 'Yes, 100%! All SafarSathi tourist vehicles (Swift Dzire, Toyota Etios, Honda City, Toyota Glanza, Maruti Ertiga, Toyota Innova Crysta, and Force Tempo Travellers) are pristine commercial white with valid Himachal / All-India Tourist Yellow Permit plates. We never assign private or colored vehicles to our guests.'
-  },
-  {
-    tag: 'Pricing & Taxes',
-    question: 'Are state toll taxes, green tax, parking, and driver allowances included in your package quotes?',
-    answer: 'Yes! We follow a 100% transparent pricing policy. Every confirmed tour package quote explicitly includes fuel, all inter-state border taxes (Delhi, Haryana, Punjab, Himachal), toll plaza charges, green tax/environmental entry fee, and driver daily food & night accommodation allowances. Zero surprise charges during your journey.'
-  },
-  {
-    tag: 'Snow & Permits',
-    question: 'How do Rohtang Pass and Atal Tunnel permits work in winter/snow seasons?',
-    answer: 'Our local Shimla & Manali desk coordinates real-time road status with Himachal Police and district administration. For Rohtang Pass, we guide and facilitate the online NGT permits. In winter when Rohtang is snow-bound, our 4x4 / hill-specialist snow drivers navigate safely through Atal Tunnel to Sissu (Lahaul Valley) and Solang Valley.'
-  },
-  {
-    tag: 'Customization',
-    question: 'Can we customize our day-by-day itinerary or upgrade our hotel stays?',
-    answer: 'Absolutely! Every family and group is unique. You can customize pickup times, add extra sightseeing spots (e.g. Manikaran, Bir Billing, Tirthan Valley, Kaza), choose between 3-Star Deluxe, 4-Star Mountain View resorts, or riverside luxury cottages, and decide your preferred pace.'
-  },
-  {
-    tag: 'Booking & Payment',
-    question: 'What is the booking procedure and payment schedule?',
-    answer: 'To confirm your dates, cab, and hotel reservation, we take a nominal booking advance (20-25%). The remaining balance is payable conveniently during your tour — part upon pickup and the rest after hotel check-in. We accept UPI, Google Pay, Net Banking, and Bank Transfer with instant official invoice receipts.'
-  },
-  {
-    tag: 'Drivers & Safety',
-    question: 'Are your drivers trained for high-altitude mountain hairpins and family safety?',
-    answer: 'All our chauffeurs are native Pahadi drivers with a minimum of 8+ years of mountain highway driving experience on roads like Kalka-Shimla, Kiratpur-Manali, Jalori Pass, and Rohtang. They are polite, non-smokers, verified with police credentials, and trained to assist senior citizens, children, and honeymooners.'
-  }
+  { tag: 'Planning', question: 'How do I start planning a trip?', answer: 'Share your destination, tentative travel dates, number of travellers and preferred pickup city through the enquiry form or WhatsApp. The team can discuss a suitable route and quotation with you.' },
+  { tag: 'Transport', question: 'What vehicle options can I enquire about?', answer: 'You can ask about sedan cars, Ertiga, Innova Crysta, tempo travellers and Volvo bus options. Vehicle availability, seating and luggage capacity should be confirmed for your specific route and dates.' },
+  { tag: 'Pricing', question: 'What should I check in a travel quotation?', answer: 'Before confirming, ask for the total price and a written breakdown of inclusions and exclusions such as fuel, tolls, parking, taxes, driver charges, hotel stays and meals.' },
+  { tag: 'Destinations', question: 'Can I enquire about destinations outside Himachal?', answer: 'Yes. The website features destinations including Jammu & Kashmir, Uttarakhand, Rajasthan, Kerala, Goa and other parts of India. Share your preferred destination to discuss arrangements.' },
+  { tag: 'Booking', question: 'When is my booking confirmed?', answer: 'Submitting this website form opens WhatsApp with your enquiry. It does not itself confirm a booking. Your dates, availability, final quotation, payment terms and cancellation conditions should be confirmed directly with the team.' },
+  { tag: 'Changes', question: 'Can I customise my itinerary?', answer: 'You can share your preferred places, pace, pickup and drop locations, travel dates and hotel preferences. The team can then discuss whether the requested changes can be arranged.' }
 ];
 
 export const FaqSection: React.FC = () => {
@@ -58,10 +34,10 @@ export const FaqSection: React.FC = () => {
             <span>Got Questions? We Have Answers</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-brand-navy tracking-tight">
-            Frequently Asked Questions by Himalayan Travelers
+            Frequently asked questions
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600">
-            Everything you need to know about our all-white cabs, hill driving safety, customized stays, and transparent booking policy.
+            A few useful things to know before sending your travel enquiry.
           </p>
         </div>
 
@@ -118,7 +94,7 @@ export const FaqSection: React.FC = () => {
             </div>
             <div>
               <h4 className="font-extrabold text-base">Have a Question Not Listed Here?</h4>
-              <p className="text-xs text-slate-300 mt-0.5">Talk directly with our Shimla tour manager. Real local advice in 2 minutes.</p>
+              <p className="text-xs text-slate-300 mt-0.5">Contact the Safar Sathi team directly.</p>
             </div>
           </div>
 
