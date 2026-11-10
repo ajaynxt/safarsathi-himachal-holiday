@@ -11,8 +11,8 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
 
   useEffect(() => {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const leaveDelay = reducedMotion ? 250 : 1450;
-    const finishDelay = reducedMotion ? 350 : 1850;
+    const leaveDelay = reducedMotion ? 180 : 850;
+    const finishDelay = reducedMotion ? 250 : 1200;
     const leaveTimer = window.setTimeout(() => setLeaving(true), leaveDelay);
     const finishTimer = window.setTimeout(onComplete, finishDelay);
     return () => {
