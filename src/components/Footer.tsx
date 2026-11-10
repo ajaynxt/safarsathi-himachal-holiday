@@ -13,13 +13,13 @@ export const Footer: React.FC = () => {
             <div className="h-11 px-3 py-1 bg-white rounded-xl shadow-md inline-flex items-center">
               <img
                 src={`${import.meta.env.BASE_URL}images/logo.png`}
-                alt="SafarSathi - Your Journey Our Responsibility"
+                alt="Safar Sathi logo - Your Journey, Our Responsibility"
                 className="h-8 w-auto object-contain"
               />
             </div>
 
             <p className="text-xs text-slate-400 leading-relaxed">
-              <strong>SafarSathi</strong> is India&apos;s trusted online travel platform. Specializing in custom tour packages across all Indian states, 100% commercial sanitized white cabs, Volvo bus services, and handpicked luxury hotels.
+              <strong>Safar Sathi</strong> is India&apos;s trusted online travel platform. Specializing in custom tour packages across all Indian states, 100% commercial sanitized white cabs, Volvo bus services, and handpicked luxury hotels.
             </p>
 
             <div className="flex items-center gap-2 text-xs text-amber-400 font-bold">
@@ -108,14 +108,14 @@ export const Footer: React.FC = () => {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>
-            © {new Date().getFullYear()} <strong>SafarSathi</strong>. All Rights Reserved.
+            © {new Date().getFullYear()} <strong>Safar Sathi</strong>. All Rights Reserved.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 text-xs">
             <p className="flex items-center gap-1">
               <span>Crafted with</span>
               <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
-              <span>for Himalayan Travelers</span>
+              <span>for Safar Sathi travellers</span>
             </p>
             <span className="hidden sm:inline text-slate-700">|</span>
             <p className="flex items-center gap-1 text-slate-400">
