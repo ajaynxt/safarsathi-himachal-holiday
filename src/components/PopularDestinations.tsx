@@ -14,10 +14,10 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({ onSele
       image: asset('images/destinations/shimla.jpg'),
       name: 'Shimla & Manali',
       state: 'Himachal Pradesh',
-      duration: '5 - 9 Days',
-      badge: 'Packages Available',
+      duration: 'Custom trip',
+      badge: 'Enquire for details',
       badgeColor: 'bg-emerald-100 text-emerald-800',
-      highlights: 'Shimla, Kufri, Manali, Solang Valley, Atal Tunnel & Sissu',
+      highlights: 'Share your travel dates and preferences for a customised quote.',
       icon: '🏔️',
       available: true
     },
@@ -26,35 +26,11 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({ onSele
       image: asset('images/destinations/spiti.jpg'),
       name: 'Spiti Valley',
       state: 'Himachal Pradesh',
-      duration: '8 Days',
-      badge: 'Adventure Tour',
-      badgeColor: 'bg-blue-100 text-blue-800',
-      highlights: 'Key Monastery, Chandratal, Hikkim, Komic & Kaza',
+      duration: 'Custom trip',
+      badge: 'Enquire for details',
+      badgeColor: 'bg-emerald-100 text-emerald-800',
+      highlights: 'Ask us about route planning, travel dates and vehicle options.',
       icon: '❄️',
-      available: true
-    },
-    {
-      id: 'kashmir',
-      image: asset('images/packages/jammu_and_kashmir_6_nights_7_days.png'),
-      name: 'Jammu & Kashmir',
-      state: 'J&K (UT)',
-      duration: '7 Days',
-      badge: 'Packages Available',
-      badgeColor: 'bg-emerald-100 text-emerald-800',
-      highlights: 'Dal Lake Houseboat, Gulmarg Gondola & Pahalgam',
-      icon: '🛶',
-      available: true
-    },
-    {
-      id: 'kerala',
-      image: asset('images/packages/kerala_5_nights_6_days_package.png'),
-      name: 'Kerala Backwaters',
-      state: 'Kerala',
-      duration: '6 Days',
-      badge: 'Packages Available',
-      badgeColor: 'bg-emerald-100 text-emerald-800',
-      highlights: 'Munnar Tea Hills, Alleppey Houseboat & Thekkady',
-      icon: '🌴',
       available: true
     },
     {
@@ -62,36 +38,12 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({ onSele
       image: asset('images/destinations/ladakh.jpg'),
       name: 'Leh – Ladakh',
       state: 'Ladakh (UT)',
-      duration: '6 - 8 Days',
-      badge: 'Coming Soon',
+      duration: 'On request',
+      badge: 'Ask for availability',
       badgeColor: 'bg-slate-100 text-slate-600',
-      highlights: 'Pangong Tso, Nubra Valley & Khardung La',
-      icon: '🐪',
-      available: false
-    },
-    {
-      id: 'uttarakhand',
-      image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80',
-      name: 'Uttarakhand Hills',
-      state: 'Uttarakhand',
-      duration: '4 - 6 Days',
-      badge: 'Coming Soon',
-      badgeColor: 'bg-slate-100 text-slate-600',
-      highlights: 'Rishikesh, Mussoorie, Nainital & Char Dham',
-      icon: '🛕',
-      available: false
-    },
-    {
-      id: 'rajasthan',
-      image: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=900&q=80',
-      name: 'Rajasthan Heritage',
-      state: 'Rajasthan',
-      duration: '5 - 7 Days',
-      badge: 'Coming Soon',
-      badgeColor: 'bg-slate-100 text-slate-600',
-      highlights: 'Jaipur Forts, Udaipur Lakes & Jaisalmer Dunes',
-      icon: '🏰',
-      available: false
+      highlights: 'Contact us to discuss a possible Ladakh trip.',
+      icon: '🏔️',
+      available: true
     }
   ];
 
@@ -102,12 +54,12 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({ onSele
           <div className="flex items-center justify-center gap-3 mb-2">
             <span className="w-8 sm:w-12 h-0.5 bg-gradient-to-r from-transparent to-amber-500" />
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif-title font-bold text-slate-900 tracking-tight">
-              Explore Our Available Tours
+              Explore Destinations
             </h2>
             <span className="w-8 sm:w-12 h-0.5 bg-gradient-to-l from-transparent to-amber-500" />
           </div>
           <p className="text-sm sm:text-base text-slate-600 font-medium">
-            Browse our currently listed tour packages. More destinations are being added soon.
+            Tell us where and when you want to travel. We’ll discuss a trip based on your requirements.
           </p>
         </div>
 
@@ -162,7 +114,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({ onSele
               </div>
 
               <div className={`mx-4 sm:mx-5 mt-0 mb-4 sm:mb-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold ${dest.available ? 'text-amber-600' : 'text-slate-400'}`}>
-                <span>{dest.available ? 'View Packages' : 'Coming Soon'}</span>
+                <span>{dest.available ? 'Enquire Now' : 'Coming Soon'}</span>
                 {dest.available ? <ArrowUpRight className="w-4 h-4" /> : <Clock3 className="w-4 h-4" />}
               </div>
             </div>
