@@ -44,12 +44,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
     <section className="relative isolate min-h-[690px] sm:min-h-[720px] lg:min-h-[760px] flex items-center overflow-hidden bg-slate-950 pt-28 pb-10 sm:pt-32">
       <div className="absolute inset-0 -z-20">
         <img
-          src={`${import.meta.env.BASE_URL}images/destinations/manali.jpg`}
+          src="https://images.unsplash.com/photo-1677821243506-0fa5cd8abdcb?auto=format&fit=crop&w=2400&q=80"
           alt="Snow covered Himalayan mountain range"
           fetchPriority="high"
           loading="eager"
           decoding="async"
-          className="h-full w-full object-cover object-center"
+          className="h-full w-full object-cover object-[center_55%]"
         />
       </div>
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-950/55 via-slate-950/35 to-slate-950/85" />
