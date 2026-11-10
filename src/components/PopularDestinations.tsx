@@ -6,7 +6,7 @@ interface PopularDestinationsProps {
 }
 
 export const PopularDestinations: React.FC<PopularDestinationsProps> = ({ onSelectDestination }) => {
-  const asset = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\\/+/, '')}`;
+  const asset = (path: string) => `${import.meta.env.BASE_URL}${path.startsWith('/') ? path.slice(1) : path}`;
 
   const destinations = [
     { id: 'shimla', image: asset('images/destinations/shimla.jpg'), name: 'Shimla & Manali', state: 'Himachal Pradesh', highlight: 'Mall Road, mountain views and the Beas Valley.', credit: '', source: '' },
