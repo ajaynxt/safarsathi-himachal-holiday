@@ -6,10 +6,12 @@ interface PopularDestinationsProps {
 }
 
 export const PopularDestinations: React.FC<PopularDestinationsProps> = ({ onSelectDestination }) => {
-  const destinations = [
+  const asset = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\\/+/, '')}`;
+
+const destinations = [
     {
       id: 'shimla',
-      image: '/safarsathi-himachal-holiday/images/destinations/shimla.jpg',
+      image: asset('images/destinations/shimla.jpg'),
       name: 'Shimla & Manali',
       state: 'Himachal Pradesh',
       duration: '5 - 9 Days',
@@ -21,7 +23,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({ onSele
     },
     {
       id: 'spiti',
-      image: '/safarsathi-himachal-holiday/images/destinations/spiti.jpg',
+      image: asset('images/destinations/spiti.jpg'),
       name: 'Spiti Valley',
       state: 'Himachal Pradesh',
       duration: '8 Days',
@@ -33,7 +35,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({ onSele
     },
     {
       id: 'kashmir',
-      image: '/safarsathi-himachal-holiday/images/packages/jammu_and_kashmir_6_nights_7_days.png',
+      image: asset('images/packages/jammu_and_kashmir_6_nights_7_days.png'),
       name: 'Jammu & Kashmir',
       state: 'J&K (UT)',
       duration: '7 Days',
@@ -45,7 +47,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({ onSele
     },
     {
       id: 'kerala',
-      image: '/safarsathi-himachal-holiday/images/packages/kerala_5_nights_6_days_package.png',
+      image: asset('images/packages/kerala_5_nights_6_days_package.png'),
       name: 'Kerala Backwaters',
       state: 'Kerala',
       duration: '6 Days',
@@ -57,7 +59,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({ onSele
     },
     {
       id: 'ladakh',
-      image: '/safarsathi-himachal-holiday/images/destinations/ladakh.jpg',
+      image: asset('images/destinations/ladakh.jpg'),
       name: 'Leh – Ladakh',
       state: 'Ladakh (UT)',
       duration: '6 - 8 Days',
