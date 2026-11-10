@@ -3,7 +3,7 @@ import { Compass, ClipboardCheck, CarFront, MapPin } from 'lucide-react';
 
 export const TrustBar: React.FC = () => {
   const items = [
-    { icon: Compass, title: '16 years', subtitle: 'Travel experience' },
+    { icon: Compass, title: '9 years', subtitle: 'Travel experience' },
     { icon: ClipboardCheck, title: 'Plan before booking', subtitle: 'Ask for a clear quotation' },
     { icon: CarFront, title: 'Vehicle options', subtitle: 'Cars, SUVs and group travel' },
     { icon: MapPin, title: 'Explore India', subtitle: 'Destinations across the country' }
