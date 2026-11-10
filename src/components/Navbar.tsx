@@ -4,10 +4,9 @@ import { COMPANY_INFO } from '../data/travelData';
 
 interface NavbarProps {
   onOpenBooking: (initialType?: 'package' | 'cab' | 'hotel', itemName?: string) => void;
-  onOpenOfferPopup?: () => void;
-}
+  }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOfferPopup }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -20,11 +19,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOfferPopup 
   }, []);
 
   const handleEnquireClick = () => {
-    if (onOpenOfferPopup) {
-      onOpenOfferPopup();
-    } else {
-      onOpenBooking('package', 'Himalayan Tour Enquiry');
-    }
+    setMobileMenuOpen(false);
+    onOpenBooking('package', 'Custom India Tour Enquiry');
   };
 
   return (
@@ -45,7 +41,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOfferPopup 
             </div>
           </a>
 
-          {/* Desktop Nav Links matching Reference 1: Home, Destinations, Packages, About Us, Contact Us */}
+          {/* Desktop Nav Links matching Reference 1: Home, Destinations, Routes, About Us, Contact Us */}
           <nav className="hidden lg:flex items-center space-x-7">
             <a 
               href="#" 
@@ -64,7 +60,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOfferPopup 
               Destinations
             </a>
             <a 
-              href="#packages" 
+              href="#routes" 
               className={`text-sm font-semibold transition-colors hover:text-amber-400 ${
                 isScrolled ? 'text-slate-800' : 'text-white drop-shadow'
               }`}
@@ -168,7 +164,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOfferPopup 
               onClick={() => setMobileMenuOpen(false)}
               className="text-white hover:text-amber-400 py-1"
             >
-              Tour Packages
+              Taxi routes
             </a>
             <a 
               href="#cabs" 
@@ -182,7 +178,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOfferPopup 
               onClick={() => setMobileMenuOpen(false)}
               className="text-white hover:text-amber-400 py-1"
             >
-              About Us &amp; Guarantee
+              About Us
             </a>
             <a 
               href="#contact" 
@@ -201,7 +197,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOfferPopup 
               }}
               className="w-full py-2.5 rounded-xl bg-amber-500 text-slate-950 font-bold text-sm text-center shadow-md"
             >
-              ✨ Enquire Now (Flat 20% OFF)
+              Enquire Now
             </button>
 
             <a
