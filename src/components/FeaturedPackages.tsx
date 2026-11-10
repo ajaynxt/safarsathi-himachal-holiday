@@ -86,6 +86,18 @@ export const FeaturedPackages: React.FC<FeaturedPackagesProps> = ({ onBookPackag
               key={pkg.id}
               className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/90 overflow-hidden flex flex-col justify-between group"
             >
+              {/* Real destination imagery for each package */}
+              <div className="relative h-44 sm:h-52 overflow-hidden bg-slate-200">
+                <img
+                  src={pkg.featuredImage}
+                  alt={pkg.title}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/65 via-transparent to-transparent" />
+                <span className="absolute bottom-4 left-5 text-white text-sm font-bold tracking-wide drop-shadow-lg">{pkg.title}</span>
+              </div>
               {/* Header Bar */}
               <div className="bg-gradient-to-r from-brand-navy via-brand-navy-light to-brand-navy text-white p-5 sm:p-6">
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
