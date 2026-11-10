@@ -60,7 +60,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               Destinations
             </a>
             <a 
-              href="#routes" 
+              href="#packages" 
               className={`text-sm font-semibold transition-colors hover:text-amber-400 ${
                 isScrolled ? 'text-slate-800' : 'text-white drop-shadow'
               }`}
