@@ -44,7 +44,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
     <section className="relative isolate min-h-[690px] sm:min-h-[720px] lg:min-h-[760px] flex items-center overflow-hidden bg-slate-950 pt-28 pb-10 sm:pt-32">
       <div className="absolute inset-0 -z-20">
         <img
-          src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=85"
+          src="/safarsathi-himachal-holiday/images/destinations/manali.jpg"
           alt="Snow covered Himalayan mountain range"
           fetchPriority="high"
           loading="eager"
