@@ -1,12 +1,15 @@
 import React from 'react';
 
+const assetBase = window.location.hostname.endsWith('github.io') ? '/safarsathi-himachal-holiday/' : '/';
+const asset = (path: string) => `${assetBase}${path.replace(/^\\/+/, '')}`;
+
 const destinations = [
-  { name: 'India Tour Packages', detail: 'Custom holidays across destinations in India', href: '/india-tour-packages/', image: '/images/packages/full_himachal_tour_package.png', tag: 'EXPLORE INDIA' },
-  { name: 'Himachal Pradesh', detail: 'Shimla, Manali, Dharamshala & Dalhousie', href: '/himachal-tour-packages/', image: '/images/packages/himachal_shimla_manali_dharmshala_dalhousie_8_nights_9_days.png', tag: 'HIMALAYAN CLASSICS' },
-  { name: 'Shimla & Manali', detail: 'A 5-night mountain road trip idea', href: '/shimla-manali-tour/', image: '/images/packages/shimla_manali_5_nights_6_days.png', tag: 'POPULAR ROUTE' },
-  { name: 'Spiti Valley', detail: 'Kinnaur, Kaza and high-village circuit', href: '/spiti-valley-tour/', image: '/images/packages/shimla_manali_spti_tour_package_7_night_8_days.png', tag: 'ADVENTURE ROUTE' },
-  { name: 'Kashmir', detail: 'Srinagar, Gulmarg and Pahalgam', href: '/kashmir-tour-packages/', image: '/images/packages/jammu_and_kashmir_6_nights_7_days.png', tag: 'VALLEY ESCAPE' },
-  { name: 'Kerala', detail: 'Munnar, Thekkady and Alleppey', href: '/kerala-tour-packages/', image: '/images/packages/kerala_5_nights_6_days_package.png', tag: 'SOUTH INDIA' },
+  { name: 'India Tour Packages', detail: 'Custom holidays across destinations in India', href: '/india-tour-packages/', image: asset('/images/packages/full_himachal_tour_package.png'), tag: 'EXPLORE INDIA' },
+  { name: 'Himachal Pradesh', detail: 'Shimla, Manali, Dharamshala & Dalhousie', href: '/himachal-tour-packages/', image: asset('/images/packages/himachal_shimla_manali_dharmshala_dalhousie_8_nights_9_days.png'), tag: 'HIMALAYAN CLASSICS' },
+  { name: 'Shimla & Manali', detail: 'A 5-night mountain road trip idea', href: '/shimla-manali-tour/', image: asset('/images/packages/shimla_manali_5_nights_6_days.png'), tag: 'POPULAR ROUTE' },
+  { name: 'Spiti Valley', detail: 'Kinnaur, Kaza and high-village circuit', href: '/spiti-valley-tour/', image: asset('/images/packages/shimla_manali_spti_tour_package_7_night_8_days.png'), tag: 'ADVENTURE ROUTE' },
+  { name: 'Kashmir', detail: 'Srinagar, Gulmarg and Pahalgam', href: '/kashmir-tour-packages/', image: asset('/images/packages/jammu_and_kashmir_6_nights_7_days.png'), tag: 'VALLEY ESCAPE' },
+  { name: 'Kerala', detail: 'Munnar, Thekkady and Alleppey', href: '/kerala-tour-packages/', image: asset('/images/packages/kerala_5_nights_6_days_package.png'), tag: 'SOUTH INDIA' },
 ];
 
 export const DestinationGuides: React.FC = () => (
