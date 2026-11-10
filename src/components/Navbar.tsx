@@ -40,7 +40,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOfferPopup 
               <img 
                 src={`${import.meta.env.BASE_URL}images/logo.png`} 
                 alt="SafarSathi - Your Journey Our Responsibility" 
-                className="h-7 sm:h-9 w-auto object-contain"
+                className="h-7 sm:h-9 w-auto object-contain logo-reveal"
               />
             </div>
           </a>
