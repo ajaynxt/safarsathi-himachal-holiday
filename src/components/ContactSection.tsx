@@ -95,9 +95,9 @@ export const ContactSection: React.FC = () => {
                 <div>
                   <h4 className="font-bold text-xs uppercase tracking-wider text-slate-300">Working Hours</h4>
                   <p className="text-slate-100 font-medium text-xs sm:text-sm mt-0.5">
-                    Open All 7 Days (8:00 AM - 10:30 PM IST)
+                    Contact us to confirm current support hours
                   </p>
-                  <span className="text-[11px] text-emerald-400 font-medium">Emergency on-road dispatch 24 hours</span>
+                  <span className="text-[11px] text-emerald-400 font-medium">Call or WhatsApp for current assistance</span>
                 </div>
               </div>
 
@@ -140,14 +140,14 @@ export const ContactSection: React.FC = () => {
             <div className="mb-6">
               <h3 className="text-xl font-bold text-slate-900">Request a Free Callback & Custom Quote</h3>
               <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                Share your tentative plan and our travel specialist will contact you with exact package prices, cab options, and hotel availability within 15 minutes.
+                Share your tentative plan. The team can check route details, vehicle options and availability before sending a quotation.
               </p>
             </div>
 
             {submitted && (
               <div className="mb-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm flex items-center gap-3">
                 <ShieldCheck className="w-5 h-5 text-emerald-600 flex-shrink-0" />
-                <span>Inquiry opened on WhatsApp! Our Shimla team is reviewing your requirements right now.</span>
+                <span>WhatsApp has opened with your enquiry. Send the message to share your details; this does not confirm a booking.</span>
               </div>
             )}
 
