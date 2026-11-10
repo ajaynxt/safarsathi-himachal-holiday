@@ -62,7 +62,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
           </div>
 
           <h1 className="hero-enter mt-5 font-serif-title text-[2.65rem] leading-[1.04] font-bold tracking-tight drop-shadow-[0_4px_18px_rgba(0,0,0,.45)] sm:text-6xl lg:text-7xl">
-            Har safar ho <span className="text-amber-300">khaas.</span>
+            Himachal Tour Packages <span className="text-amber-300">&amp; India Holidays.</span>
           </h1>
 
           <div className="mt-3 min-h-[34px] sm:min-h-[48px] text-lg font-semibold text-white sm:text-2xl lg:text-3xl" aria-live="polite">
@@ -70,7 +70,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
           </div>
 
           <p className="hero-enter mx-auto mt-4 max-w-2xl text-sm leading-6 text-white/90 sm:text-base sm:leading-7">
-            Discover handpicked holidays, comfortable stays and trusted cabs — planned around the way you love to travel.
+            Explore Shimla and Manali tour packages, Himachal taxi services, Spiti Valley trips and holidays across Kashmir, Uttarakhand, Kerala and India. Share your plans to discuss a customised itinerary.
           </p>
 
           <div className="hero-enter mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] font-semibold text-white/90 sm:text-xs">
