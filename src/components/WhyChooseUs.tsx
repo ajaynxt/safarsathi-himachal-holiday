@@ -1,102 +1,45 @@
 import React from 'react';
-import { ShieldCheck, Compass, HeartHandshake, PhoneCall, Clock, CheckCircle } from 'lucide-react';
+import { Compass, CarFront, MessageCircle, CalendarCheck, MapPinned, ClipboardList } from 'lucide-react';
 import { COMPANY_INFO } from '../data/travelData';
 
 export const WhyChooseUs: React.FC = () => {
-  const reasons = [
-    {
-      icon: <ShieldCheck className="w-6 h-6 text-brand-orange" />,
-      title: "100% Online & Hassle-Free Booking",
-      description: "Zero office visits needed. Plan, customize and book your complete tour package or outstation cab online via WhatsApp with instant digital confirmation."
-    },
-    {
-      icon: <Compass className="w-6 h-6 text-brand-orange" />,
-      title: "Certified Pahadi Drivers",
-      description: "All our chauffeurs are born and raised in the mountains with 7+ years of driving on high passes like Rohtang, Atal Tunnel, and Spiti. Patient, courteous, and safe."
-    },
-    {
-      icon: <CheckCircle className="w-6 h-6 text-brand-orange" />,
-      title: "Zero Hidden Charges",
-      description: "Clear and transparent quotations. All toll taxes, state permits, green taxes, night driver charges, and parking fees are upfront. No surprises midway."
-    },
-    {
-      icon: <PhoneCall className="w-6 h-6 text-brand-orange" />,
-      title: "Dedicated On-Trip Support Manager",
-      description: "You receive a personal trip coordinator who tracks your journey daily, coordinates with hotels, and remains available on WhatsApp and phone 24 hours a day."
-    },
-    {
-      icon: <HeartHandshake className="w-6 h-6 text-brand-orange" />,
-      title: "Customized Itineraries for Families & Couples",
-      description: "No hurried, rigid schedules. Enjoy leisure time at riversides, apple orchards, cafes, and scenic photopoints at your own pace."
-    },
-    {
-      icon: <Clock className="w-6 h-6 text-brand-orange" />,
-      title: "Instant Booking & Easy Token Payment",
-      description: "Confirm your dream holiday with a small advance token. Flexible payment modes and hassle-free cancellation policies."
-    }
+  const points = [
+    { icon: <Compass className="h-5 w-5" />, title: 'Trips shaped around you', description: 'Tell us your preferred places, pace, dates and group size to start a customised travel discussion.' },
+    { icon: <CarFront className="h-5 w-5" />, title: 'Vehicle options', description: 'Ask about sedan, SUV, tempo traveller and Volvo options for your route and group.' },
+    { icon: <CalendarCheck className="h-5 w-5" />, title: 'Plan before you confirm', description: 'Request an itinerary and quotation. Confirm only after you have reviewed the details.' },
+    { icon: <MessageCircle className="h-5 w-5" />, title: 'Direct communication', description: 'Connect with the Safar Sathi team by phone or WhatsApp to discuss your requirements.' },
+    { icon: <MapPinned className="h-5 w-5" />, title: 'Destinations across India', description: 'Explore Himachal, Kashmir, Uttarakhand, Rajasthan, Kerala and other destinations.' },
+    { icon: <ClipboardList className="h-5 w-5" />, title: 'Clear trip details', description: 'Ask for inclusions, exclusions, vehicle details, payment terms and cancellation conditions in writing.' }
   ];
 
   return (
-    <section id="why-us" className="py-16 sm:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-900 text-xs font-bold uppercase tracking-wider mb-3">
-            <span>The SafarSathi Promise</span>
-          </div>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-brand-navy tracking-tight">
-            Why Thousands of Travelers Trust SafarSathi Across All States
-          </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-600">
-            From the bustling plains of Delhi & Chandigarh to the serene snow peaks of the Himalayas, we take full responsibility of your journey.
-          </p>
+    <section id="why-us" className="bg-white py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[.18em] text-amber-700">Travel, made clearer</span>
+          <h2 className="font-serif-title text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Plan with the details that matter.</h2>
+          <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">A simple enquiry process helps you compare the plan and understand what is included before making a decision.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {reasons.map((r, i) => (
-            <div
-              key={i}
-              className="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:border-brand-orange/40 group"
-            >
-              <div className="p-3 bg-white rounded-xl shadow-sm inline-block mb-4 group-hover:scale-110 transition-transform">
-                {r.icon}
-              </div>
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2 group-hover:text-brand-orange transition-colors">
-                {r.title}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                {r.description}
-              </p>
+        <div className="grid gap-x-8 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
+          {points.map((point) => (
+            <div key={point.title} className="border-t border-stone-200 pt-5">
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-amber-700">{point.icon}</div>
+              <h3 className="text-base font-bold text-slate-900">{point.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">{point.description}</p>
             </div>
           ))}
         </div>
 
-        {/* 100% Online Booking & Customer Support Card */}
-        <div className="mt-14 bg-gradient-to-r from-slate-900 via-brand-navy to-slate-900 rounded-3xl p-6 sm:p-10 text-white flex flex-col lg:flex-row items-center justify-between gap-6 shadow-2xl">
-          <div className="space-y-2 text-center lg:text-left">
-            <span className="text-amber-400 text-xs font-bold uppercase tracking-wider">
-              100% Online Booking &amp; 24x7 Support
-            </span>
-            <h3 className="text-xl sm:text-2xl font-bold">
-              {COMPANY_INFO.address}
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-300">
-              Book effortlessly from any state across India. Instant quotes, verified vehicle allocation, and personal WhatsApp support throughout your journey!
-            </p>
+        <div className="mt-14 flex flex-col items-start justify-between gap-5 rounded-3xl bg-slate-950 p-6 text-white sm:p-9 lg:flex-row lg:items-center">
+          <div className="max-w-2xl">
+            <span className="text-xs font-bold uppercase tracking-[.16em] text-amber-300">Talk to Safar Sathi</span>
+            <h3 className="mt-2 text-2xl font-bold">{COMPANY_INFO.address}</h3>
+            <p className="mt-2 text-sm leading-6 text-slate-300">Discuss your travel dates, route, vehicle preference and quotation directly with the team.</p>
           </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <a
-              href={`tel:${COMPANY_INFO.phone}`}
-              className="px-6 py-3 rounded-xl bg-brand-orange hover:bg-brand-orange-dark text-white font-bold text-xs sm:text-sm shadow-lg transition-all"
-            >
-              Call: {COMPANY_INFO.phoneDisplay}
-            </a>
-            <a
-              href={`mailto:${COMPANY_INFO.email}`}
-              className="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm border border-white/20 transition-all"
-            >
-              Email Us
-            </a>
+          <div className="flex flex-wrap gap-3">
+            <a href={`tel:${COMPANY_INFO.phone}`} className="rounded-xl bg-amber-400 px-5 py-3 text-sm font-bold text-slate-950 hover:bg-amber-300">Call {COMPANY_INFO.phoneDisplay}</a>
+            <a href={COMPANY_INFO.whatsappUrl('Hello Safar Sathi, I would like to discuss a trip.')} target="_blank" rel="noopener noreferrer" className="rounded-xl border border-white/25 px-5 py-3 text-sm font-bold text-white hover:bg-white/10">WhatsApp</a>
           </div>
         </div>
       </div>
