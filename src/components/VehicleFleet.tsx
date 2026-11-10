@@ -71,10 +71,10 @@ export const VehicleFleet: React.FC<VehicleFleetProps> = ({ onBookCab }) => {
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/55 via-transparent to-slate-950/10" />
-                {/* Registration area is covered on the displayed photo to avoid exposing a third-party plate. */}
+                {/* Subtle dark blur conceals any visible registration without a stark white strip. */}
                 <span
                   aria-hidden="true"
-                  className="pointer-events-none absolute bottom-[17%] left-1/2 h-[8%] min-h-[9px] w-[18%] min-w-10 -translate-x-1/2 rounded-[2px] border border-slate-300 bg-slate-100 shadow-sm"
+                  className="pointer-events-none absolute bottom-[17%] left-1/2 h-[8%] min-h-[9px] w-[18%] min-w-10 -translate-x-1/2 rounded-sm bg-slate-950/70 backdrop-blur-md"
                 />
                 <span className="absolute left-4 top-4 rounded-full border border-white/25 bg-slate-950/55 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm">
                   {vehicle.category}
