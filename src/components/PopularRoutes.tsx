@@ -189,7 +189,7 @@ export const PopularRoutes: React.FC<PopularRoutesProps> = ({ onBookRoute }) => 
 
                 {/* Recommended Vehicle */}
                 <div className="mb-4">
-                  <span className="text-[10px] uppercase font-bold text-slate-400 block mb-1">Recommended White Cab</span>
+                  <span className="text-[10px] uppercase font-bold text-slate-400 block mb-1">Vehicle options to enquire about</span>
                   <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-800">
                     <Car className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
                     <span className="line-clamp-1">{route.popularVehicles}</span>
@@ -202,11 +202,11 @@ export const PopularRoutes: React.FC<PopularRoutesProps> = ({ onBookRoute }) => 
               {/* Action Buttons */}
               <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
                 <a
-                  href={COMPANY_INFO.whatsappUrl(`Hello SafarSathi, please send me instant cab fare quote for route: ${route.from} to ${route.to}.`)}
+                  href={COMPANY_INFO.whatsappUrl(`Hello SafarSathi, please send me cab fare quotation for route: ${route.from} to ${route.to}.`)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2.5 rounded-xl border border-green-600/30 text-green-700 bg-green-50 hover:bg-green-600 hover:text-white transition-colors"
-                  title="WhatsApp Instant Quote"
+                  title="Ask for a quote"
                 >
                   <MessageCircle className="w-4 h-4" />
                 </a>
@@ -215,7 +215,7 @@ export const PopularRoutes: React.FC<PopularRoutesProps> = ({ onBookRoute }) => 
                   onClick={() => onBookRoute(`${route.from} to ${route.to} Cab`)}
                   className="w-full py-2.5 px-3 rounded-xl bg-brand-navy hover:bg-slate-900 text-white text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm group-hover:bg-brand-orange"
                 >
-                  <span>Book Cab Route</span>
+                  <span>Enquire about route</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
