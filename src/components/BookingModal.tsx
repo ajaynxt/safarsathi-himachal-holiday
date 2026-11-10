@@ -162,6 +162,9 @@ Please check availability and send confirmed quotation.`;
                   <input
                     type="tel"
                     required
+                    inputMode="tel"
+                    pattern="[0-9+()\\s-]{7,20}"
+                    title="Enter a valid phone number"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="e.g. 9876543210"
@@ -204,9 +207,9 @@ Please check availability and send confirmed quotation.`;
                 </div>
               </div>
 
-              {/* Preferences */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
+              {/* Show only the preference relevant to the selected service */}
+              {bookingType === 'cab' && (
+              <div>
                   <label className="block text-xs font-bold text-slate-700 mb-1">Vehicle Preference</label>
                   <select
                     value={cabPreference}
@@ -224,6 +227,10 @@ Please check availability and send confirmed quotation.`;
                   </select>
                 </div>
 
+              </div>
+              )}
+              {bookingType === 'hotel' && (
+              <div>
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-1">Hotel Category</label>
                   <select
@@ -239,6 +246,7 @@ Please check availability and send confirmed quotation.`;
                   </select>
                 </div>
               </div>
+              )}
 
               <div className="pt-2">
                 <button
@@ -250,8 +258,8 @@ Please check availability and send confirmed quotation.`;
                 </button>
               </div>
 
-              <p className="text-[10px] text-center text-slate-400">
-                ⭐ 100% Online Booking • Zero Advance Fee • Verified All-India White Fleet
+              <p className="text-[10px] text-center text-slate-500">
+                This is an enquiry only. Availability, fare and booking terms will be confirmed by the Safar Sathi team.
               </p>
             </form>
           )}
