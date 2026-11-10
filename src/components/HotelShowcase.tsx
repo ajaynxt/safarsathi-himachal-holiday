@@ -80,6 +80,8 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
                   <img
                     src={hotel.image}
                     alt={hotel.name}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
@@ -121,7 +123,7 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
                       onClick={() => openGallery(hotel, tIdx)}
                       className="h-14 overflow-hidden rounded-md relative group/thumb border border-slate-300 hover:border-brand-orange"
                     >
-                      <img src={thumb} alt="" className="w-full h-full object-cover group-hover/thumb:scale-110 transition-transform" />
+                      <img src={thumb} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover/thumb:scale-110 transition-transform" />
                       {tIdx === 3 && hotel.gallery.length > 4 && (
                         <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-white text-[11px] font-bold">
                           +{hotel.gallery.length - 3}
@@ -232,6 +234,7 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
               <img
                 src={activeGalleryHotel.gallery[currentPhotoIdx]}
                 alt="Hotel Photo"
+                decoding="async"
                 className="max-w-full max-h-[65vh] object-contain rounded-xl shadow-2xl"
               />
 
@@ -260,7 +263,7 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
                     currentPhotoIdx === idx ? 'border-brand-orange scale-105 shadow-md' : 'border-transparent opacity-60 hover:opacity-100'
                   }`}
                 >
-                  <img src={imgUrl} alt="" className="w-full h-full object-cover" />
+                  <img src={imgUrl} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                 </button>
               ))}
             </div>
