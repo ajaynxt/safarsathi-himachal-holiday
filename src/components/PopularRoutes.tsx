@@ -117,13 +117,13 @@ export const PopularRoutes: React.FC<PopularRoutesProps> = ({ onBookRoute }) => 
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 text-brand-orange text-xs font-bold uppercase tracking-wider mb-3">
             <Navigation className="w-3.5 h-3.5" />
-            <span>Himachal Taxi Route & Distance Matrix</span>
+            <span>Popular travel routes</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-brand-navy tracking-tight">
-            Popular Himalayan Taxi Routes & Doorstep Pickups
+            Plan your road journey
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600">
-            Transparent estimated drive times, distances, and vehicle recommendations for our <strong className="text-slate-800">100% White Commercial Fleet</strong>. Driver night charges, toll gates & green taxes handled smoothly.
+            Distances and journey times are indicative and can change with traffic, weather and road conditions. Confirm the final route, vehicle and fare with the team.
           </p>
 
           {/* Filter Chips */}
@@ -138,7 +138,7 @@ export const PopularRoutes: React.FC<PopularRoutesProps> = ({ onBookRoute }) => 
                     : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'
                 }`}
               >
-                {loc === 'All' ? 'All Routes (8)' : loc}
+                {loc === 'All' ? 'All Routes' : loc}
               </button>
             ))}
           </div>
@@ -196,14 +196,7 @@ export const PopularRoutes: React.FC<PopularRoutesProps> = ({ onBookRoute }) => 
                   </div>
                 </div>
 
-                {/* Feature Tags */}
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {route.tags.map((tag, tIdx) => (
-                    <span key={tIdx} className="text-[10px] font-semibold bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+
               </div>
 
               {/* Action Buttons */}
@@ -237,8 +230,8 @@ export const PopularRoutes: React.FC<PopularRoutesProps> = ({ onBookRoute }) => 
               <ShieldCheck className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="font-bold text-slate-900 text-sm sm:text-base">Need a Custom Multi-City Route or Pickups from Other Cities?</h4>
-              <p className="text-xs text-slate-500">We arrange doorstep private cabs from Ambala, Ludhiana, Jalandhar, Patiala, and Dehradun with zero return fare charges.</p>
+              <h4 className="font-bold text-slate-900 text-sm sm:text-base">Need a different pickup or multi-city route?</h4>
+              <p className="text-xs text-slate-500">Share your pickup city and destination to enquire about possible arrangements and the applicable fare.</p>
             </div>
           </div>
           <a
