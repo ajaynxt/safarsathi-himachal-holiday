@@ -7,10 +7,10 @@ export const AdventureBanner: React.FC = () => {
   const [contact, setContact] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleTripEnquiry = (e: React.FormEvent) => {
     e.preventDefault();
     if (!contact) return;
-    const msg = `Hello SafarSathi! I would like to subscribe to special Himalayan travel deals and custom itineraries.%0AContact: ${contact}`;
+    const msg = `Hello SafarSathi! I would like to discuss a trip and receive a quotation.%0AContact: ${contact}`;
     window.open(`https://wa.me/918351987587?text=${msg}`, '_blank');
     setSubmitted(true);
   };
@@ -46,7 +46,7 @@ export const AdventureBanner: React.FC = () => {
             <div>
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-xs font-bold uppercase tracking-wider text-amber-400">
-                  Ready For The Mountains?
+                  Have a trip in mind?
                 </span>
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
               </div>
@@ -54,7 +54,7 @@ export const AdventureBanner: React.FC = () => {
                 Let&apos;s Plan Your Next Adventure
               </h3>
               <p className="text-xs sm:text-sm text-emerald-100/80 mt-1 leading-relaxed">
-                Get handpicked seasonal itineraries, snowfall updates, and instant WhatsApp deals delivered straight to you.
+                Share your contact details and the Safar Sathi team can follow up about your travel enquiry.
               </p>
             </div>
           </div>
@@ -67,7 +67,7 @@ export const AdventureBanner: React.FC = () => {
                 <span>Opening WhatsApp with your travel specialist!</span>
               </div>
             ) : (
-              <form onSubmit={handleSubscribe} className="relative flex items-center">
+              <form onSubmit={handleTripEnquiry} className="relative flex items-center">
                 <input
                   type="text"
                   required
@@ -80,14 +80,14 @@ export const AdventureBanner: React.FC = () => {
                   type="submit"
                   className="absolute right-1.5 py-2.5 px-5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm tracking-wide shadow-md transition-all flex items-center gap-1.5"
                 >
-                  <span>Plan Trip</span>
+                  <span>Send Enquiry</span>
                   <span className="text-xs">&rarr;</span>
                 </button>
               </form>
             )}
 
             <div className="flex items-center justify-between text-[11px] text-emerald-200/70 mt-2.5 px-3">
-              <span>Instant response on WhatsApp</span>
+              <span>Opens WhatsApp to send your enquiry</span>
               <a
                 href={COMPANY_INFO.instagram}
                 target="_blank"
