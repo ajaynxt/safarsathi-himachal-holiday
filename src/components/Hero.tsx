@@ -30,8 +30,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
       {/* Background Image: Pure Snow Mountain Peaks (Barf Wale Pahad) with Crisp Winter Sky */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2400&q=88"
+          src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=75"
           alt="Majestic Snow Covered Himalayan Mountain Peaks"
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
           className="w-full h-full object-cover object-center transform scale-105 filter brightness-95 contrast-105"
         />
         {/* Cinematic gradient overlay for perfect contrast */}
