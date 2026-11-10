@@ -56,19 +56,18 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(154,103,69,.16)_0%,transparent_58%)]" />
 
       <div className="relative flex w-full max-w-xl flex-col items-center px-6 text-center">
-        <div className="intro-logo relative flex h-32 w-32 items-center justify-center sm:h-36 sm:w-36">
-          <span className="absolute inset-0 rounded-full border border-[#d7b77e]/45" />
-          <span className="absolute inset-[7px] rounded-full border border-white/15" />
-          <span className="absolute inset-[-9px] rounded-full border border-white/10" />
+        <div className="intro-logo relative flex h-40 w-40 items-center justify-center rounded-full bg-[#fbf7ef] shadow-[0_18px_55px_rgba(0,0,0,.42)] ring-1 ring-[#d7b77e]/70 sm:h-48 sm:w-48">
+          <span className="absolute inset-[-7px] rounded-full border border-[#e3c995]/80" />
+          <span className="absolute inset-[-15px] rounded-full border border-white/20" />
           <img
             src={`${import.meta.env.BASE_URL}images/logo.png`}
             alt="Safar Sathi emblem"
-            className="relative z-10 h-[78%] w-[78%] object-contain drop-shadow-[0_8px_24px_rgba(0,0,0,.35)]"
+            className="relative z-10 h-[88%] w-[88%] rounded-full object-contain p-2.5 sm:p-3"
             fetchPriority="high"
           />
         </div>
 
-        <div className="intro-rule mt-7 h-px w-16 bg-gradient-to-r from-transparent via-[#d8b77d] to-transparent" />
+        <div className="intro-rule mt-9 h-px w-16 bg-gradient-to-r from-transparent via-[#d8b77d] to-transparent" />
         <h1 className="intro-word mt-5 whitespace-nowrap font-cinzel text-[1.55rem] font-semibold text-[#f5e8d2] drop-shadow sm:text-3xl">
           SAFAR SATHI
         </h1>
