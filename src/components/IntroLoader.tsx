@@ -1,59 +1,86 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 interface IntroLoaderProps {
   onComplete: () => void;
 }
 
 export function IntroLoader({ onComplete }: IntroLoaderProps) {
+  const [leaving, setLeaving] = useState(false);
+
   useEffect(() => {
-    const timer = window.setTimeout(onComplete, 2200);
-    return () => window.clearTimeout(timer);
+    const leaveTimer = window.setTimeout(() => setLeaving(true), 2050);
+    const finishTimer = window.setTimeout(onComplete, 2500);
+    return () => {
+      window.clearTimeout(leaveTimer);
+      window.clearTimeout(finishTimer);
+    };
   }, [onComplete]);
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-[#f8f7f3]"
+      className={`safar-intro fixed inset-0 z-[100] isolate flex min-h-[100svh] items-center justify-center overflow-hidden bg-[#211a1b] text-white transition-all duration-700 ease-[cubic-bezier(.22,.75,.25,1)] ${leaving ? 'pointer-events-none opacity-0 scale-[1.025]' : 'opacity-100'}`}
       role="status"
-      aria-label="Loading Safar Sathi"
+      aria-label="Welcome to Safar Sathi"
     >
       <style>{`
-        @keyframes safarLogoIn {
-          0% { opacity: 0; transform: translateY(12px) scale(.94); filter: blur(5px); }
-          100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
-        }
-        @keyframes safarNameIn {
-          0%, 22% { opacity: 0; transform: translateY(10px); letter-spacing: .42em; }
-          100% { opacity: 1; transform: translateY(0); letter-spacing: .2em; }
-        }
-        @keyframes safarTagIn {
-          0%, 48% { opacity: 0; transform: translateY(7px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
-        .safar-intro-logo { animation: safarLogoIn .75s cubic-bezier(.2,.75,.25,1) both; }
-        .safar-intro-name { animation: safarNameIn .8s .45s ease-out both; }
-        .safar-intro-tag { animation: safarTagIn .65s .95s ease-out both; }
+        @keyframes introBackdrop { from { transform: scale(1.12); opacity: .25; } to { transform: scale(1); opacity: .72; } }
+        @keyframes introVeil { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes introLogo { 0% { opacity: 0; transform: translateY(18px) scale(.88); filter: blur(8px); } 70% { opacity: 1; } 100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); } }
+        @keyframes introRule { from { transform: scaleX(0); opacity: .2; } to { transform: scaleX(1); opacity: 1; } }
+        @keyframes introWord { 0%, 24% { opacity: 0; transform: translateY(16px); letter-spacing: .48em; } 100% { opacity: 1; transform: translateY(0); letter-spacing: .24em; } }
+        @keyframes introTag { 0%, 55% { opacity: 0; transform: translateY(8px); } 100% { opacity: 1; transform: translateY(0); } }
+        @keyframes introFoot { 0%, 68% { opacity: 0; } 100% { opacity: .8; } }
+        .intro-backdrop { animation: introBackdrop 2.8s ease-out both; }
+        .intro-veil { animation: introVeil .7s ease-out both; }
+        .intro-logo { animation: introLogo .9s cubic-bezier(.2,.8,.2,1) .12s both; }
+        .intro-rule { animation: introRule .75s ease-out .72s both; transform-origin: center; }
+        .intro-word { animation: introWord .8s ease-out .65s both; }
+        .intro-tag { animation: introTag .65s ease-out 1.15s both; }
+        .intro-foot { animation: introFoot .6s ease-out 1.45s both; }
         @media (prefers-reduced-motion: reduce) {
-          .safar-intro-logo, .safar-intro-name, .safar-intro-tag { animation: none; opacity: 1; transform: none; filter: none; }
+          .intro-backdrop, .intro-veil, .intro-logo, .intro-rule, .intro-word, .intro-tag, .intro-foot { animation: none !important; }
         }
       `}</style>
-      <div className="flex flex-col items-center px-6 text-center">
+
+      <div className="absolute inset-0 -z-20 overflow-hidden">
         <img
-          src={`${import.meta.env.BASE_URL}images/logo.png`}
-          alt="Safar Sathi"
-          className="safar-intro-logo h-20 w-auto max-w-[220px] object-contain sm:h-24"
+          src={`${import.meta.env.BASE_URL}images/destinations/manali.jpg`}
+          alt=""
+          aria-hidden="true"
           fetchPriority="high"
+          decoding="async"
+          className="intro-backdrop h-full w-full object-cover object-center"
         />
-        <div className="safar-intro-name mt-5 font-cinzel text-xl font-bold tracking-[0.2em] text-[#762d36] sm:text-2xl">
-          SAFAR SATHI
+      </div>
+      <div className="intro-veil absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(29,20,22,.48)_0%,rgba(37,20,25,.62)_48%,rgba(20,17,19,.88)_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(154,103,69,.16)_0%,transparent_58%)]" />
+
+      <div className="relative flex w-full max-w-xl flex-col items-center px-6 text-center">
+        <div className="intro-logo relative flex h-32 w-32 items-center justify-center sm:h-36 sm:w-36">
+          <span className="absolute inset-0 rounded-full border border-[#d7b77e]/45" />
+          <span className="absolute inset-[7px] rounded-full border border-white/15" />
+          <span className="absolute inset-[-9px] rounded-full border border-white/10" />
+          <img
+            src={`${import.meta.env.BASE_URL}images/logo.png`}
+            alt="Safar Sathi emblem"
+            className="relative z-10 h-[78%] w-[78%] object-contain drop-shadow-[0_8px_24px_rgba(0,0,0,.35)]"
+            fetchPriority="high"
+          />
         </div>
-        <p className="safar-intro-tag mt-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#82766b] sm:text-xs">
-          Your Journey Begins Here
+
+        <div className="intro-rule mt-7 h-px w-16 bg-gradient-to-r from-transparent via-[#d8b77d] to-transparent" />
+        <h1 className="intro-word mt-5 whitespace-nowrap font-cinzel text-[1.55rem] font-semibold text-[#f5e8d2] drop-shadow sm:text-3xl">
+          SAFAR SATHI
+        </h1>
+        <p className="intro-tag mt-3 text-[9px] font-semibold uppercase tracking-[.3em] text-[#e6c99b] sm:text-[10px]">
+          Your Journey, Our Responsibility
         </p>
-        <div className="mt-8 h-px w-24 overflow-hidden bg-[#e5ded5]">
-          <div className="h-full w-full origin-left animate-[safarProgress_1.7s_ease-in-out_forwards] bg-[#b68a4a]" />
+        <div className="intro-foot mt-12 flex items-center gap-3 text-[9px] uppercase tracking-[.24em] text-white/75">
+          <span className="h-px w-7 bg-[#d7b77e]/70" />
+          Discover • Explore • Experience
+          <span className="h-px w-7 bg-[#d7b77e]/70" />
         </div>
       </div>
-      <style>{`@keyframes safarProgress { from { transform: scaleX(0); } to { transform: scaleX(1); } }`}</style>
     </div>
   );
 }
