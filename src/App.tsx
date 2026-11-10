@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { TopBanner } from './components/TopBanner';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -26,19 +26,6 @@ export function App() {
   const [bookingType, setBookingType] = useState<'package' | 'cab' | 'hotel' | 'volvo'>('package');
   const [selectedItemName, setSelectedItemName] = useState('');
   const [isOfferPopupOpen, setIsOfferPopupOpen] = useState(false);
-
-  // Auto-open the animated offer popup after a gentle delay on first session visit
-  useEffect(() => {
-    if (window.location.search.includes('nopopup')) return;
-    const hasSeenPopup = sessionStorage.getItem('safarsathi_offer_seen');
-    if (!hasSeenPopup) {
-      const timer = setTimeout(() => {
-        setIsOfferPopupOpen(true);
-        sessionStorage.setItem('safarsathi_offer_seen', 'true');
-      }, 1600);
-      return () => clearTimeout(timer);
-    }
-  }, []);
 
   const handleOpenBooking = (type: 'package' | 'cab' | 'hotel' | 'volvo' = 'package', itemName: string = '') => {
     setBookingType(type);
