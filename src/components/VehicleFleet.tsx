@@ -23,13 +23,13 @@ export const VehicleFleet: React.FC<VehicleFleetProps> = ({ onBookCab }) => {
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>100% Sanitized All-White Commercial Fleet</span>
+            <span>Vehicle options for your journey</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-brand-navy tracking-tight">
-            Our All-White Taxi Cabs, SUVs & Volvo Bus Fleet
+            Choose a vehicle for your route
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600">
-            Available with commercial permits across <strong className="text-slate-800">Delhi, Chandigarh, Kalka, Shimla, Manali & Dharamshala</strong>. 100% pristine white sanitized vehicles driven by certified Pahadi chauffeurs.
+            Explore the vehicle categories below. Share your route and travel dates to confirm availability, seating, luggage capacity and the final fare.
           </p>
 
           {/* Category Tabs */}
@@ -90,7 +90,7 @@ export const VehicleFleet: React.FC<VehicleFleetProps> = ({ onBookCab }) => {
                   </div>
                   <div className="flex items-center gap-1.5">
                     <Snowflake className="w-4 h-4 text-brand-orange" />
-                    <span>{vehicle.ac ? 'AC + Heater' : 'Standard'}</span>
+                    <span>{vehicle.ac ? 'AC option' : 'Standard'}</span>
                   </div>
                 </div>
 
@@ -114,8 +114,8 @@ export const VehicleFleet: React.FC<VehicleFleetProps> = ({ onBookCab }) => {
               {/* Pricing & Booking Action */}
               <div className="p-4 bg-white border-t border-slate-200/80 flex items-center justify-between gap-2">
                 <div>
-                  <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Rate Estimate</span>
-                  <span className="text-sm font-extrabold text-brand-navy">Best Guaranteed Price</span>
+                  <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Fare</span>
+                  <span className="text-sm font-extrabold text-brand-navy">Request a quote</span>
                 </div>
 
                 <div className="flex items-center gap-1.5">
@@ -147,9 +147,9 @@ export const VehicleFleet: React.FC<VehicleFleetProps> = ({ onBookCab }) => {
             <ShieldCheck className="w-6 h-6" />
           </div>
           <div className="space-y-1 text-center sm:text-left">
-            <h4 className="font-bold text-slate-900 text-sm sm:text-base">Mountain Driving Safety Guarantee</h4>
+            <h4 className="font-bold text-slate-900 text-sm sm:text-base">Before you confirm</h4>
             <p className="text-slate-600">
-              Driving on steep Himalayan curves requires high skill. Every driver in our fleet has minimum <strong>7+ years of certified hill-driving experience</strong>, is non-smoking on duty, and familiar with snow chains and emergency altitude procedures.
+              Ask the team to confirm the assigned vehicle, driver details, permits, included charges and any route-specific requirements in your written quotation.
             </p>
           </div>
           <div className="flex-shrink-0">
