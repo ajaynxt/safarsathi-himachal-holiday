@@ -10,3 +10,16 @@
     text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
   }
 }
+
+
+@keyframes heroRise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-enter { animation: heroRise .7s ease-out both; }
+.hero-enter:nth-child(2) { animation-delay: .08s; }
+.hero-enter:nth-child(3) { animation-delay: .16s; }
+.hero-enter:nth-child(4) { animation-delay: .24s; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-enter { animation: none; }
+}
