@@ -28,15 +28,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOfferPopup 
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <header className={`fixed top-[34px] left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-2.5' : 'bg-gradient-to-b from-black/70 via-black/40 to-transparent py-3.5 sm:py-4'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Official SafarSathi Logo with Crisp Backing */}
+          {/* Official SafarSathi Logo — transparent, no backing */}
           <a href="#" className="flex items-center gap-2 group">
-            <div className="h-10 sm:h-12 px-3 py-1 bg-white/95 backdrop-blur-md rounded-xl shadow-md border border-white/50 flex items-center transition-transform group-hover:scale-105">
+            <div className="h-10 sm:h-12 flex items-center transition-transform group-hover:scale-105">
               <img 
                 src={`${import.meta.env.BASE_URL}images/logo.png`} 
                 alt="SafarSathi - Your Journey Our Responsibility" 
