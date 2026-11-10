@@ -10,8 +10,8 @@ export const AdventureBanner: React.FC = () => {
   const handleTripEnquiry = (e: React.FormEvent) => {
     e.preventDefault();
     if (!contact) return;
-    const msg = `Hello SafarSathi! I would like to discuss a trip and receive a quotation.%0AContact: ${contact}`;
-    window.open(`https://wa.me/918351987587?text=${msg}`, '_blank');
+    const msg = `Hello Safar Sathi, I would like to discuss a trip and receive a quotation.\nContact: ${contact}`;
+    window.open(COMPANY_INFO.whatsappUrl(msg), '_blank', 'noopener,noreferrer');
     setSubmitted(true);
   };
 
