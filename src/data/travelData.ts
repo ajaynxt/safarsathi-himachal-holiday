@@ -222,7 +222,7 @@ export const VEHICLE_FLEET: Vehicle[] = [
     luggage: "2 Large + 2 Small Bags",
     ac: true,
     idealFor: "Couples, small families & local Shimla/Manali tours",
-    image: asset('images/fleet/dzire.jpeg'),
+    image: 'https://cdn-s3.autocarindia.com/legacy/cdni/News/Maruti-Dzire.jpg?c=0&w=700',
     features: ["100% Commercial White Fleet", "Pahadi-trained experienced driver", "AC with mountain heater", "Clean sanitized interiors", "Fastag enabled"]
   },
   {
@@ -233,7 +233,7 @@ export const VEHICLE_FLEET: Vehicle[] = [
     luggage: "3 Large Bags (Spacious Boot)",
     ac: true,
     idealFor: "Outstation transfers from Delhi / Chandigarh to Himachal",
-    image: asset('images/fleet/etios.jpeg'),
+    image: 'https://www.lakshtaxi.in/assets/images/TOYOTA%20ETIOS.webp',
     features: ["White Commercial Plate", "Extra large luggage boot space", "Smooth hill suspension", "Pahadi chauffeur in uniform", "High reliability on hill climbs"]
   },
   {
@@ -244,7 +244,7 @@ export const VEHICLE_FLEET: Vehicle[] = [
     luggage: "3 Large Bags",
     ac: true,
     idealFor: "VIP executive travel, luxury couples & honeymoon transfers",
-    image: asset('images/fleet/honda_city.jpeg'),
+    image: 'https://images10.gaadi.com/usedcar_image/W1VCS36H.14-20-19-1/original/1e155de5-8783-44cf-a1e3-c9e9c33fe043.jpg',
     features: ["Pristine White Luxury Finish", "Plush ergonomic leather seats", "Complimentary mineral water", "High safety rating", "Silent & ultra-smooth highway ride"]
   },
   {
@@ -255,7 +255,7 @@ export const VEHICLE_FLEET: Vehicle[] = [
     luggage: "2 Large Bags",
     ac: true,
     idealFor: "Budget-friendly couples & easy navigation through hill town streets",
-    image: asset('images/fleet/glanza.jpeg'),
+    image: 'https://images10.gaadi.com/usedcar_image/5426662/original/processed_25faa70ff7270369abf24b1677364b64.jpeg?imwidth=800',
     features: ["White Compact Cruiser", "Fuel efficient & eco-friendly", "Dual AC & USB mobile charging", "Hill climb assist", "Bluetooth surround audio"]
   },
   {
@@ -266,7 +266,7 @@ export const VEHICLE_FLEET: Vehicle[] = [
     luggage: "3 Large + 2 Small Bags + Carrier",
     ac: true,
     idealFor: "Families & groups of 4-6 seeking comfort & economical rates",
-    image: asset('images/fleet/ertiga.jpeg'),
+    image: 'https://www.mahindrafirstchoice.com/_next/image?q=75&url=https%3A%2F%2Fmedia.mahindrafirstchoice.com%2Flive_web_images%2Fusedcarsimg%2Fmfc%2F2259%2F623105%2Fcover_image-20250109163244.jpg&w=1200',
     features: ["White Commercial Fleet", "Dual AC vents for all 3 rows", "Overhead luggage carrier", "Agile & safe on mountain curves", "Certified hill chauffeur"]
   },
   {
@@ -277,7 +277,7 @@ export const VEHICLE_FLEET: Vehicle[] = [
     luggage: "4 Large + 3 Small Bags + Carrier",
     ac: true,
     idealFor: "Supreme comfort for families, senior citizens, Rohtang & Spiti circuit",
-    image: asset('images/fleet/innova_crysta.jpeg'),
+    image: 'https://img.gaadicdn.com/images/carexteriorimages/930x620/Toyota/Innova-Crysta/9608/1755846139274/front-left-side-47.jpg',
     features: ["Super White Pristine Vehicle", "Captain reclining luxury seats", "High ground clearance & supreme safety", "Rear AC controls & charging ports", "Preferred by 90% Himalayan travelers"]
   },
   {
@@ -288,7 +288,7 @@ export const VEHICLE_FLEET: Vehicle[] = [
     luggage: "Dedicated large boot + roof carrier",
     ac: true,
     idealFor: "Corporate groups, extended families, student tours & group adventures",
-    image: asset('images/fleet/tempo_traveller.jpeg'),
+    image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/76/28/50/our-best-tempo-traveller.jpg?h=-1&s=1&w=1200',
     features: ["White Tourist Permit Coach", "Individual pushback recliners", "Panoramic mountain view windows", "First aid & high-altitude kit", "Pahadi master driver"]
   },
   {
@@ -299,7 +299,7 @@ export const VEHICLE_FLEET: Vehicle[] = [
     luggage: "Under-chassis massive baggage bay",
     ac: true,
     idealFor: "Overnight transfers from Delhi / Chandigarh to Shimla & Manali",
-    image: asset('images/fleet/volvo_bus.jpeg'),
+    image: 'https://buscdn.cardekho.com/in/volvo/9400-b11r/volvo-9400-b11r.jpg',
     features: ["Indian Multi-Axle Luxury Volvo Coach", "Air suspension for bump-free sleep", "Blanket, water bottle & charging sockets", "Live GPS tracking", "Daily fixed departures"]
   }
 ];
