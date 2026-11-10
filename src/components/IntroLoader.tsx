@@ -4,7 +4,7 @@ interface IntroLoaderProps {
   onComplete: () => void;
 }
 
-const assetBase = window.location.hostname.endsWith('github.io') ? '/safarsathi-himachal-holiday/' : '/';
+const assetBase = import.meta.env.BASE_URL;
 
 export function IntroLoader({ onComplete }: IntroLoaderProps) {
   const [leaving, setLeaving] = useState(false);
