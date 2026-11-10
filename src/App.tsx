@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
+import { IntroLoader } from './components/IntroLoader';
 import { TopBanner } from './components/TopBanner';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -22,6 +23,8 @@ import { AnimatedOfferPopup } from './components/AnimatedOfferPopup';
 import { Sparkles, Plane } from 'lucide-react';
 
 export function App() {
+  const [showIntro, setShowIntro] = useState(true);
+  const handleIntroComplete = useCallback(() => setShowIntro(false), []);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [bookingType, setBookingType] = useState<'package' | 'cab' | 'hotel' | 'volvo'>('package');
   const [selectedItemName, setSelectedItemName] = useState('');
@@ -39,6 +42,7 @@ export function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      {showIntro && <IntroLoader onComplete={handleIntroComplete} />}
       {/* Top Urgent Offer / Seasonal Banner */}
       <TopBanner />
 
