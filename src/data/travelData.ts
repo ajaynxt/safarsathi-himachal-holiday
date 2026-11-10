@@ -62,9 +62,9 @@ export const COMPANY_INFO = {
   phone: "8351987587",
   phoneDisplay: "+91 83519 87587",
   email: "safarsathi.india@gmail.com",
-  instagram: "https://www.instagram.com/safar_sathiindia?xtok=MW1vNnhiMWx3dW9zaA==",
+  instagram: "https://www.instagram.com/safar_sathiindia/",
   instagramHandle: "@safar_sathiindia",
-  address: "100% Online Travel Services & 24x7 Customer Support Desk (Pan-India)",
+  address: "New Bus Stand, Tutikandi, Shimla, Himachal Pradesh",
   whatsappUrl: (msg: string) => `https://wa.me/918351987587?text=${encodeURIComponent(msg)}`,
   serviceLocations: ["All Indian States", "Himachal Pradesh", "Uttarakhand", "Jammu & Kashmir", "Ladakh", "Rajasthan", "Goa", "Kerala", "North East", "Delhi NCR & Pan-India"]
 };
