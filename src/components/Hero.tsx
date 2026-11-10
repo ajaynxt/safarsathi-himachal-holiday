@@ -74,7 +74,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
           </p>
 
           <div className="hero-enter mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] font-semibold text-white/90 sm:text-xs">
-            <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-amber-300" /> 16 years of travel experience</span>
+            <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-amber-300" /> 9 years of travel experience</span>
             <span className="inline-flex items-center gap-1.5"><CarFront className="h-4 w-4 text-amber-300" /> Private cab options</span>
             <span className="inline-flex items-center gap-1.5"><Headphones className="h-4 w-4 text-amber-300" /> Personal trip assistance</span>
           </div>
