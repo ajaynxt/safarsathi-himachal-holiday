@@ -1,7 +1,7 @@
 import React from 'react';
 
 const assetBase = window.location.hostname.endsWith('github.io') ? '/safarsathi-himachal-holiday/' : '/';
-const asset = (path: string) => `${assetBase}${path.replace(/^\\/+/, '')}`;
+const asset = (path: string) => `${assetBase}${path.startsWith('/') ? path.slice(1) : path}`;
 
 const destinations = [
   { name: 'India Tour Packages', detail: 'Custom holidays across destinations in India', href: '/india-tour-packages/', image: asset('/images/packages/full_himachal_tour_package.png'), tag: 'EXPLORE INDIA' },
