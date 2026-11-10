@@ -67,7 +67,12 @@ export const VehicleFleet: React.FC<VehicleFleetProps> = ({ onBookCab }) => {
                     decoding="async"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                  {/* Neutral blank plate cover: fleet assignments can change, so no registration is shown. */}
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-1/2 top-[72%] -translate-x-1/2 -translate-y-1/2 w-[19%] h-[9%] min-w-10 rounded-[2px] border border-slate-300 bg-slate-100 shadow-sm"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
                   
                   <span className="absolute top-3 left-3 bg-brand-navy/90 backdrop-blur-md text-white text-[11px] font-bold px-2.5 py-1 rounded-md">
                     {vehicle.category}
