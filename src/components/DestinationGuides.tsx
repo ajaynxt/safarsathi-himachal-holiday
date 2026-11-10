@@ -1,7 +1,6 @@
 import React from 'react';
 
-const assetBase = import.meta.env.BASE_URL;
-  const asset = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
+const asset = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
 
   const destinations = [
   { name: 'India Tour Packages', detail: 'Custom holidays across destinations in India', href: '/india-tour-packages/', image: asset('/images/packages/full_himachal_tour_package.png'), tag: 'EXPLORE INDIA' },
