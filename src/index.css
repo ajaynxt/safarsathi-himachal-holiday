@@ -23,3 +23,14 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-enter { animation: none; }
 }
+
+.logo-reveal {
+  animation: logoReveal .85s cubic-bezier(.2,.75,.25,1) both;
+}
+@keyframes logoReveal {
+  from { opacity: 0; transform: translateY(-8px) scale(.92); filter: blur(4px); }
+  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-reveal { animation: none; }
+}
