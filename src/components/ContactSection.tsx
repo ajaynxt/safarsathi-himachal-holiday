@@ -38,11 +38,11 @@ export const ContactSection: React.FC = () => {
           <div className="lg:col-span-5 bg-gradient-to-br from-brand-navy to-brand-navy-light text-white rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">
             <div>
               <span className="text-xs uppercase tracking-wider font-bold text-amber-400">
-                100% Online Booking &amp; 24x7 Desk
+                Contact &amp; travel enquiries
               </span>
               <h3 className="text-xl sm:text-2xl font-bold mt-1">SafarSathi India</h3>
               <p className="text-xs sm:text-sm text-slate-300 mt-2">
-                Your trusted online partner for customized holiday packages, 100% sanitized private white cabs, and verified hotel stays across all Indian states.
+                Tell us your destination, dates and group size. Contact the team to discuss trip planning, vehicle options and a quotation.
               </p>
             </div>
 
@@ -70,7 +70,7 @@ export const ContactSection: React.FC = () => {
                       {COMPANY_INFO.phoneDisplay}
                     </a>
                   </p>
-                  <span className="text-[11px] text-slate-300 block">Available 24x7 on Call & WhatsApp</span>
+                  <span className="text-[11px] text-slate-300 block">Call or message to discuss your trip</span>
                 </div>
               </div>
 
