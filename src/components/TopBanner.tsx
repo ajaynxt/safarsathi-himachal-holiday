@@ -8,7 +8,7 @@ export const TopBanner: React.FC = () => {
   if (closed) return null;
 
   return (
-    <div className="bg-gradient-to-r from-brand-navy via-slate-900 to-brand-navy text-white text-[11px] sm:text-xs py-2 px-4 relative z-50 border-b border-white/10 shadow-sm">
+    <div className="sticky top-0 w-full bg-gradient-to-r from-brand-navy via-slate-900 to-brand-navy text-white text-[11px] sm:text-xs py-2 px-4 relative z-[60] border-b border-white/10 shadow-sm">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
         <div className="flex items-center gap-2 overflow-hidden">
           <span className="flex items-center gap-1 bg-brand-orange text-white text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full flex-shrink-0 animate-pulse">
@@ -16,7 +16,7 @@ export const TopBanner: React.FC = () => {
             Special Offer
           </span>
           <p className="truncate text-slate-200">
-            <strong className="text-white font-bold">All States &amp; Snow Season:</strong> Flat 15% Off on All-White Innova Crysta &amp; Tour Packages Across India!
+            <strong className="text-white font-bold">Special Travel Deal:</strong> Get up to 15% Off on selected tour packages and cab bookings!
           </p>
         </div>
 
