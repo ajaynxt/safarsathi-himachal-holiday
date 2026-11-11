@@ -17,7 +17,7 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
 
     if (reducedMotion) {
       setTypedTagline(tagline);
-      const finishTimer = window.setTimeout(onComplete, 700);
+      const finishTimer = window.setTimeout(onComplete, 200);
       return () => window.clearTimeout(finishTimer);
     }
 
@@ -27,11 +27,13 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
       typingTimer = window.setInterval(() => {
         index += 1;
         setTypedTagline(tagline.slice(0, index));
-        if (index >= tagline.length && typingTimer !== undefined) window.clearInterval(typingTimer);
-      }, 55);
-    }, 1000);
-    const leaveTimer = window.setTimeout(() => setLeaving(true), 2850);
-    const finishTimer = window.setTimeout(onComplete, 3350);
+        if (index >= tagline.length && typingTimer !== undefined) {
+          window.clearInterval(typingTimer);
+        }
+      }, 34);
+    }, 680);
+    const leaveTimer = window.setTimeout(() => setLeaving(true), 2100);
+    const finishTimer = window.setTimeout(onComplete, 2600);
 
     return () => {
       if (typingTimer !== undefined) window.clearInterval(typingTimer);
@@ -43,7 +45,7 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
 
   return (
     <div
-      className={`safar-intro fixed inset-0 z-[100] flex min-h-[100svh] items-center justify-center overflow-hidden bg-white text-[#421e29] transition-[opacity,transform] duration-500 ease-out ${leaving ? 'pointer-events-none translate-y-[-6px] opacity-0' : 'opacity-100'}`}
+      className={`safar-intro pointer-events-none fixed inset-0 z-[100] flex min-h-[100svh] items-center justify-center overflow-hidden bg-white text-[#421e29] transition-[opacity,transform] duration-500 ease-out ${leaving ? 'translate-y-[-6px] opacity-0' : 'opacity-100'}`}
       role="status"
       aria-label="Welcome to Safar Sathi"
     >
@@ -69,10 +71,10 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
           0%, 48% { opacity: 1; }
           49%, 100% { opacity: 0; }
         }
-        .safar-logo-reveal { animation: safarLogoReveal .85s cubic-bezier(.2,.75,.25,1) both; }
-        .safar-name-reveal { animation: safarNameReveal .65s ease-out .45s both; }
-        .safar-rule-reveal { transform-origin: center; animation: safarRuleReveal .55s ease-out .75s both; }
-        .safar-tag-reveal { animation: safarTagReveal .45s ease-out .85s both; }
+        .safar-logo-reveal { animation: safarLogoReveal .7s cubic-bezier(.2,.75,.25,1) both; }
+        .safar-name-reveal { animation: safarNameReveal .45s ease-out .35s both; }
+        .safar-rule-reveal { transform-origin: center; animation: safarRuleReveal .4s ease-out .55s both; }
+        .safar-tag-reveal { animation: safarTagReveal .4s ease-out .68s both; }
         .safar-cursor { animation: safarCursorBlink .72s step-end infinite; }
         @media (prefers-reduced-motion: reduce) {
           .safar-logo-reveal, .safar-name-reveal, .safar-rule-reveal, .safar-tag-reveal, .safar-cursor { animation: none !important; }
