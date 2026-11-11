@@ -43,7 +43,7 @@ export const BentoExperience: React.FC<BentoExperienceProps> = ({ onOpenBooking 
         <div className="flex min-h-[300px] flex-col justify-between rounded-3xl border border-stone-200 bg-white p-7 sm:p-8">
           <div>
             <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-50 text-amber-700"><MessageCircle className="h-6 w-6" /></div>
-            <span className="font-serif-title text-4xl font-bold text-slate-900">16 years</span>
+            <span className="font-serif-title text-4xl font-bold text-slate-900">9 years</span>
             <h3 className="mt-2 text-lg font-bold text-slate-900">Travel experience</h3>
             <p className="mt-2 text-sm leading-6 text-slate-600">Speak directly with the Safar Sathi team about routes, vehicle options and your travel requirements.</p>
           </div>
