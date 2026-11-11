@@ -71,6 +71,12 @@ export const ContactSection: React.FC = () => {
                     </a>
                   </p>
                   <span className="text-[11px] text-slate-300 block">Call or message to discuss your trip</span>
+                  <p className="text-slate-100 font-bold text-sm sm:text-base mt-2">
+                    <a href={`tel:${COMPANY_INFO.additionalPhone}`} className="hover:text-brand-orange transition-colors">
+                      {COMPANY_INFO.additionalPhoneDisplay}
+                    </a>
+                  </p>
+                  <span className="text-[11px] text-slate-300 block">Additional contact number</span>
                 </div>
               </div>
 
