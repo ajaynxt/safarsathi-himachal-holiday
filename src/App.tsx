@@ -18,8 +18,19 @@ import { BookingModal } from './components/BookingModal';
 import { StickyMobileBar } from './components/StickyMobileBar';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 
+const INTRO_SESSION_KEY = 'safar-sathi-intro-seen';
+
 export function App() {
-  const [showIntro, setShowIntro] = useState(true);
+  const [showIntro, setShowIntro] = useState(() => {
+    try {
+      if (window.sessionStorage.getItem(INTRO_SESSION_KEY) === '1') return false;
+      window.sessionStorage.setItem(INTRO_SESSION_KEY, '1');
+      return true;
+    } catch {
+      // Skip the intro when session storage is unavailable so it cannot repeat on reload.
+      return false;
+    }
+  });
   const handleIntroComplete = useCallback(() => setShowIntro(false), []);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [bookingType, setBookingType] = useState<'package' | 'cab' | 'hotel' | 'volvo'>('package');
