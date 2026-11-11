@@ -61,6 +61,8 @@ export const COMPANY_INFO = {
   subTagline: "All States & Pan-India Tour Packages",
   phone: "8351987587",
   phoneDisplay: "+91 83519 87587",
+  additionalPhone: "9929562585",
+  additionalPhoneDisplay: "+91 99295 62585",
   email: "safarsathi.india@gmail.com",
   instagram: "https://www.instagram.com/safar_sathiindia/",
   instagramHandle: "@safar_sathiindia",
