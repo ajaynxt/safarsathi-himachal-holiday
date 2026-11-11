@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { IntroLoader } from './components/IntroLoader';
 import { TopBanner } from './components/TopBanner';
 import { Navbar } from './components/Navbar';
@@ -23,14 +23,22 @@ const INTRO_SESSION_KEY = 'safar-sathi-intro-seen';
 export function App() {
   const [showIntro, setShowIntro] = useState(() => {
     try {
-      if (window.sessionStorage.getItem(INTRO_SESSION_KEY) === '1') return false;
-      window.sessionStorage.setItem(INTRO_SESSION_KEY, '1');
-      return true;
+      return window.sessionStorage.getItem(INTRO_SESSION_KEY) !== '1';
     } catch {
-      // Skip the intro when session storage is unavailable so it cannot repeat on reload.
       return false;
     }
   });
+
+  useEffect(() => {
+    if (!showIntro) return;
+    try {
+      window.sessionStorage.setItem(INTRO_SESSION_KEY, '1');
+    } catch {
+      // Skip the intro when session storage is unavailable so it cannot repeat on reload.
+      setShowIntro(false);
+    }
+  }, [showIntro]);
+
   const handleIntroComplete = useCallback(() => setShowIntro(false), []);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [bookingType, setBookingType] = useState<'package' | 'cab' | 'hotel' | 'volvo'>('package');
