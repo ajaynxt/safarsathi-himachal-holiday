@@ -12,7 +12,7 @@ export const Footer: React.FC = () => (
             <img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="Safar Sathi logo" className="h-8 w-auto object-contain" />
           </div>
           <p className="mt-4 max-w-sm text-sm leading-6 text-slate-400">Travel enquiries, customised trip planning and transport options for destinations across India.</p>
-          <p className="mt-4 text-xs font-semibold text-amber-300">16 years of travel experience</p>
+          <p className="mt-4 text-xs font-semibold text-amber-300">9 years of travel experience</p>
         </div>
 
         <div>
