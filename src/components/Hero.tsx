@@ -15,13 +15,31 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
   const [typedText, setTypedText] = useState('');
   const [lineIndex, setLineIndex] = useState(0);
   const [deleting, setDeleting] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updateMotionPreference = () => setPrefersReducedMotion(motionPreference.matches);
+
+    updateMotionPreference();
+    motionPreference.addEventListener('change', updateMotionPreference);
+    return () => motionPreference.removeEventListener('change', updateMotionPreference);
+  }, []);
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      setTypedText(typedLines[0]);
+      setLineIndex(0);
+      setDeleting(false);
+      return;
+    }
+
     const phrase = typedLines[lineIndex];
     const delay = deleting ? 42 : 82;
+    let pauseTimer: number | undefined;
     const timer = window.setTimeout(() => {
       if (!deleting && typedText === phrase) {
-        window.setTimeout(() => setDeleting(true), 1050);
+        pauseTimer = window.setTimeout(() => setDeleting(true), 1050);
       } else if (deleting && typedText.length === 0) {
         setDeleting(false);
         setLineIndex((current) => (current + 1) % typedLines.length);
@@ -29,8 +47,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
         setTypedText(deleting ? phrase.slice(0, typedText.length - 1) : phrase.slice(0, typedText.length + 1));
       }
     }, delay);
-    return () => window.clearTimeout(timer);
-  }, [typedText, deleting, lineIndex]);
+
+    return () => {
+      window.clearTimeout(timer);
+      if (pauseTimer !== undefined) window.clearTimeout(pauseTimer);
+    };
+  }, [typedText, deleting, lineIndex, prefersReducedMotion]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -65,8 +87,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
             Himachal Tour Packages <span className="text-amber-300">&amp; India Holidays.</span>
           </h1>
 
-          <div className="mt-3 min-h-[34px] sm:min-h-[48px] text-lg font-semibold text-white sm:text-2xl lg:text-3xl" aria-live="polite">
-            <span>{typedText}</span><span className="ml-0.5 inline-block h-[1em] w-[2px] translate-y-0.5 animate-pulse bg-amber-300" />
+          <div className="mt-3 min-h-[34px] sm:min-h-[48px] text-lg font-semibold text-white sm:text-2xl lg:text-3xl" aria-live="off">
+            <span>{typedText}</span>{!prefersReducedMotion && <span className="ml-0.5 inline-block h-[1em] w-[2px] translate-y-0.5 animate-pulse bg-amber-300" aria-hidden="true" />}
           </div>
 
           <p className="hero-enter mx-auto mt-4 max-w-2xl text-sm leading-6 text-white/90 sm:text-base sm:leading-7">
