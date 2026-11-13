@@ -133,6 +133,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
                 isScrolled ? 'text-slate-800 hover:bg-slate-100' : 'text-white hover:bg-white/10'
               }`}
               aria-label="Toggle menu"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -143,7 +145,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-slate-950/95 backdrop-blur-xl border-b border-white/10 text-white px-5 py-5 space-y-4 animate-fade-in shadow-2xl">
+        <div id="mobile-navigation" className="lg:hidden bg-slate-950/95 backdrop-blur-xl border-b border-white/10 text-white px-5 py-5 space-y-4 animate-fade-in shadow-2xl">
           <nav className="flex flex-col space-y-3 font-semibold text-sm">
             <a 
               href="#" 
@@ -164,7 +166,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               onClick={() => setMobileMenuOpen(false)}
               className="text-white hover:text-amber-400 py-1"
             >
-              Taxi routes
+              Trip Plans
             </a>
             <a 
               href="#cabs" 
