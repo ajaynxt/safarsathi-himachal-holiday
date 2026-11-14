@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { X, Calendar, Users, Phone, User, Send, CheckCircle2 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/travelData';
 
@@ -24,11 +24,64 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [cabPreference, setCabPreference] = useState('Toyota Innova Crysta');
   const [hotelCategory, setHotelCategory] = useState('3-Star Deluxe');
   const [submitted, setSubmitted] = useState(false);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (initialType) setBookingType(initialType);
     if (itemName) setDestination(itemName);
   }, [initialType, itemName, isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const previousActiveElement = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null;
+    const previousBodyOverflow = document.body.style.overflow;
+
+    document.body.style.overflow = 'hidden';
+    closeButtonRef.current?.focus();
+
+    const handleDialogKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        onClose();
+        return;
+      }
+
+      if (event.key !== 'Tab') return;
+
+      const focusableElements = dialogRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+
+      if (!focusableElements?.length) {
+        event.preventDefault();
+        dialogRef.current?.focus();
+        return;
+      }
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleDialogKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleDialogKeyDown);
+      document.body.style.overflow = previousBodyOverflow;
+      if (previousActiveElement?.isConnected) previousActiveElement.focus();
+    };
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -56,12 +109,28 @@ Please check availability and send confirmed quotation.`;
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-200">
-      <div className="relative bg-white w-full max-w-xl rounded-3xl shadow-2xl overflow-hidden my-6 border border-slate-200">
+    <div
+      className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-200"
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) onClose();
+      }}
+    >
+      <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="booking-dialog-title"
+        aria-describedby="booking-dialog-description"
+        tabIndex={-1}
+        className="relative bg-white w-full max-w-xl rounded-3xl shadow-2xl overflow-hidden my-6 border border-slate-200"
+      >
         {/* Header */}
         <div className="bg-gradient-to-r from-brand-navy to-brand-navy-light text-white p-5 sm:p-6 relative">
           <button
+            ref={closeButtonRef}
+            type="button"
             onClick={onClose}
+            aria-label="Close travel enquiry"
             className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors text-white"
           >
             <X className="w-5 h-5" />
@@ -70,8 +139,8 @@ Please check availability and send confirmed quotation.`;
           <div className="inline-block px-3 py-1 rounded-full bg-brand-orange text-white text-[10px] font-bold uppercase tracking-wider mb-2">
             Travel Enquiry
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold">Book Your Himalayan Journey</h2>
-          <p className="text-xs sm:text-sm text-slate-300 mt-1">
+          <h2 id="booking-dialog-title" className="text-xl sm:text-2xl font-bold">Book Your Himalayan Journey</h2>
+          <p id="booking-dialog-description" className="text-xs sm:text-sm text-slate-300 mt-1">
             Share your travel preferences. The team can discuss availability and send a quotation on WhatsApp.
           </p>
         </div>
