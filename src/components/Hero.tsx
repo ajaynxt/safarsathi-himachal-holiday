@@ -66,6 +66,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
       <div className="absolute inset-0 -z-20">
         <img
           src="https://images.unsplash.com/photo-1677821243506-0fa5cd8abdcb?auto=format&fit=crop&w=2400&q=80"
+          srcSet={[
+            "https://images.unsplash.com/photo-1677821243506-0fa5cd8abdcb?auto=format&fit=crop&w=640&q=75 640w",
+            "https://images.unsplash.com/photo-1677821243506-0fa5cd8abdcb?auto=format&fit=crop&w=960&q=75 960w",
+            "https://images.unsplash.com/photo-1677821243506-0fa5cd8abdcb?auto=format&fit=crop&w=1440&q=78 1440w",
+            "https://images.unsplash.com/photo-1677821243506-0fa5cd8abdcb?auto=format&fit=crop&w=2400&q=80 2400w",
+          ].join(", ")}
+          sizes="100vw"
           alt="Snow covered Himalayan mountain range"
           fetchPriority="high"
           loading="eager"
