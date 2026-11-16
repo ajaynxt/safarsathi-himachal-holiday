@@ -111,10 +111,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
 
         <form onSubmit={handleSearch} className="hero-enter mx-auto mt-8 grid max-w-5xl grid-cols-1 gap-2 rounded-3xl border border-white/60 bg-white p-3 text-left shadow-[0_24px_70px_rgba(0,0,0,.28)] sm:grid-cols-[1.25fr_1fr_1fr_auto] sm:items-center sm:gap-0 sm:rounded-full sm:p-2">
           <div className="min-w-0 px-3 py-2 sm:px-5">
-            <label className="block text-[10px] font-extrabold uppercase tracking-[0.14em] text-slate-400">Destination</label>
+            <label htmlFor="hero-destination" className="block text-[10px] font-extrabold uppercase tracking-[0.14em] text-slate-400">Destination</label>
             <div className="mt-1 flex items-center gap-2">
               <MapPin className="h-4 w-4 shrink-0 text-amber-600" />
-              <select value={destination} onChange={(e) => setDestination(e.target.value)} className="w-full min-w-0 appearance-none bg-transparent text-sm font-bold text-slate-800 outline-none">
+              <select id="hero-destination" value={destination} onChange={(e) => setDestination(e.target.value)} className="w-full min-w-0 appearance-none rounded-sm bg-transparent text-sm font-bold text-slate-800 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-600">
                 <option value="Shimla & Manali (Himachal)">Shimla &amp; Manali</option>
                 <option value="Spiti Valley Expedition">Spiti Valley</option>
                 <option value="Jammu & Kashmir Paradise">Jammu &amp; Kashmir</option>
@@ -130,10 +130,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
           </div>
 
           <div className="min-w-0 border-t border-slate-100 px-3 py-2 sm:border-l sm:border-t-0 sm:px-5">
-            <label className="block text-[10px] font-extrabold uppercase tracking-[0.14em] text-slate-400">Travel date</label>
+            <label htmlFor="hero-travel-date" className="block text-[10px] font-extrabold uppercase tracking-[0.14em] text-slate-400">Travel date</label>
             <div className="mt-1 flex items-center gap-2">
               <CalendarDays className="h-4 w-4 shrink-0 text-amber-600" />
-              <select value={travelDate} onChange={(e) => setTravelDate(e.target.value)} className="w-full min-w-0 appearance-none bg-transparent text-sm font-bold text-slate-800 outline-none">
+              <select id="hero-travel-date" value={travelDate} onChange={(e) => setTravelDate(e.target.value)} className="w-full min-w-0 appearance-none rounded-sm bg-transparent text-sm font-bold text-slate-800 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-600">
                 <option value="Pick a Date">Any date</option>
                 <option value="This Week (Immediate)">This week</option>
                 <option value="Next 30 Days">Next 30 days</option>
@@ -145,10 +145,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
           </div>
 
           <div className="min-w-0 border-t border-slate-100 px-3 py-2 sm:border-l sm:border-t-0 sm:px-5">
-            <label className="block text-[10px] font-extrabold uppercase tracking-[0.14em] text-slate-400">Travellers</label>
+            <label htmlFor="hero-travellers" className="block text-[10px] font-extrabold uppercase tracking-[0.14em] text-slate-400">Travellers</label>
             <div className="mt-1 flex items-center gap-2">
               <Users className="h-4 w-4 shrink-0 text-amber-600" />
-              <select value={travellers} onChange={(e) => setTravellers(e.target.value)} className="w-full min-w-0 appearance-none bg-transparent text-sm font-bold text-slate-800 outline-none">
+              <select id="hero-travellers" value={travellers} onChange={(e) => setTravellers(e.target.value)} className="w-full min-w-0 appearance-none rounded-sm bg-transparent text-sm font-bold text-slate-800 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-600">
                 <option value="2 Adults">2 Adults</option>
                 <option value="Family (3-4 Persons)">Family (3–4)</option>
                 <option value="Group (5-8 Persons)">Group (5–8)</option>
