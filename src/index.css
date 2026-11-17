@@ -34,3 +34,12 @@
 @media (prefers-reduced-motion: reduce) {
   .logo-reveal { animation: none; }
 }
+
+@keyframes heroBackgroundChange {
+  from { opacity: .72; transform: scale(1.025); }
+  to { opacity: 1; transform: scale(1); }
+}
+.hero-background-change { animation: heroBackgroundChange 1.1s ease-out both; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-background-change { animation: none; }
+}
