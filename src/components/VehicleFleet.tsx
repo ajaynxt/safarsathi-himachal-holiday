@@ -71,9 +71,6 @@ export const VehicleFleet: React.FC<VehicleFleetProps> = ({ onBookCab }) => {
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/55 via-transparent to-slate-950/10" />
-                <span className="absolute left-4 top-4 rounded-full border border-white/25 bg-slate-950/55 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm">
-                  {vehicle.category}
-                </span>
                 <div className="absolute bottom-4 left-4 right-4">
                   <h3 className="text-xl font-bold tracking-tight text-white drop-shadow-sm">{vehicle.name}</h3>
                 </div>
