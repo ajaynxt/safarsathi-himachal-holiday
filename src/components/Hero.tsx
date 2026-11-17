@@ -24,13 +24,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
   const [lineIndex, setLineIndex] = useState(0);
   const [deleting, setDeleting] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [heroImageIndex, setHeroImageIndex] = useState(0);
+  const [heroImageIndex, setHeroImageIndex] = useState(() => Math.floor(Math.random() * heroImages.length));
 
   useEffect(() => {
     if (prefersReducedMotion) return;
     const rotation = window.setInterval(() => {
-      setHeroImageIndex((current) => (current + 1) % heroImages.length);
-    }, 13000);
+      setHeroImageIndex((current) => {
+        if (heroImages.length < 2) return current;
+        let next = current;
+        while (next === current) next = Math.floor(Math.random() * heroImages.length);
+        return next;
+      });
+    }, 2000);
     return () => window.clearInterval(rotation);
   }, [prefersReducedMotion]);
 
