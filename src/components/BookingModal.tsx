@@ -268,6 +268,7 @@ Please check availability and send confirmed quotation.`;
                     onChange={(e) => setGuests(e.target.value)}
                     className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange font-medium"
                   >
+                    <option value="1 Adult (Solo Traveler)">1 Adult (Solo Traveler)</option>
                     <option value="2 Adults (Couple)">2 Adults (Couple)</option>
                     <option value="3-4 Persons (Family)">3-4 Persons (Family)</option>
                     <option value="5-7 Persons (Innova)">5-7 Persons (Innova/Ertiga)</option>
