@@ -170,6 +170,7 @@ export const BookingBar: React.FC<BookingBarProps> = ({ onQuickBook }) => {
                 onChange={(e) => setPackageGuests(e.target.value)}
                 className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-brand-orange"
               >
+                <option value="Solo Traveler / 1 Adult">Solo Traveler / 1 Adult</option>
                 <option value="Couple / 2 Adults">Couple / 2 Adults</option>
                 <option value="Family with Kids (3-4)">Family (3-4 Persons)</option>
                 <option value="Group of 5-8 Persons">Group of 5-8 Persons (Innova / Ertiga)</option>
@@ -302,6 +303,7 @@ export const BookingBar: React.FC<BookingBarProps> = ({ onQuickBook }) => {
                 onChange={(e) => setHotelRooms(e.target.value)}
                 className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-brand-orange"
               >
+                <option value="1 Room (1 Adult)">1 Single Room (1 Adult)</option>
                 <option value="1 Room (2 Guests)">1 Deluxe Room (2 Adults)</option>
                 <option value="1 Family Suite (4 Guests)">1 Family Suite (4 Adults)</option>
                 <option value="2 Rooms (4-5 Guests)">2 Rooms (4-5 Guests)</option>
