@@ -6,6 +6,7 @@ import { Hero } from './components/Hero';
 import { TrustBar } from './components/TrustBar';
 import { PopularDestinations } from './components/PopularDestinations';
 import { TripPlans } from './components/TripPlans';
+import { HoneymoonPackages } from './components/HoneymoonPackages';
 import { VehicleFleet } from './components/VehicleFleet';
 import { PopularRoutes } from './components/PopularRoutes';
 import { BentoExperience } from './components/BentoExperience';
@@ -66,6 +67,7 @@ export function App() {
         />
         <TrustBar />
         <PopularDestinations onSelectDestination={handleDestinationSelect} />
+        <HoneymoonPackages onEnquire={(itemName) => handleOpenBooking('package', itemName)} />
         <TripPlans onBookTrip={(tripName) => handleOpenBooking('package', tripName)} />
         <VehicleFleet onBookCab={(carName) => handleOpenBooking('cab', carName)} />
         <PopularRoutes onBookRoute={(routeName) => handleOpenBooking('cab', routeName)} />
