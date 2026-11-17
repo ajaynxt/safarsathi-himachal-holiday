@@ -90,6 +90,48 @@ export function HoneymoonPackages({ onEnquire }: HoneymoonPackagesProps) {
             </button>
           </div>
         </div>
+
+        <div className="mt-14 grid gap-8 border-t border-[#e9dfd5] pt-10 lg:grid-cols-[.8fr_1.2fr]">
+          <div>
+            <p className="text-[10px] font-extrabold uppercase tracking-[.2em] text-[#9a713c]">Himachal honeymoon travel guide</p>
+            <h3 className="mt-3 font-serif-title text-2xl font-bold leading-tight text-[#421e29] sm:text-3xl">
+              Plan a Shimla or Manali honeymoon with Safar Sathi
+            </h3>
+          </div>
+          <div className="space-y-4 text-sm leading-7 text-slate-600">
+            <p>
+              Looking for Himachal honeymoon packages for your first trip together? Safar Sathi helps couples plan a customised Shimla honeymoon package, Manali honeymoon package or a combined Shimla–Manali holiday. Share your travel dates, trip duration and budget to receive a personalised itinerary and quotation.
+            </p>
+            <p>
+              Your Himachal honeymoon itinerary can include a private couple room, private taxi for the agreed route, scenic sightseeing, a wood-fire bonfire and a candlelight dinner. Room decoration, cake, couple photography and other special surprises can also be requested while planning. These experiences are optional and depend on property permissions, local conditions, availability and additional charges.
+            </p>
+            <p>
+              Whether you want a quiet mountain stay in Shimla, snow-season moments around Manali or a longer Himachal trip, the route and stay can be planned around your dates. Ask us to confirm road conditions, hotel availability, inclusions and the final price before booking.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-10 rounded-2xl border border-[#e9dfd5] bg-white p-5 sm:p-7">
+          <h3 className="font-serif-title text-2xl font-bold text-[#421e29]">Himachal honeymoon package FAQs</h3>
+          <div className="mt-5 grid gap-5 md:grid-cols-2">
+            <div>
+              <h4 className="text-sm font-bold text-slate-900">Can we customise a Shimla and Manali honeymoon package?</h4>
+              <p className="mt-2 text-sm leading-6 text-slate-600">Yes. Share your dates, number of nights and budget so the route, stays and sightseeing can be planned around your preferences.</p>
+            </div>
+            <div>
+              <h4 className="text-sm font-bold text-slate-900">Can a private taxi be arranged for the trip?</h4>
+              <p className="mt-2 text-sm leading-6 text-slate-600">A private taxi can be quoted for the agreed itinerary, subject to vehicle and route availability.</p>
+            </div>
+            <div>
+              <h4 className="text-sm font-bold text-slate-900">Are bonfire and candlelight dinner included?</h4>
+              <p className="mt-2 text-sm leading-6 text-slate-600">They are optional arrangements, not standard inclusions. Availability, venue rules and extra charges are confirmed before booking.</p>
+            </div>
+            <div>
+              <h4 className="text-sm font-bold text-slate-900">How do we get a honeymoon package price?</h4>
+              <p className="mt-2 text-sm leading-6 text-slate-600">Send your travel dates, trip duration, number of travellers and preferred experiences to request a customised quotation.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
