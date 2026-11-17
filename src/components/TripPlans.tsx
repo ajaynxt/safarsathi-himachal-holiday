@@ -164,8 +164,8 @@ export function TripPlans({ onBookTrip }: TripPlansProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
           <span className="inline-flex rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[11px] font-bold uppercase tracking-[.16em] text-amber-800">Plan your journey</span>
-          <h2 className="mt-4 font-serif-title text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Trip Plans Across India</h2>
-          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">Explore sample day-wise routes. Tell us your travel dates and group size to customise the plan and confirm current availability.</p>
+          <h2 className="mt-4 font-serif-title text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Pre-Planned Himachal & India Tour Packages</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">Choose a ready-to-explore route across Himachal and India, then customise the dates, hotel category and travel plan with our team.</p>
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
