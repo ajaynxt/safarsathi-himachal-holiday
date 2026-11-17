@@ -30,10 +30,10 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
         if (index >= tagline.length && typingTimer !== undefined) {
           window.clearInterval(typingTimer);
         }
-      }, 34);
-    }, 680);
-    const leaveTimer = window.setTimeout(() => setLeaving(true), 2100);
-    const finishTimer = window.setTimeout(onComplete, 2600);
+      }, 24);
+    }, 180);
+    const leaveTimer = window.setTimeout(() => setLeaving(true), 900);
+    const finishTimer = window.setTimeout(onComplete, 1200);
 
     return () => {
       if (typingTimer !== undefined) window.clearInterval(typingTimer);
@@ -84,7 +84,7 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
       <div className="flex w-full max-w-2xl flex-col items-center px-5 text-center">
         <div className="safar-logo-reveal flex h-56 w-56 shrink-0 items-center justify-center sm:h-64 sm:w-64">
           <img
-            src={`${assetBase}images/logo.png`}
+            src={`${assetBase}images/logo.svg`}
             alt="Safar Sathi logo"
             className="h-full w-full object-contain"
             fetchPriority="high"
