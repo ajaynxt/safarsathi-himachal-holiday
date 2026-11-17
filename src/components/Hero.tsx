@@ -7,6 +7,13 @@ interface HeroProps {
 }
 
 const typedLines = ['Himachal ki wadiyan', 'Manali ki barfili rahein', 'Spiti ka adventure', 'India ke yaadgaar safar'];
+const heroImages = [
+  { src: 'images/destinations/shimla.jpg', alt: 'Scenic mountain views of Shimla, Himachal Pradesh' },
+  { src: 'images/destinations/manali.jpg', alt: 'Manali valley surrounded by the Himalayas' },
+  { src: 'images/destinations/spiti.jpg', alt: 'Dramatic high-altitude landscape of Spiti Valley' },
+  { src: 'images/destinations/ladakh.jpg', alt: 'Ladakh mountain landscape and open roads' },
+  { src: 'images/destinations/shimla_night.jpg', alt: 'Shimla illuminated in the evening' },
+];
 
 export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) => {
   const [destination, setDestination] = useState('Shimla & Manali (Himachal)');
@@ -16,6 +23,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
   const [lineIndex, setLineIndex] = useState(0);
   const [deleting, setDeleting] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [heroImageIndex, setHeroImageIndex] = useState(0);
+
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+    const rotation = window.setInterval(() => {
+      setHeroImageIndex((current) => (current + 1) % heroImages.length);
+    }, 13000);
+    return () => window.clearInterval(rotation);
+  }, [prefersReducedMotion]);
 
   useEffect(() => {
     const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -65,19 +81,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
     <section className="relative isolate min-h-[690px] sm:min-h-[720px] lg:min-h-[760px] flex items-center overflow-hidden bg-slate-950 pt-28 pb-10 sm:pt-32">
       <div className="absolute inset-0 -z-20">
         <img
-          src="https://images.unsplash.com/photo-1677821243506-0fa5cd8abdcb?auto=format&fit=crop&w=2400&q=80"
-          srcSet={[
-            "https://images.unsplash.com/photo-1677821243506-0fa5cd8abdcb?auto=format&fit=crop&w=640&q=75 640w",
-            "https://images.unsplash.com/photo-1677821243506-0fa5cd8abdcb?auto=format&fit=crop&w=960&q=75 960w",
-            "https://images.unsplash.com/photo-1677821243506-0fa5cd8abdcb?auto=format&fit=crop&w=1440&q=78 1440w",
-            "https://images.unsplash.com/photo-1677821243506-0fa5cd8abdcb?auto=format&fit=crop&w=2400&q=80 2400w",
-          ].join(", ")}
-          sizes="100vw"
-          alt="Snow covered Himalayan mountain range"
-          fetchPriority="high"
-          loading="eager"
+          key={heroImages[heroImageIndex].src}
+          src={`${import.meta.env.BASE_URL}${heroImages[heroImageIndex].src}`}
+          alt={heroImages[heroImageIndex].alt}
+          fetchPriority={heroImageIndex === 0 ? 'high' : undefined}
+          loading={heroImageIndex === 0 ? 'eager' : 'lazy'}
           decoding="async"
-          className="h-full w-full object-cover object-[center_55%]"
+          className="hero-background-change h-full w-full object-cover object-center"
         />
       </div>
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-950/55 via-slate-950/35 to-slate-950/85" />
@@ -87,11 +97,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
         <div className="mx-auto max-w-5xl text-center text-white">
           <div className="hero-enter inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] text-white/95 backdrop-blur-sm">
             <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_0_4px_rgba(52,211,153,.15)]" />
-            Your journey, our responsibility
+            Himachal Holidays • India Tours • Private Travel
           </div>
 
           <h1 className="hero-enter mt-5 font-serif-title text-[2.65rem] leading-[1.04] font-bold tracking-tight drop-shadow-[0_4px_18px_rgba(0,0,0,.45)] sm:text-6xl lg:text-7xl">
-            Himachal Tour Packages <span className="text-amber-300">&amp; India Holidays.</span>
+            Discover More. <span className="text-amber-300">Worry Less. Travel Better.</span>
           </h1>
 
           <div className="mt-3 min-h-[34px] sm:min-h-[48px] text-lg font-semibold text-white sm:text-2xl lg:text-3xl" aria-live="off">
@@ -103,7 +113,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
           </p>
 
           <div className="hero-enter mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] font-semibold text-white/90 sm:text-xs">
-            <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-amber-300" /> 9 years of travel experience</span>
+            <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-amber-300" /> 16 years of travel experience</span>
             <span className="inline-flex items-center gap-1.5"><CarFront className="h-4 w-4 text-amber-300" /> Private cab options</span>
             <span className="inline-flex items-center gap-1.5"><Headphones className="h-4 w-4 text-amber-300" /> Personal trip assistance</span>
           </div>
