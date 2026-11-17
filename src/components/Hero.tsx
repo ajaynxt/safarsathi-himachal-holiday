@@ -8,11 +8,12 @@ interface HeroProps {
 
 const typedLines = ['Himachal ki wadiyan', 'Manali ki barfili rahein', 'Spiti ka adventure', 'India ke yaadgaar safar'];
 const heroImages = [
-  { src: 'images/destinations/shimla.jpg', alt: 'Scenic mountain views of Shimla, Himachal Pradesh' },
+  { src: 'https://ladakhwandertours.com/assets/pangong-lake-DCQi6ozc.jpg', alt: 'Pangong Tso lake reflecting the dramatic mountains of Ladakh' },
+  { src: 'https://res.cloudinary.com/enchanting/q_70%2Cf_auto%2Cc_fill%2Cg_face/enchanting-web/2025/10/Camel-safari-in-Nubra-Valley-Ladakh-India-shutterstock_1195817854.jpg', alt: 'Nubra Valley sand dunes with the snow-capped Karakoram mountains' },
+  { src: 'https://s7ap1.scene7.com/is/image/incredibleindia/dal-lake-srinagar-j_k-tri-hero?qlt=82&ts=1727163903213', alt: 'Shikara boat crossing Dal Lake beneath the Kashmir mountains' },
+  { src: 'images/destinations/spiti.jpg', alt: 'Spiti Valley high-altitude Himalayan landscape' },
   { src: 'images/destinations/manali.jpg', alt: 'Manali valley surrounded by the Himalayas' },
-  { src: 'images/destinations/spiti.jpg', alt: 'Dramatic high-altitude landscape of Spiti Valley' },
-  { src: 'images/destinations/ladakh.jpg', alt: 'Ladakh mountain landscape and open roads' },
-  { src: 'images/destinations/shimla_night.jpg', alt: 'Shimla illuminated in the evening' },
+  { src: 'images/destinations/shimla.jpg', alt: 'Scenic mountain views of Shimla, Himachal Pradesh' },
 ];
 
 export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) => {
@@ -82,7 +83,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
       <div className="absolute inset-0 -z-20">
         <img
           key={heroImages[heroImageIndex].src}
-          src={`${import.meta.env.BASE_URL}${heroImages[heroImageIndex].src}`}
+          src={heroImages[heroImageIndex].src.startsWith('http') ? heroImages[heroImageIndex].src : `${import.meta.env.BASE_URL}${heroImages[heroImageIndex].src}`}
           alt={heroImages[heroImageIndex].alt}
           fetchPriority={heroImageIndex === 0 ? 'high' : undefined}
           loading={heroImageIndex === 0 ? 'eager' : 'lazy'}
