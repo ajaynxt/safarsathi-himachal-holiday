@@ -34,7 +34,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           <a href="#" className="flex items-center gap-2 group">
             <div className="h-10 sm:h-12 flex items-center transition-transform group-hover:scale-105">
               <img 
-                src={`${import.meta.env.BASE_URL}images/logo.svg`} 
+                src={`${import.meta.env.BASE_URL}images/logo.png`} 
                 alt="SafarSathi - Your Journey Our Responsibility" 
                 className="h-7 sm:h-9 w-auto object-contain logo-reveal"
               />
