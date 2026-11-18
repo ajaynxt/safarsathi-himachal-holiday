@@ -84,18 +84,12 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
       <div className="flex w-full max-w-2xl flex-col items-center px-5 text-center">
         <div className="safar-logo-reveal flex h-56 w-56 shrink-0 items-center justify-center sm:h-64 sm:w-64">
           <img
-            src={`${assetBase}images/logo.svg`}
+            src={`${assetBase}images/logo.png`}
             alt="Safar Sathi logo"
             className="h-full w-full object-contain"
             fetchPriority="high"
             loading="eager"
             decoding="sync"
-            onError={(event) => {
-              const image = event.currentTarget;
-              if (!image.src.endsWith('/logo.svg')) {
-                image.src = `${assetBase}images/logo.svg`;
-              }
-            }}
           />
         </div>
 
