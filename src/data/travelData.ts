@@ -268,7 +268,7 @@ export const VEHICLE_FLEET: Vehicle[] = [
     luggage: "3 Large + 2 Small Bags + Carrier",
     ac: true,
     idealFor: "Families & groups of 4-6 seeking comfort & economical rates",
-    image: 'https://www.mahindrafirstchoice.com/_next/image?q=75&url=https%3A%2F%2Fmedia.mahindrafirstchoice.com%2Flive_web_images%2Fusedcarsimg%2Fmfc%2F2259%2F623105%2Fcover_image-20250109163244.jpg&w=1200',
+    image: 'https://img.autocarindia.com/mmv_images/colors/20250619112321_Maruti_Suzuki_Ertiga_White%5B1%5D.jpg',
     features: ["White Commercial Fleet", "Dual AC vents for all 3 rows", "Overhead luggage carrier", "Agile & safe on mountain curves", "Certified hill chauffeur"]
   },
   {
