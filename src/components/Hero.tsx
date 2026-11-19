@@ -130,7 +130,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
           </div>
 
           <p className="hero-enter mx-auto mt-3 max-w-2xl text-sm leading-6 text-white/90 sm:mt-4 sm:text-base sm:leading-7">
-            Shimla, Manali and Spiti holidays, Himachal taxi services, and trips across Kashmir, Uttarakhand, Kerala and India. Share your plans for a tailored itinerary.
+            Explore affordable Himachal tour packages for Shimla, Manali and Spiti, plus private cab options and trips across India. Share your plans for a best-value itinerary and clear quote.
           </p>
 
           <div className="hero-enter mt-4 flex flex-wrap sm:mt-6 items-center justify-center gap-x-5 gap-y-2 text-[11px] font-semibold text-white/90 sm:text-xs">
