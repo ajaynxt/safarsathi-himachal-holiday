@@ -4,7 +4,7 @@ import { COMPANY_INFO } from '../data/travelData';
 
 export const WhyChooseUs: React.FC = () => {
   const points = [
-    { icon: <Compass className="h-5 w-5" />, title: 'Trips shaped around you', description: 'Tell us your preferred places, pace, dates and group size to start a customised travel discussion.' },
+    { icon: <Compass className="h-5 w-5" />, title: 'Affordable, best-value planning', description: 'Share your budget, preferred route and dates to request a practical itinerary and competitive quote.' },
     { icon: <CarFront className="h-5 w-5" />, title: 'Vehicle options', description: 'Ask about sedan, SUV, tempo traveller and Volvo options for your route and group.' },
     { icon: <CalendarCheck className="h-5 w-5" />, title: 'Plan before you confirm', description: 'Request an itinerary and quotation. Confirm only after you have reviewed the details.' },
     { icon: <MessageCircle className="h-5 w-5" />, title: 'Direct communication', description: 'Connect with the Safar Sathi team by phone or WhatsApp to discuss your requirements.' },
