@@ -1,13 +1,55 @@
 <!doctype html>
 <html lang="en-IN" class="scroll-smooth">
   <head>
-    <!-- Google Tag Manager -->
-    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WFW2KCVS"></script>
+    <!-- Google tag (gtag.js) - Google Ads & Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-3498026439"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+
+      // Configure Google Ads & Google Analytics
+      gtag('config', 'AW-3498026439');
+      gtag('config', 'G-X33WGNNG0D');
+      gtag('config', 'G-DR6JRL8602');
+
+      // Helper function to track conversions (WhatsApp, Call, Form submission)
+      function trackSafarConversion(type, label) {
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-3498026439',
+            'event_category': 'Leads',
+            'event_label': label || type
+          });
+          gtag('event', 'generate_lead', {
+            'event_category': 'Contact',
+            'event_label': label || type,
+            'method': type
+          });
+        }
+      }
+      window.trackSafarConversion = trackSafarConversion;
+
+      // Automatically capture all WhatsApp, Phone calls, and Form inquiries
+      document.addEventListener('DOMContentLoaded', function() {
+        document.body.addEventListener('click', function(e) {
+          var el = e.target.closest('a, button');
+          if (!el) return;
+          var href = el.getAttribute('href') || '';
+          if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp.com') !== -1 || href.indexOf('8351987587') !== -1) {
+            trackSafarConversion('WhatsApp', 'WhatsApp Enquiry');
+          } else if (href.indexOf('tel:') !== -1) {
+            trackSafarConversion('Phone Call', 'Direct Phone Call');
+          }
+        });
+
+        document.body.addEventListener('submit', function(e) {
+          trackSafarConversion('Form Submit', 'Tour Enquiry Form Submission');
+        });
+      });
     </script>
+    <!-- Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WFW2KCVS"></script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="%BASE_URL%images/logo.svg" />
