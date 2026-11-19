@@ -98,7 +98,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
   };
 
   return (
-    <section className="relative isolate min-h-[690px] sm:min-h-[720px] lg:min-h-[760px] flex items-center overflow-hidden bg-slate-950 pt-28 pb-10 sm:pt-32">
+    <section className="relative isolate min-h-[640px] sm:min-h-[720px] lg:min-h-[760px] flex items-center overflow-hidden bg-slate-950 pt-20 pb-8 sm:pt-32 sm:pb-10">
       <div className="absolute inset-0 -z-20">
         <img
           key={heroImages[heroImageIndex].src}
@@ -121,26 +121,26 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
             Himachal Holidays • India Tours • Private Travel
           </div>
 
-          <h1 className="hero-enter mt-5 font-serif-title text-[2.65rem] leading-[1.04] font-bold tracking-tight drop-shadow-[0_4px_18px_rgba(0,0,0,.45)] sm:text-6xl lg:text-7xl">
+          <h1 className="hero-enter mt-4 font-serif-title text-[2.65rem] leading-[1.04] font-bold tracking-tight drop-shadow-[0_4px_18px_rgba(0,0,0,.45)] sm:text-6xl lg:text-7xl">
             Discover More. <span className="text-amber-300">Worry Less. Travel Better.</span>
           </h1>
 
-          <div className="mt-3 min-h-[34px] sm:min-h-[48px] text-lg font-semibold text-white sm:text-2xl lg:text-3xl" aria-live="off">
+          <div className="mt-2 min-h-[34px] sm:mt-3 sm:min-h-[48px] text-lg font-semibold text-white sm:text-2xl lg:text-3xl" aria-live="off">
             <span>{typedText}</span>{!prefersReducedMotion && <span className="ml-0.5 inline-block h-[1em] w-[2px] translate-y-0.5 animate-pulse bg-amber-300" aria-hidden="true" />}
           </div>
 
-          <p className="hero-enter mx-auto mt-4 max-w-2xl text-sm leading-6 text-white/90 sm:text-base sm:leading-7">
-            Explore Shimla and Manali tour packages, Himachal taxi services, Spiti Valley trips and holidays across Kashmir, Uttarakhand, Kerala and India. Share your plans to discuss a customised itinerary.
+          <p className="hero-enter mx-auto mt-3 max-w-2xl text-sm leading-6 text-white/90 sm:mt-4 sm:text-base sm:leading-7">
+            Shimla, Manali and Spiti holidays, Himachal taxi services, and trips across Kashmir, Uttarakhand, Kerala and India. Share your plans for a tailored itinerary.
           </p>
 
-          <div className="hero-enter mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] font-semibold text-white/90 sm:text-xs">
+          <div className="hero-enter mt-4 flex flex-wrap sm:mt-6 items-center justify-center gap-x-5 gap-y-2 text-[11px] font-semibold text-white/90 sm:text-xs">
             <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-amber-300" /> 9 years of travel experience</span>
             <span className="inline-flex items-center gap-1.5"><CarFront className="h-4 w-4 text-amber-300" /> Private cab options</span>
             <span className="inline-flex items-center gap-1.5"><Headphones className="h-4 w-4 text-amber-300" /> Personal trip assistance</span>
           </div>
         </div>
 
-        <form onSubmit={handleSearch} className="hero-enter mx-auto mt-8 grid max-w-5xl grid-cols-1 gap-2 rounded-3xl border border-white/60 bg-white p-3 text-left shadow-[0_24px_70px_rgba(0,0,0,.28)] sm:grid-cols-[1.25fr_1fr_1fr_auto] sm:items-center sm:gap-0 sm:rounded-full sm:p-2">
+        <form onSubmit={handleSearch} className="hero-enter mx-auto mt-6 grid max-w-5xl grid-cols-1 gap-2 rounded-3xl border border-white/60 bg-white p-3 text-left shadow-[0_24px_70px_rgba(0,0,0,.28)] sm:grid-cols-[1.25fr_1fr_1fr_auto] sm:items-center sm:gap-0 sm:rounded-full sm:p-2">
           <div className="min-w-0 px-3 py-2 sm:px-5">
             <label htmlFor="hero-destination" className="block text-[10px] font-extrabold uppercase tracking-[0.14em] text-slate-400">Destination</label>
             <div className="mt-1 flex items-center gap-2">
@@ -196,7 +196,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
           </div>
         </form>
 
-        <p className="mt-4 text-center text-[10px] font-medium tracking-wide text-white/75 sm:text-xs">
+        <p className="mt-3 text-center text-[10px] sm:mt-4 font-medium tracking-wide text-white/75 sm:text-xs">
           Shimla · Manali · Spiti · Kashmir · Kerala · Tours across India
         </p>
       </div>
