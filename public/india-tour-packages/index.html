@@ -1,6 +1,42 @@
 <!doctype html>
 <html lang="en-IN">
 <head>
+    <!-- Google tag (gtag.js) - Google Ads & Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-3498026439"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-3498026439');
+      gtag('config', 'G-X33WGNNG0D');
+      gtag('config', 'G-DR6JRL8602');
+
+      function trackSafarConversion(type, label) {
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', { 'send_to': 'AW-3498026439', 'event_category': 'Leads', 'event_label': label || type });
+          gtag('event', 'generate_lead', { 'event_category': 'Contact', 'event_label': label || type, 'method': type });
+        }
+      }
+      window.trackSafarConversion = trackSafarConversion;
+
+      document.addEventListener('DOMContentLoaded', function() {
+        document.body.addEventListener('click', function(e) {
+          var el = e.target.closest('a, button');
+          if (!el) return;
+          var href = el.getAttribute('href') || '';
+          if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp.com') !== -1 || href.indexOf('8351987587') !== -1) {
+            trackSafarConversion('WhatsApp', 'WhatsApp Enquiry');
+          } else if (href.indexOf('tel:') !== -1) {
+            trackSafarConversion('Phone Call', 'Direct Phone Call');
+          }
+        });
+        document.body.addEventListener('submit', function(e) {
+          trackSafarConversion('Form Submit', 'Tour Enquiry Form Submission');
+        });
+      });
+    </script>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>India Tour Packages &amp; Custom Holidays | Safar Sathi</title>

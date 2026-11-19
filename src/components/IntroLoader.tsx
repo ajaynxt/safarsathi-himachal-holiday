@@ -93,9 +93,13 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
           />
         </div>
 
-        <h1 className="safar-name-reveal mt-1 whitespace-nowrap font-cinzel text-[clamp(2rem,8vw,3.6rem)] font-bold leading-tight tracking-[.035em] text-[#421e29]">
+        <div
+          role="heading"
+          aria-level={2}
+          className="safar-name-reveal mt-1 whitespace-nowrap font-cinzel text-[clamp(2rem,8vw,3.6rem)] font-bold leading-tight tracking-[.035em] text-[#421e29]"
+        >
           {brandName}
-        </h1>
+        </div>
 
         <div className="safar-rule-reveal mt-5 h-px w-28 bg-[#b58a58] sm:mt-6 sm:w-36" />
         <p className="safar-tag-reveal mt-4 min-h-6 text-xs font-medium tracking-[.08em] text-[#7b6267] sm:text-sm" aria-label={tagline}>
