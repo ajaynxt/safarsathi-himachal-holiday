@@ -8,12 +8,12 @@ export const ContactSection: React.FC = () => {
   const [phone, setPhone] = useState('');
   const [destination, setDestination] = useState('Shimla Manali');
   const [dates, setDates] = useState('');
-  const [guests, setGuests] = useState('2');
+  const [guests, setGuests] = useState('Couple (2 Adults)');
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const msg = `Hello SafarSathi, my name is ${name}. Phone: ${phone}. I am planning a trip to ${destination} around ${dates || 'upcoming weeks'} for ${guests} persons. Please send package & cab quotation.`;
+    const msg = `Hello SafarSathi, my name is ${name}. Phone: ${phone}. I am planning a trip to ${destination} around ${dates || 'upcoming weeks'}. Travellers: ${guests}. Please send package & cab quotation.`;
     window.open(COMPANY_INFO.whatsappUrl(msg), '_blank');
     setSubmitted(true);
   };
@@ -220,6 +220,7 @@ export const ContactSection: React.FC = () => {
                     onChange={(e) => setGuests(e.target.value)}
                     className="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange"
                   >
+                    <option value="1 Person (Solo Traveller)">1 Person (Solo Traveller)</option>
                     <option value="Couple (2 Adults)">Couple (2 Adults)</option>
                     <option value="Family (3-4 Persons)">Family (3-4 Persons)</option>
                     <option value="Group (5-8 Persons)">Group (5-8 Persons)</option>
