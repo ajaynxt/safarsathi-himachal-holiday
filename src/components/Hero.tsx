@@ -180,6 +180,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
             <div className="mt-1 flex items-center gap-2">
               <Users className="h-4 w-4 shrink-0 text-amber-600" />
               <select id="hero-travellers" value={travellers} onChange={(e) => setTravellers(e.target.value)} className="w-full min-w-0 appearance-none rounded-sm bg-transparent text-sm font-bold text-slate-800 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-600">
+                <option value="1 Traveller (Solo)">1 Traveller (Solo)</option>
                 <option value="2 Adults">2 Adults</option>
                 <option value="Family (3-4 Persons)">Family (3–4)</option>
                 <option value="Group (5-8 Persons)">Group (5–8)</option>
