@@ -8,19 +8,11 @@ interface HeroProps {
 
 const typedLines = ['Himachal ki wadiyan', 'Manali ki barfili rahein', 'Spiti ka adventure', 'India ke yaadgaar safar'];
 const heroImages = [
-  { src: 'https://images.unsplash.com/photo-1777623439793-58a5ad4caca8?auto=format&fit=crop&w=1600&q=72', alt: 'Snow-capped Himalayan mountains above a village in Manali' },
-  { src: 'https://images.unsplash.com/photo-1741790961226-89e3d29e6857?auto=format&fit=crop&w=1600&q=72', alt: 'Dramatic barren mountain landscape in Spiti Valley' },
-  { src: 'https://images.unsplash.com/photo-1785651975023-2bae16114077?auto=format&fit=crop&w=1600&q=72', alt: 'Scenic mountain town and valley viewed from the Shimla Toy Train' },
-  { src: 'https://images.unsplash.com/photo-1597167231350-d057a45dc868?auto=format&fit=crop&w=1600&q=72', alt: 'Manali town beneath snow-covered Himalayan peaks' },
-  { src: 'https://images.unsplash.com/photo-1636567652095-f59e54ed6d3a?auto=format&fit=crop&w=1600&q=72', alt: 'Ki Monastery and mountain village in Spiti Valley' },
-  { src: 'https://images.unsplash.com/photo-1721195807634-82e30d4196c4?auto=format&fit=crop&w=1600&q=72', alt: 'Green valley and riverside landscape in Pahalgam, Kashmir' },
-  { src: 'https://images.unsplash.com/photo-1666438239881-5ea3efaa0996?auto=format&fit=crop&w=1600&q=72', alt: 'High-altitude alpine lake in the Pahalgam mountains' },
-  { src: 'https://images.unsplash.com/photo-1713951579234-3bfee80f3d9b?auto=format&fit=crop&w=1600&q=72', alt: 'Forest-covered Himalayan mountain range in Kashmir' },
-  { src: 'https://images.unsplash.com/photo-1688457537834-e3bdc02d3743?auto=format&fit=crop&w=1600&q=72', alt: 'River flowing through the green mountains of Pahalgam' },
-  { src: 'https://images.unsplash.com/photo-1636800877579-b69375ae9532?auto=format&fit=crop&w=1600&q=72', alt: 'Pangong Lake surrounded by the rugged mountains of Ladakh' },
-  { src: 'https://images.unsplash.com/photo-1713063968789-adf139c4a1eb?auto=format&fit=crop&w=1600&q=72', alt: 'Adventure landscape in Solang Valley near Manali' },
-  { src: 'https://images.unsplash.com/photo-1618500508371-d0158e696eb0?auto=format&fit=crop&w=1600&q=72', alt: 'Snow-covered peaks and slopes of Solang Valley, Manali' },
-  { src: 'https://images.unsplash.com/photo-1719645003037-17494ac2519d?auto=format&fit=crop&w=1600&q=72', alt: 'Mountain lake and dramatic scenery in Nubra Valley, Ladakh' },
+  {
+    src: 'https://images.unsplash.com/photo-1597167231350-d057a45dc868?auto=format&fit=crop&w=1280&q=68',
+    srcSet: 'https://images.unsplash.com/photo-1597167231350-d057a45dc868?auto=format&fit=crop&w=720&q=65 720w, https://images.unsplash.com/photo-1597167231350-d057a45dc868?auto=format&fit=crop&w=1280&q=68 1280w',
+    alt: 'Manali town beneath snow-covered Himalayan peaks'
+  },
 ];
 
 export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) => {
@@ -31,27 +23,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
   const [lineIndex, setLineIndex] = useState(0);
   const [deleting, setDeleting] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [heroImageIndex, setHeroImageIndex] = useState(() => Math.floor(Math.random() * heroImages.length));
-
-  // Fetch only the next slide instead of downloading all 13 full-size photos on first load.
-  useEffect(() => {
-    const nextIndex = (heroImageIndex + 1) % heroImages.length;
-    const preload = new Image();
-    preload.src = heroImages[nextIndex].src;
-  }, [heroImageIndex]);
-
-  useEffect(() => {
-    if (prefersReducedMotion) return;
-    const rotation = window.setInterval(() => {
-      setHeroImageIndex((current) => {
-        if (heroImages.length < 2) return current;
-        let next = current;
-        while (next === current) next = Math.floor(Math.random() * heroImages.length);
-        return next;
-      });
-    }, 2000);
-    return () => window.clearInterval(rotation);
-  }, [prefersReducedMotion]);
+  // Keep the hero image stable so the first screen does not trigger repeated large image downloads.
 
   useEffect(() => {
     const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -101,9 +73,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
     <section className="relative isolate min-h-[640px] sm:min-h-[720px] lg:min-h-[760px] flex items-center overflow-hidden bg-slate-950 pt-20 pb-8 sm:pt-32 sm:pb-10">
       <div className="absolute inset-0 -z-20">
         <img
-          key={heroImages[heroImageIndex].src}
-          src={heroImages[heroImageIndex].src.startsWith('http') ? heroImages[heroImageIndex].src : `${import.meta.env.BASE_URL}${heroImages[heroImageIndex].src}`}
-          alt={heroImages[heroImageIndex].alt}
+          src={heroImages[0].src}
+          srcSet={heroImages[0].srcSet}
+          alt={heroImages[0].alt}
+          width={1280}
+          height={853}
           fetchPriority="high"
           loading="eager"
           decoding="async"

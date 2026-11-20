@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Send, MessageCircle, Clock, ShieldCheck } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, MessageCircle, Clock, ShieldCheck, Star } from 'lucide-react';
 import { InstagramIcon } from './InstagramIcon';
 import { COMPANY_INFO } from '../data/travelData';
 
 export const ContactSection: React.FC = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [destination, setDestination] = useState('Shimla Manali');
+  const [destination, setDestination] = useState('Shimla & Manali');
   const [dates, setDates] = useState('');
   const [guests, setGuests] = useState('Couple (2 Adults)');
   const [submitted, setSubmitted] = useState(false);
@@ -128,7 +128,7 @@ export const ContactSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-2">
+            <div className="pt-2 space-y-3">
               <a
                 href={COMPANY_INFO.whatsappUrl("Hello SafarSathi, I have an inquiry regarding holiday packages and cabs.")}
                 target="_blank"
@@ -137,6 +137,15 @@ export const ContactSection: React.FC = () => {
               >
                 <MessageCircle className="w-4 h-4" />
                 <span>Chat Directly on WhatsApp</span>
+              </a>
+              <a
+                href="https://g.page/r/CWfDK0yRfKm8EBM/review"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full min-h-11 py-3 px-4 rounded-xl border border-amber-300/50 bg-white/5 hover:bg-white/10 text-amber-200 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-colors"
+              >
+                <Star className="w-4 h-4" aria-hidden="true" />
+                <span>Already travelled with us? Write a Google Review</span>
               </a>
             </div>
           </div>
@@ -186,13 +195,15 @@ export const ContactSection: React.FC = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Destination / Circuit</label>
+                  <label htmlFor="contact-destination" className="block text-xs font-bold text-slate-700 mb-1">Destination / Circuit</label>
                   <select
+                    id="contact-destination"
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}
                     className="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange"
                   >
                     <option value="Shimla & Manali">Shimla & Manali</option>
+                    <option value="Kerala">Kerala</option>
                     <option value="Spiti Valley Circuit">Spiti Valley Circuit</option>
                     <option value="Kashmir (Srinagar/Gulmarg)">Kashmir (Srinagar/Gulmarg)</option>
                     <option value="Dharamshala & Dalhousie">Dharamshala & Dalhousie</option>
@@ -203,8 +214,9 @@ export const ContactSection: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Travel Dates / Month</label>
+                  <label htmlFor="contact-travel-dates" className="block text-xs font-bold text-slate-700 mb-1">Travel Dates / Month</label>
                   <input
+                    id="contact-travel-dates"
                     type="text"
                     value={dates}
                     onChange={(e) => setDates(e.target.value)}
@@ -214,8 +226,9 @@ export const ContactSection: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Total Travelers</label>
+                  <label htmlFor="contact-travellers" className="block text-xs font-bold text-slate-700 mb-1">Total Travelers</label>
                   <select
+                    id="contact-travellers"
                     value={guests}
                     onChange={(e) => setGuests(e.target.value)}
                     className="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange"

@@ -14,30 +14,17 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
 
   useEffect(() => {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    setTypedTagline(tagline);
 
     if (reducedMotion) {
-      setTypedTagline(tagline);
-      const finishTimer = window.setTimeout(onComplete, 200);
+      const finishTimer = window.setTimeout(onComplete, 100);
       return () => window.clearTimeout(finishTimer);
     }
 
-    let index = 0;
-    let typingTimer: number | undefined;
-    const startTypingTimer = window.setTimeout(() => {
-      typingTimer = window.setInterval(() => {
-        index += 1;
-        setTypedTagline(tagline.slice(0, index));
-        if (index >= tagline.length && typingTimer !== undefined) {
-          window.clearInterval(typingTimer);
-        }
-      }, 24);
-    }, 180);
-    const leaveTimer = window.setTimeout(() => setLeaving(true), 900);
-    const finishTimer = window.setTimeout(onComplete, 1200);
+    const leaveTimer = window.setTimeout(() => setLeaving(true), 300);
+    const finishTimer = window.setTimeout(onComplete, 650);
 
     return () => {
-      if (typingTimer !== undefined) window.clearInterval(typingTimer);
-      window.clearTimeout(startTypingTimer);
       window.clearTimeout(leaveTimer);
       window.clearTimeout(finishTimer);
     };
@@ -89,7 +76,9 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
             className="h-full w-full object-contain"
             fetchPriority="high"
             loading="eager"
-            decoding="sync"
+            decoding="async"
+            width={256}
+            height={256}
           />
         </div>
 
