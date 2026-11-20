@@ -3,7 +3,7 @@ import { Phone, Menu, X } from 'lucide-react';
 import { COMPANY_INFO } from '../data/travelData';
 
 interface NavbarProps {
-  onOpenBooking: (initialType?: 'package' | 'cab' | 'hotel', itemName?: string) => void;
+  onOpenBooking: (initialType?: 'package' | 'cab' | 'hotel' | 'volvo' | 'ticket', itemName?: string) => void;
   }
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
@@ -42,7 +42,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           </a>
 
           {/* Desktop Nav Links matching Reference 1: Home, Destinations, Routes, About Us, Contact Us */}
-          <nav className="hidden lg:flex items-center space-x-7">
+          <nav className="hidden lg:flex items-center space-x-5">
             <a 
               href="#" 
               className={`text-sm font-semibold transition-colors hover:text-amber-400 ${
@@ -83,6 +83,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             >
               Taxi &amp; Cabs
             </a>
+            <button
+              type="button"
+              onClick={() => onOpenBooking('ticket', '')}
+              className={`text-sm font-semibold transition-colors hover:text-amber-400 ${
+                isScrolled ? 'text-slate-800' : 'text-white drop-shadow'
+              }`}
+            >
+              Tickets
+            </button>
             <a 
               href="#why-us" 
               className={`text-sm font-semibold transition-colors hover:text-amber-400 ${
@@ -190,6 +199,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             >
               White Taxi Fleet
             </a>
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenBooking('ticket', '');
+              }}
+              className="text-left text-white hover:text-amber-400 py-1"
+            >
+              Bus, Train &amp; Flight Tickets
+            </button>
             <a 
               href="#why-us" 
               onClick={() => setMobileMenuOpen(false)}

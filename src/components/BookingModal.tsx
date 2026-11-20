@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { X, Calendar, Users, Phone, User, Send, CheckCircle2 } from 'lucide-react';
+import { X, Calendar, Users, Phone, User, Send, CheckCircle2, Ticket } from 'lucide-react';
 import { COMPANY_INFO } from '../data/travelData';
 
 interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
-  initialType?: 'package' | 'cab' | 'hotel' | 'volvo';
+  initialType?: 'package' | 'cab' | 'hotel' | 'volvo' | 'ticket';
   itemName?: string;
 }
 
@@ -15,7 +15,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   initialType = 'package',
   itemName = ''
 }) => {
-  const [bookingType, setBookingType] = useState<'package' | 'cab' | 'hotel' | 'volvo'>(initialType);
+  const [bookingType, setBookingType] = useState<'package' | 'cab' | 'hotel' | 'volvo' | 'ticket'>(initialType);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [destination, setDestination] = useState(itemName || 'Shimla & Manali');
@@ -23,6 +23,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [guests, setGuests] = useState('2 Persons');
   const [cabPreference, setCabPreference] = useState('Toyota Innova Crysta');
   const [hotelCategory, setHotelCategory] = useState('3-Star Deluxe');
+  const [ticketMode, setTicketMode] = useState('Bus');
+  const [ticketFrom, setTicketFrom] = useState('');
+  const [ticketTo, setTicketTo] = useState('');
+  const [ticketDate, setTicketDate] = useState('');
+  const [ticketPassengers, setTicketPassengers] = useState('1 Passenger');
   const [submitted, setSubmitted] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -87,8 +92,27 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const typeLabel = bookingType === 'package' ? 'Tour Package' : bookingType === 'cab' ? 'Taxi / Cab Booking' : bookingType === 'hotel' ? 'Hotel Stay' : 'Volvo Bus';
-    const message = `*New Booking Inquiry - SafarSathi Website*
+    const typeLabel = bookingType === 'package'
+      ? 'Tour Package'
+      : bookingType === 'cab'
+        ? 'Taxi / Cab Booking'
+        : bookingType === 'hotel'
+          ? 'Hotel Stay'
+          : bookingType === 'volvo'
+            ? 'Volvo Bus'
+            : `${ticketMode} Ticket Booking`;
+    const message = bookingType === 'ticket'
+      ? `*New Ticket Booking Enquiry - Safar Sathi Website*
+👤 *Name:* ${name}
+📞 *Phone:* ${phone}
+🎟️ *Ticket Type:* ${ticketMode}
+📍 *From:* ${ticketFrom}
+🏁 *To:* ${ticketTo}
+📅 *Journey Date:* ${ticketDate}
+👥 *Passengers:* ${ticketPassengers}
+
+Please share the current ticket fare and Safar Sathi service/assistance charge separately. Do not book until I approve the total amount and booking terms.`
+      : `*New Booking Inquiry - SafarSathi Website*
 👤 *Name:* ${name}
 📞 *Phone:* ${phone}
 🏷️ *Service:* ${typeLabel}
@@ -139,9 +163,13 @@ Please check availability and send confirmed quotation.`;
           <div className="inline-block px-3 py-1 rounded-full bg-brand-orange text-white text-[10px] font-bold uppercase tracking-wider mb-2">
             Travel Enquiry
           </div>
-          <h2 id="booking-dialog-title" className="text-xl sm:text-2xl font-bold">Book Your Himalayan Journey</h2>
+          <h2 id="booking-dialog-title" className="text-xl sm:text-2xl font-bold">
+            {bookingType === 'ticket' ? 'Bus, Train & Flight Ticket Assistance' : 'Book Your Himalayan Journey'}
+          </h2>
           <p id="booking-dialog-description" className="text-xs sm:text-sm text-slate-300 mt-1">
-            Share your travel preferences. The team can discuss availability and send a quotation on WhatsApp.
+            {bookingType === 'ticket'
+              ? "Share your route and journey date. Ticket fare and Safar Sathi's separate service charge will be shared before you approve the booking."
+              : 'Share your travel preferences. The team can discuss availability and send a quotation on WhatsApp.'}
           </p>
         </div>
 
@@ -160,7 +188,7 @@ Please check availability and send confirmed quotation.`;
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Type Switcher */}
-              <div className="grid grid-cols-4 gap-1.5 p-1 bg-slate-100 rounded-xl text-xs font-bold text-slate-600">
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-1.5 p-1 bg-slate-100 rounded-xl text-xs font-bold text-slate-600">
                 <button
                   type="button"
                   onClick={() => setBookingType('package')}
@@ -189,22 +217,71 @@ Please check availability and send confirmed quotation.`;
                 >
                   Volvo
                 </button>
+                <button
+                  type="button"
+                  onClick={() => setBookingType('ticket')}
+                  className={`py-2 rounded-lg transition-all flex items-center justify-center gap-1 ${bookingType === 'ticket' ? 'bg-brand-orange text-white shadow' : 'hover:text-slate-900'}`}
+                >
+                  <Ticket className="h-3.5 w-3.5" />
+                  Tickets
+                </button>
               </div>
 
-              {/* Destination / Package / Vehicle */}
-              <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">
-                  {bookingType === 'package' ? 'Tour / Destination' : bookingType === 'cab' ? 'Vehicle / Route' : bookingType === 'hotel' ? 'Hotel / City' : 'Volvo Bus Route'}
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={destination}
-                  onChange={(e) => setDestination(e.target.value)}
-                  placeholder="e.g. Shimla Manali 5N/6D, Innova Crysta, or Kasol Stay"
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange font-medium"
-                />
-              </div>
+              {/* Service-specific route details */}
+              {bookingType === 'ticket' ? (
+                <div className="space-y-3">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">Ticket Type *</label>
+                    <select
+                      value={ticketMode}
+                      onChange={(e) => setTicketMode(e.target.value)}
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange font-medium"
+                    >
+                      <option value="Bus">Bus Ticket</option>
+                      <option value="Train">Train Ticket</option>
+                      <option value="Flight">Flight Ticket</option>
+                    </select>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">From *</label>
+                      <input
+                        type="text"
+                        required
+                        value={ticketFrom}
+                        onChange={(e) => setTicketFrom(e.target.value)}
+                        placeholder="Departure city / station"
+                        className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange font-medium"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">To *</label>
+                      <input
+                        type="text"
+                        required
+                        value={ticketTo}
+                        onChange={(e) => setTicketTo(e.target.value)}
+                        placeholder="Destination city / station"
+                        className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange font-medium"
+                      />
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">
+                    {bookingType === 'package' ? 'Tour / Destination' : bookingType === 'cab' ? 'Vehicle / Route' : bookingType === 'hotel' ? 'Hotel / City' : 'Volvo Bus Route'}
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={destination}
+                    onChange={(e) => setDestination(e.target.value)}
+                    placeholder="e.g. Shimla Manali 5N/6D, Innova Crysta, or Kasol Stay"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange font-medium"
+                  />
+                </div>
+              )}
 
               {/* Name & Phone */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -250,10 +327,12 @@ Please check availability and send confirmed quotation.`;
                     Travel Date
                   </label>
                   <input
-                    type="text"
-                    value={dates}
-                    onChange={(e) => setDates(e.target.value)}
-                    placeholder="e.g. 15th December"
+                    type={bookingType === 'ticket' ? 'date' : 'text'}
+                    required={bookingType === 'ticket'}
+                    min={bookingType === 'ticket' ? new Date().toISOString().split('T')[0] : undefined}
+                    value={bookingType === 'ticket' ? ticketDate : dates}
+                    onChange={(e) => bookingType === 'ticket' ? setTicketDate(e.target.value) : setDates(e.target.value)}
+                    placeholder={bookingType === 'ticket' ? undefined : 'e.g. 15th December'}
                     className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange font-medium"
                   />
                 </div>
@@ -264,15 +343,27 @@ Please check availability and send confirmed quotation.`;
                     Total Travelers
                   </label>
                   <select
-                    value={guests}
-                    onChange={(e) => setGuests(e.target.value)}
+                    value={bookingType === 'ticket' ? ticketPassengers : guests}
+                    onChange={(e) => bookingType === 'ticket' ? setTicketPassengers(e.target.value) : setGuests(e.target.value)}
                     className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange font-medium"
                   >
-                    <option value="1 Adult (Solo Traveler)">1 Adult (Solo Traveler)</option>
-                    <option value="2 Adults (Couple)">2 Adults (Couple)</option>
-                    <option value="3-4 Persons (Family)">3-4 Persons (Family)</option>
-                    <option value="5-7 Persons (Innova)">5-7 Persons (Innova/Ertiga)</option>
-                    <option value="8+ Persons (Tempo Traveller)">8+ Persons (Tempo)</option>
+                    {bookingType === 'ticket' ? (
+                      <>
+                        <option value="1 Passenger">1 Passenger</option>
+                        <option value="2 Passengers">2 Passengers</option>
+                        <option value="3 Passengers">3 Passengers</option>
+                        <option value="4 Passengers">4 Passengers</option>
+                        <option value="5+ Passengers">5+ Passengers</option>
+                      </>
+                    ) : (
+                      <>
+                        <option value="1 Adult (Solo Traveler)">1 Adult (Solo Traveler)</option>
+                        <option value="2 Adults (Couple)">2 Adults (Couple)</option>
+                        <option value="3-4 Persons (Family)">3-4 Persons (Family)</option>
+                        <option value="5-7 Persons (Innova)">5-7 Persons (Innova/Ertiga)</option>
+                        <option value="8+ Persons (Tempo Traveller)">8+ Persons (Tempo)</option>
+                      </>
+                    )}
                   </select>
                 </div>
               </div>
@@ -316,18 +407,26 @@ Please check availability and send confirmed quotation.`;
               </div>
               )}
 
+              {bookingType === 'ticket' && (
+                <div className="rounded-xl border border-amber-200 bg-amber-50 px-3.5 py-3 text-xs leading-5 text-amber-950">
+                  Ticket fare and Safar Sathi's service/assistance charge are separate. Both will be shared with you before booking, and we will proceed only after your approval.
+                </div>
+              )}
+
               <div className="pt-2">
                 <button
                   type="submit"
                   className="w-full py-3.5 rounded-xl bg-brand-orange hover:bg-brand-orange-dark text-white font-bold text-sm shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
                 >
                   <Send className="w-4 h-4" />
-                  <span>Submit & Receive Quote on WhatsApp</span>
+                  <span>{bookingType === 'ticket' ? 'Send Ticket Enquiry on WhatsApp' : 'Submit & Receive Quote on WhatsApp'}</span>
                 </button>
               </div>
 
               <p className="text-[10px] text-center text-slate-500">
-                This is an enquiry only. Availability, fare and booking terms will be confirmed by the Safar Sathi team.
+                {bookingType === 'ticket'
+                  ? 'This is a ticket enquiry, not a confirmed booking. Fare, availability, service charge and booking terms will be confirmed by the team.'
+                  : 'This is an enquiry only. Availability, fare and booking terms will be confirmed by the Safar Sathi team.'}
               </p>
             </form>
           )}

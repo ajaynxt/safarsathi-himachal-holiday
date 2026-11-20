@@ -42,10 +42,10 @@ export function App() {
 
   const handleIntroComplete = useCallback(() => setShowIntro(false), []);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [bookingType, setBookingType] = useState<'package' | 'cab' | 'hotel' | 'volvo'>('package');
+  const [bookingType, setBookingType] = useState<'package' | 'cab' | 'hotel' | 'volvo' | 'ticket'>('package');
   const [selectedItemName, setSelectedItemName] = useState('');
 
-  const handleOpenBooking = (type: 'package' | 'cab' | 'hotel' | 'volvo' = 'package', itemName = '') => {
+  const handleOpenBooking = (type: 'package' | 'cab' | 'hotel' | 'volvo' | 'ticket' = 'package', itemName = '') => {
     setBookingType(type);
     setSelectedItemName(itemName);
     setIsBookingOpen(true);
