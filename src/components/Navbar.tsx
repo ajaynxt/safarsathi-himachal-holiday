@@ -73,13 +73,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
                 isScrolled ? 'text-slate-800' : 'text-white drop-shadow'
               }`}
             >
-              Honeymoon
-            </a>
-            <a
-              href="#honeymoon"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-white hover:text-amber-400 py-1"
-            >
               Honeymoon Packages
             </a>
             <a 
@@ -182,6 +175,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               className="text-white hover:text-amber-400 py-1"
             >
               Trip Plans
+            </a>
+            <a
+              href="#honeymoon"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-white hover:text-amber-400 py-1"
+            >
+              Honeymoon Packages
             </a>
             <a 
               href="#cabs" 
