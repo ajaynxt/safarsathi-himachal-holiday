@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, MessageCircle, Star } from 'lucide-react';
 import { InstagramIcon } from './InstagramIcon';
 import { COMPANY_INFO, VEHICLE_FLEET } from '../data/travelData';
 
@@ -36,6 +36,7 @@ export const Footer: React.FC = () => (
             <p className="flex items-center gap-2"><Mail className="h-4 w-4 shrink-0 text-amber-400" /><a href={`mailto:${COMPANY_INFO.email}`} className="break-all hover:text-white">{COMPANY_INFO.email}</a></p>
             <p className="flex items-center gap-2"><InstagramIcon className="h-4 w-4 shrink-0 text-pink-400" /><a href={COMPANY_INFO.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white">{COMPANY_INFO.instagramHandle}</a></p>
             <p className="pt-2"><a href={COMPANY_INFO.whatsappUrl('Hello Safar Sathi, I have a travel enquiry.')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-bold text-emerald-400 hover:text-emerald-300"><MessageCircle className="h-4 w-4" /> Chat on WhatsApp</a></p>
+            <p className="pt-1"><a href="https://g.page/r/CWfDK0yRfKm8EBM/review" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-amber-400/40 px-3 py-2 font-bold text-amber-300 transition-colors hover:border-amber-300 hover:bg-amber-300/10 hover:text-amber-200"><Star className="h-4 w-4" aria-hidden="true" /> Write a Google Review</a></p>
           </div>
         </div>
       </div>
