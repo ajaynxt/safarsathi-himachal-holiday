@@ -1,39 +1,37 @@
 import React, { useEffect, useState } from 'react';
-import { MapPin, CalendarDays, Users, Search, ChevronDown, ShieldCheck, CarFront, Headphones } from 'lucide-react';
+import { MapPin, CalendarDays, Users, Search, ChevronDown, ArrowRight } from 'lucide-react';
 
 interface HeroProps {
   onOpenBooking: (type?: 'package' | 'cab' | 'hotel' | 'volvo', item?: string) => void;
   onSearchPackages?: (destination: string) => void;
 }
 
-const typedLines = ['Himachal ki wadiyan', 'Manali ki barfili rahein', 'Spiti ka adventure', 'India ke yaadgaar safar'];
 const heroImages = [
-  { src: 'https://images.unsplash.com/photo-1777623439793-58a5ad4caca8?auto=format&fit=crop&w=1600&q=72', alt: 'Snow-capped Himalayan mountains above a village in Manali' },
-  { src: 'https://images.unsplash.com/photo-1741790961226-89e3d29e6857?auto=format&fit=crop&w=1600&q=72', alt: 'Dramatic barren mountain landscape in Spiti Valley' },
-  { src: 'https://images.unsplash.com/photo-1785651975023-2bae16114077?auto=format&fit=crop&w=1600&q=72', alt: 'Scenic mountain town and valley viewed from the Shimla Toy Train' },
-  { src: 'https://images.unsplash.com/photo-1597167231350-d057a45dc868?auto=format&fit=crop&w=1600&q=72', alt: 'Manali town beneath snow-covered Himalayan peaks' },
-  { src: 'https://images.unsplash.com/photo-1636567652095-f59e54ed6d3a?auto=format&fit=crop&w=1600&q=72', alt: 'Ki Monastery and mountain village in Spiti Valley' },
-  { src: 'https://images.unsplash.com/photo-1721195807634-82e30d4196c4?auto=format&fit=crop&w=1600&q=72', alt: 'Green valley and riverside landscape in Pahalgam, Kashmir' },
-  { src: 'https://images.unsplash.com/photo-1666438239881-5ea3efaa0996?auto=format&fit=crop&w=1600&q=72', alt: 'High-altitude alpine lake in the Pahalgam mountains' },
-  { src: 'https://images.unsplash.com/photo-1713951579234-3bfee80f3d9b?auto=format&fit=crop&w=1600&q=72', alt: 'Forest-covered Himalayan mountain range in Kashmir' },
-  { src: 'https://images.unsplash.com/photo-1688457537834-e3bdc02d3743?auto=format&fit=crop&w=1600&q=72', alt: 'River flowing through the green mountains of Pahalgam' },
-  { src: 'https://images.unsplash.com/photo-1636800877579-b69375ae9532?auto=format&fit=crop&w=1600&q=72', alt: 'Pangong Lake surrounded by the rugged mountains of Ladakh' },
-  { src: 'https://images.unsplash.com/photo-1713063968789-adf139c4a1eb?auto=format&fit=crop&w=1600&q=72', alt: 'Adventure landscape in Solang Valley near Manali' },
-  { src: 'https://images.unsplash.com/photo-1618500508371-d0158e696eb0?auto=format&fit=crop&w=1600&q=72', alt: 'Snow-covered peaks and slopes of Solang Valley, Manali' },
-  { src: 'https://images.unsplash.com/photo-1719645003037-17494ac2519d?auto=format&fit=crop&w=1600&q=72', alt: 'Mountain lake and dramatic scenery in Nubra Valley, Ladakh' },
+  { src: 'https://images.unsplash.com/photo-1777623439793-58a5ad4caca8?auto=format&fit=crop&w=1800&q=82', alt: 'Snow-capped Himalayan mountains above a village in Manali' },
+  { src: 'https://images.unsplash.com/photo-1741790961226-89e3d29e6857?auto=format&fit=crop&w=1800&q=82', alt: 'Dramatic barren mountain landscape in Spiti Valley' },
+  { src: 'https://images.unsplash.com/photo-1785651975023-2bae16114077?auto=format&fit=crop&w=1800&q=82', alt: 'Scenic mountain town and valley viewed from the Shimla Toy Train' },
+  { src: 'https://images.unsplash.com/photo-1597167231350-d057a45dc868?auto=format&fit=crop&w=1800&q=82', alt: 'Manali town beneath snow-covered Himalayan peaks' },
+  { src: 'https://images.unsplash.com/photo-1636567652095-f59e54ed6d3a?auto=format&fit=crop&w=1800&q=82', alt: 'Ki Monastery and mountain village in Spiti Valley' },
+  { src: 'https://images.unsplash.com/photo-1721195807634-82e30d4196c4?auto=format&fit=crop&w=1800&q=82', alt: 'Green valley and riverside landscape in Pahalgam, Kashmir' },
+  { src: 'https://images.unsplash.com/photo-1666438239881-5ea3efaa0996?auto=format&fit=crop&w=1800&q=82', alt: 'High-altitude alpine lake in the Pahalgam mountains' },
+  { src: 'https://images.unsplash.com/photo-1713951579234-3bfee80f3d9b?auto=format&fit=crop&w=1800&q=82', alt: 'Forest-covered Himalayan mountain range in Kashmir' },
+  { src: 'https://images.unsplash.com/photo-1688457537834-e3bdc02d3743?auto=format&fit=crop&w=1800&q=82', alt: 'River flowing through the green mountains of Pahalgam' },
+  { src: 'https://images.unsplash.com/photo-1636800877579-b69375ae9532?auto=format&fit=crop&w=1800&q=82', alt: 'Pangong Lake surrounded by the rugged mountains of Ladakh' },
+  { src: 'https://images.unsplash.com/photo-1713063968789-adf139c4a1eb?auto=format&fit=crop&w=1800&q=82', alt: 'Adventure landscape in Solang Valley near Manali' },
+  { src: 'https://images.unsplash.com/photo-1618500508371-d0158e696eb0?auto=format&fit=crop&w=1800&q=82', alt: 'Snow-covered peaks and slopes of Solang Valley, Manali' },
+  { src: 'https://images.unsplash.com/photo-1719645003037-17494ac2519d?auto=format&fit=crop&w=1800&q=82', alt: 'Mountain lake and dramatic scenery in Nubra Valley, Ladakh' },
 ];
 
 export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) => {
   const [destination, setDestination] = useState('Shimla & Manali (Himachal)');
   const [travelDate, setTravelDate] = useState('Pick a Date');
   const [travellers, setTravellers] = useState('2 Adults');
-  const [typedText, setTypedText] = useState('');
-  const [lineIndex, setLineIndex] = useState(0);
-  const [deleting, setDeleting] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [heroImageIndex, setHeroImageIndex] = useState(() => Math.floor(Math.random() * heroImages.length));
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
+  const [heroImageIndex, setHeroImageIndex] = useState(0);
 
-  // Fetch only the next slide instead of downloading all 13 full-size photos on first load.
+  // Preload only the next destination image, keeping the first paint lightweight.
   useEffect(() => {
     const nextIndex = (heroImageIndex + 1) % heroImages.length;
     const preload = new Image();
@@ -41,54 +39,20 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
   }, [heroImageIndex]);
 
   useEffect(() => {
-    if (prefersReducedMotion) return;
-    const rotation = window.setInterval(() => {
-      setHeroImageIndex((current) => {
-        if (heroImages.length < 2) return current;
-        let next = current;
-        while (next === current) next = Math.floor(Math.random() * heroImages.length);
-        return next;
-      });
-    }, 2000);
-    return () => window.clearInterval(rotation);
-  }, [prefersReducedMotion]);
-
-  useEffect(() => {
     const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
     const updateMotionPreference = () => setPrefersReducedMotion(motionPreference.matches);
-
     updateMotionPreference();
     motionPreference.addEventListener('change', updateMotionPreference);
     return () => motionPreference.removeEventListener('change', updateMotionPreference);
   }, []);
 
   useEffect(() => {
-    if (prefersReducedMotion) {
-      setTypedText(typedLines[0]);
-      setLineIndex(0);
-      setDeleting(false);
-      return;
-    }
-
-    const phrase = typedLines[lineIndex];
-    const delay = deleting ? 42 : 82;
-    let pauseTimer: number | undefined;
-    const timer = window.setTimeout(() => {
-      if (!deleting && typedText === phrase) {
-        pauseTimer = window.setTimeout(() => setDeleting(true), 1050);
-      } else if (deleting && typedText.length === 0) {
-        setDeleting(false);
-        setLineIndex((current) => (current + 1) % typedLines.length);
-      } else {
-        setTypedText(deleting ? phrase.slice(0, typedText.length - 1) : phrase.slice(0, typedText.length + 1));
-      }
-    }, delay);
-
-    return () => {
-      window.clearTimeout(timer);
-      if (pauseTimer !== undefined) window.clearTimeout(pauseTimer);
-    };
-  }, [typedText, deleting, lineIndex, prefersReducedMotion]);
+    if (prefersReducedMotion) return;
+    const rotation = window.setInterval(() => {
+      setHeroImageIndex((current) => (current + 1) % heroImages.length);
+    }, 7000);
+    return () => window.clearInterval(rotation);
+  }, [prefersReducedMotion]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -98,50 +62,54 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
   };
 
   return (
-    <section className="relative isolate min-h-[640px] sm:min-h-[720px] lg:min-h-[760px] flex items-center overflow-hidden bg-slate-950 pt-20 pb-8 sm:pt-32 sm:pb-10">
-      <div className="absolute inset-0 -z-20">
-        <img
-          key={heroImages[heroImageIndex].src}
-          src={heroImages[heroImageIndex].src.startsWith('http') ? heroImages[heroImageIndex].src : `${import.meta.env.BASE_URL}${heroImages[heroImageIndex].src}`}
-          alt={heroImages[heroImageIndex].alt}
-          fetchPriority="high"
-          loading="eager"
-          decoding="async"
-          sizes="100vw"
-          className="hero-background-change h-full w-full object-cover object-center"
-        />
-      </div>
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-950/55 via-slate-950/35 to-slate-950/85" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/45 via-transparent to-slate-950/10" />
+    <>
+      <section className="relative isolate flex h-[calc(100svh-4.5rem)] min-h-[620px] max-h-[860px] items-end overflow-hidden bg-slate-950 pb-28 pt-20 sm:min-h-[680px] sm:pb-32 lg:min-h-[720px]">
+        <div className="absolute inset-0 -z-20">
+          <img
+            key={heroImages[heroImageIndex].src}
+            src={heroImages[heroImageIndex].src}
+            alt={heroImages[heroImageIndex].alt}
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+            sizes="100vw"
+            className="hero-background-change h-full w-full object-cover object-center"
+          />
+        </div>
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-950/15 via-slate-950/25 to-slate-950/85" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/35 via-slate-950/5 to-slate-950/20" />
 
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-5xl text-center text-white">
-          <div className="hero-enter inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] text-white/95 backdrop-blur-sm">
-            <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_0_4px_rgba(52,211,153,.15)]" />
-            Himachal Holidays • India Tours • Private Travel
-          </div>
+        <div className="mx-auto w-full max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl text-white">
+            <p className="hero-enter inline-flex items-center rounded-full border border-white/30 bg-slate-950/25 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/95 backdrop-blur-sm sm:text-xs">
+              Himachal Holidays <span className="mx-2 text-amber-300">•</span> India Tours <span className="mx-2 text-amber-300">•</span> Private Cabs
+            </p>
 
-          <h1 className="hero-enter mt-4 font-serif-title text-[2.65rem] leading-[1.04] font-bold tracking-tight drop-shadow-[0_4px_18px_rgba(0,0,0,.45)] sm:text-6xl lg:text-7xl">
-            Discover More. <span className="text-amber-300">Worry Less. Travel Better.</span>
-          </h1>
+            <h1 className="hero-enter mt-5 font-serif-title text-[2.65rem] font-bold leading-[1.04] tracking-tight drop-shadow-[0_4px_22px_rgba(0,0,0,.55)] sm:text-6xl lg:text-7xl">
+              Discover Himachal. <span className="text-amber-300">Explore India.</span>
+            </h1>
 
-          <div className="mt-2 min-h-[34px] sm:mt-3 sm:min-h-[48px] text-lg font-semibold text-white sm:text-2xl lg:text-3xl" aria-live="off">
-            <span>{typedText}</span>{!prefersReducedMotion && <span className="ml-0.5 inline-block h-[1em] w-[2px] translate-y-0.5 animate-pulse bg-amber-300" aria-hidden="true" />}
-          </div>
+            <p className="hero-enter mx-auto mt-4 max-w-2xl text-sm leading-6 text-white/90 drop-shadow sm:text-base sm:leading-7">
+              Private cabs, personalised tour plans and travel assistance for journeys across Himachal and India.
+            </p>
 
-          <p className="hero-enter mx-auto mt-3 max-w-2xl text-sm leading-6 text-white/90 sm:mt-4 sm:text-base sm:leading-7">
-            Explore affordable Himachal tour packages for Shimla, Manali and Spiti, plus private cab options and trips across India. Share your plans for a best-value itinerary and clear quote.
-          </p>
-
-          <div className="hero-enter mt-4 flex flex-wrap sm:mt-6 items-center justify-center gap-x-5 gap-y-2 text-[11px] font-semibold text-white/90 sm:text-xs">
-            <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-amber-300" /> 9 years of travel experience</span>
-            <span className="inline-flex items-center gap-1.5"><CarFront className="h-4 w-4 text-amber-300" /> Private cab options</span>
-            <span className="inline-flex items-center gap-1.5"><Headphones className="h-4 w-4 text-amber-300" /> Personal trip assistance</span>
+            <a
+              href="#hero-trip-search"
+              className="hero-enter mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-amber-400 px-8 py-3.5 text-sm font-extrabold text-slate-950 shadow-xl shadow-black/20 transition hover:-translate-y-0.5 hover:bg-amber-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            >
+              Plan Your Trip <ArrowRight className="h-4 w-4" />
+            </a>
           </div>
         </div>
+      </section>
 
-        <form onSubmit={handleSearch} className="hero-enter mx-auto mt-6 grid max-w-5xl grid-cols-1 gap-2 rounded-3xl border border-white/60 bg-white p-3 text-left shadow-[0_24px_70px_rgba(0,0,0,.28)] sm:grid-cols-[1.25fr_1fr_1fr_auto] sm:items-center sm:gap-0 sm:rounded-full sm:p-2">
-          <div className="min-w-0 px-3 py-2 sm:px-5">
+      <div className="relative z-20 -mt-16 px-4 pb-9 sm:-mt-20 sm:px-6 lg:px-8">
+        <form
+          id="hero-trip-search"
+          onSubmit={handleSearch}
+          className="hero-enter mx-auto grid max-w-5xl grid-cols-1 gap-2 rounded-2xl border border-slate-200/80 bg-white/95 p-3 text-left shadow-[0_24px_70px_rgba(15,23,42,.22)] backdrop-blur-xl sm:grid-cols-[1.25fr_1fr_1fr_auto] sm:items-center sm:gap-0 sm:p-3"
+        >
+          <div className="min-w-0 px-3 py-2 sm:px-4">
             <label htmlFor="hero-destination" className="block text-[10px] font-extrabold uppercase tracking-[0.14em] text-slate-400">Destination</label>
             <div className="mt-1 flex items-center gap-2">
               <MapPin className="h-4 w-4 shrink-0 text-amber-600" />
@@ -160,8 +128,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
             </div>
           </div>
 
-          <div className="min-w-0 border-t border-slate-100 px-3 py-2 sm:border-l sm:border-t-0 sm:px-5">
-            <label htmlFor="hero-travel-date" className="block text-[10px] font-extrabold uppercase tracking-[0.14em] text-slate-400">Travel date</label>
+          <div className="min-w-0 border-t border-slate-100 px-3 py-2 sm:border-l sm:border-t-0 sm:px-4">
+            <label htmlFor="hero-travel-date" className="block text-[10px] font-extrabold uppercase tracking-[0.14em] text-slate-400">Travel dates</label>
             <div className="mt-1 flex items-center gap-2">
               <CalendarDays className="h-4 w-4 shrink-0 text-amber-600" />
               <select id="hero-travel-date" value={travelDate} onChange={(e) => setTravelDate(e.target.value)} className="w-full min-w-0 appearance-none rounded-sm bg-transparent text-sm font-bold text-slate-800 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-600">
@@ -175,7 +143,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
             </div>
           </div>
 
-          <div className="min-w-0 border-t border-slate-100 px-3 py-2 sm:border-l sm:border-t-0 sm:px-5">
+          <div className="min-w-0 border-t border-slate-100 px-3 py-2 sm:border-l sm:border-t-0 sm:px-4">
             <label htmlFor="hero-travellers" className="block text-[10px] font-extrabold uppercase tracking-[0.14em] text-slate-400">Travellers</label>
             <div className="mt-1 flex items-center gap-2">
               <Users className="h-4 w-4 shrink-0 text-amber-600" />
@@ -191,16 +159,16 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
           </div>
 
           <div className="pt-1 sm:pl-2 sm:pt-0">
-            <button type="submit" className="flex w-full items-center justify-center gap-2 rounded-full bg-amber-500 px-7 py-4 text-sm font-extrabold text-slate-950 shadow-lg shadow-amber-900/20 transition hover:bg-amber-400 active:scale-[.98] sm:w-auto sm:py-3.5">
+            <button type="submit" className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-amber-500 px-6 py-3.5 text-sm font-extrabold text-slate-950 shadow-lg shadow-amber-900/15 transition hover:bg-amber-400 active:scale-[.98] sm:w-auto">
               <Search className="h-4 w-4" /> Find my trip
             </button>
           </div>
         </form>
 
-        <p className="mt-3 text-center text-[10px] sm:mt-4 font-medium tracking-wide text-white/75 sm:text-xs">
-          Shimla · Manali · Spiti · Kashmir · Kerala · Tours across India
+        <p className="mt-4 text-center text-[10px] font-medium tracking-wide text-slate-500 sm:text-xs">
+          Shimla <span className="mx-1 text-amber-600">·</span> Manali <span className="mx-1 text-amber-600">·</span> Spiti <span className="mx-1 text-amber-600">·</span> Kashmir <span className="mx-1 text-amber-600">·</span> Kerala <span className="mx-1 text-amber-600">·</span> Tours across India
         </p>
       </div>
-    </section>
+    </>
   );
 };
