@@ -7,11 +7,19 @@ interface HeroProps {
 }
 
 const heroImages = [
-  { src: '/images/destinations/manali.jpg', alt: 'Snow-covered Himalayan peaks and valley near Manali' },
-  { src: '/images/destinations/shimla.jpg', alt: 'Mountain scenery and pine-covered slopes around Shimla' },
-  { src: '/images/destinations/spiti.jpg', alt: 'High-altitude mountain landscape in Spiti Valley' },
-  { src: '/images/destinations/ladakh.jpg', alt: 'Wide Himalayan mountain landscape in Ladakh' },
-  { src: '/images/destinations/shimla_night.jpg', alt: 'Shimla hillside illuminated after sunset' },
+  { src: 'https://images.unsplash.com/photo-1777623439793-58a5ad4caca8?auto=format&fit=crop&w=1800&q=82', alt: 'Snow-capped Himalayan mountains above a village in Manali' },
+  { src: 'https://images.unsplash.com/photo-1741790961226-89e3d29e6857?auto=format&fit=crop&w=1800&q=82', alt: 'Dramatic barren mountain landscape in Spiti Valley' },
+  { src: 'https://images.unsplash.com/photo-1785651975023-2bae16114077?auto=format&fit=crop&w=1800&q=82', alt: 'Scenic mountain town and valley viewed from the Shimla Toy Train' },
+  { src: 'https://images.unsplash.com/photo-1597167231350-d057a45dc868?auto=format&fit=crop&w=1800&q=82', alt: 'Manali town beneath snow-covered Himalayan peaks' },
+  { src: 'https://images.unsplash.com/photo-1636567652095-f59e54ed6d3a?auto=format&fit=crop&w=1800&q=82', alt: 'Ki Monastery and mountain village in Spiti Valley' },
+  { src: 'https://images.unsplash.com/photo-1721195807634-82e30d4196c4?auto=format&fit=crop&w=1800&q=82', alt: 'Green valley and riverside landscape in Pahalgam, Kashmir' },
+  { src: 'https://images.unsplash.com/photo-1666438239881-5ea3efaa0996?auto=format&fit=crop&w=1800&q=82', alt: 'High-altitude alpine lake in the Pahalgam mountains' },
+  { src: 'https://images.unsplash.com/photo-1713951579234-3bfee80f3d9b?auto=format&fit=crop&w=1800&q=82', alt: 'Forest-covered Himalayan mountain range in Kashmir' },
+  { src: 'https://images.unsplash.com/photo-1688457537834-e3bdc02d3743?auto=format&fit=crop&w=1800&q=82', alt: 'River flowing through the green mountains of Pahalgam' },
+  { src: 'https://images.unsplash.com/photo-1636800877579-b69375ae9532?auto=format&fit=crop&w=1800&q=82', alt: 'Pangong Lake surrounded by the rugged mountains of Ladakh' },
+  { src: 'https://images.unsplash.com/photo-1713063968789-adf139c4a1eb?auto=format&fit=crop&w=1800&q=82', alt: 'Adventure landscape in Solang Valley near Manali' },
+  { src: 'https://images.unsplash.com/photo-1618500508371-d0158e696eb0?auto=format&fit=crop&w=1800&q=82', alt: 'Snow-covered peaks and slopes of Solang Valley, Manali' },
+  { src: 'https://images.unsplash.com/photo-1719645003037-17494ac2519d?auto=format&fit=crop&w=1800&q=82', alt: 'Mountain lake and dramatic scenery in Nubra Valley, Ladakh' },
 ];
 
 export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) => {
