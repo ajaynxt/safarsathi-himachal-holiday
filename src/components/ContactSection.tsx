@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Send, MessageCircle, Clock, ShieldCheck } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, MessageCircle, Clock, ShieldCheck, Star } from 'lucide-react';
 import { InstagramIcon } from './InstagramIcon';
 import { COMPANY_INFO } from '../data/travelData';
 
@@ -128,7 +128,7 @@ export const ContactSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-2">
+            <div className="pt-2 space-y-3">
               <a
                 href={COMPANY_INFO.whatsappUrl("Hello SafarSathi, I have an inquiry regarding holiday packages and cabs.")}
                 target="_blank"
@@ -137,6 +137,15 @@ export const ContactSection: React.FC = () => {
               >
                 <MessageCircle className="w-4 h-4" />
                 <span>Chat Directly on WhatsApp</span>
+              </a>
+              <a
+                href="https://g.page/r/CWfDK0yRfKm8EBM/review"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full min-h-11 py-3 px-4 rounded-xl border border-amber-300/50 bg-white/5 hover:bg-white/10 text-amber-200 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-colors"
+              >
+                <Star className="w-4 h-4" aria-hidden="true" />
+                <span>Already travelled with us? Write a Google Review</span>
               </a>
             </div>
           </div>
