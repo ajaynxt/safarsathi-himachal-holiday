@@ -186,7 +186,7 @@ export function HoneymoonPackages({ onEnquire }: HoneymoonPackagesProps) {
               >
                 Get my honeymoon quote <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </button>
-              <p className="mt-2 text-center text-[11px] leading-5 text-slate-500">Opens a WhatsApp enquiry with your selected destination.</p>
+              <p className="mt-2 text-center text-[11px] leading-5 text-slate-500">Opens the enquiry form with your selected destination already filled in.</p>
             </div>
           </div>
         </div>
