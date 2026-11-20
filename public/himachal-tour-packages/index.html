@@ -184,7 +184,7 @@ img{max-width:100%}
 </head>
 <body>
 <section class="site-hero" aria-labelledby="page-title">
-  <img class="hero-image" src="https://images.unsplash.com/photo-1777623439793-58a5ad4caca8?fit=crop&amp;w=1800&amp;q=82&amp;fm=jpg" alt="Snow-capped Himalayan mountains above a village in Manali" fetchpriority="high" decoding="async">
+  <img class="hero-image" src="/images/destinations/manali.jpg" alt="Snow-covered Himalayan peaks and valley near Manali" fetchpriority="high" decoding="async">
   <div class="hero-shade" aria-hidden="true"></div>
 
   <header class="site-header">
@@ -383,5 +383,32 @@ img{max-width:100%}
     });
   })();
 </script>
+
+<script>
+  (function () {
+    var hero = document.querySelector('.hero-image');
+    if (!hero) return;
+    var photos = [
+      { src: '/images/destinations/manali.jpg', alt: 'Snow-covered Himalayan peaks and valley near Manali' },
+      { src: '/images/destinations/shimla.jpg', alt: 'Mountain scenery and pine-covered slopes around Shimla' },
+      { src: '/images/destinations/spiti.jpg', alt: 'High-altitude mountain landscape in Spiti Valley' },
+      { src: '/images/destinations/ladakh.jpg', alt: 'Wide Himalayan mountain landscape in Ladakh' },
+      { src: '/images/destinations/shimla_night.jpg', alt: 'Shimla hillside illuminated after sunset' }
+    ];
+    var index = Math.floor(Math.random() * photos.length);
+    function showPhoto() {
+      hero.src = photos[index].src;
+      hero.alt = photos[index].alt;
+    }
+    showPhoto();
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      window.setInterval(function () {
+        index = (index + 1 + Math.floor(Math.random() * (photos.length - 1))) % photos.length;
+        showPhoto();
+      }, 7000);
+    }
+  })();
+</script>
+
 </body>
 </html>
