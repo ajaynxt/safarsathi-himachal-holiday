@@ -1,0 +1,48 @@
+{
+  "site_url": "https://safarsathi.in/",
+  "brand_name": "Safar Sathi",
+  "phone": "+91 83519 87587",
+  "email": "safarsathi.india@gmail.com",
+  "service_account_key_path": "/Users/ajaynxt/.config/gcloud/ga-bot-key.json",
+  "service_account_email": "ga-bot@ajaynxt-portfolio.iam.gserviceaccount.com",
+  "gsc_property": "https://safarsathi.in/",
+  "ga4_measurement_ids": ["G-X33WGNNG0D", "G-DR6JRL8602"],
+  "ga4_property_id": "",
+  "google_ads_id": "AW-3498026439",
+  "gtm_id": "GTM-WFW2KCVS",
+  "destinations": [
+    "Shimla",
+    "Manali",
+    "Himachal Pradesh",
+    "Kashmir",
+    "Ladakh",
+    "Spiti Valley",
+    "Kerala",
+    "India"
+  ],
+  "competitors": {
+    "national_aggregators": [
+      {"name": "MakeMyTrip", "domain": "makemytrip.com", "focus": "Pan-India tours & hotel/bus booking"},
+      {"name": "Thomas Cook India", "domain": "thomascook.in", "focus": "Escorted family & senior citizen holidays"},
+      {"name": "Veena World", "domain": "veenaworld.com", "focus": "Escorted group & custom Himachal tours"},
+      {"name": "SOTC Travel", "domain": "sotc.in", "focus": "Domestic luxury & family travel packages"},
+      {"name": "Thrillophilia", "domain": "thrillophilia.com", "focus": "Experiential adventure tours & Ladakh bikes"},
+      {"name": "TravelTriangle", "domain": "traveltriangle.com", "focus": "Custom quotes marketplace for Himachal & Kashmir"}
+    ],
+    "curated_adventure_operators": [
+      {"name": "Kinghills Travels", "domain": "kinghillstravels.com", "focus": "Delhi Volvo & couple packages for Manali & Kasol"},
+      {"name": "Go4Explore", "domain": "go4explore.com", "focus": "Youth community trips & weekend Himachal getaways"},
+      {"name": "JustWravel", "domain": "justwravel.com", "focus": "Spiti expeditions, Ladakh bike trips, trekking"},
+      {"name": "WanderOn", "domain": "wanderon.in", "focus": "Curated road trips to Spiti, Ladakh, and Meghalaya"},
+      {"name": "Deyor Camps", "domain": "deyor.in", "focus": "High altitude adventure & Ladakh/Spiti camps"}
+    ],
+    "regional_local_dmcs": [
+      {"name": "Shimla Manali Tourism", "domain": "shimlamanalitourism.com", "focus": "Shimla & Manali local tour packages"},
+      {"name": "Himachal Taxi Tour", "domain": "himachaltaxitour.com", "focus": "Himachal private cabs & outstation rentals"},
+      {"name": "Himachal Car Rental Service", "domain": "himachalcarrentalservice.com", "focus": "Chandigarh/Delhi to Shimla Manali cabs"},
+      {"name": "Spiti Valley Tours", "domain": "spitivalleytours.com", "focus": "Local Kaza ground handling & Spiti circuits"},
+      {"name": "Kashmir Online", "domain": "kashmironline.com", "focus": "Srinagar, Gulmarg, Pahalgam local DMCs"},
+      {"name": "Discover Leh Ladakh", "domain": "discoverlehladakh.in", "focus": "Leh, Nubra, Pangong local permits & taxi fleet"}
+    ]
+  }
+}

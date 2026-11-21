@@ -27,3 +27,4 @@ dist-ssr
 *.tsbuildinfo
 .vite
 .vite-temp
+__pycache__/

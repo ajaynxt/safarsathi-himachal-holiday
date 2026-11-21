@@ -212,6 +212,33 @@ export const TOUR_PACKAGES: TourPackage[] = [
       { day: 5, title: "Alleppey to Cochin Sightseeing", description: "Chinese fishing nets, Fort Kochi, and Marine Drive.", stay: "Cochin Deluxe Hotel", meals: "Breakfast & Dinner" },
       { day: 6, title: "Cochin Airport Departure", description: "Transfer to Cochin airport for departure.", stay: "Departure", meals: "Breakfast" }
     ]
+  },
+  {
+    id: "leh-ladakh-5n-6d",
+    title: "Leh Ladakh Nubra & Pangong Expedition",
+    tagline: "Khardung La Pass, Hunder sand dunes camel safari, and high-altitude Pangong Lake",
+    duration: "5 Nights / 6 Days",
+    days: 6,
+    nights: 5,
+    startingPrice: "₹24,999",
+    rating: 4.9,
+    reviewsCount: 114,
+    badge: "High Altitude Adventure",
+    featuredImage: asset('images/destinations/ladakh.jpg'),
+    pickupDrop: "Leh Airport (IXL)",
+    bestSeason: "May to October",
+    difficulty: "Adventure",
+    highlights: ["Khardung La Pass (17,982 ft)", "Hunder Sand Dunes & Bactrian Camel", "Pangong Tso color-changing lake stay", "Magnetic Hill & Sangam Confluence"],
+    inclusions: ["Dedicated Private 4x4 / SUV (Innova/Scorpio)", "Oxygen cylinder equipped vehicle", "3 Nights Leh Hotel + 1N Nubra Camp + 1N Pangong Camp", "Breakfast & Dinner Daily", "Inner Line Permits & Environmental Fee"],
+    exclusions: ["Airfare to/from Leh", "Personal camel rides / ATV adventures", "Monument entrance tickets"],
+    itinerary: [
+      { day: 1, title: "Arrival in Leh & Mandatory Acclimatization", description: "Airport pickup and check-in. Complete rest for 24 hours to adapt to 11,500 ft altitude.", stay: "Leh Deluxe Hotel", meals: "Dinner" },
+      { day: 2, title: "Sham Valley Sightseeing & Sangam Confluence", description: "Visit Hall of Fame, Magnetic Hill, Gurudwara Pathar Sahib, and Indus-Zanskar confluence.", stay: "Leh Deluxe Hotel", meals: "Breakfast & Dinner" },
+      { day: 3, title: "Leh to Nubra Valley via Khardung La (17,982 ft)", description: "Scenic drive over world's highest motorable pass to Nubra. Evening camel safari at Hunder sand dunes.", stay: "Nubra Luxury Swiss Camp", meals: "Breakfast & Dinner" },
+      { day: 4, title: "Nubra to Pangong Tso via Shyok River", description: "Direct drive along the dramatic Shyok river to reach the crystal blue Pangong Lake. Star gazing at night.", stay: "Pangong Lake View Camp", meals: "Breakfast & Dinner" },
+      { day: 5, title: "Pangong Lake to Leh via Chang La Pass", description: "Witness stunning sunrise at Pangong, cross Chang La Pass (17,688 ft), visit Thiksey Monastery.", stay: "Leh Deluxe Hotel", meals: "Breakfast & Dinner" },
+      { day: 6, title: "Leh Airport Departure", description: "Early morning transfer to Leh Airport with unforgettable Himalayan memories.", stay: "Departure", meals: "Breakfast" }
+    ]
   }
 ];
 
