@@ -5,7 +5,6 @@ interface IntroLoaderProps {
 }
 
 const assetBase = import.meta.env.BASE_URL;
-const brandName = 'SAFAR SATHI';
 const tagline = 'Your Journey, Our Responsibility';
 
 export function IntroLoader({ onComplete }: IntroLoaderProps) {
@@ -30,10 +29,10 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
         if (index >= tagline.length && typingTimer !== undefined) {
           window.clearInterval(typingTimer);
         }
-      }, 24);
-    }, 180);
-    const leaveTimer = window.setTimeout(() => setLeaving(true), 900);
-    const finishTimer = window.setTimeout(onComplete, 1200);
+      }, 18);
+    }, 150);
+    const leaveTimer = window.setTimeout(() => setLeaving(true), 1300);
+    const finishTimer = window.setTimeout(onComplete, 1800);
 
     return () => {
       if (typingTimer !== undefined) window.clearInterval(typingTimer);
@@ -55,10 +54,6 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
           70% { opacity: 1; transform: translateY(-2px) scale(1.025); }
           100% { opacity: 1; transform: translateY(0) scale(1); }
         }
-        @keyframes safarNameReveal {
-          from { opacity: 0; transform: translateY(12px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
         @keyframes safarRuleReveal {
           from { transform: scaleX(0); opacity: 0; }
           to { transform: scaleX(1); opacity: 1; }
@@ -72,36 +67,27 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
           49%, 100% { opacity: 0; }
         }
         .safar-logo-reveal { animation: safarLogoReveal .7s cubic-bezier(.2,.75,.25,1) both; }
-        .safar-name-reveal { animation: safarNameReveal .45s ease-out .35s both; }
         .safar-rule-reveal { transform-origin: center; animation: safarRuleReveal .4s ease-out .55s both; }
         .safar-tag-reveal { animation: safarTagReveal .4s ease-out .68s both; }
         .safar-cursor { animation: safarCursorBlink .72s step-end infinite; }
         @media (prefers-reduced-motion: reduce) {
-          .safar-logo-reveal, .safar-name-reveal, .safar-rule-reveal, .safar-tag-reveal, .safar-cursor { animation: none !important; }
+          .safar-logo-reveal, .safar-rule-reveal, .safar-tag-reveal, .safar-cursor { animation: none !important; }
         }
       `}</style>
 
       <div className="flex w-full max-w-2xl flex-col items-center px-5 text-center">
-        <div className="safar-logo-reveal flex h-56 w-56 shrink-0 items-center justify-center sm:h-64 sm:w-64">
+        <div className="safar-logo-reveal w-[min(88vw,380px)] shrink-0">
           <img
             src={`${assetBase}images/logo.png`}
             alt="Safar Sathi logo"
-            className="h-full w-full object-contain"
+            className="block h-auto w-full object-contain"
             fetchPriority="high"
             loading="eager"
             decoding="sync"
           />
         </div>
 
-        <div
-          role="heading"
-          aria-level={2}
-          className="safar-name-reveal mt-1 whitespace-nowrap font-cinzel text-[clamp(2rem,8vw,3.6rem)] font-bold leading-tight tracking-[.035em] text-[#421e29]"
-        >
-          {brandName}
-        </div>
-
-        <div className="safar-rule-reveal mt-5 h-px w-28 bg-[#b58a58] sm:mt-6 sm:w-36" />
+        <div className="safar-rule-reveal mt-7 h-px w-28 bg-[#b58a58] sm:mt-8 sm:w-36" />
         <p className="safar-tag-reveal mt-4 min-h-6 text-xs font-medium tracking-[.08em] text-[#7b6267] sm:text-sm" aria-label={tagline}>
           <span aria-hidden="true">{typedTagline}</span>
           <span className="safar-cursor ml-0.5 inline-block h-[1em] w-px translate-y-[2px] bg-[#b58a58]" aria-hidden="true" />
