@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { IntroLoader } from './components/IntroLoader';
 import { TopBanner } from './components/TopBanner';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -18,7 +19,30 @@ import { BookingModal } from './components/BookingModal';
 import { StickyMobileBar } from './components/StickyMobileBar';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 
+const INTRO_SESSION_KEY = 'safar-sathi-intro-seen';
+
 export function App() {
+  const [showIntro, setShowIntro] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    try {
+      return window.sessionStorage.getItem(INTRO_SESSION_KEY) !== '1';
+    } catch {
+      // Skip the intro when session persistence is unavailable.
+      return false;
+    }
+  });
+
+  useEffect(() => {
+    if (!showIntro) return;
+    try {
+      window.sessionStorage.setItem(INTRO_SESSION_KEY, '1');
+    } catch {
+      // Never show an intro that could repeat on every page load.
+      setShowIntro(false);
+    }
+  }, [showIntro]);
+
+  const handleIntroComplete = useCallback(() => setShowIntro(false), []);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [bookingType, setBookingType] = useState<'package' | 'cab' | 'hotel' | 'volvo' | 'ticket'>('package');
   const [selectedItemName, setSelectedItemName] = useState('');
@@ -35,6 +59,7 @@ export function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      {showIntro && <IntroLoader onComplete={handleIntroComplete} />}
       <TopBanner />
       <Navbar onOpenBooking={(type, item) => handleOpenBooking(type || 'package', item || '')} />
       <main className="flex-1">
