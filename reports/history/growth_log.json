@@ -63,5 +63,31 @@
     "gsc_status": "pending_property_access",
     "ga4_status": "pending_property_link",
     "report_file": "report_2026_11_21.md"
+  },
+  {
+    "date": "2026-11-23",
+    "timestamp": "2026-11-23T19:06:43.685000",
+    "audit_issues": {
+      "CRITICAL": 0,
+      "HIGH": 1,
+      "MEDIUM": 0,
+      "WARNING": 1
+    },
+    "gsc_status": "pending_property_access",
+    "ga4_status": "pending_property_link",
+    "report_file": "report_2026_11_23.md"
+  },
+  {
+    "date": "2026-11-23",
+    "timestamp": "2026-11-23T19:07:45.489044",
+    "audit_issues": {
+      "CRITICAL": 0,
+      "HIGH": 0,
+      "MEDIUM": 0,
+      "WARNING": 0
+    },
+    "gsc_status": "pending_property_access",
+    "ga4_status": "pending_property_link",
+    "report_file": "report_2026_11_23.md"
   }
 ]
