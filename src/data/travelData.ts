@@ -66,7 +66,7 @@ export const COMPANY_INFO = {
   email: "safarsathi.india@gmail.com",
   instagram: "https://www.instagram.com/safar_sathiindia/",
   instagramHandle: "@safar_sathiindia",
-  address: "100% Online Travel Services & 24x7 Customer Support Desk (Pan-India)",
+  address: "Head Office: The Mall & Victory Tunnel, Shimla, Himachal Pradesh 171001 (Pan-India Booking Desk)",
   whatsappUrl: (msg: string) => `https://wa.me/918351987587?text=${encodeURIComponent(msg)}`,
   serviceLocations: ["All Indian States", "Himachal Pradesh", "Uttarakhand", "Jammu & Kashmir", "Ladakh", "Rajasthan", "Goa", "Kerala", "North East", "Delhi NCR & Pan-India"]
 };
@@ -475,5 +475,23 @@ export const TESTIMONIALS = [
     rating: 5,
     comment: "From the luxury houseboat in Dal Lake to the snow in Gulmarg, everything went strictly as per itinerary. Instant WhatsApp replies anytime we needed anything.",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+  },
+  {
+    id: 4,
+    name: "Harsh & Pooja Patel",
+    location: "Ahmedabad, Gujarat",
+    tour: "Shimla & Manali Honeymoon Special",
+    rating: 5,
+    comment: "We booked our honeymoon package directly from SafarSathi. Private sanitized cab, candlelight dinner in Manali and direct Shimla local rates with zero middleman. Best experience for couples!",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+  },
+  {
+    id: 5,
+    name: "Sourav & Debolina Mukherjee",
+    location: "Kolkata, West Bengal",
+    tour: "Himachal Grand Tour 8N/9D",
+    rating: 5,
+    comment: "We wanted a trusted local Himachal operator for our family vacation. The driver was exceptionally polite on mountain roads, hotels were verified, and toll/parking were transparently included.",
+    avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=200&q=80"
   }
 ];

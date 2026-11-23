@@ -11,6 +11,7 @@ import { VehicleFleet } from './components/VehicleFleet';
 import { PopularRoutes } from './components/PopularRoutes';
 import { BentoExperience } from './components/BentoExperience';
 import { WhyChooseUs } from './components/WhyChooseUs';
+import { ReviewsSection } from './components/ReviewsSection';
 import { FaqSection } from './components/FaqSection';
 import { AdventureBanner } from './components/AdventureBanner';
 import { ContactSection } from './components/ContactSection';
@@ -75,6 +76,7 @@ export function App() {
         <PopularRoutes onBookRoute={(routeName) => handleOpenBooking('cab', routeName)} />
         <BentoExperience onOpenBooking={handleOpenBooking} />
         <WhyChooseUs />
+        <ReviewsSection />
         <FaqSection />
         <AdventureBanner />
         <ContactSection />

@@ -21,14 +21,19 @@ export function HoneymoonPackages({ onEnquire }: HoneymoonPackagesProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-end gap-5 md:grid-cols-[1fr_auto] md:gap-8">
           <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[.2em] text-[#9a713c]">
-              <Heart className="h-3.5 w-3.5" /> Made for two
-            </span>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[.2em] text-[#9a713c]">
+                <Heart className="h-3.5 w-3.5" /> Made for two
+              </span>
+              <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2.5 py-0.5 text-[11px] font-bold text-emerald-800">
+                Direct Shimla Local Rates · 100% Private Cab
+              </span>
+            </div>
             <h2 className="mt-3 font-serif-title text-3xl font-bold leading-tight text-[#421e29] sm:text-5xl">
               A little more romance in the mountains.
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
-              Plan a private Himachal honeymoon with a room, dedicated taxi and thoughtful experiences tailored to your dates, destination and budget.
+              Plan a private Himachal honeymoon with a scenic mountain-view room, dedicated private taxi, candlelight dinner and thoughtful experiences at direct local operator rates.
             </p>
           </div>
           <button
