@@ -162,7 +162,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div id="mobile-navigation" className="lg:hidden bg-slate-950/95 backdrop-blur-xl border-b border-white/10 text-white px-5 py-5 space-y-4 animate-fade-in shadow-2xl">
+        <div id="mobile-navigation" className="lg:hidden max-h-[calc(100svh-7rem)] overflow-y-auto overscroll-contain bg-slate-950/95 backdrop-blur-xl border-b border-white/10 text-white px-5 py-5 space-y-4 animate-fade-in shadow-2xl">
           <nav className="flex flex-col space-y-3 font-semibold text-sm">
             <a 
               href="#" 
