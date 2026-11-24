@@ -9,6 +9,7 @@ import { TripPlans } from './components/TripPlans';
 import { HoneymoonPackages } from './components/HoneymoonPackages';
 import { VehicleFleet } from './components/VehicleFleet';
 import { PopularRoutes } from './components/PopularRoutes';
+import { HotelShowcase } from './components/HotelShowcase';
 import { BentoExperience } from './components/BentoExperience';
 import { WhyChooseUs } from './components/WhyChooseUs';
 import { ReviewsSection } from './components/ReviewsSection';
@@ -74,6 +75,7 @@ export function App() {
         <TripPlans onBookTrip={(tripName) => handleOpenBooking('package', tripName)} />
         <VehicleFleet onBookCab={(carName) => handleOpenBooking('cab', carName)} />
         <PopularRoutes onBookRoute={(routeName) => handleOpenBooking('cab', routeName)} />
+        <HotelShowcase onBookHotel={(hotelName) => handleOpenBooking('hotel', hotelName)} />
         <BentoExperience onOpenBooking={handleOpenBooking} />
         <WhyChooseUs />
         <ReviewsSection />
