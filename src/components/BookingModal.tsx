@@ -15,7 +15,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   initialType = 'package',
   itemName = ''
 }) => {
-  const [bookingType, setBookingType] = useState<'package' | 'cab' | 'hotel' | 'volvo' | 'ticket'>(initialType);
+  const [bookingType, setBookingType] = useState<'package' | 'cab' | 'hotel' | 'volvo' | 'ticket'>(initialType === 'ticket' ? 'package' : initialType);
+  const [tourPlanFinalised, setTourPlanFinalised] = useState(false);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [destination, setDestination] = useState(itemName || 'Shimla & Manali');
@@ -33,7 +34,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    if (initialType) setBookingType(initialType);
+    if (!isOpen) return;
+    setBookingType(initialType === 'ticket' ? 'package' : initialType || 'package');
+    setTourPlanFinalised(false);
     if (itemName) setDestination(itemName);
   }, [initialType, itemName, isOpen]);
 
@@ -106,6 +109,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 👤 *Name:* ${name}
 📞 *Phone:* ${phone}
 🎟️ *Ticket Type:* ${ticketMode}
+🗺️ *Tour Plan:* Already finalised
 📍 *From:* ${ticketFrom}
 🏁 *To:* ${ticketTo}
 📅 *Journey Date:* ${ticketDate}
@@ -168,7 +172,7 @@ Please check availability and send confirmed quotation.`;
           </h2>
           <p id="booking-dialog-description" className="text-xs sm:text-sm text-slate-300 mt-1">
             {bookingType === 'ticket'
-              ? "Share your route and journey date. Ticket fare and Safar Sathi's separate service charge will be shared before you approve the booking."
+              ? "For an already-finalised tour itinerary, share your route and journey date. Ticket fare and Safar Sathi's separate service charge will be shared before you approve the booking."
               : 'Share your travel preferences. The team can discuss availability and send a quotation on WhatsApp.'}
           </p>
         </div>
@@ -187,11 +191,37 @@ Please check availability and send confirmed quotation.`;
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Ticket assistance is offered only after the tour itinerary is finalised. */}
+              <div className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5">
+                <label htmlFor="tour-plan-finalised" className="flex cursor-pointer items-start gap-2.5">
+                  <input
+                    id="tour-plan-finalised"
+                    type="checkbox"
+                    checked={tourPlanFinalised}
+                    onChange={(event) => {
+                      const finalised = event.target.checked;
+                      setTourPlanFinalised(finalised);
+                      if (!finalised && bookingType === 'ticket') setBookingType('package');
+                    }}
+                    className="mt-0.5 h-4 w-4 shrink-0 accent-amber-600"
+                  />
+                  <span className="min-w-0">
+                    <span className="block text-xs font-bold text-slate-800">My tour itinerary is already finalised</span>
+                    <span className="mt-0.5 block text-[11px] leading-4 text-slate-500">Bus, train or flight ticket assistance is available after your trip plan is final.</span>
+                  </span>
+                </label>
+              </div>
+
               {/* Type Switcher */}
-              <div className="grid grid-cols-2 sm:grid-cols-5 gap-1.5 p-1 bg-slate-100 rounded-xl text-xs font-bold text-slate-600">
+              <div
+                role="group"
+                aria-label="Choose travel enquiry type"
+                className={`grid grid-cols-2 ${tourPlanFinalised ? 'sm:grid-cols-5' : 'sm:grid-cols-4'} gap-1.5 p-1 bg-slate-100 rounded-xl text-xs font-bold text-slate-600`}
+              >
                 <button
                   type="button"
                   onClick={() => setBookingType('package')}
+                  aria-pressed={bookingType === 'package'}
                   className={`py-2 rounded-lg transition-all ${bookingType === 'package' ? 'bg-brand-orange text-white shadow' : 'hover:text-slate-900'}`}
                 >
                   Package
@@ -199,6 +229,7 @@ Please check availability and send confirmed quotation.`;
                 <button
                   type="button"
                   onClick={() => setBookingType('cab')}
+                  aria-pressed={bookingType === 'cab'}
                   className={`py-2 rounded-lg transition-all ${bookingType === 'cab' ? 'bg-brand-orange text-white shadow' : 'hover:text-slate-900'}`}
                 >
                   Taxi / Cab
@@ -206,6 +237,7 @@ Please check availability and send confirmed quotation.`;
                 <button
                   type="button"
                   onClick={() => setBookingType('hotel')}
+                  aria-pressed={bookingType === 'hotel'}
                   className={`py-2 rounded-lg transition-all ${bookingType === 'hotel' ? 'bg-brand-orange text-white shadow' : 'hover:text-slate-900'}`}
                 >
                   Hotel
@@ -213,18 +245,22 @@ Please check availability and send confirmed quotation.`;
                 <button
                   type="button"
                   onClick={() => setBookingType('volvo')}
+                  aria-pressed={bookingType === 'volvo'}
                   className={`py-2 rounded-lg transition-all ${bookingType === 'volvo' ? 'bg-brand-orange text-white shadow' : 'hover:text-slate-900'}`}
                 >
                   Volvo
                 </button>
-                <button
-                  type="button"
-                  onClick={() => setBookingType('ticket')}
-                  className={`py-2 rounded-lg transition-all flex items-center justify-center gap-1 ${bookingType === 'ticket' ? 'bg-brand-orange text-white shadow' : 'hover:text-slate-900'}`}
-                >
-                  <Ticket className="h-3.5 w-3.5" />
-                  Tickets
-                </button>
+                {tourPlanFinalised && (
+                  <button
+                    type="button"
+                    onClick={() => setBookingType('ticket')}
+                    aria-pressed={bookingType === 'ticket'}
+                    className={`py-2 rounded-lg transition-all flex items-center justify-center gap-1 ${bookingType === 'ticket' ? 'bg-brand-orange text-white shadow' : 'hover:text-slate-900'}`}
+                  >
+                    <Ticket className="h-3.5 w-3.5" />
+                    Tickets
+                  </button>
+                )}
               </div>
 
               {/* Service-specific route details */}
