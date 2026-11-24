@@ -91,15 +91,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             >
               Hotels
             </a>
-            <button
-              type="button"
-              onClick={() => onOpenBooking('ticket', '')}
-              className={`text-sm font-semibold transition-colors hover:text-amber-400 ${
-                isScrolled ? 'text-slate-800' : 'text-white drop-shadow'
-              }`}
-            >
-              Tickets
-            </button>
             <a 
               href="#why-us" 
               className={`text-sm font-semibold transition-colors hover:text-amber-400 ${
@@ -214,16 +205,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             >
               Verified Hotels &amp; Stays
             </a>
-            <button
-              type="button"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenBooking('ticket', '');
-              }}
-              className="text-left text-white hover:text-amber-400 py-1"
-            >
-              Bus, Train &amp; Flight Tickets
-            </button>
             <a 
               href="#why-us" 
               onClick={() => setMobileMenuOpen(false)}
