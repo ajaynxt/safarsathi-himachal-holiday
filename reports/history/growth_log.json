@@ -102,5 +102,18 @@
     "gsc_status": "pending_property_access",
     "ga4_status": "pending_property_link",
     "report_file": "report_2026_11_24.md"
+  },
+  {
+    "date": "2026-11-25",
+    "timestamp": "2026-11-25T18:56:48.863349",
+    "audit_issues": {
+      "CRITICAL": 0,
+      "HIGH": 0,
+      "MEDIUM": 0,
+      "WARNING": 0
+    },
+    "gsc_status": "pending_property_access",
+    "ga4_status": "pending_property_link",
+    "report_file": "report_2026_11_25.md"
   }
 ]
