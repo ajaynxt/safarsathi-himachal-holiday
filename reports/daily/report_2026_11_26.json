@@ -1,0 +1,735 @@
+{
+  "timestamp": "2026-11-26T10:06:32.058189",
+  "google_data": {
+    "status": "ready",
+    "timestamp": "2026-11-26T10:06:30.900425",
+    "windows": {
+      "current": {
+        "start": "2026-11-14",
+        "end": "2026-11-23",
+        "days": 10
+      },
+      "previous": {
+        "start": "2026-11-04",
+        "end": "2026-11-13",
+        "days": 10
+      },
+      "data_lag_days": 3,
+      "as_of_date": "2026-11-26"
+    },
+    "service_account": {
+      "email": "ga-bot@ajaynxt-portfolio.iam.gserviceaccount.com",
+      "authenticated": true,
+      "error": null
+    },
+    "gsc": {
+      "property": "https://safarsathi.in/",
+      "status": "pending_property_access",
+      "current_period": null,
+      "previous_period": null,
+      "comparison": null,
+      "notes": "Service account 'ga-bot@ajaynxt-portfolio.iam.gserviceaccount.com' is authenticated, but not yet added as 'Viewer' in Google Search Console for 'https://safarsathi.in/'. API returned: GSC HTTP 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"User does not have sufficient permission for site 'https://safarsathi.in/'. See also: https://support.google.com/webmasters/answer/2451999.\",\n    \"errors\": [\n      {\n        \"message\": \"User does not have sufficient permission for site 'https://safarsathi.in/'. See also: https://support.google.com/webmasters/answer/2451999.\",\n        \"domain\": \"global\",\n        \"reason\": \"forbidden\"\n      }\n    ]\n  }\n}\n"
+    },
+    "ga4": {
+      "measurement_ids": [
+        "G-X33WGNNG0D",
+        "G-DR6JRL8602"
+      ],
+      "status": "pending_property_link",
+      "notes": "GA4 measurements (G-X33WGNNG0D, G-DR6JRL8602) active on website. Add 'ga-bot@ajaynxt-portfolio.iam.gserviceaccount.com' as Viewer in GA4 Property Settings to enable automated API report pulls."
+    }
+  },
+  "audit_data": {
+    "status": "success",
+    "total_pages_audited": 8,
+    "severity_counts": {
+      "CRITICAL": 0,
+      "HIGH": 0,
+      "MEDIUM": 0,
+      "WARNING": 0
+    },
+    "sitemap_status": {
+      "exists": true,
+      "urls": [
+        "https://safarsathi.in/",
+        "https://safarsathi.in/himachal-tour-packages/",
+        "https://safarsathi.in/shimla-manali-tour/",
+        "https://safarsathi.in/spiti-valley-tour/",
+        "https://safarsathi.in/ladakh-tour-packages/",
+        "https://safarsathi.in/kashmir-tour-packages/",
+        "https://safarsathi.in/kerala-tour-packages/",
+        "https://safarsathi.in/destinations/",
+        "https://safarsathi.in/india-tour-packages/"
+      ]
+    },
+    "robots_status": {
+      "exists": true,
+      "has_sitemap": true,
+      "ai_bots_allowed": true
+    },
+    "pages": [
+      {
+        "file": "index.html",
+        "url": "https://safarsathi.in/",
+        "title": "Himachal Tour Packages at Best Rates | Safar Sathi",
+        "description": "Explore affordable Himachal tour packages for Shimla, Manali and Spiti, plus private cabs and India trips. Request a best-value plan and clear quote.",
+        "canonical": "https://safarsathi.in/",
+        "h1": [
+          "Himachal Tour Packages, Private Cabs &amp; Custom Himalayan Holidays"
+        ],
+        "h2_count": 4,
+        "h2_samples": [
+          "Tour Packages",
+          "Taxi &amp; Cab Rentals",
+          "Verified Hotels &amp; Stays",
+          "Volvo Bus Services"
+        ],
+        "schema_types": [
+          "TravelAgency",
+          "FAQPage"
+        ],
+        "images_count": 0,
+        "images_missing_alt": 0,
+        "internal_links_count": 6,
+        "issues": [],
+        "strengths": [
+          "Title is optimal (50 chars): 'Himachal Tour Packages at Best Rates | Safar Sathi'",
+          "Meta description is well-calibrated (149 chars).",
+          "Canonical URL matches route: 'https://safarsathi.in/'",
+          "Meta robots set to 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'.",
+          "Single H1 heading: 'Himachal Tour Packages, Private Cabs &amp; Custom Himalayan Holidays'",
+          "Schema types present: TravelAgency, FAQPage"
+        ]
+      },
+      {
+        "file": "public/himachal-tour-packages/index.html",
+        "url": "https://safarsathi.in/himachal-tour-packages/",
+        "title": "Himachal Tours | Shimla, Manali &amp; Spiti | Safar Sathi",
+        "description": "Explore Himachal tour packages covering Shimla, Manali, Dharamshala, Dalhousie and Spiti. Request a custom itinerary with private cab and hotel options.",
+        "canonical": "https://safarsathi.in/himachal-tour-packages/",
+        "h1": [
+          "Himachal, at your own pace."
+        ],
+        "h2_count": 4,
+        "h2_samples": [
+          "One mountain state. Many ways to explore.",
+          "A sample 8-night Himachal circuit",
+          "Good trips start with clear details.",
+          "Let the mountains be the easy part."
+        ],
+        "schema_types": [
+          "WebPage",
+          "BreadcrumbList"
+        ],
+        "images_count": 2,
+        "images_missing_alt": 0,
+        "internal_links_count": 15,
+        "issues": [],
+        "strengths": [
+          "Title is optimal (57 chars): 'Himachal Tours | Shimla, Manali &amp; Spiti | Safar Sathi'",
+          "Meta description is well-calibrated (152 chars).",
+          "Canonical URL matches route: 'https://safarsathi.in/himachal-tour-packages/'",
+          "Meta robots set to 'index, follow, max-image-preview:large, max-snippet:-1'.",
+          "Single H1 heading: 'Himachal, at your own pace.'",
+          "Schema types present: WebPage, BreadcrumbList",
+          "All 2 images have alt attributes."
+        ]
+      },
+      {
+        "file": "public/shimla-manali-tour/index.html",
+        "url": "https://safarsathi.in/shimla-manali-tour/",
+        "title": "Shimla Manali Tour Package | 5 Nights 6 Days | Safar Sathi",
+        "description": "Plan a Shimla Manali tour with Kufri, Kullu, Solang Valley and optional Atal Tunnel\u2013Sissu excursion. Ask Safar Sathi for a customised cab and hotel quote.",
+        "canonical": "https://safarsathi.in/shimla-manali-tour/",
+        "h1": [
+          "Shimla to Manali. Make the journey part of the holiday."
+        ],
+        "h2_count": 4,
+        "h2_samples": [
+          "A classic route, with room to make it yours",
+          "Suggested 5-night, 6-day flow",
+          "Frequently asked questions",
+          "Let\u2019s plan your next journey."
+        ],
+        "schema_types": [
+          "WebPage",
+          "BreadcrumbList"
+        ],
+        "images_count": 2,
+        "images_missing_alt": 0,
+        "internal_links_count": 10,
+        "issues": [],
+        "strengths": [
+          "Title is optimal (58 chars): 'Shimla Manali Tour Package | 5 Nights 6 Days | Safar Sathi'",
+          "Meta description is well-calibrated (154 chars).",
+          "Canonical URL matches route: 'https://safarsathi.in/shimla-manali-tour/'",
+          "Meta robots set to 'index, follow, max-image-preview:large, max-snippet:-1'.",
+          "Single H1 heading: 'Shimla to Manali. Make the journey part of the holiday.'",
+          "Schema types present: WebPage, BreadcrumbList",
+          "All 2 images have alt attributes."
+        ]
+      },
+      {
+        "file": "public/spiti-valley-tour/index.html",
+        "url": "https://safarsathi.in/spiti-valley-tour/",
+        "title": "Spiti Valley Tour | Kaza, Kibber &amp; Chandratal | Safar Sathi",
+        "description": "Explore Spiti Valley with a planned high-altitude road trip through Kinnaur, Tabo, Kaza, Key Monastery and more. Ask about route conditions and travel readiness.",
+        "canonical": "https://safarsathi.in/spiti-valley-tour/",
+        "h1": [
+          "Spiti is not just a destination. It\u2019s the road in between."
+        ],
+        "h2_count": 4,
+        "h2_samples": [
+          "Plan a Spiti journey with the right preparation",
+          "A sample 7-night, 8-day route idea",
+          "Frequently asked questions",
+          "Let\u2019s plan your next journey."
+        ],
+        "schema_types": [
+          "WebPage",
+          "BreadcrumbList"
+        ],
+        "images_count": 2,
+        "images_missing_alt": 0,
+        "internal_links_count": 10,
+        "issues": [],
+        "strengths": [
+          "Title is optimal (63 chars): 'Spiti Valley Tour | Kaza, Kibber &amp; Chandratal | Safar Sathi'",
+          "Meta description is well-calibrated (161 chars).",
+          "Canonical URL matches route: 'https://safarsathi.in/spiti-valley-tour/'",
+          "Meta robots set to 'index, follow, max-image-preview:large, max-snippet:-1'.",
+          "Single H1 heading: 'Spiti is not just a destination. It\u2019s the road in between.'",
+          "Schema types present: WebPage, BreadcrumbList",
+          "All 2 images have alt attributes."
+        ]
+      },
+      {
+        "file": "public/kashmir-tour-packages/index.html",
+        "url": "https://safarsathi.in/kashmir-tour-packages/",
+        "title": "Kashmir Tours | Srinagar, Gulmarg &amp; Pahalgam | Safar Sathi",
+        "description": "Plan a Kashmir holiday covering Srinagar, Gulmarg, Pahalgam and Sonamarg. Request a custom itinerary with private cab, hotel and houseboat options.",
+        "canonical": "https://safarsathi.in/kashmir-tour-packages/",
+        "h1": [
+          "A Kashmir holiday, paced for the moments that matter."
+        ],
+        "h2_count": 4,
+        "h2_samples": [
+          "Discover Srinagar and the Kashmir valley",
+          "Suggested 6-night, 7-day route",
+          "Frequently asked questions",
+          "Let\u2019s plan your next journey."
+        ],
+        "schema_types": [
+          "WebPage",
+          "BreadcrumbList"
+        ],
+        "images_count": 2,
+        "images_missing_alt": 0,
+        "internal_links_count": 10,
+        "issues": [],
+        "strengths": [
+          "Title is optimal (62 chars): 'Kashmir Tours | Srinagar, Gulmarg &amp; Pahalgam | Safar Sathi'",
+          "Meta description is well-calibrated (147 chars).",
+          "Canonical URL matches route: 'https://safarsathi.in/kashmir-tour-packages/'",
+          "Meta robots set to 'index, follow, max-image-preview:large, max-snippet:-1'.",
+          "Single H1 heading: 'A Kashmir holiday, paced for the moments that matter.'",
+          "Schema types present: WebPage, BreadcrumbList",
+          "All 2 images have alt attributes."
+        ]
+      },
+      {
+        "file": "public/kerala-tour-packages/index.html",
+        "url": "https://safarsathi.in/kerala-tour-packages/",
+        "title": "Kerala Tours | Munnar, Thekkady &amp; Alleppey | Safar Sathi",
+        "description": "Plan a Kerala holiday through Munnar, Thekkady and Alleppey. Request private cab transfers, resort stays and a backwater houseboat itinerary.",
+        "canonical": "https://safarsathi.in/kerala-tour-packages/",
+        "h1": [
+          "Slow down in Kerala. Let the landscape set the pace."
+        ],
+        "h2_count": 4,
+        "h2_samples": [
+          "A southern escape with hills and backwaters",
+          "Suggested 5-night, 6-day route",
+          "Frequently asked questions",
+          "Let\u2019s plan your next journey."
+        ],
+        "schema_types": [
+          "WebPage",
+          "BreadcrumbList"
+        ],
+        "images_count": 2,
+        "images_missing_alt": 0,
+        "internal_links_count": 10,
+        "issues": [],
+        "strengths": [
+          "Title is optimal (60 chars): 'Kerala Tours | Munnar, Thekkady &amp; Alleppey | Safar Sathi'",
+          "Meta description is well-calibrated (141 chars).",
+          "Canonical URL matches route: 'https://safarsathi.in/kerala-tour-packages/'",
+          "Meta robots set to 'index, follow, max-image-preview:large, max-snippet:-1'.",
+          "Single H1 heading: 'Slow down in Kerala. Let the landscape set the pace.'",
+          "Schema types present: WebPage, BreadcrumbList",
+          "All 2 images have alt attributes."
+        ]
+      },
+      {
+        "file": "public/destinations/index.html",
+        "url": "https://safarsathi.in/destinations/",
+        "title": "India Tour Destinations & Travel Guides | Safar Sathi",
+        "description": "Explore Safar Sathi travel guides for Shimla, Manali, Spiti, Ladakh, Kashmir, Kerala, Rajasthan & Uttarakhand. Plan custom trips with transparent quotes.",
+        "canonical": "https://safarsathi.in/destinations/",
+        "h1": [
+          "Explore destinations across India"
+        ],
+        "h2_count": 10,
+        "h2_samples": [
+          "Shimla and Manali",
+          "Spiti Valley",
+          "Leh and Ladakh",
+          "Rajasthan",
+          "Jammu and Kashmir"
+        ],
+        "schema_types": [
+          "WebPage",
+          "BreadcrumbList",
+          "TravelAgency"
+        ],
+        "images_count": 2,
+        "images_missing_alt": 0,
+        "internal_links_count": 5,
+        "issues": [],
+        "strengths": [
+          "Title is optimal (53 chars): 'India Tour Destinations & Travel Guides | Safar Sathi'",
+          "Meta description is well-calibrated (153 chars).",
+          "Canonical URL matches route: 'https://safarsathi.in/destinations/'",
+          "Meta robots set to 'index,follow,max-image-preview:large'.",
+          "Single H1 heading: 'Explore destinations across India'",
+          "Schema types present: WebPage, BreadcrumbList, TravelAgency",
+          "All 2 images have alt attributes."
+        ]
+      },
+      {
+        "file": "public/india-tour-packages/index.html",
+        "url": "https://safarsathi.in/india-tour-packages/",
+        "title": "India Tour Packages &amp; Custom Holidays | Safar Sathi",
+        "description": "Plan a customised India holiday with Safar Sathi. Explore Himachal, Kashmir and Kerala tour packages with private cabs, hotels and personalised itineraries.",
+        "canonical": "https://safarsathi.in/india-tour-packages/",
+        "h1": [
+          "India tour packages, planned around you."
+        ],
+        "h2_count": 4,
+        "h2_samples": [
+          "A better way to plan your next India holiday",
+          "Plan the trip that fits your group",
+          "Frequently asked questions",
+          "Let\u2019s plan your next journey."
+        ],
+        "schema_types": [
+          "WebPage",
+          "BreadcrumbList"
+        ],
+        "images_count": 2,
+        "images_missing_alt": 0,
+        "internal_links_count": 11,
+        "issues": [],
+        "strengths": [
+          "Title is optimal (55 chars): 'India Tour Packages &amp; Custom Holidays | Safar Sathi'",
+          "Meta description is well-calibrated (156 chars).",
+          "Canonical URL matches route: 'https://safarsathi.in/india-tour-packages/'",
+          "Meta robots set to 'index, follow, max-image-preview:large, max-snippet:-1'.",
+          "Single H1 heading: 'India tour packages, planned around you.'",
+          "Schema types present: WebPage, BreadcrumbList",
+          "All 2 images have alt attributes."
+        ]
+      }
+    ],
+    "all_issues": [],
+    "content_gaps": [
+      {
+        "topic": "Shimla Manali Honeymoon Package",
+        "search_intent": "Commercial Honeymoon Travel",
+        "opportunity": "Very high search volume in North India (candlelight dinner, flower decoration, private cab).",
+        "recommended_url": "/shimla-manali-honeymoon-package/",
+        "target_keywords": [
+          "Shimla Manali honeymoon package",
+          "Himachal honeymoon package for couple",
+          "Shimla Manali romantic tour"
+        ]
+      },
+      {
+        "topic": "Himachal Taxi Service & Private Cabs",
+        "search_intent": "High-Intent Transport Booking",
+        "opportunity": "Safar Sathi has a fleet of Dzire, Ertiga, Innova Crysta, Tempo Traveller. Huge local search demand.",
+        "recommended_url": "/himachal-taxi-service/",
+        "target_keywords": [
+          "Himachal taxi service",
+          "Chandigarh to Manali taxi",
+          "Delhi to Shimla taxi cab",
+          "Innova Crysta hire Himachal"
+        ]
+      }
+    ]
+  },
+  "competitor_data": {
+    "status": "success",
+    "generated_at": "2026-11-26T10:06:32.058112",
+    "competitor_tiers": {
+      "national_aggregators": [
+        {
+          "name": "MakeMyTrip",
+          "domain": "makemytrip.com",
+          "focus": "Pan-India tours & hotel/bus booking"
+        },
+        {
+          "name": "Thomas Cook India",
+          "domain": "thomascook.in",
+          "focus": "Escorted family & senior citizen holidays"
+        },
+        {
+          "name": "Veena World",
+          "domain": "veenaworld.com",
+          "focus": "Escorted group & custom Himachal tours"
+        },
+        {
+          "name": "SOTC Travel",
+          "domain": "sotc.in",
+          "focus": "Domestic luxury & family travel packages"
+        },
+        {
+          "name": "Thrillophilia",
+          "domain": "thrillophilia.com",
+          "focus": "Experiential adventure tours & Ladakh bikes"
+        },
+        {
+          "name": "TravelTriangle",
+          "domain": "traveltriangle.com",
+          "focus": "Custom quotes marketplace for Himachal & Kashmir"
+        }
+      ],
+      "curated_adventure_operators": [
+        {
+          "name": "Kinghills Travels",
+          "domain": "kinghillstravels.com",
+          "focus": "Delhi Volvo & couple packages for Manali & Kasol"
+        },
+        {
+          "name": "Go4Explore",
+          "domain": "go4explore.com",
+          "focus": "Youth community trips & weekend Himachal getaways"
+        },
+        {
+          "name": "JustWravel",
+          "domain": "justwravel.com",
+          "focus": "Spiti expeditions, Ladakh bike trips, trekking"
+        },
+        {
+          "name": "WanderOn",
+          "domain": "wanderon.in",
+          "focus": "Curated road trips to Spiti, Ladakh, and Meghalaya"
+        },
+        {
+          "name": "Deyor Camps",
+          "domain": "deyor.in",
+          "focus": "High altitude adventure & Ladakh/Spiti camps"
+        }
+      ],
+      "regional_local_dmcs": [
+        {
+          "name": "Shimla Manali Tourism",
+          "domain": "shimlamanalitourism.com",
+          "focus": "Shimla & Manali local tour packages"
+        },
+        {
+          "name": "Himachal Taxi Tour",
+          "domain": "himachaltaxitour.com",
+          "focus": "Himachal private cabs & outstation rentals"
+        },
+        {
+          "name": "Himachal Car Rental Service",
+          "domain": "himachalcarrentalservice.com",
+          "focus": "Chandigarh/Delhi to Shimla Manali cabs"
+        },
+        {
+          "name": "Spiti Valley Tours",
+          "domain": "spitivalleytours.com",
+          "focus": "Local Kaza ground handling & Spiti circuits"
+        },
+        {
+          "name": "Kashmir Online",
+          "domain": "kashmironline.com",
+          "focus": "Srinagar, Gulmarg, Pahalgam local DMCs"
+        },
+        {
+          "name": "Discover Leh Ladakh",
+          "domain": "discoverlehladakh.in",
+          "focus": "Leh, Nubra, Pangong local permits & taxi fleet"
+        }
+      ]
+    },
+    "pricing_benchmarks": {
+      "Shimla Manali (5N/6D)": {
+        "budget_volvo": "\u20b96,000 \u2013 \u20b912,000 / person",
+        "private_cab_standard": "\u20b915,000 \u2013 \u20b925,000 / person",
+        "honeymoon_couple": "\u20b928,000 \u2013 \u20b945,000 / couple",
+        "safarsathi_edge": "Direct WhatsApp quotes, verified stays, zero hidden green tax / driver night charges"
+      },
+      "Spiti Valley Circuit (7N/8D)": {
+        "group_tempo": "\u20b918,000 \u2013 \u20b926,000 / person",
+        "private_4x4_suv": "\u20b935,000 \u2013 \u20b955,000 / vehicle",
+        "safarsathi_edge": "Experienced high-altitude local drivers familiar with Kunzum / Rohtang / Kaza terrain"
+      },
+      "Leh Ladakh Circuit (6N/7D)": {
+        "group_tour": "\u20b920,000 \u2013 \u20b932,000 / person",
+        "private_suv": "\u20b935,000 \u2013 \u20b950,000 / person",
+        "safarsathi_edge": "Pre-arranged inner line permits, oxygen-equipped vehicles, Pangong & Nubra handpicked camps"
+      },
+      "Kashmir Paradise (5N/6D)": {
+        "standard_tour": "\u20b916,000 \u2013 \u20b928,000 / person",
+        "houseboat_resort": "\u20b928,000 \u2013 \u20b945,000 / person",
+        "safarsathi_edge": "Verified Dal Lake houseboats, Gulmarg Gondola guidance, transparent union cab coordination"
+      },
+      "Himachal Taxi Fleet (Chandigarh/Delhi to Shimla/Manali)": {
+        "dzire_etios": "\u20b92,800 \u2013 \u20b93,500 / day",
+        "ertiga": "\u20b93,800 \u2013 \u20b94,800 / day",
+        "innova_crysta": "\u20b95,200 \u2013 \u20b96,500 / day",
+        "tempo_traveller": "\u20b98,000 \u2013 \u20b911,000 / day",
+        "safarsathi_edge": "Sanitized fleet, mountain-tested drivers, no surge pricing, transparent toll/parking terms"
+      }
+    },
+    "backlink_opportunities": [
+      {
+        "category": "High-Authority Travel Directories & Aggregators",
+        "platforms": [
+          "TripAdvisor",
+          "Justdial Travel",
+          "Sulekha",
+          "IndiaMART Travel Services",
+          "TourRadar"
+        ],
+        "action": "Claim and verify official business listing with consistent NAP (Name, Address, Phone: +91 83519 87587), website link, and customer reviews.",
+        "authority_impact": "High (DA 70-93, direct referral traffic and local trust signals)"
+      },
+      {
+        "category": "Travel Forums & Community Citations",
+        "platforms": [
+          "IndiaMike.com (Himachal & Ladakh Forums)",
+          "Devil's on Wheels Community",
+          "TripAdvisor Himachal Forum"
+        ],
+        "action": "Provide authoritative route advisory (e.g. Atal Tunnel status, road conditions from Chandigarh to Manali, Spiti permits) with reference to Safar Sathi guides.",
+        "authority_impact": "High contextual relevance and direct traveler conversions"
+      },
+      {
+        "category": "Honeymoon & Wedding Travel Portals",
+        "platforms": [
+          "WedMeGood",
+          "WeddingWire India",
+          "ShaadiSaga"
+        ],
+        "action": "Feature romantic Himachal & Kashmir honeymoon itineraries (candlelight dinner, luxury mountain stays) under honeymoon travel partners.",
+        "authority_impact": "High conversion for couples seeking premium packages"
+      },
+      {
+        "category": "Editorial & Travel Guest Perspectives",
+        "platforms": [
+          "Medium Travel",
+          "Substack Travel Dispatch",
+          "HolidayIQ",
+          "Youth Travel Blogs"
+        ],
+        "action": "Publish in-depth experiential guides on offbeat Himachal (Jibhi, Tirthan, Chitkul) and Spiti road readiness.",
+        "authority_impact": "Earned editorial backlinks and brand citation in AI search engines"
+      }
+    ]
+  },
+  "keyword_data": {
+    "status": "success",
+    "generated_at": "2026-11-26T10:06:32.058176",
+    "keyword_clusters": {
+      "shimla_manali_packages": {
+        "destination": "Shimla & Manali",
+        "search_intent": "Commercial Booking",
+        "volume_tier": "Very High",
+        "keywords": [
+          {
+            "query": "shimla manali tour package from delhi",
+            "type": "origin_specific",
+            "priority": "P1"
+          },
+          {
+            "query": "shimla manali tour package by volvo",
+            "type": "transit_specific",
+            "priority": "P1"
+          },
+          {
+            "query": "shimla manali tour package for family 6 days",
+            "type": "audience_specific",
+            "priority": "P1"
+          },
+          {
+            "query": "shimla manali tour package price per person",
+            "type": "commercial_price",
+            "priority": "P2"
+          },
+          {
+            "query": "best value himachal holiday packages",
+            "type": "value_intent",
+            "priority": "P2"
+          }
+        ]
+      },
+      "honeymoon_packages": {
+        "destination": "Shimla, Manali & Kashmir",
+        "search_intent": "High-Ticket Romantic Travel",
+        "volume_tier": "High",
+        "keywords": [
+          {
+            "query": "shimla manali honeymoon package with private cab",
+            "type": "high_ticket",
+            "priority": "P1"
+          },
+          {
+            "query": "himachal honeymoon packages 5 nights 6 days",
+            "type": "duration_specific",
+            "priority": "P1"
+          },
+          {
+            "query": "manali honeymoon package with candlelight dinner",
+            "type": "feature_specific",
+            "priority": "P1"
+          },
+          {
+            "query": "kashmir honeymoon package with dal lake houseboat",
+            "type": "luxury_honeymoon",
+            "priority": "P2"
+          }
+        ]
+      },
+      "ladakh_expeditions": {
+        "destination": "Leh Ladakh",
+        "search_intent": "High-Ticket Adventure Travel",
+        "volume_tier": "Very High (Seasonal Peaks)",
+        "keywords": [
+          {
+            "query": "leh ladakh tour packages 6 days itinerary",
+            "type": "core_itinerary",
+            "priority": "P1"
+          },
+          {
+            "query": "ladakh tour package with nubra and pangong",
+            "type": "circuit_specific",
+            "priority": "P1"
+          },
+          {
+            "query": "leh ladakh bike trip package cost",
+            "type": "adventure_bike",
+            "priority": "P1"
+          },
+          {
+            "query": "ladakh holiday package with flight from delhi",
+            "type": "full_package",
+            "priority": "P2"
+          }
+        ]
+      },
+      "spiti_valley_circuits": {
+        "destination": "Spiti Valley",
+        "search_intent": "Offbeat Road Trip & Expedition",
+        "volume_tier": "High",
+        "keywords": [
+          {
+            "query": "spiti valley tour packages from chandigarh",
+            "type": "origin_hub",
+            "priority": "P1"
+          },
+          {
+            "query": "spiti valley full circuit tour 7 nights 8 days",
+            "type": "circuit_duration",
+            "priority": "P1"
+          },
+          {
+            "query": "spiti valley tour price with 4x4 cab",
+            "type": "vehicle_intent",
+            "priority": "P1"
+          },
+          {
+            "query": "kaza chandratal tabo itinerary package",
+            "type": "key_highlights",
+            "priority": "P2"
+          }
+        ]
+      },
+      "himachal_taxi_rentals": {
+        "destination": "Himachal Pradesh (Transit Hubs)",
+        "search_intent": "Direct Transport Booking",
+        "volume_tier": "High & Steady Year-Round",
+        "keywords": [
+          {
+            "query": "chandigarh to manali taxi service fare",
+            "type": "direct_route",
+            "priority": "P1"
+          },
+          {
+            "query": "delhi to shimla private cab booking",
+            "type": "direct_route",
+            "priority": "P1"
+          },
+          {
+            "query": "himachal tour taxi package with driver",
+            "type": "full_itinerary_cab",
+            "priority": "P1"
+          },
+          {
+            "query": "innova crysta hire chandigarh to himachal",
+            "type": "vehicle_luxury",
+            "priority": "P1"
+          },
+          {
+            "query": "kalka to shimla taxi fare",
+            "type": "railway_transfer",
+            "priority": "P2"
+          }
+        ]
+      }
+    },
+    "new_page_recommendations": [
+      {
+        "route": "/ladakh-tour-packages/",
+        "title": "Leh Ladakh Tour Packages | Nubra & Pangong Itineraries | Safar Sathi",
+        "description": "Explore Leh Ladakh tour packages covering Nubra Valley, Pangong Tso, and Khardung La with private SUV or group options. Request a custom quote.",
+        "intent": "High-ticket Himalayan adventure booking",
+        "primary_keywords": [
+          "Leh Ladakh tour packages",
+          "Ladakh 6 days itinerary",
+          "Nubra Pangong tour plan",
+          "Ladakh bike trip package"
+        ],
+        "expected_impact": "Captures \u20b925,000\u2013\u20b945,000 per person bookings; fills Safar Sathi's biggest catalog gap."
+      },
+      {
+        "route": "/shimla-manali-honeymoon-package/",
+        "title": "Shimla Manali Honeymoon Package | Romantic Mountain Stays | Safar Sathi",
+        "description": "Plan a romantic Shimla Manali honeymoon with private cab transfers, scenic mountain views, candlelight dinner and custom itineraries. Get a clear quote.",
+        "intent": "High-margin couple travel booking",
+        "primary_keywords": [
+          "Shimla Manali honeymoon package",
+          "Himachal honeymoon package for couple",
+          "Manali honeymoon with private cab"
+        ],
+        "expected_impact": "High conversion rate and leads for Safar Sathi's existing Honeymoon component."
+      },
+      {
+        "route": "/himachal-taxi-service/",
+        "title": "Himachal Taxi Service | Chandigarh & Delhi to Shimla, Manali Cabs | Safar Sathi",
+        "description": "Book sanitized private cabs for Himachal tours. Dzire, Ertiga, Innova Crysta & Tempo Traveller with experienced mountain drivers. Instant WhatsApp quote.",
+        "intent": "Direct commercial cab bookings",
+        "primary_keywords": [
+          "Himachal taxi service",
+          "Chandigarh to Manali taxi",
+          "Delhi to Shimla cab",
+          "Innova Crysta hire Himachal"
+        ],
+        "expected_impact": "Direct monetization of Safar Sathi's existing private taxi fleet."
+      }
+    ]
+  }
+}
