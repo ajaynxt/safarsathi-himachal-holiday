@@ -110,10 +110,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
 
       <div className="relative z-20 -mt-16 px-4 pb-9 sm:-mt-20 sm:px-6 lg:px-8">
         {/* Service Selector Tabs */}
-        <div className="mx-auto max-w-5xl mb-2 flex items-center gap-1.5 sm:gap-2">
+        <div role="group" aria-label="Choose a travel service" className="mx-auto max-w-5xl mb-2 flex items-center gap-1.5 sm:gap-2">
           <button
             type="button"
             onClick={() => setActiveTab('package')}
+            aria-pressed={activeTab === 'package'}
             className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-all ${
               activeTab === 'package'
                 ? 'bg-amber-400 text-slate-950 shadow-md scale-105'
@@ -125,6 +126,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
           <button
             type="button"
             onClick={() => setActiveTab('hotel')}
+            aria-pressed={activeTab === 'hotel'}
             className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-all ${
               activeTab === 'hotel'
                 ? 'bg-amber-400 text-slate-950 shadow-md scale-105'
@@ -136,6 +138,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
           <button
             type="button"
             onClick={() => setActiveTab('cab')}
+            aria-pressed={activeTab === 'cab'}
             className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-all ${
               activeTab === 'cab'
                 ? 'bg-amber-400 text-slate-950 shadow-md scale-105'
