@@ -14,7 +14,8 @@ export const ContactSection: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const msg = `Hello SafarSathi, my name is ${name}. Phone: ${phone}. I am planning a trip to ${destination} around ${dates || 'upcoming weeks'}. Travellers: ${guests}. Please send package & cab quotation.`;
-    window.open(COMPANY_INFO.whatsappUrl(msg), '_blank');
+    (window as Window & { safarLeadIntent?: (method: string) => void }).safarLeadIntent?.('whatsapp_form');
+    window.open(COMPANY_INFO.whatsappUrl(msg), '_blank', 'noopener,noreferrer');
     setSubmitted(true);
   };
 
