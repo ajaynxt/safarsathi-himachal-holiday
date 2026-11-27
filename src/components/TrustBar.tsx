@@ -4,9 +4,9 @@ import { Compass, ClipboardCheck, CarFront, MapPin } from 'lucide-react';
 export const TrustBar: React.FC = () => {
   const items = [
     { icon: MapPin, title: 'Shimla Head Office', subtitle: 'Direct Local Himachal Operator' },
-    { icon: CarFront, title: '100% Private Cabs', subtitle: 'Sanitized Cabs & Mountain Drivers' },
-    { icon: ClipboardCheck, title: 'Transparent Pricing', subtitle: 'Direct Rates, No Hidden Charges' },
-    { icon: Compass, title: '9+ Years Experience', subtitle: '24x7 Dedicated On-Trip Support' }
+    { icon: CarFront, title: 'Private Cab Options', subtitle: 'Sanitized Cabs & Mountain Drivers' },
+    { icon: ClipboardCheck, title: 'Transparent Pricing', subtitle: 'Request itemised quotations' },
+    { icon: Compass, title: 'Trip Planning Support', subtitle: 'Discuss your itinerary and needs' }
   ];
   return (
     <section className="relative z-20 border-y border-stone-200 bg-white py-6 sm:py-7">

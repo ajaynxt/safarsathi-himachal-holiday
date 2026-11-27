@@ -36,7 +36,7 @@
           var el = e.target.closest('a, button');
           if (!el) return;
           var href = el.getAttribute('href') || '';
-          if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp.com') !== -1 || href.indexOf('8351987587') !== -1) {
+          if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp.com') !== -1) {
             trackSafarConversion('WhatsApp', 'WhatsApp Enquiry');
           } else if (href.indexOf('tel:') !== -1) {
             trackSafarConversion('Phone Call', 'Direct Phone Call');
@@ -165,20 +165,20 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div id="root">
-      <header style="padding:16px 24px;border-bottom:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;background:#fff;">
+      <header style="padding:16px 24px;border-bottom:1px solid #e2e8f0;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;background:#fff;">
         <a href="/" style="font-weight:800;color:#10243a;text-decoration:none;font-size:18px;">SAFAR SATHI</a>
-        <nav style="display:flex;gap:16px;font-size:14px;font-weight:600;">
+        <nav style="display:flex;flex-wrap:wrap;gap:16px;font-size:14px;font-weight:600;">
           <a href="/himachal-tour-packages/" style="color:#10243a;text-decoration:none;">Himachal Packages</a>
           <a href="/shimla-manali-tour/" style="color:#10243a;text-decoration:none;">Shimla Manali</a>
           <a href="/spiti-valley-tour/" style="color:#10243a;text-decoration:none;">Spiti Valley</a>
           <a href="/kashmir-tour-packages/" style="color:#10243a;text-decoration:none;">Kashmir</a>
           <a href="/destinations/" style="color:#10243a;text-decoration:none;">Destinations</a>
-        </nav>
+        <a href="/hotels/">Hotels</a><a href="/himachal-taxi-service/">Taxi &amp; Cabs</a></nav>
       </header>
       <main style="max-width:1100px;margin:40px auto;padding:0 20px;text-align:center;">
         <h1 style="font-size:36px;color:#10243a;line-height:1.2;margin-bottom:16px;">Himachal Tour Packages, Private Cabs &amp; Custom Himalayan Holidays</h1>
         <p style="font-size:18px;color:#475569;max-width:760px;margin:0 auto 24px;">Explore curated tour packages for Shimla, Manali, Spiti Valley, Kashmir and Ladakh. Verified luxury mountain stays, sanitized private taxi fleet (Dzire, Ertiga, Innova Crysta), and transparent itineraries with zero hidden charges.</p>
-        <div style="display:flex;justify-content:center;gap:12px;margin-bottom:32px;">
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:32px;">
           <a href="https://wa.me/918351987587?text=Hello%20Safar%20Sathi%2C%20I%20want%20to%20enquire%20about%20Himachal%20Tour%20Packages." style="background:#ef6b27;color:#fff;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:700;">Plan Trip on WhatsApp</a>
           <a href="tel:+918351987587" style="background:#10243a;color:#fff;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:700;">Call: +91 83519 87587</a>
         </div>
@@ -203,8 +203,8 @@
             <h2 style="font-size:18px;font-weight:700;color:#10243a;margin:0 0 6px;">Volvo Bus Services</h2>
             <p style="font-size:13px;color:#64748b;margin:0;">Daily overnight luxury AC semi-sleeper connections between Delhi, Chandigarh, Shimla and Manali.</p>
           </div>
-        </section>
-      </main>
+        </section><section style="margin:28px 0;text-align:left"><h2>Plan your trip</h2><p><a href="/shimla-hotels/">Shimla hotels</a> · <a href="/manali-hotels/">Manali hotels</a> · <a href="/amritsar-hotels/">Amritsar hotels</a> · <a href="/srinagar-hotels/">Srinagar hotels</a> · <a href="/himachal-taxi-service/">Private taxi quotes</a></p><p><a href="/hotels/">Browse hotel photos and request a stay quotation</a></p></section>
+      </main><footer style="padding:24px;text-align:center"><a href="/himachal-tour-packages/">Himachal packages</a> · <a href="/hotels/">Hotel booking</a> · <a href="/himachal-taxi-service/">Cab booking</a> · <a href="tel:+918351987587">Call Safar Sathi</a></footer>
     </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

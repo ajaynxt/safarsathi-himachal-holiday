@@ -1,3 +1,4 @@
+import { responsiveImage } from '../data/responsiveImage';
 import { useState } from 'react';
 import { ArrowRight, CalendarDays, ChevronDown, MapPin } from 'lucide-react';
 import { COMPANY_INFO } from '../data/travelData';
@@ -174,7 +175,7 @@ export function TripPlans({ onBookTrip }: TripPlansProps) {
             return (
               <article key={plan.id} className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow duration-300 hover:shadow-xl">
                 <div className="relative h-52 overflow-hidden bg-slate-200 sm:h-56">
-                  <img src={plan.image} alt={plan.imageAlt} loading="lazy" decoding="async" referrerPolicy="no-referrer" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img {...responsiveImage(plan.image, '(max-width: 767px) 100vw, 50vw', 640)} alt={plan.imageAlt} loading="lazy" decoding="async" referrerPolicy="no-referrer" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/5 to-transparent" />
                   <span className="absolute bottom-4 left-4 rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold text-slate-800">{plan.region}</span>
                 </div>

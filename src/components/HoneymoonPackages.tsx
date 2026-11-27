@@ -1,3 +1,4 @@
+import { responsiveImage } from '../data/responsiveImage';
 import { ArrowRight, BedDouble, CakeSlice, Camera, CarFront, Flame, Flower2, Heart, Sparkles, Utensils } from 'lucide-react';
 
 interface HoneymoonPackagesProps {
@@ -48,7 +49,7 @@ export function HoneymoonPackages({ onEnquire }: HoneymoonPackagesProps) {
         <div className="mt-9 grid gap-4 lg:grid-cols-[1.05fr_.95fr]">
           <div className="relative min-h-[390px] overflow-hidden rounded-[1.6rem] bg-[#421e29] sm:min-h-[470px]">
             <img
-              src="/images/hotels/manali/manali_resort_01.jpeg"
+              {...responsiveImage('/images/hotels/manali/manali_resort_01.jpeg', '(max-width: 767px) 100vw, 50vw', 960)}
               alt="A cosy mountain resort stay in Manali"
               loading="lazy"
               decoding="async"

@@ -1,3 +1,4 @@
+import { responsiveImage } from '../data/responsiveImage';
 import React from 'react';
 import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
 import { InstagramIcon } from './InstagramIcon';
@@ -9,16 +10,16 @@ export const Footer: React.FC = () => (
       <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.2fr_.8fr_1fr]">
         <div>
           <div className="inline-flex h-11 items-center rounded-xl bg-white px-3 py-1">
-            <img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="Safar Sathi logo" className="h-8 w-auto object-contain" />
+            <img {...responsiveImage(`${import.meta.env.BASE_URL}images/logo.png`, '160px', 320)} alt="Safar Sathi logo" className="h-8 w-auto object-contain" />
           </div>
           <p className="mt-4 max-w-sm text-sm leading-6 text-slate-400">Travel enquiries, customised trip planning and transport options for destinations across India.</p>
-          <p className="mt-4 text-xs font-semibold text-amber-300">9 years of travel experience</p>
+          <p className="mt-4 text-xs font-semibold text-amber-300">Custom travel planning across India</p>
         </div>
 
         <div>
           <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">Explore</h4>
           <ul className="space-y-3 text-sm">
-            <li><a href="#destinations" className="hover:text-amber-300">Destinations</a></li>
+            <li><a href="/hotels/" className="hover:text-amber-300">Hotel booking &amp; photo galleries</a></li><li><a href="/himachal-taxi-service/" className="hover:text-amber-300">Himachal taxi enquiries</a></li><li><a href="/himachal-tour-packages/" className="hover:text-amber-300">Himachal tour packages</a></li><li><a href="#destinations" className="hover:text-amber-300">Destinations</a></li>
             <li><a href="#cabs" className="hover:text-amber-300">Vehicle options</a></li>
             <li><a href="#routes" className="hover:text-amber-300">Popular routes</a></li>
             <li><a href="#contact" className="hover:text-amber-300">Contact</a></li>

@@ -1,0 +1,20 @@
+name: Validate travel website
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false sharp
+      - run: node scripts/optimize-images.mjs
+      - run: npm run build
+      - run: node scripts/optimize-built-html.mjs
+      - run: node scripts/check-travel-pages.mjs

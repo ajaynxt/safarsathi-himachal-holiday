@@ -1,5 +1,6 @@
+import { responsiveImage } from '../data/responsiveImage';
 import { useState } from 'react';
-import { Star, MapPin, Check, MessageCircle, Building2, Sparkles, Images, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { MapPin, Check, MessageCircle, Building2, Sparkles, Images, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { HOTEL_STAYS, Hotel, COMPANY_INFO } from '../data/travelData';
 
 interface HotelShowcaseProps {
@@ -11,9 +12,10 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
   const [activeGalleryHotel, setActiveGalleryHotel] = useState<Hotel | null>(null);
   const [currentPhotoIdx, setCurrentPhotoIdx] = useState<number>(0);
 
-  const cities = ['All', 'Shimla', 'Manali', 'Kasol', 'Amritsar', 'Srinagar'];
+  const cities = ['All', 'Shimla', 'Manali', 'Amritsar', 'Srinagar'];
 
   const filteredHotels = HOTEL_STAYS.filter((h) => {
+    if (h.city === 'Kasol') return false;
     if (selectedCity === 'All') return true;
     return h.city === selectedCity;
   });
@@ -40,13 +42,13 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
             <Building2 className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Actual Real Hotel Photos</span>
+            <span>Explore our stay gallery</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-brand-navy tracking-tight">
-            Verified Partner Hotels Across 5 Destinations
+            Hotels & stays across popular destinations
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600">
-            Browse authentic room, view, and bathroom photos from our actual partner properties in <strong className="text-slate-800">Shimla (39 photos), Manali (22 photos), Amritsar (14 photos) & Srinagar (16 photos)</strong>.
+            Browse existing stay photos from Shimla, Manali, Amritsar and Srinagar. Confirm the property and room before booking.
           </p>
 
           {/* City Filter Tabs */}
@@ -61,12 +63,13 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
                     : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'
                 }`}
               >
-                {city === 'All' ? 'All Destinations (5)' : city}
+                {city === 'All' ? 'All Galleries (4)' : city}
               </button>
             ))}
           </div>
         </div>
 
+        <p className="mb-6 text-center"><a href="/hotels/" className="font-bold text-emerald-700 underline">Browse all 91 archived stay photos and request a hotel-only quote</a></p>
         {/* Hotels Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredHotels.map((hotel) => (
@@ -78,7 +81,7 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
                 {/* Hotel Image with Badges */}
                 <div className="relative h-56 overflow-hidden bg-slate-900">
                   <img
-                    src={hotel.image}
+                    {...responsiveImage(hotel.image, '(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw', 640)}
                     alt={hotel.name}
                     loading="lazy"
                     decoding="async"
@@ -101,16 +104,12 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
                     className="absolute top-3 right-3 bg-black/60 hover:bg-brand-orange backdrop-blur-md text-white text-xs font-bold px-2.5 py-1 rounded-md flex items-center gap-1.5 transition-colors shadow"
                   >
                     <Images className="w-3.5 h-3.5" />
-                    <span>{hotel.totalPhotosCount} Real Photos</span>
+                    <span>{hotel.gallery.length} Preview Photos</span>
                   </button>
 
                   <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
-                    <span className="flex items-center gap-1 text-amber-300 text-xs font-bold bg-black/50 backdrop-blur-md px-2 py-1 rounded-md">
-                      <Star className="w-3.5 h-3.5 fill-amber-300 text-amber-300" />
-                      {hotel.rating} / 5.0 (Verified)
-                    </span>
                     <span className="text-xs bg-emerald-700/80 backdrop-blur-md px-2 py-1 rounded-md font-semibold">
-                      Mountain / River View
+                      Ask about room views
                     </span>
                   </div>
                 </div>
@@ -123,7 +122,7 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
                       onClick={() => openGallery(hotel, tIdx)}
                       className="h-14 overflow-hidden rounded-md relative group/thumb border border-slate-300 hover:border-brand-orange"
                     >
-                      <img src={thumb} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover/thumb:scale-110 transition-transform" />
+                      <img {...responsiveImage(thumb, '100px', 320)} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover/thumb:scale-110 transition-transform" />
                       {tIdx === 3 && hotel.gallery.length > 4 && (
                         <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-white text-[11px] font-bold">
                           +{hotel.gallery.length - 3}
@@ -137,16 +136,16 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
                 <div className="p-5">
                   <div className="flex items-center gap-1 text-xs text-slate-500 mb-1">
                     <MapPin className="w-3.5 h-3.5 text-brand-orange flex-shrink-0" />
-                    <span className="line-clamp-1">{hotel.location}</span>
+                    <span className="line-clamp-1">{hotel.city}</span>
                   </div>
 
                   <h3 className="text-lg font-bold text-slate-900 group-hover:text-brand-orange transition-colors">
-                    <span className="text-brand-orange font-extrabold">SafarSathi.in</span> {hotel.name.replace(/^SafarSathi\.in\s*/, '')}
+                    {hotel.city} stay options
                   </h3>
 
                   {/* Amenities */}
                   <div className="mt-4 pt-3 border-t border-slate-100 grid grid-cols-2 gap-2 text-xs text-slate-600">
-                    {hotel.amenities.slice(0, 4).map((am, idx) => (
+                    {["Room category on request", "Meal plan on request", "Confirm location", "Check availability"].map((am, idx) => (
                       <div key={idx} className="flex items-center gap-1.5">
                         <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
                         <span className="line-clamp-1">{am}</span>
@@ -161,14 +160,14 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
                 <div>
                   <span className="text-[10px] text-emerald-600 font-bold uppercase tracking-wider block flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    Tour Package Stay
+                    Hotel & Tour Stay
                   </span>
-                  <span className="text-xs font-bold text-slate-800">Included in Tour Packages</span>
+                  <span className="text-xs font-bold text-slate-800">Request current quotation</span>
                 </div>
 
                 <div className="flex items-center gap-1.5">
                   <a
-                    href={COMPANY_INFO.whatsappUrl(`Hello SafarSathi, I want to include ${hotel.name} in my tour package.`)}
+                    href={COMPANY_INFO.whatsappUrl(`Hello SafarSathi, I would like hotel options in ${hotel.city}. Please share the exact property and current quote.`)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2.5 rounded-xl border border-green-600/30 text-green-700 bg-green-50 hover:bg-green-600 hover:text-white transition-colors"
@@ -178,10 +177,10 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
                   </a>
 
                   <button
-                    onClick={() => onBookHotel(`${hotel.name} - Package Stay`)}
+                    onClick={() => onBookHotel(`${hotel.city} hotel enquiry`)}
                     className="px-3.5 py-2.5 rounded-xl bg-brand-orange hover:bg-brand-orange-dark text-white text-xs font-bold transition-all shadow-sm whitespace-nowrap"
                   >
-                    Enquire Package
+                    Enquire Stay
                   </button>
                 </div>
               </div>
@@ -197,7 +196,7 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
             </div>
             <div>
               <h4 className="font-bold text-slate-900 text-base">Want Riverside Cottages, Luxury Swiss Tents, or Heritage Stays?</h4>
-              <p className="text-xs sm:text-sm text-slate-500">We have direct tie-ups with 80+ hill properties with pre-negotiated discount rates.</p>
+              <p className="text-xs sm:text-sm text-slate-500">Request available hotel options, including Kasol, with current prices and booking terms.</p>
             </div>
           </div>
           <button
@@ -232,7 +231,7 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
             {/* Main Active Photo */}
             <div className="relative flex-1 flex items-center justify-center my-4 overflow-hidden">
               <img
-                src={activeGalleryHotel.gallery[currentPhotoIdx]}
+                {...responsiveImage(activeGalleryHotel.gallery[currentPhotoIdx], '(max-width: 768px) 95vw, 1000px', 960)}
                 alt="Hotel Photo"
                 decoding="async"
                 className="max-w-full max-h-[65vh] object-contain rounded-xl shadow-2xl"
@@ -263,7 +262,7 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
                     currentPhotoIdx === idx ? 'border-brand-orange scale-105 shadow-md' : 'border-transparent opacity-60 hover:opacity-100'
                   }`}
                 >
-                  <img src={imgUrl} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover" />
+                  <img {...responsiveImage(imgUrl, '100px', 320)} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                 </button>
               ))}
             </div>
