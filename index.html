@@ -1,56 +1,8 @@
 <!doctype html>
 <html lang="en-IN" class="scroll-smooth">
   <head>
-    <!-- Google tag (gtag.js) - Google Ads & Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-3498026439"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      // Configure Google Ads & Google Analytics
-      gtag('config', 'AW-3498026439');
-      gtag('config', 'G-X33WGNNG0D');
-      gtag('config', 'G-DR6JRL8602');
-
-      // Helper function to track conversions (WhatsApp, Call, Form submission)
-      function trackSafarConversion(type, label) {
-        if (typeof gtag === 'function') {
-          gtag('event', 'conversion', {
-            'send_to': 'AW-3498026439',
-            'event_category': 'Leads',
-            'event_label': label || type
-          });
-          gtag('event', 'generate_lead', {
-            'event_category': 'Contact',
-            'event_label': label || type,
-            'method': type
-          });
-        }
-      }
-      window.trackSafarConversion = trackSafarConversion;
-
-      // Automatically capture all WhatsApp, Phone calls, and Form inquiries
-      document.addEventListener('DOMContentLoaded', function() {
-        document.body.addEventListener('click', function(e) {
-          var el = e.target.closest('a, button');
-          if (!el) return;
-          var href = el.getAttribute('href') || '';
-          if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp.com') !== -1) {
-            trackSafarConversion('WhatsApp', 'WhatsApp Enquiry');
-          } else if (href.indexOf('tel:') !== -1) {
-            trackSafarConversion('Phone Call', 'Direct Phone Call');
-          }
-        });
-
-        document.body.addEventListener('submit', function(e) {
-          trackSafarConversion('Form Submit', 'Tour Enquiry Form Submission');
-        });
-      });
-    </script>
-    <!-- Google Tag Manager -->
-    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WFW2KCVS"></script>
-    <!-- End Google Tag Manager -->
+    
+    
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="%BASE_URL%images/logo.svg" />
     <link rel="preload" as="image" href="%BASE_URL%images/logo.png" fetchpriority="high" />
@@ -158,12 +110,9 @@
         font-family: 'Cinzel', serif;
       }
     </style>
-  </head>
+  <link rel="stylesheet" href="/measurement.css"><script src="/measurement.js" defer></script></head>
   <body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-orange selection:text-white">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WFW2KCVS"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    
     <div id="root">
       <header style="padding:16px 24px;border-bottom:1px solid #e2e8f0;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;background:#fff;">
         <a href="/" style="font-weight:800;color:#10243a;text-decoration:none;font-size:18px;">SAFAR SATHI</a>

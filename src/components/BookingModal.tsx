@@ -128,7 +128,8 @@ Please share the current ticket fare and Safar Sathi service/assistance charge s
 
 Please check availability and send confirmed quotation.`;
 
-    window.open(COMPANY_INFO.whatsappUrl(message), '_blank');
+    (window as Window & { safarLeadIntent?: (method: string) => void }).safarLeadIntent?.('whatsapp_form');
+    window.open(COMPANY_INFO.whatsappUrl(message), '_blank', 'noopener,noreferrer');
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
