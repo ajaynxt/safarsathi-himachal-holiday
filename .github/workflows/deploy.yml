@@ -32,7 +32,9 @@ jobs:
           npm install --no-save --package-lock=false sharp
           node scripts/optimize-images.mjs
       - name: Build website
-        run: npm run build
+        run: npm run build && node scripts/optimize-built-html.mjs
+      - name: Validate production files
+        run: node scripts/check-travel-pages.mjs
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

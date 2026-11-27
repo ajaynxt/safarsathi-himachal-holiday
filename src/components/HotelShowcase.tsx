@@ -1,5 +1,6 @@
+import { responsiveImage } from '../data/responsiveImage';
 import { useState } from 'react';
-import { Star, MapPin, Check, MessageCircle, Building2, Sparkles, Images, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { MapPin, Check, MessageCircle, Building2, Sparkles, Images, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { HOTEL_STAYS, Hotel, COMPANY_INFO } from '../data/travelData';
 
 interface HotelShowcaseProps {
@@ -80,7 +81,7 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
                 {/* Hotel Image with Badges */}
                 <div className="relative h-56 overflow-hidden bg-slate-900">
                   <img
-                    src={hotel.image}
+                    {...responsiveImage(hotel.image, '(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw', 640)}
                     alt={hotel.name}
                     loading="lazy"
                     decoding="async"
@@ -103,16 +104,12 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
                     className="absolute top-3 right-3 bg-black/60 hover:bg-brand-orange backdrop-blur-md text-white text-xs font-bold px-2.5 py-1 rounded-md flex items-center gap-1.5 transition-colors shadow"
                   >
                     <Images className="w-3.5 h-3.5" />
-                    <span>{hotel.totalPhotosCount} Real Photos</span>
+                    <span>{hotel.gallery.length} Preview Photos</span>
                   </button>
 
                   <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
-                    <span className="flex items-center gap-1 text-amber-300 text-xs font-bold bg-black/50 backdrop-blur-md px-2 py-1 rounded-md">
-                      <Star className="w-3.5 h-3.5 fill-amber-300 text-amber-300" />
-                      {hotel.rating} / 5.0 (Verified)
-                    </span>
                     <span className="text-xs bg-emerald-700/80 backdrop-blur-md px-2 py-1 rounded-md font-semibold">
-                      Mountain / River View
+                      Ask about room views
                     </span>
                   </div>
                 </div>
@@ -125,7 +122,7 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
                       onClick={() => openGallery(hotel, tIdx)}
                       className="h-14 overflow-hidden rounded-md relative group/thumb border border-slate-300 hover:border-brand-orange"
                     >
-                      <img src={thumb} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover/thumb:scale-110 transition-transform" />
+                      <img {...responsiveImage(thumb, '100px', 320)} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover/thumb:scale-110 transition-transform" />
                       {tIdx === 3 && hotel.gallery.length > 4 && (
                         <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-white text-[11px] font-bold">
                           +{hotel.gallery.length - 3}
@@ -139,16 +136,16 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
                 <div className="p-5">
                   <div className="flex items-center gap-1 text-xs text-slate-500 mb-1">
                     <MapPin className="w-3.5 h-3.5 text-brand-orange flex-shrink-0" />
-                    <span className="line-clamp-1">{hotel.location}</span>
+                    <span className="line-clamp-1">{hotel.city}</span>
                   </div>
 
                   <h3 className="text-lg font-bold text-slate-900 group-hover:text-brand-orange transition-colors">
-                    <span className="text-brand-orange font-extrabold">SafarSathi.in</span> {hotel.name.replace(/^SafarSathi\.in\s*/, '')}
+                    {hotel.city} stay options
                   </h3>
 
                   {/* Amenities */}
                   <div className="mt-4 pt-3 border-t border-slate-100 grid grid-cols-2 gap-2 text-xs text-slate-600">
-                    {hotel.amenities.slice(0, 4).map((am, idx) => (
+                    {["Room category on request", "Meal plan on request", "Confirm location", "Check availability"].map((am, idx) => (
                       <div key={idx} className="flex items-center gap-1.5">
                         <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
                         <span className="line-clamp-1">{am}</span>
@@ -234,7 +231,7 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
             {/* Main Active Photo */}
             <div className="relative flex-1 flex items-center justify-center my-4 overflow-hidden">
               <img
-                src={activeGalleryHotel.gallery[currentPhotoIdx]}
+                {...responsiveImage(activeGalleryHotel.gallery[currentPhotoIdx], '(max-width: 768px) 95vw, 1000px', 960)}
                 alt="Hotel Photo"
                 decoding="async"
                 className="max-w-full max-h-[65vh] object-contain rounded-xl shadow-2xl"
@@ -265,7 +262,7 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
                     currentPhotoIdx === idx ? 'border-brand-orange scale-105 shadow-md' : 'border-transparent opacity-60 hover:opacity-100'
                   }`}
                 >
-                  <img src={imgUrl} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover" />
+                  <img {...responsiveImage(imgUrl, '100px', 320)} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                 </button>
               ))}
             </div>

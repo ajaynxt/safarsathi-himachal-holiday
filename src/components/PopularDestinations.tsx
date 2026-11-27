@@ -1,3 +1,4 @@
+import { responsiveImage } from '../data/responsiveImage';
 import React from 'react';
 import { ArrowUpRight, Compass, ShieldCheck } from 'lucide-react';
 
@@ -41,7 +42,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({ onSele
             return (
             <div key={dest.id} role={isAvailable ? "button" : undefined} tabIndex={isAvailable ? 0 : -1} onClick={() => { if (isAvailable) onSelectDestination(dest.name); }} onKeyDown={(event) => { if (isAvailable && (event.key === "Enter" || event.key === " ")) { event.preventDefault(); onSelectDestination(dest.name); } }} aria-disabled={!isAvailable} className={`group text-left bg-white rounded-2xl border border-stone-200/90 shadow-sm transition-all duration-300 overflow-hidden ${isAvailable ? 'hover:shadow-xl hover:border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer' : 'opacity-90'}`}>
               <div className="relative h-44 sm:h-48 overflow-hidden bg-slate-200">
-                <img src={dest.image} alt={`${dest.name} – ${dest.highlight}`} loading="lazy" decoding="async" referrerPolicy="no-referrer" className="h-full w-full object-cover saturate-110 contrast-105 transition-transform duration-700 group-hover:scale-105" />
+                <img {...responsiveImage(dest.image, '(max-width: 639px) 50vw, (max-width: 1023px) 33vw, 25vw', 640)} alt={`${dest.name} – ${dest.highlight}`} loading="lazy" decoding="async" referrerPolicy="no-referrer" className="h-full w-full object-cover saturate-110 contrast-105 transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
                 <span className="absolute bottom-3 left-4 text-white text-lg font-bold drop-shadow-lg">{dest.name}</span>
                 {!isAvailable && <span className="absolute right-3 top-3 rounded-full bg-slate-950/85 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow">Coming Soon</span>}

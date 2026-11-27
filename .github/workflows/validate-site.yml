@@ -13,5 +13,8 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      - run: npm install --no-save --package-lock=false sharp
+      - run: node scripts/optimize-images.mjs
       - run: npm run build
+      - run: node scripts/optimize-built-html.mjs
       - run: node scripts/check-travel-pages.mjs

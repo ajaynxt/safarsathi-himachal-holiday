@@ -1,3 +1,4 @@
+import { responsiveImage } from '../data/responsiveImage';
 import React, { useMemo, useState } from 'react';
 import { Users, Briefcase, Snowflake, MessageCircle, ArrowUpRight, CarFront } from 'lucide-react';
 import { VEHICLE_FLEET, COMPANY_INFO } from '../data/travelData';
@@ -57,16 +58,16 @@ export const VehicleFleet: React.FC<VehicleFleetProps> = ({ onBookCab }) => {
         </div>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
-          {filteredFleet.map((vehicle, index) => (
+          {filteredFleet.map((vehicle) => (
             <article
               key={vehicle.id}
               className="group flex min-w-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_5px_24px_rgba(15,23,42,0.045)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(15,23,42,0.10)]"
             >
               <div className="relative h-52 overflow-hidden bg-slate-100 sm:h-56">
                 <img
-                  src={vehicle.image}
+                  {...responsiveImage(vehicle.image, '(max-width: 767px) 100vw, 33vw', 640)}
                   alt={vehicle.name}
-                  loading={index < 3 ? 'eager' : 'lazy'}
+                  loading="lazy"
                   decoding="async"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 />

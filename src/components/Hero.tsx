@@ -1,3 +1,4 @@
+import { responsiveImage } from '../data/responsiveImage';
 import React, { useEffect, useState } from 'react';
 import { MapPin, CalendarDays, Users, Search, ChevronDown, ArrowRight, Building2, Car } from 'lucide-react';
 
@@ -28,14 +29,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(
     () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
   );
-  const [heroImageIndex, setHeroImageIndex] = useState(() => Math.floor(Math.random() * heroImages.length));
+  const [heroImageIndex, setHeroImageIndex] = useState(0);
 
-  // Preload only the next destination image, keeping the first paint lightweight.
-  useEffect(() => {
-    const nextIndex = (heroImageIndex + 1) % heroImages.length;
-    const preload = new Image();
-    preload.src = heroImages[nextIndex].src;
-  }, [heroImageIndex]);
 
   useEffect(() => {
     const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -72,13 +67,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
         <div className="absolute inset-0 -z-20">
           <img
             key={heroImages[heroImageIndex].src}
-            src={heroImages[heroImageIndex].src}
+            {...responsiveImage(heroImages[heroImageIndex].src, '100vw', 960)}
             alt={heroImages[heroImageIndex].alt}
-            fetchPriority="high"
+            fetchPriority={heroImageIndex === 0 ? "high" : "auto"}
             loading="eager"
             decoding="async"
-            sizes="100vw"
-            className="hero-background-change h-full w-full object-cover object-center"
+            className="h-full w-full object-cover object-center"
           />
         </div>
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-950/15 via-slate-950/25 to-slate-950/85" />
@@ -87,7 +81,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
         <div className="mx-auto w-full max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-white">
             <p className="hero-enter inline-flex items-center rounded-full border border-white/30 bg-slate-950/25 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/95 backdrop-blur-sm sm:text-xs">
-              Himachal Holidays <span className="mx-2 text-amber-300">•</span> India Tours <span className="mx-2 text-amber-300">•</span> Verified Hotels <span className="mx-2 text-amber-300">•</span> Private Cabs
+              Himachal Holidays <span className="mx-2 text-amber-300">•</span> India Tours <span className="mx-2 text-amber-300">•</span> Hotels & Stays <span className="mx-2 text-amber-300">•</span> Private Cabs
             </p>
 
             <h1 className="hero-enter mt-5 font-serif-title text-[2.65rem] font-bold leading-[1.04] tracking-tight drop-shadow-[0_4px_22px_rgba(0,0,0,.55)] sm:text-6xl lg:text-7xl">
@@ -95,7 +89,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
             </h1>
 
             <p className="hero-enter mx-auto mt-4 max-w-2xl text-sm leading-6 text-white/90 drop-shadow sm:text-base sm:leading-7">
-              Private cabs, verified partner hotels, personalised tour plans and 24x7 travel assistance across Himachal and India.
+              Private cabs, hotel options, personalised tour plans and travel assistance across Himachal and India.
             </p>
 
             <a
@@ -110,7 +104,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
 
       <div className="relative z-20 -mt-16 px-4 pb-9 sm:-mt-20 sm:px-6 lg:px-8">
         {/* Service Selector Tabs */}
-        <div role="group" aria-label="Choose a travel service" className="mx-auto max-w-5xl mb-2 flex items-center gap-1.5 sm:gap-2">
+        <div role="group" aria-label="Choose a travel service" className="mx-auto max-w-5xl mb-2 flex flex-wrap items-center gap-1.5 sm:gap-2">
           <button
             type="button"
             onClick={() => setActiveTab('package')}
