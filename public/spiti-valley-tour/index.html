@@ -1,41 +1,7 @@
 <!doctype html>
 <html lang="en-IN">
 <head>
-    <!-- Google tag (gtag.js) - Google Ads & Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-3498026439"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'AW-3498026439');
-      gtag('config', 'G-X33WGNNG0D');
-      gtag('config', 'G-DR6JRL8602');
-
-      function trackSafarConversion(type, label) {
-        if (typeof gtag === 'function') {
-          gtag('event', 'conversion', { 'send_to': 'AW-3498026439', 'event_category': 'Leads', 'event_label': label || type });
-          gtag('event', 'generate_lead', { 'event_category': 'Contact', 'event_label': label || type, 'method': type });
-        }
-      }
-      window.trackSafarConversion = trackSafarConversion;
-
-      document.addEventListener('DOMContentLoaded', function() {
-        document.body.addEventListener('click', function(e) {
-          var el = e.target.closest('a, button');
-          if (!el) return;
-          var href = el.getAttribute('href') || '';
-          if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp.com') !== -1) {
-            trackSafarConversion('WhatsApp', 'WhatsApp Enquiry');
-          } else if (href.indexOf('tel:') !== -1) {
-            trackSafarConversion('Phone Call', 'Direct Phone Call');
-          }
-        });
-        document.body.addEventListener('submit', function(e) {
-          trackSafarConversion('Form Submit', 'Tour Enquiry Form Submission');
-        });
-      });
-    </script>
+    
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -65,7 +31,7 @@
 :root{--navy:#10243a;--ink:#1e2d3b;--muted:#637080;--orange:#ef6b27;--paper:#f7f8f6;--line:#e4e8e8}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:white;color:var(--ink);font-family:"Plus Jakarta Sans",Arial,sans-serif;line-height:1.65}a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}.top{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #edf0ef}.brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--navy);letter-spacing:-.4px}.brand img{width:54px;height:48px;object-fit:contain}.brand span{display:block;font-size:11px;color:#7b8791;font-weight:600;letter-spacing:1.5px;text-transform:uppercase}.nav{display:flex;gap:26px;align-items:center;font-size:13px;font-weight:700;color:#455463}.nav a:hover{color:var(--orange)}.call{padding:11px 16px;border-radius:999px;background:var(--navy);color:#fff}.hero{display:grid;grid-template-columns:1.02fr .98fr;gap:50px;align-items:center;padding:64px 0 70px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:2px;color:var(--orange);text-transform:uppercase}.hero h1{font-size:clamp(38px,5.5vw,62px);line-height:1.06;letter-spacing:-2.5px;color:var(--navy);margin:17px 0 19px}.hero p{font-size:16px;color:#5b6977;max-width:570px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:29px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 19px;border-radius:7px;font-size:13px;font-weight:800;background:var(--orange);color:white}.btn.secondary{background:white;color:var(--navy);border:1px solid #ccd3d7}.photo{position:relative;min-height:410px;border-radius:4px;overflow:hidden;background:#dce4e5}.photo img{width:100%;height:100%;min-height:410px;object-fit:cover;display:block}.photo:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(9,25,40,.38))}.photo-label{position:absolute;z-index:1;bottom:22px;left:24px;color:white;font-size:12px;letter-spacing:1px;font-weight:700;text-transform:uppercase}.trust{background:var(--paper);border-block:1px solid var(--line)}.trust-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:21px 0}.trust strong{display:block;color:var(--navy);font-size:13px}.trust span{color:var(--muted);font-size:12px}.section{padding:68px 0}.section.soft{background:var(--paper)}.section-head{max-width:660px;margin-bottom:28px}.section h2{font-size:clamp(26px,3.5vw,38px);line-height:1.15;letter-spacing:-1.2px;color:var(--navy);margin:10px 0 12px}.section-head p,.prose{color:var(--muted);font-size:14px}.destination-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.destination{padding:22px 23px;border:1px solid var(--line);background:white;display:block;transition:.2s}.destination:hover{border-color:#e7a17c;transform:translateY(-2px)}.destination-name{font-size:16px;font-weight:800;color:var(--navy);display:block}.destination-copy{font-size:13px;color:var(--muted);display:block;margin:5px 0 10px}.destination-arrow{font-size:11px;color:var(--orange);font-weight:800}.steps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:0 40px}.steps li{display:flex;gap:16px;padding:17px 0;border-bottom:1px solid var(--line);font-size:13px;color:#526170}.step{font-size:11px;font-weight:800;color:var(--orange);letter-spacing:1px}.faq{max-width:850px}.faq details{border-bottom:1px solid var(--line);padding:18px 0}.faq summary{cursor:pointer;font-size:14px;color:var(--navy);font-weight:800}.faq p{font-size:13px;color:var(--muted);max-width:760px}.cta{background:var(--navy);color:white;padding:44px 48px;display:flex;align-items:center;justify-content:space-between;gap:30px}.cta h2{color:white;margin:0 0 9px;font-size:28px}.cta p{margin:0;color:#d1dbe3;font-size:13px;max-width:600px}.foot{padding:27px 0;color:#7f8a94;font-size:11px;display:flex;justify-content:space-between;gap:15px}.foot a{color:var(--navy);font-weight:800}
 @media(max-width:760px){.wrap{width:min(100% - 32px,560px)}.top{height:66px}.nav{display:none}.hero{grid-template-columns:1fr;gap:28px;padding:46px 0}.hero h1{letter-spacing:-1.5px}.photo,.photo img{min-height:260px}.trust-inner{grid-template-columns:1fr;gap:10px}.section{padding:48px 0}.destination-grid,.steps{grid-template-columns:1fr}.cta{padding:29px 24px;display:block}.cta .btn{margin-top:20px;width:100%}.foot{display:block}.foot span{display:block;margin-top:6px}}
 </style>
-</head>
+<link rel="stylesheet" href="/measurement.css"><script src="/measurement.js" defer></script></head>
 <body>
 <header class="wrap top">
 <a class="brand" href="/"><img src="/images/logo.svg" alt="Safar Sathi logo"><div>SAFAR SATHI<span>YOUR JOURNEY, OUR RESPONSIBILITY</span></div></a>
