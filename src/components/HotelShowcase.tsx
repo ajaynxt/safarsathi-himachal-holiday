@@ -11,9 +11,10 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
   const [activeGalleryHotel, setActiveGalleryHotel] = useState<Hotel | null>(null);
   const [currentPhotoIdx, setCurrentPhotoIdx] = useState<number>(0);
 
-  const cities = ['All', 'Shimla', 'Manali', 'Kasol', 'Amritsar', 'Srinagar'];
+  const cities = ['All', 'Shimla', 'Manali', 'Amritsar', 'Srinagar'];
 
   const filteredHotels = HOTEL_STAYS.filter((h) => {
+    if (h.city === 'Kasol') return false;
     if (selectedCity === 'All') return true;
     return h.city === selectedCity;
   });
@@ -40,13 +41,13 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
             <Building2 className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Actual Real Hotel Photos</span>
+            <span>Explore our stay gallery</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-brand-navy tracking-tight">
-            Verified Partner Hotels Across 5 Destinations
+            Hotels & stays across popular destinations
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600">
-            Browse authentic room, view, and bathroom photos from our actual partner properties in <strong className="text-slate-800">Shimla (39 photos), Manali (22 photos), Amritsar (14 photos) & Srinagar (16 photos)</strong>.
+            Browse existing stay photos from Shimla, Manali, Amritsar and Srinagar. Confirm the property and room before booking.
           </p>
 
           {/* City Filter Tabs */}
@@ -61,12 +62,13 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
                     : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'
                 }`}
               >
-                {city === 'All' ? 'All Destinations (5)' : city}
+                {city === 'All' ? 'All Galleries (4)' : city}
               </button>
             ))}
           </div>
         </div>
 
+        <p className="mb-6 text-center"><a href="/hotels/" className="font-bold text-emerald-700 underline">Browse all 91 archived stay photos and request a hotel-only quote</a></p>
         {/* Hotels Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredHotels.map((hotel) => (
@@ -161,14 +163,14 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
                 <div>
                   <span className="text-[10px] text-emerald-600 font-bold uppercase tracking-wider block flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    Tour Package Stay
+                    Hotel & Tour Stay
                   </span>
-                  <span className="text-xs font-bold text-slate-800">Included in Tour Packages</span>
+                  <span className="text-xs font-bold text-slate-800">Request current quotation</span>
                 </div>
 
                 <div className="flex items-center gap-1.5">
                   <a
-                    href={COMPANY_INFO.whatsappUrl(`Hello SafarSathi, I want to include ${hotel.name} in my tour package.`)}
+                    href={COMPANY_INFO.whatsappUrl(`Hello SafarSathi, I would like hotel options in ${hotel.city}. Please share the exact property and current quote.`)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2.5 rounded-xl border border-green-600/30 text-green-700 bg-green-50 hover:bg-green-600 hover:text-white transition-colors"
@@ -178,10 +180,10 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
                   </a>
 
                   <button
-                    onClick={() => onBookHotel(`${hotel.name} - Package Stay`)}
+                    onClick={() => onBookHotel(`${hotel.city} hotel enquiry`)}
                     className="px-3.5 py-2.5 rounded-xl bg-brand-orange hover:bg-brand-orange-dark text-white text-xs font-bold transition-all shadow-sm whitespace-nowrap"
                   >
-                    Enquire Package
+                    Enquire Stay
                   </button>
                 </div>
               </div>
@@ -197,7 +199,7 @@ export const HotelShowcase: React.FC<HotelShowcaseProps> = ({ onBookHotel }) => 
             </div>
             <div>
               <h4 className="font-bold text-slate-900 text-base">Want Riverside Cottages, Luxury Swiss Tents, or Heritage Stays?</h4>
-              <p className="text-xs sm:text-sm text-slate-500">We have direct tie-ups with 80+ hill properties with pre-negotiated discount rates.</p>
+              <p className="text-xs sm:text-sm text-slate-500">Request available hotel options, including Kasol, with current prices and booking terms.</p>
             </div>
           </div>
           <button

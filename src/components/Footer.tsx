@@ -18,7 +18,7 @@ export const Footer: React.FC = () => (
         <div>
           <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">Explore</h4>
           <ul className="space-y-3 text-sm">
-            <li><a href="#destinations" className="hover:text-amber-300">Destinations</a></li>
+            <li><a href="/hotels/" className="hover:text-amber-300">Hotel booking &amp; photo galleries</a></li><li><a href="/himachal-taxi-service/" className="hover:text-amber-300">Himachal taxi enquiries</a></li><li><a href="/himachal-tour-packages/" className="hover:text-amber-300">Himachal tour packages</a></li><li><a href="#destinations" className="hover:text-amber-300">Destinations</a></li>
             <li><a href="#cabs" className="hover:text-amber-300">Vehicle options</a></li>
             <li><a href="#routes" className="hover:text-amber-300">Popular routes</a></li>
             <li><a href="#contact" className="hover:text-amber-300">Contact</a></li>
