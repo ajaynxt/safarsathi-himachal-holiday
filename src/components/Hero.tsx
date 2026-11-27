@@ -104,42 +104,42 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onSearchPackages }) =
 
       <div className="relative z-20 -mt-16 px-4 pb-9 sm:-mt-20 sm:px-6 lg:px-8">
         {/* Service Selector Tabs */}
-        <div role="group" aria-label="Choose a travel service" className="mx-auto max-w-5xl mb-2 flex flex-wrap items-center gap-1.5 sm:gap-2">
+        <div role="group" aria-label="Choose a travel service" className="mx-auto mb-2 flex max-w-5xl flex-wrap items-center justify-center gap-1.5 sm:gap-2">
           <button
             type="button"
             onClick={() => setActiveTab('package')}
             aria-pressed={activeTab === 'package'}
-            className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-all ${
+            className={`inline-flex min-w-[88px] flex-1 items-center justify-center gap-1.5 rounded-full px-2 py-2 text-[11px] font-bold leading-tight transition-all sm:flex-none sm:px-3.5 sm:py-1.5 sm:text-xs ${
               activeTab === 'package'
-                ? 'bg-amber-400 text-slate-950 shadow-md scale-105'
+                ? 'bg-amber-400 text-slate-950 shadow-md'
                 : 'bg-slate-900/70 text-white/90 backdrop-blur-md hover:bg-slate-800'
             }`}
           >
-            <span>🏔️ Tour Packages</span>
+            <span className="whitespace-normal text-center leading-tight">🏔️ Tour Packages</span>
           </button>
           <button
             type="button"
             onClick={() => setActiveTab('hotel')}
             aria-pressed={activeTab === 'hotel'}
-            className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-all ${
+            className={`inline-flex min-w-[88px] flex-1 items-center justify-center gap-1.5 rounded-full px-2 py-2 text-[11px] font-bold leading-tight transition-all sm:flex-none sm:px-3.5 sm:py-1.5 sm:text-xs ${
               activeTab === 'hotel'
-                ? 'bg-amber-400 text-slate-950 shadow-md scale-105'
+                ? 'bg-amber-400 text-slate-950 shadow-md'
                 : 'bg-slate-900/70 text-white/90 backdrop-blur-md hover:bg-slate-800'
             }`}
           >
-            <span>🏨 Verified Hotels</span>
+            <span className="whitespace-normal text-center leading-tight">🏨 Verified Hotels</span>
           </button>
           <button
             type="button"
             onClick={() => setActiveTab('cab')}
             aria-pressed={activeTab === 'cab'}
-            className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-all ${
+            className={`inline-flex min-w-[88px] flex-1 items-center justify-center gap-1.5 rounded-full px-2 py-2 text-[11px] font-bold leading-tight transition-all sm:flex-none sm:px-3.5 sm:py-1.5 sm:text-xs ${
               activeTab === 'cab'
-                ? 'bg-amber-400 text-slate-950 shadow-md scale-105'
+                ? 'bg-amber-400 text-slate-950 shadow-md'
                 : 'bg-slate-900/70 text-white/90 backdrop-blur-md hover:bg-slate-800'
             }`}
           >
-            <span>🚖 Taxi &amp; Cabs</span>
+            <span className="whitespace-normal text-center leading-tight">🚖 Taxi &amp; Cabs</span>
           </button>
         </div>
 
