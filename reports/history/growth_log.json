@@ -128,5 +128,57 @@
     "gsc_status": "pending_property_access",
     "ga4_status": "pending_property_link",
     "report_file": "report_2026_11_26.md"
+  },
+  {
+    "date": "2026-11-27",
+    "timestamp": "2026-11-27T19:06:52.767950",
+    "audit_issues": {
+      "CRITICAL": 0,
+      "HIGH": 0,
+      "MEDIUM": 0,
+      "WARNING": 0
+    },
+    "gsc_status": "pending_property_access",
+    "ga4_status": "pending_property_link",
+    "report_file": "report_2026_11_27.md"
+  },
+  {
+    "date": "2026-11-27",
+    "timestamp": "2026-11-27T19:07:58.469547",
+    "audit_issues": {
+      "CRITICAL": 0,
+      "HIGH": 0,
+      "MEDIUM": 0,
+      "WARNING": 0
+    },
+    "gsc_status": "pending_property_access",
+    "ga4_status": "pending_property_link",
+    "report_file": "report_2026_11_27.md"
+  },
+  {
+    "date": "2026-11-27",
+    "timestamp": "2026-11-27T19:09:33.492218",
+    "audit_issues": {
+      "CRITICAL": 1,
+      "HIGH": 2,
+      "MEDIUM": 0,
+      "WARNING": 2
+    },
+    "gsc_status": "pending_property_access",
+    "ga4_status": "pending_property_link",
+    "report_file": "report_2026_11_27.md"
+  },
+  {
+    "date": "2026-11-27",
+    "timestamp": "2026-11-27T19:12:37.244118",
+    "audit_issues": {
+      "CRITICAL": 0,
+      "HIGH": 0,
+      "MEDIUM": 0,
+      "WARNING": 0
+    },
+    "gsc_status": "pending_property_access",
+    "ga4_status": "pending_property_link",
+    "report_file": "report_2026_11_27.md"
   }
 ]

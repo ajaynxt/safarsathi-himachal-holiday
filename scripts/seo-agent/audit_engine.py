@@ -64,13 +64,19 @@ def audit_html_file(file_path, route_url):
     else:
         strengths.append(f"Canonical URL matches route: '{canonical}'")
 
+    is_utility_page = any(u in route_url for u in ["/privacy", "/404"])
+
     # 4. Robots Tag
     robots_match = re.search(r'<meta\s+name=["\']robots["\']\s+content=["\'](.*?)["\']', content, re.IGNORECASE)
     robots = robots_match.group(1).strip() if robots_match else None
     if not robots:
-        issues.append({"severity": "MEDIUM", "type": "Missing Robots Meta", "detail": "No explicit meta robots tag found."})
+        if not is_utility_page:
+            issues.append({"severity": "MEDIUM", "type": "Missing Robots Meta", "detail": "No explicit meta robots tag found."})
     elif "noindex" in robots.lower():
-        issues.append({"severity": "CRITICAL", "type": "Noindex Present", "detail": f"Page contains noindex directive: '{robots}'."})
+        if is_utility_page:
+            strengths.append(f"Meta robots intentionally set to '{robots}' for legal/utility page.")
+        else:
+            issues.append({"severity": "CRITICAL", "type": "Noindex Present", "detail": f"Page contains noindex directive: '{robots}'."})
     else:
         strengths.append(f"Meta robots set to '{robots}'.")
 
@@ -112,7 +118,8 @@ def audit_html_file(file_path, route_url):
                         schema_types.append(item["@type"])
 
     if len(parsed_schemas) == 0:
-        issues.append({"severity": "HIGH", "type": "No Structured Data", "detail": "Page does not implement any Schema.org JSON-LD markup."})
+        if not is_utility_page:
+            issues.append({"severity": "HIGH", "type": "No Structured Data", "detail": "Page does not implement any Schema.org JSON-LD markup."})
     else:
         strengths.append(f"Schema types present: {', '.join(schema_types)}")
 
@@ -153,16 +160,35 @@ def audit_html_file(file_path, route_url):
 
 def run_site_audit():
     """Runs a complete site audit across all pages and technical configurations."""
+    # Discover routes from sitemap.xml and local files dynamically
     routes_to_audit = [
         {"path": INDEX_HTML, "url": "https://safarsathi.in/"},
-        {"path": os.path.join(PUBLIC_DIR, "himachal-tour-packages/index.html"), "url": "https://safarsathi.in/himachal-tour-packages/"},
-        {"path": os.path.join(PUBLIC_DIR, "shimla-manali-tour/index.html"), "url": "https://safarsathi.in/shimla-manali-tour/"},
-        {"path": os.path.join(PUBLIC_DIR, "spiti-valley-tour/index.html"), "url": "https://safarsathi.in/spiti-valley-tour/"},
-        {"path": os.path.join(PUBLIC_DIR, "kashmir-tour-packages/index.html"), "url": "https://safarsathi.in/kashmir-tour-packages/"},
-        {"path": os.path.join(PUBLIC_DIR, "kerala-tour-packages/index.html"), "url": "https://safarsathi.in/kerala-tour-packages/"},
-        {"path": os.path.join(PUBLIC_DIR, "destinations/index.html"), "url": "https://safarsathi.in/destinations/"},
-        {"path": os.path.join(PUBLIC_DIR, "india-tour-packages/index.html"), "url": "https://safarsathi.in/india-tour-packages/"},
     ]
+
+    # Read sitemap to get registered URLs
+    sitemap_status = {"exists": os.path.exists(SITEMAP_PATH), "urls": []}
+    if sitemap_status["exists"]:
+        with open(SITEMAP_PATH, "r", encoding="utf-8") as f:
+            s_content = f.read()
+        sitemap_status["urls"] = re.findall(r"<loc>(.*?)</loc>", s_content)
+
+    # Map sitemap URLs to file paths
+    for u in sitemap_status["urls"]:
+        if u.strip() == "https://safarsathi.in/":
+            continue
+        parsed = urlparse(u)
+        rel_path = parsed.path.strip("/")
+        if rel_path:
+            target_file = os.path.join(PUBLIC_DIR, rel_path, "index.html")
+            if os.path.exists(target_file):
+                routes_to_audit.append({"path": target_file, "url": u})
+
+    # Also include any remaining public index.html files not yet in list
+    for idx_file in glob.glob(os.path.join(PUBLIC_DIR, "**/index.html"), recursive=True):
+        rel = os.path.relpath(os.path.dirname(idx_file), PUBLIC_DIR)
+        url = f"https://safarsathi.in/{rel}/"
+        if not any(r["path"] == idx_file for r in routes_to_audit):
+            routes_to_audit.append({"path": idx_file, "url": url})
 
     page_audits = []
     all_issues = []
@@ -173,13 +199,6 @@ def run_site_audit():
             page_audits.append(pa)
             for iss in pa["issues"]:
                 all_issues.append({"page": r["url"], **iss})
-
-    # Sitemap check
-    sitemap_status = {"exists": os.path.exists(SITEMAP_PATH), "urls": []}
-    if sitemap_status["exists"]:
-        with open(SITEMAP_PATH, "r", encoding="utf-8") as f:
-            s_content = f.read()
-        sitemap_status["urls"] = re.findall(r"<loc>(.*?)</loc>", s_content)
 
     # Robots check
     robots_status = {"exists": os.path.exists(ROBOTS_PATH), "has_sitemap": False, "ai_bots_allowed": False}
