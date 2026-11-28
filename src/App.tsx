@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { TopBanner } from './components/TopBanner';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -19,11 +19,39 @@ import { Footer } from './components/Footer';
 import { BookingModal } from './components/BookingModal';
 import { StickyMobileBar } from './components/StickyMobileBar';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
+import { IntroLoader } from './components/IntroLoader';
+
+const INTRO_SESSION_KEY = 'safar-sathi-intro-seen';
+
+function shouldShowIntro() {
+  if (typeof window === 'undefined') return false;
+
+  try {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    return !prefersReducedMotion && window.sessionStorage.getItem(INTRO_SESSION_KEY) !== '1';
+  } catch {
+    // If session persistence is unavailable, skip the intro rather than replay it on every visit.
+    return false;
+  }
+}
 
 export function App() {
+  const [showIntro, setShowIntro] = useState(shouldShowIntro);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [bookingType, setBookingType] = useState<'package' | 'cab' | 'hotel' | 'volvo' | 'ticket'>('package');
   const [selectedItemName, setSelectedItemName] = useState('');
+
+  useEffect(() => {
+    if (!showIntro) return;
+
+    try {
+      window.sessionStorage.setItem(INTRO_SESSION_KEY, '1');
+    } catch {
+      setShowIntro(false);
+    }
+  }, [showIntro]);
+
+  const handleIntroComplete = useCallback(() => setShowIntro(false), []);
 
   useEffect(() => {
     const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -59,6 +87,7 @@ export function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      {showIntro && <IntroLoader onComplete={handleIntroComplete} />}
       <style>{"@keyframes safarEditorialEnter{from{translate:0 15px;opacity:.78}to{translate:0 0;opacity:1}}\n@keyframes safarMountainDrift{from{scale:1}to{scale:1.035}}\n@media(prefers-reduced-motion:no-preference){.safar-editorial-enter{animation:safarEditorialEnter .68s cubic-bezier(.2,.75,.2,1) var(--safar-motion-delay,0ms) both}main>section:first-child>div:first-child>img{animation:safarMountainDrift 7s ease-out both}}\n@media(prefers-reduced-motion:reduce){.safar-editorial-enter,main>section:first-child>div:first-child>img{animation:none!important}}\n"}</style>
       <TopBanner />
       <Navbar onOpenBooking={(type, item) => handleOpenBooking(type || 'package', item || '')} />
